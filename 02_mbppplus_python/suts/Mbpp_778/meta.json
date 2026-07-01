@@ -1,0 +1,11 @@
+{
+  "dataset": "mbppplus",
+  "task_id": "Mbpp/778",
+  "sut_id": "Mbpp_778",
+  "entry_point": "pack_consecutive_duplicates",
+  "files": {
+    "sut_exec": "sut.py",
+    "sut_prompt": "sut_prompt.py",
+    "oracle_tests": "oracle_tests.py"
+  }
+}

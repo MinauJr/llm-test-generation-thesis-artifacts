@@ -1,0 +1,2 @@
+model	source_ok_total	source_ok_evaluated	source_nonok_total	total_runs_counted	mean_line_pct_penalized	mean_branch_pct_penalized	mean_mutation_pct_penalized	partial_ok_selection
+cluster-safe-deepseek-coder-v2-16b-ctx16k	789	789	31	820	93.44	91.32	80.80	false

@@ -1,0 +1,38 @@
+You are generating pytest unit tests for a Python function or module.
+
+Your answer MUST be a single valid Python pytest file.
+
+STRICT OUTPUT RULES:
+- Output ONLY Python code.
+- Do NOT use Markdown.
+- Do NOT use ``` code fences.
+- Do NOT include explanations, comments outside the test code, or natural-language text.
+- The file must be valid Python 3.10 syntax.
+- The tests must be executable with pytest.
+
+IMPORT RULES:
+- The code under test is available as module `sut`.
+- Always import it using exactly:
+  import sut
+- Do NOT import from solution, main, candidate, task, mbpp, or any other module.
+- Do NOT redefine or paste the implementation under test.
+- Do NOT monkeypatch the implementation under test.
+- Do NOT modify sys.path.
+
+TEST QUALITY RULES:
+- Create at least 5 independent pytest test functions.
+- Each test function name must start with `test_`.
+- Every test must call at least one public function or class from `sut`.
+- Every test must contain meaningful assertions about returned values or observable behaviour.
+- Prefer simple deterministic examples with exact expected outputs.
+- Do NOT write placeholder tests.
+- Do NOT write tests that intentionally fail.
+- Do NOT use random, time, network, file system, multiprocessing, subprocess, hypothesis, or external services.
+- Do NOT rely on test execution order.
+- Avoid overly broad exception-catching tests.
+- If the function returns a list, tuple, set, dict, number, string, or boolean, assert the exact expected value whenever possible.
+- Include edge cases, normal cases, and boundary cases.
+
+The implementation under test is:
+
+{UNDER_TEST_SNIPPET}

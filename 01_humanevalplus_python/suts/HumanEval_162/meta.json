@@ -1,0 +1,10 @@
+{
+  "dataset": "humanevalplus",
+  "task_id": "HumanEval/162",
+  "entry_point": "string_to_md5",
+  "files": {
+    "sut_exec": "sut.py",
+    "sut_prompt": "sut_prompt.py",
+    "oracle_tests": "oracle_tests.py"
+  }
+}

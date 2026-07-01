@@ -1,0 +1,11 @@
+{
+  "dataset": "mbppplus",
+  "task_id": "Mbpp/280",
+  "sut_id": "Mbpp_280",
+  "entry_point": "sequential_search",
+  "files": {
+    "sut_exec": "sut.py",
+    "sut_prompt": "sut_prompt.py",
+    "oracle_tests": "oracle_tests.py"
+  }
+}

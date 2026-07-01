@@ -1,0 +1,11 @@
+{
+  "dataset": "mbppplus",
+  "task_id": "Mbpp/630",
+  "sut_id": "Mbpp_630",
+  "entry_point": "get_coordinates",
+  "files": {
+    "sut_exec": "sut.py",
+    "sut_prompt": "sut_prompt.py",
+    "oracle_tests": "oracle_tests.py"
+  }
+}

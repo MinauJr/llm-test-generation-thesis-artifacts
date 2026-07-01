@@ -1,0 +1,11 @@
+{
+  "dataset": "mbppplus",
+  "task_id": "Mbpp/113",
+  "sut_id": "Mbpp_113",
+  "entry_point": "check_integer",
+  "files": {
+    "sut_exec": "sut.py",
+    "sut_prompt": "sut_prompt.py",
+    "oracle_tests": "oracle_tests.py"
+  }
+}

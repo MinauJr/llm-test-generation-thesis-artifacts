@@ -1,0 +1,10 @@
+{
+  "dataset": "humanevalplus",
+  "task_id": "HumanEval/81",
+  "entry_point": "numerical_letter_grade",
+  "files": {
+    "sut_exec": "sut.py",
+    "sut_prompt": "sut_prompt.py",
+    "oracle_tests": "oracle_tests.py"
+  }
+}

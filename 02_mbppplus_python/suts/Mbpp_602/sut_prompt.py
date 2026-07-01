@@ -1,0 +1,4 @@
+"""
+Write a python function to find the first repeated character in a given string.
+assert first_repeated_char("abcabc") == "a"
+"""

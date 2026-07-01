@@ -1,0 +1,10 @@
+{
+  "dataset": "humanevalplus",
+  "task_id": "HumanEval/143",
+  "entry_point": "words_in_sentence",
+  "files": {
+    "sut_exec": "sut.py",
+    "sut_prompt": "sut_prompt.py",
+    "oracle_tests": "oracle_tests.py"
+  }
+}

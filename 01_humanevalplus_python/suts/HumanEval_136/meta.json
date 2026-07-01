@@ -1,0 +1,10 @@
+{
+  "dataset": "humanevalplus",
+  "task_id": "HumanEval/136",
+  "entry_point": "largest_smallest_integers",
+  "files": {
+    "sut_exec": "sut.py",
+    "sut_prompt": "sut_prompt.py",
+    "oracle_tests": "oracle_tests.py"
+  }
+}

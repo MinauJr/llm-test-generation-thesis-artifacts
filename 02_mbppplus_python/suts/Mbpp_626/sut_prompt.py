@@ -1,0 +1,4 @@
+"""
+Write a python function to find the area of the largest triangle that can be inscribed in a semicircle with a given radius.
+assert triangle_area(-1) == None
+"""

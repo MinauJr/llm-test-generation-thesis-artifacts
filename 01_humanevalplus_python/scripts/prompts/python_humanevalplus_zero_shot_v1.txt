@@ -1,0 +1,40 @@
+OUTPUT FORMAT – READ CAREFULLY
+- Your entire reply MUST be a single Python pytest test file.
+- The reply MUST contain ONLY raw Python test code.
+- Do NOT include natural-language explanations.
+- Do NOT include Markdown code fences.
+- Do NOT include comments.
+- Do NOT print the SUT code again.
+- Do NOT import from demo modules such as sut_python_tiny.
+- Do NOT import oracle_tests.
+- Do NOT use the HumanEval hidden tests.
+- The generated tests will be saved as tests/test_gpt_iaedu.py and executed with pytest.
+
+SUT
+{UNDER_TEST_SNIPPET}
+
+TEST GENERATION TASK
+- The code under test is in a Python module named sut.
+- Use pytest.
+- You may use either import sut or from sut import the functions/classes that actually exist in the SUT.
+- Base the tests strictly on the functions, classes, methods, and constants that appear in the SUT above.
+- Do NOT invent functions, classes, modules, fixtures, or helper APIs that are not present in the SUT.
+- Do NOT call non-existing functions.
+- Each assertion must involve a value produced by calling the SUT.
+- Create independent and deterministic tests.
+- Cover, when meaningful:
+  - typical cases;
+  - boundary cases;
+  - empty inputs;
+  - duplicate values;
+  - negative values;
+  - exception/error behaviour, only if the SUT clearly raises exceptions for that behaviour.
+- Use strong oracles:
+  - exact equality for deterministic values;
+  - set/list/tuple equality when appropriate;
+  - ordering checks when order matters;
+  - pytest.approx for floating-point comparisons when necessary.
+- Avoid slow, random, network, file-system, or environment-dependent tests.
+
+REMEMBER
+Your reply will be parsed directly as Python code. Any text that is not valid Python test code will cause the answer to be rejected.

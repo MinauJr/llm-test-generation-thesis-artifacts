@@ -1,0 +1,10 @@
+{
+  "dataset": "humanevalplus",
+  "task_id": "HumanEval/7",
+  "entry_point": "filter_by_substring",
+  "files": {
+    "sut_exec": "sut.py",
+    "sut_prompt": "sut_prompt.py",
+    "oracle_tests": "oracle_tests.py"
+  }
+}

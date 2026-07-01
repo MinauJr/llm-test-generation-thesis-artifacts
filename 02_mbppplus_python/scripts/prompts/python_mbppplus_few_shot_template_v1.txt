@@ -1,0 +1,47 @@
+OUTPUT FORMAT – READ CAREFULLY
+- Your entire reply MUST be a single Python pytest file.
+- The reply MUST contain ONLY raw Python code.
+- Do NOT include Markdown code fences.
+- Do NOT include explanations.
+- Do NOT include comments.
+- Do NOT print the SUT again.
+- The generated file will be rejected if pytest collects 0 tests.
+
+MANDATORY STRUCTURE
+- The file MUST contain at least 5 top-level test functions whenever the SUT allows it.
+- Each top-level test function name MUST start with: test_
+- Each test function must contain at least one assertion or one pytest.raises check.
+- Do NOT output only helper functions.
+- Do NOT output only a class unless the class name starts with Test and its methods start with test_.
+- Do NOT place bare asserts outside test functions.
+- Do NOT use if __name__ == "__main__".
+- Do NOT use print().
+
+IMPORT RULES
+- Use pytest.
+- Import the SUT module only as: import sut
+- Do NOT use from sut import ...
+- Access tested symbols as sut.<name>.
+- Do NOT invent modules, fixtures, helper APIs, or symbols not present in the SUT.
+
+TEST DESIGN RULES
+- Base the tests strictly on the functions, classes, methods, and constants that exist in the SUT below.
+- Every referenced symbol must exist in the SUT.
+- Every test must exercise the SUT directly.
+- Keep tests deterministic and fast.
+- Prefer small inputs.
+- Avoid huge lists, huge ranges, very large integers, expensive recursion, exhaustive loops, or stress-style tests.
+- Prefer definitely valid tests over speculative tests.
+- If behaviour is ambiguous, write fewer but safer tests.
+
+FEW-SHOT STYLE GUIDANCE
+The following examples are external, manually created demonstrations.
+Use them only as style guidance for test structure, assertions, determinism, and edge-case coverage.
+Do not test these examples.
+Do not copy their names, values, or code into the final answer.
+Generate tests only for the current System Under Test.
+
+{{FEW_SHOT_EXAMPLES}}
+
+SUT
+{UNDER_TEST_SNIPPET}

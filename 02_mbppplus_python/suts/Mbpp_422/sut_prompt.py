@@ -1,0 +1,4 @@
+"""
+Write a python function to find the average of cubes of first n natural numbers.
+assert find_Average_Of_Cube(2) == 4.5
+"""

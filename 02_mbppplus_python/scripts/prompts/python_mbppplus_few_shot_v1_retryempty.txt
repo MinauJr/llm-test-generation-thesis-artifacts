@@ -1,0 +1,179 @@
+OUTPUT FORMAT – READ CAREFULLY
+- Your entire reply MUST be a single Python pytest file.
+- The reply MUST contain ONLY raw Python code.
+- Do NOT include Markdown code fences.
+- Do NOT include explanations.
+- Do NOT include comments.
+- Do NOT print the SUT again.
+- The generated file will be rejected if pytest collects 0 tests.
+
+MANDATORY STRUCTURE
+- The file MUST contain at least 5 top-level test functions whenever the SUT allows it.
+- Each top-level test function name MUST start with: test_
+- Each test function must contain at least one assertion or one pytest.raises check.
+- Do NOT output only helper functions.
+- Do NOT output only a class unless the class name starts with Test and its methods start with test_.
+- Do NOT place bare asserts outside test functions.
+- Do NOT use if __name__ == "__main__".
+- Do NOT use print().
+
+IMPORT RULES
+- Use pytest.
+- Import the SUT module only as: import sut
+- Do NOT use from sut import ...
+- Access tested symbols as sut.<name>.
+- Do NOT invent modules, fixtures, helper APIs, or symbols not present in the SUT.
+
+TEST DESIGN RULES
+- Base the tests strictly on the functions, classes, methods, and constants that exist in the SUT below.
+- Every referenced symbol must exist in the SUT.
+- Every test must exercise the SUT directly.
+- Keep tests deterministic and fast.
+- Prefer small inputs.
+- Avoid huge lists, huge ranges, very large integers, expensive recursion, exhaustive loops, or stress-style tests.
+- Prefer definitely valid tests over speculative tests.
+- If behaviour is ambiguous, write fewer but safer tests.
+
+FEW-SHOT STYLE GUIDANCE
+The following examples are external, manually created demonstrations.
+Use them only as style guidance for test structure, assertions, determinism, and edge-case coverage.
+Do not test these examples.
+Do not copy their names, values, or code into the final answer.
+Generate tests only for the current System Under Test.
+
+EXTERNAL FEW-SHOT EXAMPLES — Group 1: Python function-level
+
+These examples are external demonstrations only.
+They were manually created and are not part of any evaluated dataset.
+They must not be tested directly.
+Do not copy their function names, class names, values, or test names into the final answer.
+Use them only to learn the expected test style, import style, assertion style, deterministic structure, and edge-case coverage.
+
+Intended reuse: HumanEval+ Python, MBPP+ Python, QuixBugs Python
+
+EXAMPLE 1 — example_01_temperature_band — External SUT
+<external_sut_python>
+def temperature_band(celsius):
+    if celsius < -273.15:
+        raise ValueError("temperature below absolute zero")
+    if celsius < 0:
+        return "freezing"
+    if celsius < 10:
+        return "cold"
+    if celsius < 25:
+        return "mild"
+    return "hot"
+</external_sut_python>
+
+EXAMPLE 1 — example_01_temperature_band — Good pytest tests
+<external_tests_pytest>
+import pytest
+import sut
+
+
+def test_temperature_band_rejects_values_below_absolute_zero():
+    with pytest.raises(ValueError, match="temperature below absolute zero"):
+        sut.temperature_band(-300)
+
+
+def test_temperature_band_accepts_absolute_zero_boundary():
+    assert sut.temperature_band(-273.15) == "freezing"
+
+
+def test_temperature_band_classifies_freezing_values():
+    assert sut.temperature_band(-5) == "freezing"
+
+
+def test_temperature_band_classifies_zero_as_cold():
+    assert sut.temperature_band(0) == "cold"
+
+
+def test_temperature_band_classifies_cold_values():
+    assert sut.temperature_band(9.9) == "cold"
+
+
+def test_temperature_band_classifies_ten_as_mild():
+    assert sut.temperature_band(10) == "mild"
+
+
+def test_temperature_band_classifies_mild_values():
+    assert sut.temperature_band(24.9) == "mild"
+
+
+def test_temperature_band_classifies_twenty_five_as_hot():
+    assert sut.temperature_band(25) == "hot"
+
+
+def test_temperature_band_classifies_high_values_as_hot():
+    assert sut.temperature_band(40) == "hot"
+</external_tests_pytest>
+
+EXAMPLE 2 — example_02_shipping_cost — External SUT
+<external_sut_python>
+def shipping_cost(weight_kg, express=False):
+    if weight_kg <= 0:
+        raise ValueError("weight must be positive")
+
+    cost = 3.25 + weight_kg * 1.37
+
+    if weight_kg > 10:
+        cost += 8.80
+    elif weight_kg > 2:
+        cost += 4.40
+
+    if express:
+        cost *= 1.25
+
+    return round(cost, 2)
+</external_sut_python>
+
+EXAMPLE 2 — example_02_shipping_cost — Good pytest tests
+<external_tests_pytest>
+import pytest
+import sut
+
+
+def test_shipping_cost_for_light_package():
+    assert sut.shipping_cost(1) == 4.62
+
+
+def test_shipping_cost_for_medium_package():
+    assert sut.shipping_cost(5) == 14.50
+
+
+def test_shipping_cost_for_heavy_package():
+    assert sut.shipping_cost(12) == 28.49
+
+
+def test_shipping_cost_adds_express_multiplier():
+    assert sut.shipping_cost(1, express=True) == 5.78
+
+
+def test_shipping_cost_handles_boundary_between_light_and_medium():
+    assert sut.shipping_cost(2) == 5.99
+    assert sut.shipping_cost(2.01) == 10.40
+
+
+def test_shipping_cost_handles_boundary_between_medium_and_heavy():
+    assert sut.shipping_cost(10) == 21.35
+    assert sut.shipping_cost(10.01) == 25.76
+
+
+def test_shipping_cost_rounds_to_two_decimal_places():
+    assert sut.shipping_cost(2.01) == 10.40
+
+
+def test_shipping_cost_rejects_zero_weight():
+    with pytest.raises(ValueError, match="weight must be positive"):
+        sut.shipping_cost(0)
+
+
+def test_shipping_cost_rejects_negative_weight():
+    with pytest.raises(ValueError, match="weight must be positive"):
+        sut.shipping_cost(-3)
+</external_tests_pytest>
+
+
+
+SUT
+{UNDER_TEST_SNIPPET}

@@ -1,0 +1,13 @@
+sut	exit_codes	category	reason_sample	run_dir
+Mbpp_19	1	PYNGUIN_ERROR	ERROR    [Worker-4151789] SUT contains nothing we    generator.py:170	/home/jpaiva/projetos/nonAI/python_workflow/out/_final_mbppplus_pynguin_strict0/Mbpp_19/run_0014
+Mbpp_20	137,137,137,137,137	TIMEOUT(137)	timeout wrapper killed Pynguin (exit=137)	/home/jpaiva/projetos/nonAI/python_workflow/out/_final_mbppplus_pynguin_strict0/Mbpp_20/run_0015
+Mbpp_71	137,137,137,137,137	TIMEOUT(137)	timeout wrapper killed Pynguin (exit=137)	/home/jpaiva/projetos/nonAI/python_workflow/out/_final_mbppplus_pynguin_strict0/Mbpp_71/run_0030
+Mbpp_123	137,137,137,137,137	TIMEOUT(137)	timeout wrapper killed Pynguin (exit=137)	/home/jpaiva/projetos/nonAI/python_workflow/out/_final_mbppplus_pynguin_strict0/Mbpp_123/run_0069
+Mbpp_129	137,137,137,137,137	TIMEOUT(137)	timeout wrapper killed Pynguin (exit=137)	/home/jpaiva/projetos/nonAI/python_workflow/out/_final_mbppplus_pynguin_strict0/Mbpp_129/run_0075
+Mbpp_260	137,137,137,137,137	TIMEOUT(137)	timeout wrapper killed Pynguin (exit=137)	/home/jpaiva/projetos/nonAI/python_workflow/out/_final_mbppplus_pynguin_strict0/Mbpp_260/run_0124
+Mbpp_305	137,137,137,137,137	TIMEOUT(137)	timeout wrapper killed Pynguin (exit=137)	/home/jpaiva/projetos/nonAI/python_workflow/out/_final_mbppplus_pynguin_strict0/Mbpp_305/run_0159
+Mbpp_306	137,137,137,137,137	TIMEOUT(137)	timeout wrapper killed Pynguin (exit=137)	/home/jpaiva/projetos/nonAI/python_workflow/out/_final_mbppplus_pynguin_strict0/Mbpp_306/run_0160
+Mbpp_311	137,137,137,137,137	TIMEOUT(137)	timeout wrapper killed Pynguin (exit=137)	/home/jpaiva/projetos/nonAI/python_workflow/out/_final_mbppplus_pynguin_strict0/Mbpp_311/run_0164
+Mbpp_752	137,137,137,137,137	TIMEOUT(137)	timeout wrapper killed Pynguin (exit=137)	/home/jpaiva/projetos/nonAI/python_workflow/out/_final_mbppplus_pynguin_strict0/Mbpp_752/run_0331
+Mbpp_798	1	PYNGUIN_ERROR	ERROR    [Worker-4008952] SUT contains nothing we    generator.py:170	/home/jpaiva/projetos/nonAI/python_workflow/out/_final_mbppplus_pynguin_strict0/Mbpp_798/run_0368
+Mbpp_801	1	PYNGUIN_ERROR	ERROR    [Worker-4013454] SUT contains nothing we    generator.py:170	/home/jpaiva/projetos/nonAI/python_workflow/out/_final_mbppplus_pynguin_strict0/Mbpp_801/run_0371

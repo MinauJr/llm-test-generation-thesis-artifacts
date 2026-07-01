@@ -1,0 +1,11 @@
+{
+  "reps_total": 1890,
+  "gen_fail_reps": 80,
+  "pytest_final_fail_reps": 80,
+  "sanitized_reps": 1,
+  "coverage_missing_reps": 81,
+  "mutation_missing_reps": 115,
+  "mean_line_penalized": 95.1,
+  "mean_branch_penalized": 95.18,
+  "mean_mutation_penalized": 57.57
+}

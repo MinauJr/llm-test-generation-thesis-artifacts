@@ -1,0 +1,4 @@
+"""
+Write a python function to find the minimum number of rotations (greater than 0) required to get the same string.
+assert find_Rotations("aaaa") == 1
+"""

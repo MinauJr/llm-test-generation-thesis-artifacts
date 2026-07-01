@@ -1,0 +1,4 @@
+"""
+Write a function to check whether it follows the sequence given in the patterns array.
+assert is_samepatterns(["red","green","green"], ["a", "b", "b"])==True
+"""

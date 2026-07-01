@@ -1,0 +1,7 @@
+"""
+Write a function that returns the perimeter of a square given its side length as input.
+assert square_perimeter(10)==40
+"""
+
+def square_perimeter(a):
+  return 4*a

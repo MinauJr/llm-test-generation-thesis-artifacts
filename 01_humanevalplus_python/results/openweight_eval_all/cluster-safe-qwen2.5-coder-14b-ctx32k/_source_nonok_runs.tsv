@@ -1,0 +1,2 @@
+model	model_slug	sut_name	repeat	status	cluster_rep_dir	cluster_status_json
+cluster-safe-qwen2.5-coder-14b-ctx32k	cluster_safe_qwen2_5_coder_14b_ctx32k	HumanEval_6	1	invalid_test_structure	/home/jpaiva/cluster_debug/humaneval_v4_merged/humanevalplus_zero_shot_cluster_v4/cluster-safe-qwen2.5-coder-14b-ctx32k/HumanEval_6/rep_01	/home/jpaiva/cluster_debug/humaneval_v4_merged/humanevalplus_zero_shot_cluster_v4/cluster-safe-qwen2.5-coder-14b-ctx32k/HumanEval_6/rep_01/status.json

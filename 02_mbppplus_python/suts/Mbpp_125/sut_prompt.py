@@ -1,0 +1,4 @@
+"""
+Write a function to find the maximum difference between the number of 0s and number of 1s in any sub-string of the given binary string.
+assert find_length("11000010001") == 6
+"""

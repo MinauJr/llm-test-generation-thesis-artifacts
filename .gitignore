@@ -1,0 +1,42 @@
+# OS/editor
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+*.bak
+*.backup
+
+# Python/Java caches/builds
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.mutmut-cache/
+target/
+build/
+*.class
+*.jar
+*.war
+venv/
+.venv/
+
+# Raw/heavy artefacts
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.tpxz
+*.log
+raw/
+work/
+logs/
+attempts/
+__raw__/
+
+# Secrets
+.env
+*.env
+*secret*
+*token*
+*apikey*
