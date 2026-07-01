@@ -1,0 +1,5 @@
+source_root=/home/jpaiva/sf110_try1/out/cluster-safe-codestral-22b-ctx16k
+source_size=20M
+file_count=3300
+status_json_count=550
+sut_dir_count=110

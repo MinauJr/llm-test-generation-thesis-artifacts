@@ -1,0 +1,36 @@
+{
+  "total_status_files": 3850,
+  "status_counts": {
+    "generated": 3688,
+    "generation_or_extract_failed": 162
+  },
+  "by_model": {
+    "cluster-max-codellama-7b-instruct-ctx16k": {
+      "generated": 546,
+      "generation_or_extract_failed": 4
+    },
+    "cluster-safe-codestral-22b-ctx16k": {
+      "generated": 546,
+      "generation_or_extract_failed": 4
+    },
+    "cluster-safe-deepseek-coder-v2-16b-ctx16k": {
+      "generated": 550
+    },
+    "cluster-safe-deepseek-v2-16b-ctx32k": {
+      "generated": 539,
+      "generation_or_extract_failed": 11
+    },
+    "cluster-safe-qwen2.5-coder-14b-ctx32k": {
+      "generated": 549,
+      "generation_or_extract_failed": 1
+    },
+    "cluster-safe-qwen3-coder-30b-official-ctx32k": {
+      "generated": 548,
+      "generation_or_extract_failed": 2
+    },
+    "cluster-safe-qwen3.5-9b-ctx32k": {
+      "generated": 410,
+      "generation_or_extract_failed": 140
+    }
+  }
+}

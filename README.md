@@ -68,3 +68,13 @@ Cleaned artefacts for the Defects4J Java dataset, organised into:
 - `results/`
 
 Raw generated tests, repeated model outputs, full Defects4J project sources, logs, figures, backups and build artefacts are intentionally omitted.
+
+## 08_sf110_java
+
+Cleaned artefacts for the SF110 Java dataset, organised into:
+
+- `suts_metadata/`
+- `scripts/`
+- `results/`
+
+SF110 has no official/dataset-test baseline in this evaluation. Only available generated-test outputs, analysis tables, scripts and metadata are preserved.

@@ -1,0 +1,2 @@
+idx,sut_id,target_class,run_dir,summary_json,summary_txt,wf_rc
+1,74_fixsuite,org.fixsuite.message.Library,/home/jpaiva/projetos/nonAI/java_workflow/out/_night_sf110_evosuite_109x5_cfg180_t200_20260406/74_fixsuite/run_0001,/home/jpaiva/projetos/nonAI/java_workflow/out/_night_sf110_evosuite_109x5_cfg180_t200_20260406/74_fixsuite/run_0001/aggregate/batch_summary.json,/home/jpaiva/projetos/nonAI/java_workflow/out/_night_sf110_evosuite_109x5_cfg180_t200_20260406/74_fixsuite/run_0001/aggregate/batch_summary.txt,0

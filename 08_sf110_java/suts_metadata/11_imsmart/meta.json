@@ -1,0 +1,7 @@
+{
+  "dataset": "SF110",
+  "sut_id": "11_imsmart",
+  "source": "/home/jpaiva/datasets/SF110/SF110-20130704/11_imsmart",
+  "exported_at": "2026-03-01T11:06:22+0000",
+  "build_strategy": "javac"
+}

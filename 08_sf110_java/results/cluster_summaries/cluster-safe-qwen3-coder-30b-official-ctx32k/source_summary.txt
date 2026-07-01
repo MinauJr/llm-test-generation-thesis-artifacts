@@ -1,0 +1,5 @@
+source_root=/home/jpaiva/sf110_try1/out/cluster-safe-qwen3-coder-30b-official-ctx32k
+source_size=28M
+file_count=3300
+status_json_count=550
+sut_dir_count=110

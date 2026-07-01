@@ -1,0 +1,7 @@
+{
+  "dataset": "SF110",
+  "sut_id": "28_greencow",
+  "source": "/home/jpaiva/datasets/SF110/SF110-20130704/28_greencow",
+  "exported_at": "2026-03-01T11:06:23+0000",
+  "build_strategy": "javac"
+}

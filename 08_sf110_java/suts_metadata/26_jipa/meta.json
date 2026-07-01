@@ -1,0 +1,7 @@
+{
+  "dataset": "SF110",
+  "sut_id": "26_jipa",
+  "source_path": "/home/jpaiva/datasets/SF110/SF110-20130704/26_jipa",
+  "exported_at": "2026-04-11T09:58:19",
+  "build_strategy": "javac"
+}

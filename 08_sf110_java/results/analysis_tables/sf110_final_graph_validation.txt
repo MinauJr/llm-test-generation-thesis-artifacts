@@ -1,0 +1,125 @@
+SF110 final graph validation
+================================================================================
+Expected repetitions per method: 550
+
+EvoSuite
+  category: Non-AI
+  attempted: 550
+  missing penalised as zero: 0
+  ok: 509
+  executable: 92.5455%
+  line: 59.1379% -> 63.9015%
+  branch: 30.1108% -> 46.7823%
+  mutation: 32.6982% -> 39.1808%
+  source: /home/jpaiva/projetos/nonAI/java_workflow/out/_night_sf110_evosuite_109x5_cfg180_t200_20260406
+
+Randoop
+  category: Non-AI
+  attempted: 550
+  missing penalised as zero: 0
+  ok: 539
+  executable: 98.0000%
+  line: 46.4622% -> 46.9747%
+  branch: 16.1518% -> 16.3300%
+  mutation: 21.0288% -> 22.9026%
+  source: /home/jpaiva/projetos/nonAI/java_workflow/out/_final_sf110_randoop_20260403_114624; 26_jipa rescued structural reporting
+
+GPT-4o
+  category: IAEdu LLM
+  attempted: 550
+  missing penalised as zero: 0
+  ok: 550
+  executable: 100.0000%
+  line: 42.7327% -> 42.7327%
+  branch: 14.8083% -> 14.8083%
+  mutation: 23.8417% -> 23.8417%
+  source: /home/jpaiva/projetos/llm_test_generation_gpt4o/sf110_gpt4o/out/_FINAL_EFFECTIVE_gpt4o_sf110_bytecode_v2_110x5_stage38_39_40_closed/final_effective_combined_index.tsv
+
+GPT-5.5
+  category: IAEdu LLM
+  attempted: 550
+  missing penalised as zero: 0
+  ok: 535
+  executable: 97.2727%
+  line: 57.2085% -> 58.8125%
+  branch: 30.6325% -> 31.4914%
+  mutation: 41.9365% -> 43.1123%
+  source: /home/jpaiva/projetos/llm_test_generation_gpt4o/sf110_gpt4o/out/_rerun_gpt55_sf110_java_110suts_x5_stage14c/dataset_summary.tsv
+
+CodeLlama
+  category: Cluster LLM
+  attempted: 550
+  missing penalised as zero: 0
+  ok: 244
+  executable: 44.3636%
+  line: 11.5377% -> 26.0071%
+  branch: 2.1973% -> 4.9530%
+  mutation: 4.7999% -> 10.8194%
+  source: /home/jpaiva/projetos/llm_test_generation_gpt4o/sf110_gpt4o/out/_FINAL_EFFECTIVE_cluster_sf110_try1_V3_PIT_20260613_082636/final_model_summary.tsv
+
+Codestral
+  category: Cluster LLM
+  attempted: 550
+  missing penalised as zero: 0
+  ok: 259
+  executable: 47.0909%
+  line: 13.0492% -> 27.7106%
+  branch: 2.6794% -> 5.6898%
+  mutation: 5.7740% -> 12.2615%
+  source: /home/jpaiva/projetos/llm_test_generation_gpt4o/sf110_gpt4o/out/_FINAL_EFFECTIVE_cluster_sf110_try1_V3_PIT_20260613_082636/final_model_summary.tsv
+
+DeepSeek-Coder-V2
+  category: Cluster LLM
+  attempted: 550
+  missing penalised as zero: 0
+  ok: 188
+  executable: 34.1818%
+  line: 10.1436% -> 29.6755%
+  branch: 2.2373% -> 6.5454%
+  mutation: 4.1563% -> 12.1593%
+  source: /home/jpaiva/projetos/llm_test_generation_gpt4o/sf110_gpt4o/out/_FINAL_EFFECTIVE_cluster_sf110_try1_V3_PIT_20260613_082636/final_model_summary.tsv
+
+DeepSeek-V2
+  category: Cluster LLM
+  attempted: 550
+  missing penalised as zero: 0
+  ok: 114
+  executable: 20.7273%
+  line: 5.0337% -> 24.2855%
+  branch: 0.6757% -> 3.2601%
+  mutation: 2.5590% -> 12.3461%
+  source: /home/jpaiva/projetos/llm_test_generation_gpt4o/sf110_gpt4o/out/_FINAL_EFFECTIVE_cluster_sf110_try1_V3_PIT_20260613_082636/final_model_summary.tsv
+
+Qwen2.5-Coder
+  category: Cluster LLM
+  attempted: 550
+  missing penalised as zero: 0
+  ok: 396
+  executable: 72.0000%
+  line: 23.0895% -> 32.0688%
+  branch: 5.3677% -> 7.4551%
+  mutation: 10.1869% -> 14.1485%
+  source: /home/jpaiva/projetos/llm_test_generation_gpt4o/sf110_gpt4o/out/_FINAL_EFFECTIVE_cluster_sf110_try1_V3_PIT_20260613_082636/final_model_summary.tsv
+
+Qwen3-Coder
+  category: Cluster LLM
+  attempted: 550
+  missing penalised as zero: 0
+  ok: 381
+  executable: 69.2727%
+  line: 25.9451% -> 37.4536%
+  branch: 6.5265% -> 9.4214%
+  mutation: 11.4515% -> 16.5311%
+  source: /home/jpaiva/projetos/llm_test_generation_gpt4o/sf110_gpt4o/out/_FINAL_EFFECTIVE_cluster_sf110_try1_V3_PIT_20260613_082636/final_model_summary.tsv
+
+Qwen3.5
+  category: Cluster LLM
+  attempted: 550
+  missing penalised as zero: 0
+  ok: 205
+  executable: 37.2727%
+  line: 11.2480% -> 30.1776%
+  branch: 2.6522% -> 7.1156%
+  mutation: 4.8705% -> 13.0672%
+  source: /home/jpaiva/projetos/llm_test_generation_gpt4o/sf110_gpt4o/out/_FINAL_EFFECTIVE_cluster_sf110_try1_V3_PIT_20260613_082636/final_model_summary.tsv
+

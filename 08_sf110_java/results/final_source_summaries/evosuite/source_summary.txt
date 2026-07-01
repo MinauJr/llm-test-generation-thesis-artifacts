@@ -1,0 +1,6 @@
+source_root=/home/jpaiva/projetos/nonAI/java_workflow/out/_night_sf110_evosuite_109x5_cfg180_t200_20260406
+source_size=17G
+file_count=1658307
+status_json_count=550
+summary_tsv_count=0
+summary_json_count=0

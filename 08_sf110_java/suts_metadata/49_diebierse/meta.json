@@ -1,0 +1,7 @@
+{
+  "dataset": "SF110",
+  "sut_id": "49_diebierse",
+  "source": "/home/jpaiva/datasets/SF110/SF110-20130704/49_diebierse",
+  "exported_at": "2026-03-01T11:06:21+0000",
+  "build_strategy": "javac"
+}

@@ -1,0 +1,7 @@
+{
+  "dataset": "SF110",
+  "sut_id": "75_openhre",
+  "source": "/home/jpaiva/datasets/SF110/SF110-20130704/75_openhre",
+  "exported_at": "2026-03-01T11:06:25+0000",
+  "build_strategy": "javac"
+}

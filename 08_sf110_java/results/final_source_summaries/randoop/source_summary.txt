@@ -1,0 +1,6 @@
+source_root=/home/jpaiva/projetos/nonAI/java_workflow/out/_final_sf110_randoop_20260403_114624
+source_size=9.6G
+file_count=915196
+status_json_count=0
+summary_tsv_count=0
+summary_json_count=0

@@ -1,0 +1,7 @@
+{
+  "dataset": "SF110",
+  "sut_id": "78_caloriecount",
+  "source": "/home/jpaiva/datasets/SF110/SF110-20130704/78_caloriecount",
+  "exported_at": "2026-03-01T11:06:23+0000",
+  "build_strategy": "javac"
+}

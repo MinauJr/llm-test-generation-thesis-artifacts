@@ -1,0 +1,7 @@
+{
+  "dataset": "SF110",
+  "sut_id": "31_xisemele",
+  "source": "/home/jpaiva/datasets/SF110/SF110-20130704/31_xisemele",
+  "exported_at": "2026-03-01T11:06:30+0000",
+  "build_strategy": "javac"
+}
