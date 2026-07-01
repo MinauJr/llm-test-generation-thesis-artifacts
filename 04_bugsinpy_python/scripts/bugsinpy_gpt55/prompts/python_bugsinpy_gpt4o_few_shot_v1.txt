@@ -1,0 +1,316 @@
+You are generating pytest unit tests for a real Python project from the BugsInPy benchmark.
+
+Dataset SUT:
+__SUT_ID__
+
+Target module:
+__TARGET_MODULE__
+
+You must write a single raw Python pytest file.
+
+Strict output rules:
+- Output only Python code.
+- Do not use Markdown fences.
+- Do not include explanations.
+- Do not include prose before or after the code.
+- Use pytest-style tests.
+- Create at least five top-level test functions whose names start with test_.
+- Do not write tests that require internet access, external services, GUI interaction, or long-running operations.
+- Do not rely on absolute local paths.
+- Do not use sleeps unless strictly necessary, and never use long sleeps.
+- Prefer deterministic tests.
+- Prefer testing pure functions, simple classes, constants, parsing/formatting helpers, and error handling visible in the target module.
+- Avoid brittle assertions about implementation details unless they are stable and directly visible from the source.
+- Do not import speculative modules that are not visible from the provided context.
+- Import the target module using its real module path: __TARGET_MODULE__.
+- If you need to access functions/classes/constants, import them from __TARGET_MODULE__ or access them through the imported module.
+- The file will be run with pytest against the prepared local project.
+- If pytest collects zero tests, the generation will be considered invalid.
+
+FEW-SHOT STYLE GUIDANCE
+The following examples are external, manually created demonstrations.
+Use them only as style guidance for test structure, assertions, determinism, and edge-case coverage.
+Do not test these examples.
+Do not copy their names, values, or code into the final answer.
+Generate tests only for the current System Under Test.
+For the current BugsInPy SUT, always follow the dataset-specific import rule above.
+Do not copy import statements from the external examples.
+Do not use import sut unless __TARGET_MODULE__ is literally sut.
+The current target module path, project context, available symbols, and source/context override any pattern shown in the external examples.
+
+EXTERNAL FEW-SHOT EXAMPLES — Group 2: Python project/module-level
+
+These examples are external demonstrations only.
+They were manually created and are not part of any evaluated dataset.
+They must not be tested directly.
+Do not copy their function names, class names, values, or test names into the final answer.
+Use them only to learn the expected test structure, assertion style, deterministic structure, and edge-case coverage.
+
+Intended reuse: BugsInPy
+
+EXAMPLE 1 — example_01_subscription_billing — External SUT
+<external_sut_python>
+PLAN_PRICES = {
+    "basic": 8.00,
+    "pro": 15.00,
+    "enterprise": 25.00,
+}
+
+COUPONS = {
+    "SAVE10": 0.10,
+    "SAVE25": 0.25,
+}
+
+
+def normalise_plan_name(plan):
+    if not isinstance(plan, str):
+        raise TypeError("plan must be a string")
+
+    cleaned = plan.strip().lower()
+
+    if cleaned not in PLAN_PRICES:
+        raise ValueError("unknown subscription plan")
+
+    return cleaned
+
+
+def calculate_monthly_bill(plan, users, annual=False, coupon_code=None):
+    plan_name = normalise_plan_name(plan)
+
+    if users <= 0:
+        raise ValueError("users must be positive")
+
+    total = PLAN_PRICES[plan_name] * users
+
+    if annual:
+        total *= 0.85
+
+    if coupon_code is not None:
+        if coupon_code not in COUPONS:
+            raise ValueError("unknown coupon")
+        total *= 1 - COUPONS[coupon_code]
+
+    return round(total, 2)
+</external_sut_python>
+
+EXAMPLE 1 — example_01_subscription_billing — Good pytest tests
+<external_tests_pytest>
+import pytest
+import sut
+
+
+def test_normalise_plan_name_strips_and_lowercases_known_plan():
+    assert sut.normalise_plan_name("  Pro  ") == "pro"
+
+
+def test_normalise_plan_name_rejects_non_string_value():
+    with pytest.raises(TypeError, match="plan must be a string"):
+        sut.normalise_plan_name(None)
+
+
+def test_normalise_plan_name_rejects_unknown_plan():
+    with pytest.raises(ValueError, match="unknown subscription plan"):
+        sut.normalise_plan_name("premium")
+
+
+def test_calculate_monthly_bill_for_basic_plan():
+    assert sut.calculate_monthly_bill("basic", 3) == 24.00
+
+
+def test_calculate_monthly_bill_for_pro_plan_with_case_insensitive_name():
+    assert sut.calculate_monthly_bill(" Pro ", 2) == 30.00
+
+
+def test_calculate_monthly_bill_applies_annual_discount():
+    assert sut.calculate_monthly_bill("pro", 2, annual=True) == 25.50
+
+
+def test_calculate_monthly_bill_applies_coupon():
+    assert sut.calculate_monthly_bill("enterprise", 4, coupon_code="SAVE10") == 90.00
+
+
+def test_calculate_monthly_bill_applies_annual_discount_and_coupon():
+    assert sut.calculate_monthly_bill("pro", 3, annual=True, coupon_code="SAVE25") == 28.69
+
+
+def test_calculate_monthly_bill_rejects_zero_users():
+    with pytest.raises(ValueError, match="users must be positive"):
+        sut.calculate_monthly_bill("basic", 0)
+
+
+def test_calculate_monthly_bill_rejects_negative_users():
+    with pytest.raises(ValueError, match="users must be positive"):
+        sut.calculate_monthly_bill("basic", -2)
+
+
+def test_calculate_monthly_bill_rejects_unknown_coupon():
+    with pytest.raises(ValueError, match="unknown coupon"):
+        sut.calculate_monthly_bill("basic", 1, coupon_code="BADCODE")
+</external_tests_pytest>
+
+EXAMPLE 2 — example_02_task_board — External SUT
+<external_sut_python>
+VALID_STATUSES = ("todo", "doing", "done")
+
+
+def create_task(title, priority=3):
+    cleaned_title = title.strip()
+
+    if cleaned_title == "":
+        raise ValueError("title is required")
+
+    if priority < 1 or priority > 5:
+        raise ValueError("priority must be between 1 and 5")
+
+    return {
+        "title": cleaned_title,
+        "priority": priority,
+        "status": "todo",
+    }
+
+
+def move_task(task, new_status):
+    if new_status not in VALID_STATUSES:
+        raise ValueError("unknown status")
+
+    updated = dict(task)
+    updated["status"] = new_status
+    return updated
+
+
+def summarise_board(tasks):
+    summary = {
+        "todo": 0,
+        "doing": 0,
+        "done": 0,
+        "highest_open_priority": None,
+    }
+
+    for task in tasks:
+        status = task["status"]
+
+        if status not in VALID_STATUSES:
+            raise ValueError("unknown status")
+
+        summary[status] += 1
+
+        if status != "done":
+            priority = task["priority"]
+            current = summary["highest_open_priority"]
+
+            if current is None or priority < current:
+                summary["highest_open_priority"] = priority
+
+    return summary
+</external_sut_python>
+
+EXAMPLE 2 — example_02_task_board — Good pytest tests
+<external_tests_pytest>
+import pytest
+import sut
+
+
+def test_create_task_strips_title_and_uses_default_values():
+    task = sut.create_task("  Write tests  ")
+
+    assert task == {
+        "title": "Write tests",
+        "priority": 3,
+        "status": "todo",
+    }
+
+
+def test_create_task_accepts_priority_boundaries():
+    assert sut.create_task("Low number", priority=1)["priority"] == 1
+    assert sut.create_task("High number", priority=5)["priority"] == 5
+
+
+def test_create_task_rejects_blank_title():
+    with pytest.raises(ValueError, match="title is required"):
+        sut.create_task("   ")
+
+
+def test_create_task_rejects_priority_below_range():
+    with pytest.raises(ValueError, match="priority must be between 1 and 5"):
+        sut.create_task("Invalid", priority=0)
+
+
+def test_create_task_rejects_priority_above_range():
+    with pytest.raises(ValueError, match="priority must be between 1 and 5"):
+        sut.create_task("Invalid", priority=6)
+
+
+def test_move_task_changes_status_without_mutating_original_task():
+    original = sut.create_task("Implement feature", priority=2)
+    moved = sut.move_task(original, "doing")
+
+    assert moved["status"] == "doing"
+    assert original["status"] == "todo"
+    assert moved["title"] == "Implement feature"
+    assert moved["priority"] == 2
+
+
+def test_move_task_accepts_done_status():
+    task = sut.create_task("Review")
+    moved = sut.move_task(task, "done")
+
+    assert moved["status"] == "done"
+
+
+def test_move_task_rejects_unknown_status():
+    task = sut.create_task("Review")
+
+    with pytest.raises(ValueError, match="unknown status"):
+        sut.move_task(task, "blocked")
+
+
+def test_summarise_board_returns_zero_counts_for_empty_board():
+    assert sut.summarise_board([]) == {
+        "todo": 0,
+        "doing": 0,
+        "done": 0,
+        "highest_open_priority": None,
+    }
+
+
+def test_summarise_board_counts_statuses_and_highest_open_priority():
+    todo = sut.create_task("Todo item", priority=4)
+    doing = sut.move_task(sut.create_task("Important item", priority=1), "doing")
+    done = sut.move_task(sut.create_task("Finished item", priority=2), "done")
+
+    assert sut.summarise_board([todo, doing, done]) == {
+        "todo": 1,
+        "doing": 1,
+        "done": 1,
+        "highest_open_priority": 1,
+    }
+
+
+def test_summarise_board_ignores_done_tasks_for_highest_open_priority():
+    done = sut.move_task(sut.create_task("Finished", priority=1), "done")
+    open_task = sut.create_task("Open", priority=5)
+
+    assert sut.summarise_board([done, open_task])["highest_open_priority"] == 5
+
+
+def test_summarise_board_rejects_unknown_status_inside_task():
+    with pytest.raises(ValueError, match="unknown status"):
+        sut.summarise_board([
+            {"title": "Broken", "priority": 3, "status": "blocked"}
+        ])
+
+
+def test_summarise_board_keeps_existing_highest_open_priority_when_later_task_is_lower_priority():
+    first = sut.create_task("Most important", priority=1)
+    later = sut.create_task("Less important", priority=5)
+
+    summary = sut.summarise_board([first, later])
+
+    assert summary["highest_open_priority"] == 1
+    assert summary["todo"] == 2
+</external_tests_pytest>
+
+
+
+Target source/context:
+__UNDER_TEST_SNIPPET__

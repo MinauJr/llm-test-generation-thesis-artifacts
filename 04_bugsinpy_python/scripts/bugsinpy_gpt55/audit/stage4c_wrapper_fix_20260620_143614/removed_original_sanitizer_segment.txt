@@ -1,0 +1,24 @@
+if [ "$CURRENT_STATUS" = "pytest_raw_fail" ]; then
+  echo
+  echo "===== STEP B — sanitization + final pytest ====="
+  set +e
+  "$PYTHON_BIN" "$SANITIZER" \
+    --run-dir "$RUN_DIR" \
+    --pytest-timeout-s "$PYTEST_TIMEOUT_S"
+  SANITIZER_RC=$?
+  set -u
+  echo "SANITIZER_RC=$SANITIZER_RC"
+
+  CURRENT_STATUS="$("$PYTHON_BIN" - "$STATUS_FILE" <<'PY'
+import json, sys
+from pathlib import Path
+p = Path(sys.argv[1])
+d = json.loads(p.read_text(encoding="utf-8"))
+print(d.get("status", ""))
+PY
+)"
+  echo "STATUS_AFTER_SANITIZATION=$CURRENT_STATUS"
+else
+  echo "Sanitization skipped because raw status is: $CURRENT_STATUS"
+fi
+

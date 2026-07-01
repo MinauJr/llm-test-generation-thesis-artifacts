@@ -1,0 +1,23 @@
+109:    target_relpath = prep.get("target_relpath")
+110:    if target_relpath:
+111:        candidate = (work_sut_dir / target_relpath).resolve()
+134:    target_rel = None
+140:            target_rel = rel
+143:    if chosen_import_root is None or target_rel is None:
+145:        target_rel = target_file.relative_to(work_sut_dir)
+148:        # Package-aware mutation targeting.
+152:            package_dir = target_file.parent
+154:                package_rel = package_dir.relative_to(work_sut_dir)
+156:                package_rel = None
+158:            if package_rel is not None:
+159:                target_rel = package_rel
+162:        "target_rel": target_rel,
+353:    target_rel = resolved["target_rel"]
+355:    flat_target = mutation_project / target_rel
+363:def write_mutmut_config(mutation_project: Path, target_rel: Path):
+371:                f'paths_to_mutate = ["{target_rel.as_posix()}"]',
+385:                f"paths_to_mutate={target_rel.as_posix()}",
+495:        write_mutmut_config(mutation_project, resolved["target_rel"])
+511:        mutation_target_relpath=str(resolved["target_rel"]),
+612:        mutation_target_relpath=str(resolved["target_rel"]),
+625:    print(f"target_rel={resolved['target_rel']}")

@@ -1,0 +1,4 @@
+rank	sut_id	target_module	historical_complete_runs	latest_complete_at	latest_status	latest_line_pct	latest_branch_pct	latest_mutation_pct	latest_status_json
+1	tornado_4f	tornado.escape	27	2026-06-06T15:33:03	ok	49.37	16.07	0.0	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_eval_cluster_bugsinpy_run3_v4_compact_strict/cluster-safe-qwen3.5-9b-ctx32k/tornado_4f/run_0001/0015-3/metrics/status.json
+2	cookiecutter_1f	cookiecutter.log	22	2026-06-02T09:15:00	ok	100.0	100.0	74.07407407407408	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_final_claude47_bugsinpy_python_v1/cookiecutter_1f/run_0001/0007-5/metrics/status.json
+3	httpie_1f	httpie.sessions	22	2026-06-02T09:24:02	ok	66.67	53.57	36.03603603603604	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_final_claude47_bugsinpy_python_v1/httpie_1f/run_0001/0009-5/metrics/status.json

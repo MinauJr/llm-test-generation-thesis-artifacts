@@ -1,0 +1,1595 @@
+BUGSINPY GPT-5.5 — PYTEST FAILURE DIAGNOSIS
+===========================================
+
+created_at=2026-06-20T15:07:59+01:00
+smoke_root=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438
+status_count=3
+
+
+######################################################################
+ACCOUNT=account1
+SUT_ID=cookiecutter_1f
+RUN_DIR=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1
+STATUS_FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/metrics/status.json
+######################################################################
+
+===== STATUS SUMMARY =====
+{
+  "status": "pytest_raw_fail",
+  "sut_id": "cookiecutter_1f",
+  "target_module": "cookiecutter.log",
+  "cov_target": "cookiecutter",
+  "dry_run": "0",
+  "model": "gpt-5.5-iaedu",
+  "generation_attempts": 1,
+  "generation_empty_attempts": 0,
+  "generation_final_state": "nonempty_success",
+  "generation_output_nonempty": "true",
+  "generated_test_compile_exit_code": 0,
+  "sut_import_check_exit_code": 0,
+  "pytest_raw_exit_code": 1,
+  "pytest_final_exit_code": null,
+  "coverage_exit_code": null,
+  "mutmut_exit_code": null,
+  "line_pct": null,
+  "branch_pct": null,
+  "mutation_score_pct": null,
+  "generated_test_file": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/work/tests/test_gpt_iaedu.py",
+  "canonical_test_file": null
+}
+
+===== TODOS OS FICHEIROS DO RUN RELEVANTES =====
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/context.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/context.stdout.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/generated_test_compile.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/generated_test_compile.stdout.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/gpt4o.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/normalize_generated_test.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/prepare_sut.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/pytest_raw.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/render_prompt.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/render_prompt.stdout.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/runtime_shims.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/sut_import_check.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/raw/_attempts/attempt_01/gpt4o.stderr.log
+164 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/metrics/generated_test_file.txt
+2 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/metrics/generated_test_compile_exit_code.txt
+2 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/metrics/pytest_raw_exit_code.txt
+2 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/metrics/sut_import_check_exit_code.txt
+2041 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/metrics/status.json
+206 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/sut_import_check.stdout.log
+221 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/metrics/pytest_raw_command.txt
+2306 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/pytest_raw.stdout.log
+3656 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/work/tests/test_gpt_iaedu.py
+373 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/normalize_generated_test.json
+374 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/normalize_generated_test.stdout.log
+3744 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/work/tests/__pycache__/test_gpt_iaedu.cpython-310.pyc
+566 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/runtime_shims.stdout.log
+662 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/prepare_sut.stdout.log
+
+===== TESTE GERADO MATERIALIZADO =====
+TEST_FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/work/tests/test_gpt_iaedu.py
+SHA256=25b7fa8bd2364fb25dc8e2d52ff38607c4da63b560c2b48d5b4ae4d284d622bd
+LINES=115
+     1	import logging
+     2	import sys
+     3	
+     4	import pytest
+     5	
+     6	import cookiecutter.log as log_module
+     7	
+     8	
+     9	@pytest.fixture(autouse=True)
+    10	def restore_cookiecutter_logger():
+    11	    logger = logging.getLogger("cookiecutter")
+    12	    original_handlers = list(logger.handlers)
+    13	    original_level = logger.level
+    14	    original_propagate = logger.propagate
+    15	    original_disabled = logger.disabled
+    16	
+    17	    yield
+    18	
+    19	    for handler in list(logger.handlers):
+    20	        logger.removeHandler(handler)
+    21	        try:
+    22	            handler.close()
+    23	        except Exception:
+    24	            pass
+    25	
+    26	    for handler in original_handlers:
+    27	        logger.addHandler(handler)
+    28	
+    29	    logger.setLevel(original_level)
+    30	    logger.propagate = original_propagate
+    31	    logger.disabled = original_disabled
+    32	
+    33	
+    34	def test_log_levels_contains_standard_logging_levels():
+    35	    assert log_module.LOG_LEVELS == {
+    36	        "DEBUG": logging.DEBUG,
+    37	        "INFO": logging.INFO,
+    38	        "WARNING": logging.WARNING,
+    39	        "ERROR": logging.ERROR,
+    40	        "CRITICAL": logging.CRITICAL,
+    41	    }
+    42	
+    43	
+    44	def test_log_formats_contains_expected_debug_and_info_formats():
+    45	    assert log_module.LOG_FORMATS["DEBUG"] == "%(levelname)s %(name)s: %(message)s"
+    46	    assert log_module.LOG_FORMATS["INFO"] == "%(levelname)s: %(message)s"
+    47	    assert set(log_module.LOG_FORMATS) == {"DEBUG", "INFO"}
+    48	
+    49	
+    50	def test_configure_logger_default_creates_stdout_debug_handler():
+    51	    logger = log_module.configure_logger()
+    52	
+    53	    assert logger is logging.getLogger("cookiecutter")
+    54	    assert logger.name == "cookiecutter"
+    55	    assert logger.level == logging.DEBUG
+    56	    assert len(logger.handlers) == 1
+    57	
+    58	    handler = logger.handlers[0]
+    59	    assert isinstance(handler, logging.StreamHandler)
+    60	    assert handler.level == logging.DEBUG
+    61	    assert handler.stream is sys.stdout
+    62	    assert handler.formatter._fmt == log_module.LOG_FORMATS["DEBUG"]
+    63	
+    64	
+    65	def test_configure_logger_info_level_filters_debug_messages(capsys):
+    66	    logger = log_module.configure_logger(stream_level="INFO")
+    67	    logger.propagate = False
+    68	
+    69	    logger.debug("hidden debug message")
+    70	    logger.info("visible info message")
+    71	
+    72	    captured = capsys.readouterr()
+    73	    assert "hidden debug message" not in captured.out
+    74	    assert "INFO: visible info message" in captured.out
+    75	    assert captured.err == ""
+    76	
+    77	
+    78	def test_configure_logger_replaces_existing_handlers():
+    79	    logger = logging.getLogger("cookiecutter")
+    80	    old_handler = logging.StreamHandler(stream=sys.stderr)
+    81	    logger.addHandler(old_handler)
+    82	
+    83	    configured = log_module.configure_logger(stream_level="WARNING")
+    84	
+    85	    assert configured is logger
+    86	    assert old_handler not in configured.handlers
+    87	    assert len(configured.handlers) == 1
+    88	    assert configured.handlers[0].level == logging.WARNING
+    89	
+    90	
+    91	def test_configure_logger_with_debug_file_adds_file_and_stream_handlers(tmpdir, capsys):
+    92	    debug_file = tmpdir.join("cookiecutter-debug.log")
+    93	
+    94	    logger = log_module.configure_logger(stream_level="ERROR", debug_file=str(debug_file))
+    95	    logger.propagate = False
+    96	
+    97	    logger.debug("debug message for file")
+    98	    logger.error("error message for both handlers")
+    99	
+   100	    for handler in logger.handlers:
+   101	        handler.flush()
+   102	
+   103	    captured = capsys.readouterr()
+   104	    file_content = debug_file.read()
+   105	
+   106	    assert len(logger.handlers) == 2
+   107	    assert "debug message for file" not in captured.out
+   108	    assert "ERROR: error message for both handlers" in captured.out
+   109	    assert "DEBUG cookiecutter: debug message for file" in file_content
+   110	    assert "ERROR cookiecutter: error message for both handlers" in file_content
+   111	
+   112	
+   113	def test_configure_logger_invalid_stream_level_raises_key_error():
+   114	    with pytest.raises(KeyError):
+   115	        log_module.configure_logger(stream_level="NOT_A_LEVEL")
+
+===== RESPOSTA ORIGINAL DO MODELO =====
+RAW_OUTPUT=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/raw/model_raw_output.py.txt
+SHA256=25b7fa8bd2364fb25dc8e2d52ff38607c4da63b560c2b48d5b4ae4d284d622bd
+SIZE=3656
+LINES=115
+     1	import logging
+     2	import sys
+     3	
+     4	import pytest
+     5	
+     6	import cookiecutter.log as log_module
+     7	
+     8	
+     9	@pytest.fixture(autouse=True)
+    10	def restore_cookiecutter_logger():
+    11	    logger = logging.getLogger("cookiecutter")
+    12	    original_handlers = list(logger.handlers)
+    13	    original_level = logger.level
+    14	    original_propagate = logger.propagate
+    15	    original_disabled = logger.disabled
+    16	
+    17	    yield
+    18	
+    19	    for handler in list(logger.handlers):
+    20	        logger.removeHandler(handler)
+    21	        try:
+    22	            handler.close()
+    23	        except Exception:
+    24	            pass
+    25	
+    26	    for handler in original_handlers:
+    27	        logger.addHandler(handler)
+    28	
+    29	    logger.setLevel(original_level)
+    30	    logger.propagate = original_propagate
+    31	    logger.disabled = original_disabled
+    32	
+    33	
+    34	def test_log_levels_contains_standard_logging_levels():
+    35	    assert log_module.LOG_LEVELS == {
+    36	        "DEBUG": logging.DEBUG,
+    37	        "INFO": logging.INFO,
+    38	        "WARNING": logging.WARNING,
+    39	        "ERROR": logging.ERROR,
+    40	        "CRITICAL": logging.CRITICAL,
+    41	    }
+    42	
+    43	
+    44	def test_log_formats_contains_expected_debug_and_info_formats():
+    45	    assert log_module.LOG_FORMATS["DEBUG"] == "%(levelname)s %(name)s: %(message)s"
+    46	    assert log_module.LOG_FORMATS["INFO"] == "%(levelname)s: %(message)s"
+    47	    assert set(log_module.LOG_FORMATS) == {"DEBUG", "INFO"}
+    48	
+    49	
+    50	def test_configure_logger_default_creates_stdout_debug_handler():
+    51	    logger = log_module.configure_logger()
+    52	
+    53	    assert logger is logging.getLogger("cookiecutter")
+    54	    assert logger.name == "cookiecutter"
+    55	    assert logger.level == logging.DEBUG
+    56	    assert len(logger.handlers) == 1
+    57	
+    58	    handler = logger.handlers[0]
+    59	    assert isinstance(handler, logging.StreamHandler)
+    60	    assert handler.level == logging.DEBUG
+    61	    assert handler.stream is sys.stdout
+    62	    assert handler.formatter._fmt == log_module.LOG_FORMATS["DEBUG"]
+    63	
+    64	
+    65	def test_configure_logger_info_level_filters_debug_messages(capsys):
+    66	    logger = log_module.configure_logger(stream_level="INFO")
+    67	    logger.propagate = False
+    68	
+    69	    logger.debug("hidden debug message")
+    70	    logger.info("visible info message")
+    71	
+    72	    captured = capsys.readouterr()
+    73	    assert "hidden debug message" not in captured.out
+    74	    assert "INFO: visible info message" in captured.out
+    75	    assert captured.err == ""
+    76	
+    77	
+    78	def test_configure_logger_replaces_existing_handlers():
+    79	    logger = logging.getLogger("cookiecutter")
+    80	    old_handler = logging.StreamHandler(stream=sys.stderr)
+    81	    logger.addHandler(old_handler)
+    82	
+    83	    configured = log_module.configure_logger(stream_level="WARNING")
+    84	
+    85	    assert configured is logger
+    86	    assert old_handler not in configured.handlers
+    87	    assert len(configured.handlers) == 1
+    88	    assert configured.handlers[0].level == logging.WARNING
+    89	
+    90	
+    91	def test_configure_logger_with_debug_file_adds_file_and_stream_handlers(tmpdir, capsys):
+    92	    debug_file = tmpdir.join("cookiecutter-debug.log")
+    93	
+    94	    logger = log_module.configure_logger(stream_level="ERROR", debug_file=str(debug_file))
+    95	    logger.propagate = False
+    96	
+    97	    logger.debug("debug message for file")
+    98	    logger.error("error message for both handlers")
+    99	
+   100	    for handler in logger.handlers:
+   101	        handler.flush()
+   102	
+   103	    captured = capsys.readouterr()
+   104	    file_content = debug_file.read()
+   105	
+   106	    assert len(logger.handlers) == 2
+   107	    assert "debug message for file" not in captured.out
+   108	    assert "ERROR: error message for both handlers" in captured.out
+   109	    assert "DEBUG cookiecutter: debug message for file" in file_content
+   110	    assert "ERROR cookiecutter: error message for both handlers" in file_content
+   111	
+   112	
+   113	def test_configure_logger_invalid_stream_level_raises_key_error():
+   114	    with pytest.raises(KeyError):
+   115	        log_module.configure_logger(stream_level="NOT_A_LEVEL")
+
+===== LOGS PYTEST / VALIDAÇÃO =====
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/generated_test_compile.stderr.log
+SIZE=0
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/generated_test_compile.stdout.log
+SIZE=0
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/pytest_raw.stderr.log
+SIZE=0
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/pytest_raw.stdout.log
+SIZE=2306
+----------------------------------------------------------------------
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.2, pluggy-1.6.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/work
+collecting ... collected 7 items
+
+../tests/test_gpt_iaedu.py::test_log_levels_contains_standard_logging_levels PASSED [ 14%]
+../tests/test_gpt_iaedu.py::test_log_formats_contains_expected_debug_and_info_formats PASSED [ 28%]
+../tests/test_gpt_iaedu.py::test_configure_logger_default_creates_stdout_debug_handler PASSED [ 42%]
+../tests/test_gpt_iaedu.py::test_configure_logger_info_level_filters_debug_messages PASSED [ 57%]
+../tests/test_gpt_iaedu.py::test_configure_logger_replaces_existing_handlers FAILED [ 71%]
+../tests/test_gpt_iaedu.py::test_configure_logger_with_debug_file_adds_file_and_stream_handlers FAILED [ 85%]
+../tests/test_gpt_iaedu.py::test_configure_logger_invalid_stream_level_raises_key_error PASSED [100%]
+
+=================================== FAILURES ===================================
+_______________ test_configure_logger_replaces_existing_handlers _______________
+../tests/test_gpt_iaedu.py:83: in test_configure_logger_replaces_existing_handlers
+    configured = log_module.configure_logger(stream_level="WARNING")
+cookiecutter/log.py:42: in configure_logger
+    log_formatter = logging.Formatter(LOG_FORMATS[stream_level])
+E   KeyError: 'WARNING'
+_____ test_configure_logger_with_debug_file_adds_file_and_stream_handlers ______
+../tests/test_gpt_iaedu.py:94: in test_configure_logger_with_debug_file_adds_file_and_stream_handlers
+    logger = log_module.configure_logger(stream_level="ERROR", debug_file=str(debug_file))
+cookiecutter/log.py:42: in configure_logger
+    log_formatter = logging.Formatter(LOG_FORMATS[stream_level])
+E   KeyError: 'ERROR'
+=========================== short test summary info ============================
+FAILED ../tests/test_gpt_iaedu.py::test_configure_logger_replaces_existing_handlers - KeyError: 'WARNING'
+FAILED ../tests/test_gpt_iaedu.py::test_configure_logger_with_debug_file_adds_file_and_stream_handlers - KeyError: 'ERROR'
+========================= 2 failed, 5 passed in 0.05s ==========================
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/sut_import_check.stderr.log
+SIZE=0
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/sut_import_check.stdout.log
+SIZE=206
+----------------------------------------------------------------------
+{"module": "cookiecutter.log", "file": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/work/sut/cookiecutter/log.py"}
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/metrics/pytest_raw_command.txt
+SIZE=221
+----------------------------------------------------------------------
+python3 -m pytest -vv --tb=short --import-mode=importlib /home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/work/tests/test_gpt_iaedu.py
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/metrics/pytest_raw_exit_code.txt
+SIZE=2
+----------------------------------------------------------------------
+1
+
+===== EXCERTOS DE ERRO EM TODOS OS LOGS =====
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/pytest_raw.stdout.log:11:../tests/test_gpt_iaedu.py::test_configure_logger_replaces_existing_handlers FAILED [ 71%]
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/pytest_raw.stdout.log:12:../tests/test_gpt_iaedu.py::test_configure_logger_with_debug_file_adds_file_and_stream_handlers FAILED [ 85%]
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/pytest_raw.stdout.log:24:    logger = log_module.configure_logger(stream_level="ERROR", debug_file=str(debug_file))
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/pytest_raw.stdout.log:27:E   KeyError: 'ERROR'
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/pytest_raw.stdout.log:29:FAILED ../tests/test_gpt_iaedu.py::test_configure_logger_replaces_existing_handlers - KeyError: 'WARNING'
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/pytest_raw.stdout.log:30:FAILED ../tests/test_gpt_iaedu.py::test_configure_logger_with_debug_file_adds_file_and_stream_handlers - KeyError: 'ERROR'
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/raw/prompt.txt:74:    'ERROR': logging.ERROR,
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/raw/_attempts/attempt_01/model_raw_output.py.txt:39:        "ERROR": logging.ERROR,
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/raw/_attempts/attempt_01/model_raw_output.py.txt:94:    logger = log_module.configure_logger(stream_level="ERROR", debug_file=str(debug_file))
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/raw/_attempts/attempt_01/model_raw_output.py.txt:108:    assert "ERROR: error message for both handlers" in captured.out
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/raw/_attempts/attempt_01/model_raw_output.py.txt:110:    assert "ERROR cookiecutter: error message for both handlers" in file_content
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/raw/target_context.txt:44:    'ERROR': logging.ERROR,
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/raw/model_raw_output.py.txt:39:        "ERROR": logging.ERROR,
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/raw/model_raw_output.py.txt:94:    logger = log_module.configure_logger(stream_level="ERROR", debug_file=str(debug_file))
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/raw/model_raw_output.py.txt:108:    assert "ERROR: error message for both handlers" in captured.out
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/raw/model_raw_output.py.txt:110:    assert "ERROR cookiecutter: error message for both handlers" in file_content
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/work/tests/test_gpt_iaedu.py:39:        "ERROR": logging.ERROR,
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/work/tests/test_gpt_iaedu.py:94:    logger = log_module.configure_logger(stream_level="ERROR", debug_file=str(debug_file))
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/work/tests/test_gpt_iaedu.py:108:    assert "ERROR: error message for both handlers" in captured.out
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/work/tests/test_gpt_iaedu.py:110:    assert "ERROR cookiecutter: error message for both handlers" in file_content
+
+===== TAMANHOS DOS LOGS =====
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/context.stderr.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/context.stdout.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/generated_test_compile.stderr.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/generated_test_compile.stdout.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/gpt4o.stderr.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/normalize_generated_test.stderr.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/prepare_sut.stderr.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/pytest_raw.stderr.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/render_prompt.stderr.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/render_prompt.stdout.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/runtime_shims.stderr.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/sut_import_check.stderr.log
+206	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/sut_import_check.stdout.log
+373	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/normalize_generated_test.json
+374	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/normalize_generated_test.stdout.log
+565	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/runtime_shims.json
+566	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/runtime_shims.stdout.log
+662	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/prepare_sut.stdout.log
+862	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/runner.log
+2306	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1/logs/pytest_raw.stdout.log
+
+
+######################################################################
+ACCOUNT=account2
+SUT_ID=httpie_1f
+RUN_DIR=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1
+STATUS_FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/metrics/status.json
+######################################################################
+
+===== STATUS SUMMARY =====
+{
+  "status": "pytest_raw_fail",
+  "sut_id": "httpie_1f",
+  "target_module": "httpie.sessions",
+  "cov_target": "httpie",
+  "dry_run": "0",
+  "model": "gpt-5.5-iaedu",
+  "generation_attempts": 1,
+  "generation_empty_attempts": 0,
+  "generation_final_state": "nonempty_success",
+  "generation_output_nonempty": "true",
+  "generated_test_compile_exit_code": 0,
+  "sut_import_check_exit_code": 0,
+  "pytest_raw_exit_code": 1,
+  "pytest_final_exit_code": null,
+  "coverage_exit_code": null,
+  "mutmut_exit_code": null,
+  "line_pct": null,
+  "branch_pct": null,
+  "mutation_score_pct": null,
+  "generated_test_file": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/work/tests/test_gpt_iaedu.py",
+  "canonical_test_file": null
+}
+
+===== TODOS OS FICHEIROS DO RUN RELEVANTES =====
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/context.stdout.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/generated_test_compile.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/generated_test_compile.stdout.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/gpt4o.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/normalize_generated_test.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/prepare_sut.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/pytest_raw.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/render_prompt.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/render_prompt.stdout.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/runtime_shims.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/raw/_attempts/attempt_01/gpt4o.stderr.log
+158 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/metrics/generated_test_file.txt
+1952 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/work/sut/tests/test_exit_status.py
+198 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/sut_import_check.stdout.log
+1992 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/metrics/status.json
+2 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/metrics/generated_test_compile_exit_code.txt
+2 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/metrics/pytest_raw_exit_code.txt
+2 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/metrics/sut_import_check_exit_code.txt
+215 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/metrics/pytest_raw_command.txt
+3242 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/pytest_raw.stdout.log
+361 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/normalize_generated_test.json
+362 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/normalize_generated_test.stdout.log
+40 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/work/sut/pytest.ini
+455 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/context.stderr.log
+455 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/sut_import_check.stderr.log
+4561 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/work/tests/test_gpt_iaedu.py
+4688 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/work/tests/__pycache__/test_gpt_iaedu.cpython-310.pyc
+547 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/runtime_shims.stdout.log
+635 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/prepare_sut.stdout.log
+
+===== TESTE GERADO MATERIALIZADO =====
+TEST_FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/work/tests/test_gpt_iaedu.py
+SHA256=fc3917bbbaa9d677f87fd299629b9658af28818174783d8f1f34d6558b048dd0
+LINES=164
+     1	import pytest
+     2	
+     3	import httpie.sessions as sessions
+     4	from httpie.sessions import Session, RequestsCookieJar, create_cookie
+     5	
+     6	
+     7	def test_update_headers_stores_decoded_non_ignored_headers(tmp_path):
+     8	    session = Session(str(tmp_path / "session.json"))
+     9	
+    10	    session.update_headers({
+    11	        "Accept": b"application/json",
+    12	        "X-Custom": b"hello",
+    13	    })
+    14	
+    15	    assert session.headers["Accept"] == "application/json"
+    16	    assert session.headers["X-Custom"] == "hello"
+    17	
+    18	
+    19	def test_update_headers_ignores_request_specific_headers_and_unset_values(tmp_path):
+    20	    session = Session(str(tmp_path / "session.json"))
+    21	
+    22	    session.update_headers({
+    23	        "Content-Type": b"application/json",
+    24	        "content-length": b"123",
+    25	        "If-Match": b"etag",
+    26	        "if-none-match": b"etag2",
+    27	        "X-Keep": b"yes",
+    28	        "X-Remove": None,
+    29	    })
+    30	
+    31	    assert session.headers == {"X-Keep": "yes"}
+    32	
+    33	
+    34	def test_update_headers_ignores_default_httpie_user_agent(tmp_path):
+    35	    session = Session(str(tmp_path / "session.json"))
+    36	
+    37	    session.update_headers({
+    38	        "User-Agent": b"HTTPie/1.0.0",
+    39	        "X-Other": b"stored",
+    40	    })
+    41	
+    42	    assert "User-Agent" not in session.headers
+    43	    assert session.headers["X-Other"] == "stored"
+    44	
+    45	
+    46	def test_update_headers_stores_non_default_user_agent(tmp_path):
+    47	    session = Session(str(tmp_path / "session.json"))
+    48	
+    49	    session.update_headers({
+    50	        "User-Agent": b"custom-client/1.0",
+    51	    })
+    52	
+    53	    assert session.headers["User-Agent"] == "custom-client/1.0"
+    54	
+    55	
+    56	def test_cookies_setter_serializes_cookie_jar(tmp_path):
+    57	    session = Session(str(tmp_path / "session.json"))
+    58	    jar = RequestsCookieJar()
+    59	    jar.set_cookie(create_cookie(
+    60	        name="token",
+    61	        value="abc123",
+    62	        path="/api",
+    63	        secure=True,
+    64	        expires=2000000000,
+    65	    ))
+    66	
+    67	    session.cookies = jar
+    68	
+    69	    assert session["cookies"]["token"] == {
+    70	        "value": "abc123",
+    71	        "path": "/api",
+    72	        "secure": True,
+    73	        "expires": 2000000000,
+    74	    }
+    75	
+    76	
+    77	def test_cookies_getter_returns_requests_cookie_jar(tmp_path):
+    78	    session = Session(str(tmp_path / "session.json"))
+    79	    session["cookies"] = {
+    80	        "token": {
+    81	            "value": "abc123",
+    82	            "path": "/",
+    83	            "secure": False,
+    84	            "expires": None,
+    85	        }
+    86	    }
+    87	
+    88	    jar = session.cookies
+    89	
+    90	    assert isinstance(jar, RequestsCookieJar)
+    91	    assert jar.get("token") == "abc123"
+    92	
+    93	
+    94	def test_cookies_getter_does_not_mutate_stored_cookie_data(tmp_path):
+    95	    session = Session(str(tmp_path / "session.json"))
+    96	    session["cookies"] = {
+    97	        "token": {
+    98	            "value": "abc123",
+    99	            "path": "/",
+   100	            "secure": False,
+   101	            "expires": None,
+   102	        }
+   103	    }
+   104	
+   105	    first = session.cookies
+   106	    second = session.cookies
+   107	
+   108	    assert first.get("token") == "abc123"
+   109	    assert second.get("token") == "abc123"
+   110	    assert session["cookies"]["token"]["value"] == "abc123"
+   111	
+   112	
+   113	def test_auth_returns_none_when_auth_is_missing_or_type_is_empty(tmp_path):
+   114	    session = Session(str(tmp_path / "session.json"))
+   115	
+   116	    assert session.auth is None
+   117	
+   118	    session["auth"] = {
+   119	        "type": None,
+   120	        "username": "user",
+   121	        "password": "pass",
+   122	    }
+   123	
+   124	    assert session.auth is None
+   125	
+   126	
+   127	def test_auth_setter_requires_exact_expected_keys(tmp_path):
+   128	    session = Session(str(tmp_path / "session.json"))
+   129	
+   130	    with pytest.raises(AssertionError):
+   131	        session.auth = {
+   132	            "type": "basic",
+   133	            "username": "user",
+   134	        }
+   135	
+   136	
+   137	def test_auth_property_uses_registered_auth_plugin(tmp_path, monkeypatch):
+   138	    session = Session(str(tmp_path / "session.json"))
+   139	    session.auth = {
+   140	        "type": "dummy",
+   141	        "username": "alice",
+   142	        "password": "secret",
+   143	    }
+   144	
+   145	    class DummyAuthPlugin:
+   146	        def get_auth(self, username, password):
+   147	            return ("AUTH", username, password)
+   148	
+   149	    def get_auth_plugin(auth_type):
+   150	        assert auth_type == "dummy"
+   151	        return DummyAuthPlugin
+   152	
+   153	    monkeypatch.setattr(sessions.plugin_manager, "get_auth_plugin", get_auth_plugin)
+   154	
+   155	    assert session.auth == ("AUTH", "alice", "secret")
+   156	
+   157	
+   158	def test_valid_session_name_pattern_accepts_safe_names_and_rejects_path_like_names():
+   159	    assert sessions.VALID_SESSION_NAME_PATTERN.match("default")
+   160	    assert sessions.VALID_SESSION_NAME_PATTERN.match("work.session-1")
+   161	    assert sessions.VALID_SESSION_NAME_PATTERN.match("name_123")
+   162	    assert not sessions.VALID_SESSION_NAME_PATTERN.match("../secret")
+   163	    assert not sessions.VALID_SESSION_NAME_PATTERN.match("name/with/slash")
+   164	    assert not sessions.VALID_SESSION_NAME_PATTERN.match("contains space")
+
+===== RESPOSTA ORIGINAL DO MODELO =====
+RAW_OUTPUT=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/raw/model_raw_output.py.txt
+SHA256=fc3917bbbaa9d677f87fd299629b9658af28818174783d8f1f34d6558b048dd0
+SIZE=4561
+LINES=164
+     1	import pytest
+     2	
+     3	import httpie.sessions as sessions
+     4	from httpie.sessions import Session, RequestsCookieJar, create_cookie
+     5	
+     6	
+     7	def test_update_headers_stores_decoded_non_ignored_headers(tmp_path):
+     8	    session = Session(str(tmp_path / "session.json"))
+     9	
+    10	    session.update_headers({
+    11	        "Accept": b"application/json",
+    12	        "X-Custom": b"hello",
+    13	    })
+    14	
+    15	    assert session.headers["Accept"] == "application/json"
+    16	    assert session.headers["X-Custom"] == "hello"
+    17	
+    18	
+    19	def test_update_headers_ignores_request_specific_headers_and_unset_values(tmp_path):
+    20	    session = Session(str(tmp_path / "session.json"))
+    21	
+    22	    session.update_headers({
+    23	        "Content-Type": b"application/json",
+    24	        "content-length": b"123",
+    25	        "If-Match": b"etag",
+    26	        "if-none-match": b"etag2",
+    27	        "X-Keep": b"yes",
+    28	        "X-Remove": None,
+    29	    })
+    30	
+    31	    assert session.headers == {"X-Keep": "yes"}
+    32	
+    33	
+    34	def test_update_headers_ignores_default_httpie_user_agent(tmp_path):
+    35	    session = Session(str(tmp_path / "session.json"))
+    36	
+    37	    session.update_headers({
+    38	        "User-Agent": b"HTTPie/1.0.0",
+    39	        "X-Other": b"stored",
+    40	    })
+    41	
+    42	    assert "User-Agent" not in session.headers
+    43	    assert session.headers["X-Other"] == "stored"
+    44	
+    45	
+    46	def test_update_headers_stores_non_default_user_agent(tmp_path):
+    47	    session = Session(str(tmp_path / "session.json"))
+    48	
+    49	    session.update_headers({
+    50	        "User-Agent": b"custom-client/1.0",
+    51	    })
+    52	
+    53	    assert session.headers["User-Agent"] == "custom-client/1.0"
+    54	
+    55	
+    56	def test_cookies_setter_serializes_cookie_jar(tmp_path):
+    57	    session = Session(str(tmp_path / "session.json"))
+    58	    jar = RequestsCookieJar()
+    59	    jar.set_cookie(create_cookie(
+    60	        name="token",
+    61	        value="abc123",
+    62	        path="/api",
+    63	        secure=True,
+    64	        expires=2000000000,
+    65	    ))
+    66	
+    67	    session.cookies = jar
+    68	
+    69	    assert session["cookies"]["token"] == {
+    70	        "value": "abc123",
+    71	        "path": "/api",
+    72	        "secure": True,
+    73	        "expires": 2000000000,
+    74	    }
+    75	
+    76	
+    77	def test_cookies_getter_returns_requests_cookie_jar(tmp_path):
+    78	    session = Session(str(tmp_path / "session.json"))
+    79	    session["cookies"] = {
+    80	        "token": {
+    81	            "value": "abc123",
+    82	            "path": "/",
+    83	            "secure": False,
+    84	            "expires": None,
+    85	        }
+    86	    }
+    87	
+    88	    jar = session.cookies
+    89	
+    90	    assert isinstance(jar, RequestsCookieJar)
+    91	    assert jar.get("token") == "abc123"
+    92	
+    93	
+    94	def test_cookies_getter_does_not_mutate_stored_cookie_data(tmp_path):
+    95	    session = Session(str(tmp_path / "session.json"))
+    96	    session["cookies"] = {
+    97	        "token": {
+    98	            "value": "abc123",
+    99	            "path": "/",
+   100	            "secure": False,
+   101	            "expires": None,
+   102	        }
+   103	    }
+   104	
+   105	    first = session.cookies
+   106	    second = session.cookies
+   107	
+   108	    assert first.get("token") == "abc123"
+   109	    assert second.get("token") == "abc123"
+   110	    assert session["cookies"]["token"]["value"] == "abc123"
+   111	
+   112	
+   113	def test_auth_returns_none_when_auth_is_missing_or_type_is_empty(tmp_path):
+   114	    session = Session(str(tmp_path / "session.json"))
+   115	
+   116	    assert session.auth is None
+   117	
+   118	    session["auth"] = {
+   119	        "type": None,
+   120	        "username": "user",
+   121	        "password": "pass",
+   122	    }
+   123	
+   124	    assert session.auth is None
+   125	
+   126	
+   127	def test_auth_setter_requires_exact_expected_keys(tmp_path):
+   128	    session = Session(str(tmp_path / "session.json"))
+   129	
+   130	    with pytest.raises(AssertionError):
+   131	        session.auth = {
+   132	            "type": "basic",
+   133	            "username": "user",
+   134	        }
+   135	
+   136	
+   137	def test_auth_property_uses_registered_auth_plugin(tmp_path, monkeypatch):
+   138	    session = Session(str(tmp_path / "session.json"))
+   139	    session.auth = {
+   140	        "type": "dummy",
+   141	        "username": "alice",
+   142	        "password": "secret",
+   143	    }
+   144	
+   145	    class DummyAuthPlugin:
+   146	        def get_auth(self, username, password):
+   147	            return ("AUTH", username, password)
+   148	
+   149	    def get_auth_plugin(auth_type):
+   150	        assert auth_type == "dummy"
+   151	        return DummyAuthPlugin
+   152	
+   153	    monkeypatch.setattr(sessions.plugin_manager, "get_auth_plugin", get_auth_plugin)
+   154	
+   155	    assert session.auth == ("AUTH", "alice", "secret")
+   156	
+   157	
+   158	def test_valid_session_name_pattern_accepts_safe_names_and_rejects_path_like_names():
+   159	    assert sessions.VALID_SESSION_NAME_PATTERN.match("default")
+   160	    assert sessions.VALID_SESSION_NAME_PATTERN.match("work.session-1")
+   161	    assert sessions.VALID_SESSION_NAME_PATTERN.match("name_123")
+   162	    assert not sessions.VALID_SESSION_NAME_PATTERN.match("../secret")
+   163	    assert not sessions.VALID_SESSION_NAME_PATTERN.match("name/with/slash")
+   164	    assert not sessions.VALID_SESSION_NAME_PATTERN.match("contains space")
+
+===== LOGS PYTEST / VALIDAÇÃO =====
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/generated_test_compile.stderr.log
+SIZE=0
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/generated_test_compile.stdout.log
+SIZE=0
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/pytest_raw.stderr.log
+SIZE=0
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/pytest_raw.stdout.log
+SIZE=3242
+----------------------------------------------------------------------
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.2, pluggy-1.6.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/work
+collecting ... collected 11 items
+
+../tests/test_gpt_iaedu.py::test_update_headers_stores_decoded_non_ignored_headers PASSED [  9%]
+../tests/test_gpt_iaedu.py::test_update_headers_ignores_request_specific_headers_and_unset_values PASSED [ 18%]
+../tests/test_gpt_iaedu.py::test_update_headers_ignores_default_httpie_user_agent PASSED [ 27%]
+../tests/test_gpt_iaedu.py::test_update_headers_stores_non_default_user_agent PASSED [ 36%]
+../tests/test_gpt_iaedu.py::test_cookies_setter_serializes_cookie_jar PASSED [ 45%]
+../tests/test_gpt_iaedu.py::test_cookies_getter_returns_requests_cookie_jar PASSED [ 54%]
+../tests/test_gpt_iaedu.py::test_cookies_getter_does_not_mutate_stored_cookie_data FAILED [ 63%]
+../tests/test_gpt_iaedu.py::test_auth_returns_none_when_auth_is_missing_or_type_is_empty PASSED [ 72%]
+../tests/test_gpt_iaedu.py::test_auth_setter_requires_exact_expected_keys PASSED [ 81%]
+../tests/test_gpt_iaedu.py::test_auth_property_uses_registered_auth_plugin PASSED [ 90%]
+../tests/test_gpt_iaedu.py::test_valid_session_name_pattern_accepts_safe_names_and_rejects_path_like_names PASSED [100%]
+
+=================================== FAILURES ===================================
+____________ test_cookies_getter_does_not_mutate_stored_cookie_data ____________
+../tests/test_gpt_iaedu.py:106: in test_cookies_getter_does_not_mutate_stored_cookie_data
+    second = session.cookies
+httpie/sessions.py:127: in cookies
+    name, cookie_dict.pop('value'), **cookie_dict))
+E   KeyError: 'value'
+=============================== warnings summary ===============================
+httpie/plugins/manager.py:2
+  /home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/work/sut/httpie/plugins/manager.py:2: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+    from pkg_resources import iter_entry_points
+
+../../../../../../../../../../.local/lib/python3.10/site-packages/pkg_resources/__init__.py:3148
+  /home/jpaiva/.local/lib/python3.10/site-packages/pkg_resources/__init__.py:3148: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('google')`.
+  Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+    declare_namespace(pkg)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED ../tests/test_gpt_iaedu.py::test_cookies_getter_does_not_mutate_stored_cookie_data - KeyError: 'value'
+=================== 1 failed, 10 passed, 2 warnings in 0.20s ===================
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/sut_import_check.stderr.log
+SIZE=455
+----------------------------------------------------------------------
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/work/sut/httpie/plugins/manager.py:2: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import iter_entry_points
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/sut_import_check.stdout.log
+SIZE=198
+----------------------------------------------------------------------
+{"module": "httpie.sessions", "file": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/work/sut/httpie/sessions.py"}
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/metrics/pytest_raw_command.txt
+SIZE=215
+----------------------------------------------------------------------
+python3 -m pytest -vv --tb=short --import-mode=importlib /home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/work/tests/test_gpt_iaedu.py
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/metrics/pytest_raw_exit_code.txt
+SIZE=2
+----------------------------------------------------------------------
+1
+
+===== EXCERTOS DE ERRO EM TODOS OS LOGS =====
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/pytest_raw.stdout.log:13:../tests/test_gpt_iaedu.py::test_cookies_getter_does_not_mutate_stored_cookie_data FAILED [ 63%]
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/pytest_raw.stdout.log:32:  /home/jpaiva/.local/lib/python3.10/site-packages/pkg_resources/__init__.py:3148: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('google')`.
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/pytest_raw.stdout.log:38:FAILED ../tests/test_gpt_iaedu.py::test_cookies_getter_does_not_mutate_stored_cookie_data - KeyError: 'value'
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/raw/_attempts/attempt_01/model_raw_output.py.txt:130:    with pytest.raises(AssertionError):
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/raw/model_raw_output.py.txt:130:    with pytest.raises(AssertionError):
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/work/tests/test_gpt_iaedu.py:130:    with pytest.raises(AssertionError):
+
+===== TAMANHOS DOS LOGS =====
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/context.stdout.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/generated_test_compile.stderr.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/generated_test_compile.stdout.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/gpt4o.stderr.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/normalize_generated_test.stderr.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/prepare_sut.stderr.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/pytest_raw.stderr.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/render_prompt.stderr.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/render_prompt.stdout.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/runtime_shims.stderr.log
+198	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/sut_import_check.stdout.log
+361	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/normalize_generated_test.json
+362	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/normalize_generated_test.stdout.log
+455	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/context.stderr.log
+455	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/sut_import_check.stderr.log
+546	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/runtime_shims.json
+547	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/runtime_shims.stdout.log
+635	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/prepare_sut.stdout.log
+831	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/runner.log
+3242	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1/logs/pytest_raw.stdout.log
+
+
+######################################################################
+ACCOUNT=account3
+SUT_ID=tornado_4f
+RUN_DIR=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1
+STATUS_FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/metrics/status.json
+######################################################################
+
+===== STATUS SUMMARY =====
+{
+  "status": "pytest_raw_fail",
+  "sut_id": "tornado_4f",
+  "target_module": "tornado.escape",
+  "cov_target": "tornado",
+  "dry_run": "0",
+  "model": "gpt-5.5-iaedu",
+  "generation_attempts": 1,
+  "generation_empty_attempts": 0,
+  "generation_final_state": "nonempty_success",
+  "generation_output_nonempty": "true",
+  "generated_test_compile_exit_code": 0,
+  "sut_import_check_exit_code": 0,
+  "pytest_raw_exit_code": 1,
+  "pytest_final_exit_code": null,
+  "coverage_exit_code": null,
+  "mutmut_exit_code": null,
+  "line_pct": null,
+  "branch_pct": null,
+  "mutation_score_pct": null,
+  "generated_test_file": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/work/tests/test_gpt_iaedu.py",
+  "canonical_test_file": null
+}
+
+===== TODOS OS FICHEIROS DO RUN RELEVANTES =====
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/context.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/context.stdout.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/generated_test_compile.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/generated_test_compile.stdout.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/gpt4o.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/normalize_generated_test.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/prepare_sut.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/pytest_raw.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/render_prompt.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/render_prompt.stdout.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/runtime_shims.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/sut_import_check.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/raw/_attempts/attempt_01/gpt4o.stderr.log
+159 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/metrics/generated_test_file.txt
+197 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/sut_import_check.stdout.log
+1980 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/work/sut/tornado/test/import_test.py
+1999 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/metrics/status.json
+2 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/metrics/generated_test_compile_exit_code.txt
+2 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/metrics/pytest_raw_exit_code.txt
+2 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/metrics/sut_import_check_exit_code.txt
+216 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/metrics/pytest_raw_command.txt
+3624 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/pytest_raw.stdout.log
+363 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/normalize_generated_test.json
+364 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/normalize_generated_test.stdout.log
+5004 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/work/tests/test_gpt_iaedu.py
+549 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/runtime_shims.stdout.log
+6023 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/work/tests/__pycache__/test_gpt_iaedu.cpython-310.pyc
+636 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/prepare_sut.stdout.log
+
+===== TESTE GERADO MATERIALIZADO =====
+TEST_FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/work/tests/test_gpt_iaedu.py
+SHA256=f0bb6fab820247dc59c7b25cd4fab7e315aa5cf7cc47c98e7cd84f53e5eaba96
+LINES=141
+     1	import pytest
+     2	
+     3	import tornado.escape as escape
+     4	
+     5	
+     6	def test_xhtml_escape_escapes_all_special_characters():
+     7	    value = """<tag attr="value&more">Tom's</tag>"""
+     8	    assert escape.xhtml_escape(value) == "&lt;tag attr=&quot;value&amp;more&quot;&gt;Tom&#39;s&lt;/tag&gt;"
+     9	
+    10	
+    11	def test_xhtml_escape_accepts_bytes():
+    12	    assert escape.xhtml_escape(b"<b>caf\xc3\xa9 & tea</b>") == "&lt;b&gt;caf\u00e9 &amp; tea&lt;/b&gt;"
+    13	
+    14	
+    15	def test_xhtml_unescape_named_decimal_and_hex_entities():
+    16	    value = "&lt;span&gt;Tom&#39;s caf&#xE9; &amp; tea&lt;/span&gt;"
+    17	    assert escape.xhtml_unescape(value) == "<span>Tom's caf\u00e9 & tea</span>"
+    18	
+    19	
+    20	def test_xhtml_unescape_preserves_unknown_and_invalid_entities():
+    21	    assert escape.xhtml_unescape("&doesnotexist; &#notanumber;") == "&doesnotexist; &#notanumber;"
+    22	
+    23	
+    24	def test_json_encode_escapes_closing_script_tag():
+    25	    encoded = escape.json_encode({"html": "</script><div>"})
+    26	    assert "<\\/script>" in encoded
+    27	    assert escape.json_decode(encoded) == {"html": "</script><div>"}
+    28	
+    29	
+    30	def test_squeeze_collapses_ascii_control_whitespace_and_strips_edges():
+    31	    assert escape.squeeze(" \t one\n\r\x00\x1f two   three \n") == "one two three"
+    32	
+    33	
+    34	def test_url_escape_plus_true_uses_plus_for_spaces_and_escapes_literal_plus():
+    35	    assert escape.url_escape("a b+c/\u2603", plus=True) == "a+b%2Bc%2F%E2%98%83"
+    36	
+    37	
+    38	def test_url_escape_plus_false_uses_percent_20_for_spaces():
+    39	    assert escape.url_escape("a b+c/\u2603", plus=False) == "a%20b%2Bc/%E2%98%83"
+    40	
+    41	
+    42	def test_url_unescape_respects_plus_argument():
+    43	    assert escape.url_unescape("a+b%2Bc", plus=True) == "a b+c"
+    44	    assert escape.url_unescape("a+b%2Bc", plus=False) == "a+b+c"
+    45	
+    46	
+    47	def test_url_unescape_with_none_encoding_returns_bytes():
+    48	    assert escape.url_unescape("caf%C3%A9+a%2Bb", encoding=None, plus=True) == b"caf\xc3\xa9 a+b"
+    49	    assert escape.url_unescape("caf%C3%A9+a%2Bb", encoding=None, plus=False) == b"caf\xc3\xa9+a+b"
+    50	
+    51	
+    52	def test_parse_qs_bytes_returns_string_keys_and_bytes_values():
+    53	    parsed = escape.parse_qs_bytes("name=caf%E9&blank=&space=a+b", keep_blank_values=True)
+    54	    assert parsed == {
+    55	        "name": [b"caf\xe9"],
+    56	        "blank": [b""],
+    57	        "space": [b"a b"],
+    58	    }
+    59	
+    60	
+    61	def test_utf8_to_unicode_and_to_basestring_conversions():
+    62	    assert escape.utf8("caf\u00e9") == b"caf\xc3\xa9"
+    63	    assert escape.utf8(b"already bytes") == b"already bytes"
+    64	    assert escape.utf8(None) is None
+    65	
+    66	    assert escape.to_unicode(b"caf\xc3\xa9") == "caf\u00e9"
+    67	    assert escape.to_unicode("already unicode") == "already unicode"
+    68	    assert escape.to_unicode(None) is None
+    69	
+    70	    assert escape.to_basestring(b"caf\xc3\xa9") == "caf\u00e9"
+    71	    assert escape.to_basestring("already text") == "already text"
+    72	    assert escape.to_basestring(None) is None
+    73	
+    74	
+    75	def test_conversion_helpers_reject_non_string_values():
+    76	    with pytest.raises(TypeError):
+    77	        escape.utf8(123)
+    78	
+    79	    with pytest.raises(TypeError):
+    80	        escape.to_unicode(123)
+    81	
+    82	    with pytest.raises(TypeError):
+    83	        escape.to_basestring(123)
+    84	
+    85	
+    86	def test_recursive_unicode_converts_nested_byte_strings():
+    87	    original = {
+    88	        b"key": [b"value", (b"tuple", 3)],
+    89	        "unchanged": {b"inner": b"caf\xc3\xa9"},
+    90	    }
+    91	    assert escape.recursive_unicode(original) == {
+    92	        "key": ["value", ("tuple", 3)],
+    93	        "unchanged": {"inner": "caf\u00e9"},
+    94	    }
+    95	
+    96	
+    97	def test_linkify_links_http_urls_and_escapes_surrounding_html():
+    98	    text = 'Visit <b>http://example.com/?a=1&b=2</b>'
+    99	    result = escape.linkify(text)
+   100	    assert result == (
+   101	        "Visit &lt;b&gt;"
+   102	        '<a href="http://example.com/?a=1&amp;b=2">http://example.com/?a=1&amp;b=2</a>'
+   103	        "&lt;/b&gt;"
+   104	    )
+   105	
+   106	
+   107	def test_linkify_adds_http_to_www_links_by_default():
+   108	    assert escape.linkify("Go to www.example.com/path") == (
+   109	        'Go to <a href="http://www.example.com/path">www.example.com/path</a>'
+   110	    )
+   111	
+   112	
+   113	def test_linkify_require_protocol_leaves_www_links_plain():
+   114	    assert escape.linkify("Go to www.example.com/path", require_protocol=True) == "Go to www.example.com/path"
+   115	
+   116	
+   117	def test_linkify_rejects_unpermitted_protocols():
+   118	    assert escape.linkify("bad javascript:alert(1)") == "bad javascript:alert(1)"
+   119	
+   120	
+   121	def test_linkify_extra_params_string_and_callable():
+   122	    assert escape.linkify("http://example.com", extra_params='rel="nofollow"') == (
+   123	        '<a href="http://example.com" rel="nofollow">http://example.com</a>'
+   124	    )
+   125	
+   126	    def params(href):
+   127	        assert href == "http://example.com"
+   128	        return 'data-href="ok"'
+   129	
+   130	    assert escape.linkify("http://example.com", extra_params=params) == (
+   131	        '<a href="http://example.com" data-href="ok">http://example.com</a>'
+   132	    )
+   133	
+   134	
+   135	def test_linkify_shorten_adds_title_and_visible_ellipsis():
+   136	    url = "http://example.com/verylongpathsegment/another/path?query=value"
+   137	    result = escape.linkify(url, shorten=True)
+   138	    assert result.startswith('<a href="%s" title="%s">' % (url, url))
+   139	    assert result.endswith("...</a>")
+   140	    assert "verylong" in result
+   141	    assert len(result) < len('<a href="%s">%s</a>' % (url, url))
+
+===== RESPOSTA ORIGINAL DO MODELO =====
+RAW_OUTPUT=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/raw/model_raw_output.py.txt
+SHA256=f0bb6fab820247dc59c7b25cd4fab7e315aa5cf7cc47c98e7cd84f53e5eaba96
+SIZE=5004
+LINES=141
+     1	import pytest
+     2	
+     3	import tornado.escape as escape
+     4	
+     5	
+     6	def test_xhtml_escape_escapes_all_special_characters():
+     7	    value = """<tag attr="value&more">Tom's</tag>"""
+     8	    assert escape.xhtml_escape(value) == "&lt;tag attr=&quot;value&amp;more&quot;&gt;Tom&#39;s&lt;/tag&gt;"
+     9	
+    10	
+    11	def test_xhtml_escape_accepts_bytes():
+    12	    assert escape.xhtml_escape(b"<b>caf\xc3\xa9 & tea</b>") == "&lt;b&gt;caf\u00e9 &amp; tea&lt;/b&gt;"
+    13	
+    14	
+    15	def test_xhtml_unescape_named_decimal_and_hex_entities():
+    16	    value = "&lt;span&gt;Tom&#39;s caf&#xE9; &amp; tea&lt;/span&gt;"
+    17	    assert escape.xhtml_unescape(value) == "<span>Tom's caf\u00e9 & tea</span>"
+    18	
+    19	
+    20	def test_xhtml_unescape_preserves_unknown_and_invalid_entities():
+    21	    assert escape.xhtml_unescape("&doesnotexist; &#notanumber;") == "&doesnotexist; &#notanumber;"
+    22	
+    23	
+    24	def test_json_encode_escapes_closing_script_tag():
+    25	    encoded = escape.json_encode({"html": "</script><div>"})
+    26	    assert "<\\/script>" in encoded
+    27	    assert escape.json_decode(encoded) == {"html": "</script><div>"}
+    28	
+    29	
+    30	def test_squeeze_collapses_ascii_control_whitespace_and_strips_edges():
+    31	    assert escape.squeeze(" \t one\n\r\x00\x1f two   three \n") == "one two three"
+    32	
+    33	
+    34	def test_url_escape_plus_true_uses_plus_for_spaces_and_escapes_literal_plus():
+    35	    assert escape.url_escape("a b+c/\u2603", plus=True) == "a+b%2Bc%2F%E2%98%83"
+    36	
+    37	
+    38	def test_url_escape_plus_false_uses_percent_20_for_spaces():
+    39	    assert escape.url_escape("a b+c/\u2603", plus=False) == "a%20b%2Bc/%E2%98%83"
+    40	
+    41	
+    42	def test_url_unescape_respects_plus_argument():
+    43	    assert escape.url_unescape("a+b%2Bc", plus=True) == "a b+c"
+    44	    assert escape.url_unescape("a+b%2Bc", plus=False) == "a+b+c"
+    45	
+    46	
+    47	def test_url_unescape_with_none_encoding_returns_bytes():
+    48	    assert escape.url_unescape("caf%C3%A9+a%2Bb", encoding=None, plus=True) == b"caf\xc3\xa9 a+b"
+    49	    assert escape.url_unescape("caf%C3%A9+a%2Bb", encoding=None, plus=False) == b"caf\xc3\xa9+a+b"
+    50	
+    51	
+    52	def test_parse_qs_bytes_returns_string_keys_and_bytes_values():
+    53	    parsed = escape.parse_qs_bytes("name=caf%E9&blank=&space=a+b", keep_blank_values=True)
+    54	    assert parsed == {
+    55	        "name": [b"caf\xe9"],
+    56	        "blank": [b""],
+    57	        "space": [b"a b"],
+    58	    }
+    59	
+    60	
+    61	def test_utf8_to_unicode_and_to_basestring_conversions():
+    62	    assert escape.utf8("caf\u00e9") == b"caf\xc3\xa9"
+    63	    assert escape.utf8(b"already bytes") == b"already bytes"
+    64	    assert escape.utf8(None) is None
+    65	
+    66	    assert escape.to_unicode(b"caf\xc3\xa9") == "caf\u00e9"
+    67	    assert escape.to_unicode("already unicode") == "already unicode"
+    68	    assert escape.to_unicode(None) is None
+    69	
+    70	    assert escape.to_basestring(b"caf\xc3\xa9") == "caf\u00e9"
+    71	    assert escape.to_basestring("already text") == "already text"
+    72	    assert escape.to_basestring(None) is None
+    73	
+    74	
+    75	def test_conversion_helpers_reject_non_string_values():
+    76	    with pytest.raises(TypeError):
+    77	        escape.utf8(123)
+    78	
+    79	    with pytest.raises(TypeError):
+    80	        escape.to_unicode(123)
+    81	
+    82	    with pytest.raises(TypeError):
+    83	        escape.to_basestring(123)
+    84	
+    85	
+    86	def test_recursive_unicode_converts_nested_byte_strings():
+    87	    original = {
+    88	        b"key": [b"value", (b"tuple", 3)],
+    89	        "unchanged": {b"inner": b"caf\xc3\xa9"},
+    90	    }
+    91	    assert escape.recursive_unicode(original) == {
+    92	        "key": ["value", ("tuple", 3)],
+    93	        "unchanged": {"inner": "caf\u00e9"},
+    94	    }
+    95	
+    96	
+    97	def test_linkify_links_http_urls_and_escapes_surrounding_html():
+    98	    text = 'Visit <b>http://example.com/?a=1&b=2</b>'
+    99	    result = escape.linkify(text)
+   100	    assert result == (
+   101	        "Visit &lt;b&gt;"
+   102	        '<a href="http://example.com/?a=1&amp;b=2">http://example.com/?a=1&amp;b=2</a>'
+   103	        "&lt;/b&gt;"
+   104	    )
+   105	
+   106	
+   107	def test_linkify_adds_http_to_www_links_by_default():
+   108	    assert escape.linkify("Go to www.example.com/path") == (
+   109	        'Go to <a href="http://www.example.com/path">www.example.com/path</a>'
+   110	    )
+   111	
+   112	
+   113	def test_linkify_require_protocol_leaves_www_links_plain():
+   114	    assert escape.linkify("Go to www.example.com/path", require_protocol=True) == "Go to www.example.com/path"
+   115	
+   116	
+   117	def test_linkify_rejects_unpermitted_protocols():
+   118	    assert escape.linkify("bad javascript:alert(1)") == "bad javascript:alert(1)"
+   119	
+   120	
+   121	def test_linkify_extra_params_string_and_callable():
+   122	    assert escape.linkify("http://example.com", extra_params='rel="nofollow"') == (
+   123	        '<a href="http://example.com" rel="nofollow">http://example.com</a>'
+   124	    )
+   125	
+   126	    def params(href):
+   127	        assert href == "http://example.com"
+   128	        return 'data-href="ok"'
+   129	
+   130	    assert escape.linkify("http://example.com", extra_params=params) == (
+   131	        '<a href="http://example.com" data-href="ok">http://example.com</a>'
+   132	    )
+   133	
+   134	
+   135	def test_linkify_shorten_adds_title_and_visible_ellipsis():
+   136	    url = "http://example.com/verylongpathsegment/another/path?query=value"
+   137	    result = escape.linkify(url, shorten=True)
+   138	    assert result.startswith('<a href="%s" title="%s">' % (url, url))
+   139	    assert result.endswith("...</a>")
+   140	    assert "verylong" in result
+   141	    assert len(result) < len('<a href="%s">%s</a>' % (url, url))
+
+===== LOGS PYTEST / VALIDAÇÃO =====
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/generated_test_compile.stderr.log
+SIZE=0
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/generated_test_compile.stdout.log
+SIZE=0
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/pytest_raw.stderr.log
+SIZE=0
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/pytest_raw.stdout.log
+SIZE=3624
+----------------------------------------------------------------------
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.2, pluggy-1.6.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/work
+collecting ... collected 20 items
+
+../tests/test_gpt_iaedu.py::test_xhtml_escape_escapes_all_special_characters PASSED [  5%]
+../tests/test_gpt_iaedu.py::test_xhtml_escape_accepts_bytes PASSED       [ 10%]
+../tests/test_gpt_iaedu.py::test_xhtml_unescape_named_decimal_and_hex_entities PASSED [ 15%]
+../tests/test_gpt_iaedu.py::test_xhtml_unescape_preserves_unknown_and_invalid_entities PASSED [ 20%]
+../tests/test_gpt_iaedu.py::test_json_encode_escapes_closing_script_tag PASSED [ 25%]
+../tests/test_gpt_iaedu.py::test_squeeze_collapses_ascii_control_whitespace_and_strips_edges PASSED [ 30%]
+../tests/test_gpt_iaedu.py::test_url_escape_plus_true_uses_plus_for_spaces_and_escapes_literal_plus PASSED [ 35%]
+../tests/test_gpt_iaedu.py::test_url_escape_plus_false_uses_percent_20_for_spaces PASSED [ 40%]
+../tests/test_gpt_iaedu.py::test_url_unescape_respects_plus_argument PASSED [ 45%]
+../tests/test_gpt_iaedu.py::test_url_unescape_with_none_encoding_returns_bytes PASSED [ 50%]
+../tests/test_gpt_iaedu.py::test_parse_qs_bytes_returns_string_keys_and_bytes_values PASSED [ 55%]
+../tests/test_gpt_iaedu.py::test_utf8_to_unicode_and_to_basestring_conversions PASSED [ 60%]
+../tests/test_gpt_iaedu.py::test_conversion_helpers_reject_non_string_values PASSED [ 65%]
+../tests/test_gpt_iaedu.py::test_recursive_unicode_converts_nested_byte_strings PASSED [ 70%]
+../tests/test_gpt_iaedu.py::test_linkify_links_http_urls_and_escapes_surrounding_html PASSED [ 75%]
+../tests/test_gpt_iaedu.py::test_linkify_adds_http_to_www_links_by_default PASSED [ 80%]
+../tests/test_gpt_iaedu.py::test_linkify_require_protocol_leaves_www_links_plain PASSED [ 85%]
+../tests/test_gpt_iaedu.py::test_linkify_rejects_unpermitted_protocols PASSED [ 90%]
+../tests/test_gpt_iaedu.py::test_linkify_extra_params_string_and_callable PASSED [ 95%]
+../tests/test_gpt_iaedu.py::test_linkify_shorten_adds_title_and_visible_ellipsis FAILED [100%]
+
+=================================== FAILURES ===================================
+_____________ test_linkify_shorten_adds_title_and_visible_ellipsis _____________
+../tests/test_gpt_iaedu.py:141: in test_linkify_shorten_adds_title_and_visible_ellipsis
+    assert len(result) < len('<a href="%s">%s</a>' % (url, url))
+E   assert 180 < 141
+E    +  where 180 = len('<a href="http://example.com/verylongpathsegment/another/path?query=value" title="http://example.com/verylongpathsegment/another/path?query=value">http://example.com/verylong...</a>')
+E    +  and   141 = len(('<a href="%s">%s</a>' % ('http://example.com/verylongpathsegment/another/path?query=value', 'http://example.com/verylongpathsegment/another/path?query=value')))
+=========================== short test summary info ============================
+FAILED ../tests/test_gpt_iaedu.py::test_linkify_shorten_adds_title_and_visible_ellipsis - assert 180 < 141
+ +  where 180 = len('<a href="http://example.com/verylongpathsegment/another/path?query=value" title="http://example.com/verylongpathsegment/another/path?query=value">http://example.com/verylong...</a>')
+ +  and   141 = len(('<a href="%s">%s</a>' % ('http://example.com/verylongpathsegment/another/path?query=value', 'http://example.com/verylongpathsegment/another/path?query=value')))
+========================= 1 failed, 19 passed in 0.07s =========================
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/sut_import_check.stderr.log
+SIZE=0
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/sut_import_check.stdout.log
+SIZE=197
+----------------------------------------------------------------------
+{"module": "tornado.escape", "file": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/work/sut/tornado/escape.py"}
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/metrics/pytest_raw_command.txt
+SIZE=216
+----------------------------------------------------------------------
+python3 -m pytest -vv --tb=short --import-mode=importlib /home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/work/tests/test_gpt_iaedu.py
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/metrics/pytest_raw_exit_code.txt
+SIZE=2
+----------------------------------------------------------------------
+1
+
+===== EXCERTOS DE ERRO EM TODOS OS LOGS =====
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/pytest_raw.stdout.log:26:../tests/test_gpt_iaedu.py::test_linkify_shorten_adds_title_and_visible_ellipsis FAILED [100%]
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/pytest_raw.stdout.log:36:FAILED ../tests/test_gpt_iaedu.py::test_linkify_shorten_adds_title_and_visible_ellipsis - assert 180 < 141
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/raw/prompt.txt:513:        raise TypeError("Expected bytes, unicode, or None; got %r" % type(value))
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/raw/prompt.txt:544:        raise TypeError("Expected bytes, unicode, or None; got %r" % type(value))
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/raw/prompt.txt:586:        raise TypeError("Expected bytes, unicode, or None; got %r" % type(value))
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/raw/_attempts/attempt_01/model_raw_output.py.txt:76:    with pytest.raises(TypeError):
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/raw/_attempts/attempt_01/model_raw_output.py.txt:79:    with pytest.raises(TypeError):
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/raw/_attempts/attempt_01/model_raw_output.py.txt:82:    with pytest.raises(TypeError):
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/raw/target_context.txt:483:        raise TypeError("Expected bytes, unicode, or None; got %r" % type(value))
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/raw/target_context.txt:514:        raise TypeError("Expected bytes, unicode, or None; got %r" % type(value))
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/raw/target_context.txt:556:        raise TypeError("Expected bytes, unicode, or None; got %r" % type(value))
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/raw/model_raw_output.py.txt:76:    with pytest.raises(TypeError):
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/raw/model_raw_output.py.txt:79:    with pytest.raises(TypeError):
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/raw/model_raw_output.py.txt:82:    with pytest.raises(TypeError):
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/work/tests/test_gpt_iaedu.py:76:    with pytest.raises(TypeError):
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/work/tests/test_gpt_iaedu.py:79:    with pytest.raises(TypeError):
+/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/work/tests/test_gpt_iaedu.py:82:    with pytest.raises(TypeError):
+
+===== TAMANHOS DOS LOGS =====
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/context.stderr.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/context.stdout.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/generated_test_compile.stderr.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/generated_test_compile.stdout.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/gpt4o.stderr.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/normalize_generated_test.stderr.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/prepare_sut.stderr.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/pytest_raw.stderr.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/render_prompt.stderr.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/render_prompt.stdout.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/runtime_shims.stderr.log
+0	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/sut_import_check.stderr.log
+197	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/sut_import_check.stdout.log
+363	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/normalize_generated_test.json
+364	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/normalize_generated_test.stdout.log
+548	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/runtime_shims.json
+549	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/runtime_shims.stdout.log
+636	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/prepare_sut.stdout.log
+835	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/runner.log
+3624	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1/logs/pytest_raw.stdout.log
+
+
+######################################################################
+VALIDATOR IMPLEMENTATION
+######################################################################
+
+===== validate_bugsinpy_generated_pytest.py — pytest-related lines =====
+35:def run_cmd(cmd, *, cwd: Path, env: dict, timeout_s: int | None, stdout_path: Path, stderr_path: Path):
+44:            timeout=timeout_s,
+51:        write_text(stderr_path, (e.stderr or "" if isinstance(e.stderr, str) else "") + f"\nTIMEOUT after {timeout_s}s\n")
+59:    ap.add_argument("--pytest-timeout-s", type=int, default=60)
+74:    generated_test = Path(status["generated_test_file"]).resolve()
+81:    env["PYTEST_DISABLE_PLUGIN_AUTOLOAD"] = "1"
+85:    write_text(metrics_dir / "generated_test_file.txt", str(generated_test) + "\n")
+89:        "generated_test_compile_exit_code": None,
+90:        "sut_import_check_exit_code": None,
+91:        "pytest_raw_exit_code": None,
+92:        "raw_pytest_passed": False,
+93:        "raw_pytest_timeout": False,
+97:    if not generated_test.exists():
+98:        status["status"] = "generated_test_missing"
+100:        print("status=generated_test_missing")
+103:    print("[A] Compiling generated pytest file...")
+104:    compile_rc = run_cmd(
+105:        [args.python_bin, "-m", "py_compile", str(generated_test)],
+108:        timeout_s=20,
+109:        stdout_path=logs_dir / "generated_test_compile.stdout.log",
+110:        stderr_path=logs_dir / "generated_test_compile.stderr.log",
+112:    write_text(metrics_dir / "generated_test_compile_exit_code.txt", str(compile_rc) + "\n")
+113:    status["generated_test_compile_exit_code"] = compile_rc
+115:    if compile_rc != 0:
+116:        status["status"] = "generated_test_compile_fail"
+118:        print("status=generated_test_compile_fail")
+131:        timeout_s=20,
+132:        stdout_path=logs_dir / "sut_import_check.stdout.log",
+133:        stderr_path=logs_dir / "sut_import_check.stderr.log",
+135:    write_text(metrics_dir / "sut_import_check_exit_code.txt", str(import_rc) + "\n")
+136:    status["sut_import_check_exit_code"] = import_rc
+139:        status["status"] = "sut_import_fail_before_pytest"
+141:        print("status=sut_import_fail_before_pytest")
+144:    print("[C] Running raw pytest gate...")
+148:        "pytest",
+152:        str(generated_test),
+154:    write_text(metrics_dir / "pytest_raw_command.txt", " ".join(raw_cmd) + "\n")
+156:    pytest_rc = run_cmd(
+160:        timeout_s=args.pytest_timeout_s,
+161:        stdout_path=logs_dir / "pytest_raw.stdout.log",
+162:        stderr_path=logs_dir / "pytest_raw.stderr.log",
+165:    write_text(metrics_dir / "pytest_raw_exit_code.txt", str(pytest_rc) + "\n")
+166:    status["pytest_raw_exit_code"] = pytest_rc
+167:    status["raw_pytest_timeout"] = pytest_rc == 124
+169:    if pytest_rc == 0:
+170:        status["status"] = "pytest_raw_pass"
+171:        status["raw_pytest_passed"] = True
+172:        status["canonical_test_file"] = str(generated_test)
+173:    elif pytest_rc == 5:
+174:        status["status"] = "pytest_no_tests_raw"
+175:    elif pytest_rc == 124:
+176:        status["status"] = "pytest_raw_timeout"
+178:        status["status"] = "pytest_raw_fail"
+182:    print(f"generated_test_compile_exit_code={compile_rc}")
+183:    print(f"sut_import_check_exit_code={import_rc}")
+184:    print(f"pytest_raw_exit_code={pytest_rc}")
+
+===== full wrapper — raw pytest gate =====
+    90	  exit "$BASE_RC"
+    91	fi
+    92	
+    93	if [ "$CURRENT_STATUS" != "generation_ready" ]; then
+    94	  echo "WARN: expected generation_ready before validation, got: $CURRENT_STATUS"
+    95	  echo "Pipeline stops here."
+    96	  exit 0
+    97	fi
+    98	
+    99	echo
+   100	
+   101	LOG_DIR="$RUN_DIR/logs"
+   102	mkdir -p "$LOG_DIR"
+   103	
+   104	echo "===== STEP A0 — normalize generated pytest file ====="
+   105	python3 "$REPO/tools/normalize_bugsinpy_generated_test.py" \
+   106	  --run-dir "$RUN_DIR" \
+   107	  > "$LOG_DIR/normalize_generated_test.stdout.log" \
+   108	  2> "$LOG_DIR/normalize_generated_test.stderr.log" || true
+   109	
+   110	echo "===== STEP A — raw pytest validator ====="
+   111	set +e
+   112	"$PYTHON_BIN" "$RAW_VALIDATOR" \
+   113	  --run-dir "$RUN_DIR" \
+   114	  --pytest-timeout-s "$PYTEST_TIMEOUT_S"
+   115	RAW_VALIDATOR_RC=$?
+   116	set -u
+   117	echo "RAW_VALIDATOR_RC=$RAW_VALIDATOR_RC"
+   118	
+   119	CURRENT_STATUS="$("$PYTHON_BIN" - "$STATUS_FILE" <<'PY'
+   120	import json, sys
+   121	from pathlib import Path
+   122	p = Path(sys.argv[1])
+   123	d = json.loads(p.read_text(encoding="utf-8"))
+   124	print(d.get("status", ""))
+   125	PY
+   126	)"
+   127	echo "STATUS_AFTER_RAW=$CURRENT_STATUS"
+   128	
+   129	if [ "$CURRENT_STATUS" = "pytest_raw_fail" ]; then
+   130	  echo
+   131	  echo "===== STRICT GENERATED-TEST POLICY ====="
+   132	  echo "Raw generated tests failed."
+   133	  echo "No generated test will be removed, skipped, disabled or semantically rewritten."
+   134	  echo "The original generated test and pytest logs remain preserved."
+   135	  echo "Pipeline stops before coverage and mutation."
+   136	fi
+   137	
+   138	if [ "$CURRENT_STATUS" != "pytest_raw_pass" ]; then
+   139	  echo "Pipeline stops before coverage because pytest did not reach a pass state."
+   140	  echo "FINAL_STATUS=$CURRENT_STATUS"
+   141	  exit 0
+   142	fi
+   143	
+   144	echo
+   145	echo "===== STEP C — coverage ====="
+   146	set +e
+   147	"$PYTHON_BIN" "$COVERAGE_TOOL" \
+   148	  --run-dir "$RUN_DIR" \
+   149	  --pytest-timeout-s "$PYTEST_TIMEOUT_S"
+   150	COVERAGE_RC=$?
+   151	set -u
+   152	echo "COVERAGE_RC=$COVERAGE_RC"
+   153	
+   154	CURRENT_STATUS="$("$PYTHON_BIN" - "$STATUS_FILE" <<'PY'
+   155	import json, sys
+   156	from pathlib import Path
+   157	p = Path(sys.argv[1])
+   158	d = json.loads(p.read_text(encoding="utf-8"))
+   159	print(d.get("status", ""))
+   160	PY
+   161	)"
+   162	echo "STATUS_AFTER_COVERAGE=$CURRENT_STATUS"
+   163	
+   164	COVERAGE_AVAILABLE="$("$PYTHON_BIN" - "$STATUS_FILE" <<'PY'
+   165	import json, sys
+   166	from pathlib import Path
+   167	p = Path(sys.argv[1])
+   168	d = json.loads(p.read_text(encoding="utf-8"))
+   169	print("1" if d.get("coverage_available") else "0")
+   170	PY
+   171	)"
+   172	
+   173	if [ "$COVERAGE_AVAILABLE" != "1" ]; then
+   174	  echo "Pipeline stops before mutation because coverage_available is not true."
+   175	  echo "FINAL_STATUS=$CURRENT_STATUS"
+   176	  exit 0
+   177	fi
+   178	
+   179	if [ "$RUN_MUTATION" != "1" ]; then
+   180	  echo "RUN_MUTATION=$RUN_MUTATION: mutation skipped."
+   181	  echo "FINAL_STATUS=$CURRENT_STATUS"
+   182	  exit 0
+   183	fi
+   184	
+   185	echo
+   186	echo "===== STEP D — mutation flat ====="
+   187	MUTATION_RC=0
+   188	
+   189	if [[ "${RUN_MUTATION:-1}" == "1" ]]; then
+   190	  set +e

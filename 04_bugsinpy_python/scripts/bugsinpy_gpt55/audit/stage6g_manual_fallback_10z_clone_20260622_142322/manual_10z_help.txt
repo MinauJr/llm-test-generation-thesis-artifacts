@@ -1,0 +1,10 @@
+usage: run_bugsinpy_mutation_manual_fallback_10z.py [-h] --run-dir RUN_DIR
+                                                    [--per-mutant-timeout-s PER_MUTANT_TIMEOUT_S]
+                                                    [--max-mutants MAX_MUTANTS]
+
+options:
+  -h, --help            show this help message and exit
+  --run-dir RUN_DIR
+  --per-mutant-timeout-s PER_MUTANT_TIMEOUT_S
+  --max-mutants MAX_MUTANTS
+                        0 = all mutants

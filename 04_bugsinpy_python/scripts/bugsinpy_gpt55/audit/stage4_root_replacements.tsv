@@ -1,0 +1,6 @@
+result	file	old	new
+REPLACED	/home/jpaiva/projetos/bugsinpy_gpt55/scripts/run_bugsinpy_gpt4o_dataset_full.sh	REPO="${REPO:-$HOME/projetos/llm_test_generation_gpt4o/bugsinpy_gpt4o}"	REPO="${REPO:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
+REPLACED	/home/jpaiva/projetos/bugsinpy_gpt55/scripts/run_bugsinpy_gpt4o_one_sut.sh	REPO="${REPO:-$HOME/projetos/llm_test_generation_gpt4o/bugsinpy_gpt4o}"	REPO="${REPO:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
+REPLACED	/home/jpaiva/projetos/bugsinpy_gpt55/scripts/run_bugsinpy_gpt4o_one_sut.sh	ROOT="${ROOT:-$HOME/projetos/llm_test_generation_gpt4o}"	ROOT="${ROOT:-$REPO}"
+REPLACED	/home/jpaiva/projetos/bugsinpy_gpt55/scripts/run_bugsinpy_gpt4o_one_sut_full.sh	REPO="${REPO:-$HOME/projetos/llm_test_generation_gpt4o/bugsinpy_gpt4o}"	REPO="${REPO:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
+REPLACED	/home/jpaiva/projetos/bugsinpy_gpt55/scripts/apply_bugsinpy_manual_fallback_10z_to_outbase.sh	REPO="${REPO:-$HOME/projetos/llm_test_generation_gpt4o/bugsinpy_gpt4o}"	REPO="${REPO:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"

@@ -1,0 +1,16 @@
+PySnooper_2f
+PySnooper_3f
+ansible_14f
+ansible_17f
+black_2f
+black_5f
+cookiecutter_1f
+cookiecutter_3f
+httpie_1f
+httpie_2f
+matplotlib_16f
+matplotlib_9f
+thefuck_25f
+tornado_14f
+tornado_4f
+youtube-dl_35f

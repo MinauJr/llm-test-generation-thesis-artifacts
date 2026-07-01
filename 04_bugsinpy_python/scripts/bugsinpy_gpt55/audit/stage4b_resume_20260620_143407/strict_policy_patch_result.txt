@@ -1,0 +1,6 @@
+timestamp=2026-06-20T14:34:07.136992
+result=patched
+file=/home/jpaiva/projetos/bugsinpy_gpt55/scripts/run_bugsinpy_gpt4o_one_sut_full.sh
+strict_marker_present=True
+semantic_sanitizer_command_present=True
+file_changed=True

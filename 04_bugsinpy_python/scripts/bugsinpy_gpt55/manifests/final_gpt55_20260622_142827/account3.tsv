@@ -1,0 +1,6 @@
+sut_id	target_module
+ansible_14f	ansible.utils.unicode
+black_5f	blib2to3.pgen2.driver
+httpie_1f	httpie.sessions
+matplotlib_9f	matplotlib.cbook
+tornado_4f	tornado.escape

@@ -1,0 +1,22 @@
+BUGSINPY OFFICIAL DATASET TESTS — FINAL CONSOLIDATED METRICS
+
+closure=closed_with_budgeted_mutation_scores
+suts=16
+coverage_ok=16
+coverage_non_ok=[]
+missing_mutation_rows=[]
+missing_mutation_score=[]
+zero_line=[]
+zero_branch=[]
+mutation_status_counts={'ok': 9, 'partial_budget_or_cap': 7}
+mean_line_pct=41.989031
+mean_branch_pct=21.645
+mean_mutation_score=12.473304
+
+coverage_source=/home/jpaiva/projetos/bugsinpy_official_dataset_tests/out/_official_bugsinpy_fixed_full16_preflight_20260620_150838/coverage_full16_changed_production_files_20260622_142749/coverage_status.tsv
+mutation_source=/home/jpaiva/projetos/bugsinpy_official_dataset_tests/out/_official_bugsinpy_fixed_full16_preflight_20260620_150838/coverage_full16_changed_production_files_20260622_142749/mutation_official_v8_custom_exact_20260622_174842/mutation_status.tsv
+final_metrics_tsv=/home/jpaiva/projetos/bugsinpy_official_dataset_tests/out/_official_bugsinpy_fixed_full16_preflight_20260620_150838/coverage_full16_changed_production_files_20260622_142749/_FINAL_BUGSINPY_OFFICIAL_DATASET_TESTS_16_WITH_MUTATION_20260622_182208/bugsinpy_official_dataset_tests_final_metrics.tsv
+
+Note: mutation scores are budgeted/custom exact-runner scores from V8.
+Timeout mutants are counted as killed. Incompetent mutants are excluded.
+SUTs marked partial_budget_or_cap produced valid mutation scores but did not execute all generated mutants within the configured budget/cap.

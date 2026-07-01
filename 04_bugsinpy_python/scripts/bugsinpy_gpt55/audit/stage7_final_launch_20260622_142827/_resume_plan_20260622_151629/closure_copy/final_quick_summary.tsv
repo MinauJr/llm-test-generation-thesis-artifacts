@@ -1,0 +1,14 @@
+metric	value
+expected_total_slots	80
+actual_status_files	71
+missing_run_ids	9
+ok_count	21
+pytest_raw_fail_count	41
+generation_no_output_count	3
+mutation_no_checked_mutants_count	5
+line_mean_penalized	29.949718309859158
+branch_mean_penalized	27.043098591549295
+mutation_mean_penalized	23.49535423025871
+line_mean_available	81.78576923076925
+branch_mean_available	73.84846153846154
+mutation_mean_available	79.43667382611277

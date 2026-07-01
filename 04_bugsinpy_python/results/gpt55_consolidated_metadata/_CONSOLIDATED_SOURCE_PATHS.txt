@@ -1,0 +1,5 @@
+created_from_original_root=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827
+created_from_resume_root=/home/jpaiva/projetos/bugsinpy_gpt55/out/_RESUME_GPT55_BUGSINPY_MISSING12_20260623_073437
+audit=/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage11_consolidate_original_plus_resume_20260623_080030
+status=premutation_consolidated_80_slots
+note=5 mutation_no_checked_mutants still require offline mutation reprocess if present.

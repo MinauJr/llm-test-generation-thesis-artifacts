@@ -1,0 +1,118 @@
+7:import subprocess
+14:    ".pytest_cache",
+23:    "mutation_project",
+49:def update_status(run_dir: Path, **kwargs):
+50:    p = run_dir / "metrics" / "status.json"
+57:def copy_contents(src: Path, dst: Path):
+70:            shutil.copytree(
+78:            shutil.copy2(item, target)
+158:        "# --- BugsInPy mutmut import shim start ---\n"
+249:        "# --- BugsInPy mutmut import shim end ---\n"
+254:def prepare_tests(run_dir: Path, mutation_project: Path, target_module: str):
+255:    status = read_json(run_dir / "metrics" / "status.json")
+258:        status.get("canonical_test_file")
+259:        or status.get("sanitized_test_file")
+260:        or status.get("generated_test_file")
+266:        test_file = run_dir / "work" / "tests" / "test_gpt_iaedu.py"
+271:    tests_dir = mutation_project / "tests"
+272:    tests_dir.mkdir(parents=True, exist_ok=True)
+274:    dst = tests_dir / "test_gpt_iaedu.py"
+277:    if "BugsInPy mutmut import shim start" not in text:
+284:def build_mutation_project(run_dir: Path, work_sut_dir: Path, resolved: dict):
+285:    mutation_project = run_dir / "work" / "mutation_project"
+287:    if mutation_project.exists():
+288:        shutil.rmtree(mutation_project)
+290:    mutation_project.mkdir(parents=True, exist_ok=True)
+292:    # Copy full SUT, then overlay import roots into mutation_project root.
+293:    copy_contents(work_sut_dir, mutation_project)
+297:            copy_contents(root, mutation_project)
+302:    flat_target = mutation_project / target_rel
+305:        shutil.copy2(target_file, flat_target)
+307:    return mutation_project, flat_target
+310:def write_mutmut_config(mutation_project: Path, target_rel: Path):
+311:    runner = "env PYTHONPATH=. PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python -m pytest -q --disable-warnings --import-mode=importlib tests/test_gpt_iaedu.py"
+313:    pyproject = mutation_project / "pyproject.toml"
+314:    pyproject.write_text(
+317:                "[tool.mutmut]",
+318:                f'paths_to_mutate = ["{target_rel.as_posix()}"]',
+319:                'tests_dir = ["tests"]',
+320:                f'runner = "{runner}"',
+327:    setup_cfg = mutation_project / "setup.cfg"
+328:    setup_cfg.write_text(
+331:                "[mutmut]",
+332:                f"paths_to_mutate={target_rel.as_posix()}",
+333:                "tests_dir=tests",
+334:                f"runner={runner}",
+344:        return subprocess.run(
+349:            stdout=subprocess.PIPE,
+350:            stderr=subprocess.PIPE,
+353:    except subprocess.TimeoutExpired as e:
+354:        cp = subprocess.CompletedProcess(cmd, 124)
+368:        "no_tests": 0,
+371:        "parse_source": "mutmut_results_lines",
+379:        status = stripped.rsplit(":", 1)[-1].strip().lower()
+382:        if status == "killed":
+384:        elif status == "survived":
+386:        elif status == "timeout":
+388:        elif status == "suspicious":
+390:        elif status == "skipped":
+392:        elif status == "no tests":
+393:            counts["no_tests"] += 1
+394:        elif status == "not checked":
+414:    status = read_json(metrics_dir / "status.json")
+416:    target_module = status.get("target_module")
+418:        update_status(
+420:            status="mutation_missing_target_module",
+424:        print("status=mutation_missing_target_module")
+427:    work_sut_dir = Path(status.get("work_sut_dir") or run_dir / "work" / "sut").resolve()
+429:        update_status(
+431:            status="mutation_missing_work_sut_dir",
+435:        print("status=mutation_missing_work_sut_dir")
+440:        mutation_project, flat_target = build_mutation_project(run_dir, work_sut_dir, resolved)
+441:        prepare_tests(run_dir, mutation_project, target_module)
+442:        write_mutmut_config(mutation_project, resolved["target_rel"])
+444:        update_status(
+446:            status="mutation_prepare_fail",
+451:        print("status=mutation_prepare_fail")
+455:    update_status(
+457:        mutation_project_dir=str(mutation_project),
+464:        update_status(
+466:            status="mutation_flat_target_missing",
+470:        print("status=mutation_flat_target_missing")
+478:    env = os.environ.copy()
+485:    pythonpath_parts.append(str(mutation_project))
+488:    if env.get("PYTHONPATH"):
+489:        pythonpath_parts.append(env["PYTHONPATH"])
+491:    env["PYTHONPATH"] = ":".join(pythonpath_parts)
+493:    update_status(run_dir, mutation_runner_pythonpath=env["PYTHONPATH"])
+495:    print("[A] Checking mutmut availability...")
+497:        [sys.executable, "-m", "mutmut", "--version"],
+498:        cwd=mutation_project,
+502:    (logs_dir / "mutmut.version.stdout.log").write_text(avail.stdout or "", encoding="utf-8")
+503:    (logs_dir / "mutmut.version.stderr.log").write_text(avail.stderr or "", encoding="utf-8")
+505:    print("[B] Running mutmut in flat mutation_project...")
+507:        [sys.executable, "-m", "mutmut", "run"],
+508:        cwd=mutation_project,
+513:    (logs_dir / "mutmut.stdout.log").write_text(run.stdout or "", encoding="utf-8")
+514:    (logs_dir / "mutmut.stderr.log").write_text(run.stderr or "", encoding="utf-8")
+516:    print("[C] Running mutmut results...")
+518:        [sys.executable, "-m", "mutmut", "results"],
+519:        cwd=mutation_project,
+524:    (logs_dir / "mutmut_results.stdout.log").write_text(results.stdout or "", encoding="utf-8")
+525:    (logs_dir / "mutmut_results.stderr.log").write_text(results.stderr or "", encoding="utf-8")
+529:    write_json(metrics_dir / "mutmut_counts.json", counts)
+532:        final_status = "ok"
+536:        final_status = "mutation_no_checked_mutants"
+540:        final_status = "mutation_timeout"
+544:        final_status = "mutation_results_empty"
+548:    update_status(
+550:        status=final_status,
+553:        mutmut_exit_code=run.returncode,
+554:        mutmut_results_exit_code=results.returncode,
+555:        mutmut_counts=counts,
+556:        mutation_project_dir=str(mutation_project),
+560:        mutation_runner_pythonpath=env["PYTHONPATH"],
+563:    print(f"status={final_status}")
+564:    print(f"mutmut_exit_code={run.returncode}")
+565:    print(f"mutmut_results_exit_code={results.returncode}")
+569:    print(f"mutation_project={mutation_project}")

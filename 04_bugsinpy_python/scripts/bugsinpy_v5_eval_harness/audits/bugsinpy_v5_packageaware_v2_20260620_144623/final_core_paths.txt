@@ -1,0 +1,4 @@
+5:REPO="/home/jpaiva/projetos/bugsinpy_gpt4o"
+17:MUTATION_TOOL="/home/jpaiva/projetos/bugsinpy_v5_eval_harness/tools/run_bugsinpy_mutation_flat_v5_packageaware_v2.py"
+18:RUNNABLE_TOOL="/home/jpaiva/projetos/bugsinpy_v5_eval_harness/tools/mark_bugsinpy_runnable_suite_v5.py"
+19:CLEANUP_TOOL="/home/jpaiva/projetos/bugsinpy_v5_eval_harness/tools/cleanup_bugsinpy_mutation_project_v5.py"

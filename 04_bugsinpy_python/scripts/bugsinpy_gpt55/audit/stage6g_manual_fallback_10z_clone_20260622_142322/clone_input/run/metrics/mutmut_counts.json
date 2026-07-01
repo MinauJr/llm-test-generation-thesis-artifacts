@@ -1,0 +1,12 @@
+{
+  "killed": 0,
+  "survived": 0,
+  "timeout": 0,
+  "suspicious": 0,
+  "skipped": 0,
+  "not_checked": 27,
+  "no_tests": 0,
+  "total": 27,
+  "score_pct": null,
+  "parse_source": "mutmut_results_lines"
+}

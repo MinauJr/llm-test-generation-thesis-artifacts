@@ -1,0 +1,3 @@
+account	sut_id	run_dir	status_json
+account2	tornado_4f	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/metrics/status.json
+account3	cookiecutter_1f	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/metrics/status.json

@@ -1,0 +1,12 @@
+account	status	count
+account1	generation_no_output	1
+account1	mutation_no_checked_mutants	5
+account1	ok	10
+account1	pytest_raw_fail	13
+account2	generation_no_output	1
+account2	ok	7
+account2	pytest_raw_fail	13
+account3	generated_test_compile_fail	1
+account3	generation_no_output	1
+account3	ok	4
+account3	pytest_raw_fail	15

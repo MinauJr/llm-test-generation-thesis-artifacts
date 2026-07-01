@@ -1,0 +1,3 @@
+  timeout "$GEN_TIMEOUT_S" "$PYTHON_BIN" "$ROOT/common/iaedu_from_prompt.py" "$RAW_DIR/prompt.txt" \
+    > "$ATTEMPT_RAW" \
+    2> "$ATTEMPT_ERR"

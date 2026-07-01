@@ -1,0 +1,6 @@
+status	count
+pytest_raw_fail	41
+ok	21
+mutation_no_checked_mutants	5
+generation_no_output	3
+generated_test_compile_fail	1

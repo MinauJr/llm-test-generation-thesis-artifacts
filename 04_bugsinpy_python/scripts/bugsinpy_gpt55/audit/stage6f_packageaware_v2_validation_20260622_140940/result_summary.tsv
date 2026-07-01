@@ -1,0 +1,3 @@
+account	sut_id	classification	status	line_pct	branch_pct	mutation_score_pct	mutation_available	mutmut_exit_code	mutmut_results_exit_code	run_dir
+account2	tornado_4f	packageaware_v2_still_invalid	mutation_no_checked_mutants	87.34	87.5			1		/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1
+account3	cookiecutter_1f	packageaware_v2_still_invalid	mutation_no_checked_mutants	100.0	100.0			1		/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1

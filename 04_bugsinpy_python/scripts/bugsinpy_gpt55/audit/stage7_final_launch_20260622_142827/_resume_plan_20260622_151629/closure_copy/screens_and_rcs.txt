@@ -1,0 +1,8 @@
+===== SCREENS =====
+No Sockets found in /run/screen/S-jpaiva.
+
+
+===== RETURN CODES =====
+account1=86
+account2=86
+account3=86

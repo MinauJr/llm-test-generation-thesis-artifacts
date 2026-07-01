@@ -1,0 +1,4 @@
+account	secrets_file	sut_id	target_module	output_root
+account1	/home/jpaiva/projetos/_iaedu_accounts_clean/current/gpt55/account1.env	cookiecutter_1f	cookiecutter.log	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1
+account2	/home/jpaiva/projetos/_iaedu_accounts_clean/current/gpt55/account2.env	httpie_1f	httpie.sessions	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2
+account3	/home/jpaiva/projetos/_iaedu_accounts_clean/current/gpt55/account3.env	tornado_4f	tornado.escape	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3

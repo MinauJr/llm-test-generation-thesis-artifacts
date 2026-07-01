@@ -1,0 +1,10 @@
+{
+  "removed": [],
+  "rewritten": [
+    {
+      "from": "cffi==1.14.0",
+      "to": "cffi>=1.15.1",
+      "reason": "py310-compat"
+    }
+  ]
+}

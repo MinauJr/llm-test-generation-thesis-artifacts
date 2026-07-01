@@ -1,0 +1,1500 @@
+QUIXBUGS PYTHON — THREE-ACCOUNT REFERENCE
+========================================
+
+SELECTED FILES
+--------------
+score=28 categories=secrets_file,accounts,empty,manifest,api sha256=6aab192d3d5aa8b407a17905f2f07552133c644cd9c42135a89d3619110f0e0e path=/home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_finish_only_20260618_090049/run.sh
+score=28 categories=secrets_file,accounts,empty,manifest,api sha256=ef134216965203db35efc351d2a6c2beb4ab4ba07c15787a52bfff5840c5a85d path=/home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_three_accounts_finalfill_20260619_075112/run_account1.sh
+score=28 categories=secrets_file,accounts,empty,manifest,api sha256=296ee9f291325d26e33b1b86fe87f0550e31abdd1d19149eccf8d63c7b12a556 path=/home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_three_accounts_finalfill_20260619_075112/run_account2.sh
+score=28 categories=secrets_file,accounts,empty,manifest,api sha256=f81c451f02ecb592eb1b07cfc1ee287a1a61469ead37e52b4d3af3a8cf077c14 path=/home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_three_accounts_finalfill_20260619_075112/run_account3.sh
+score=25 categories=secrets_file,accounts,empty,manifest sha256=25056ae8ae64b941c752293b68c2c5da314aebd98883bdba26de011d11943ab6 path=/home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_account1_fill_missing_20260618_082520/run.sh
+score=25 categories=secrets_file,accounts,empty,manifest sha256=c00407fd8b5a2586746327dc555a43c1eab29234f8fa4b36e08d5f33fdbf19bc path=/home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_wrapperfix_continuation_20260618_075859/run_gpt55_continuation.sh
+score=15 categories=accounts,empty,manifest sha256=76962730ee9d8609eb953c0053bdcfa1be7d9ae331eda24393de640accd7e6e6 path=/home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_account2_continuation_launch_20260617_125239/run_continuation.sh
+score=15 categories=secrets_file,empty,api sha256=e841207915138c0fa057211781c43ce798475ff122a855a4b9b95d93ce17726b path=/home/jpaiva/projetos/quixbugs_python_gpt55/scripts/generator_cmd_iaedu.sh
+score=11 categories=accounts,empty sha256=d4119c5e10195a19e111403ae20107ee8d45668add159997c416e604d01576db path=/home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_three_accounts_probe_20260617_125033/accounts_summary.tsv
+score=9 categories=quota,empty sha256=40775a9086cab41ef249045c40a20f2c447872e8ffb62754c898816897c19a36 path=/home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_generation_boundary_20260617_123242.txt
+score=9 categories=accounts sha256=deee511186c41d65cf3f4553f822a9dc377f51b786912a18667f49e66410d493 path=/home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_three_accounts_probe_20260617_125033/account_2.environment.txt
+
+
+BUGSINPY CURRENT IAEdu CLIENT
+============================
+
+00001: #!/usr/bin/env python3
+00002: import os
+00003: import sys
+00004: import json
+00005: import uuid
+00006: import requests
+00007: 
+00008: ENDPOINT = os.getenv("IAEDU_ENDPOINT")
+00009: CHANNEL_ID = os.getenv("IAEDU_CHANNEL_ID")
+00010: API_KEY = [REDACTED]
+00011: THREAD_PREFIX = os.getenv("IAEDU_THREAD_PREFIX", "")
+00012: 
+00013: if not ENDPOINT:
+00014:     raise RuntimeError("IAEDU_ENDPOINT não está definida.")
+00015: if not CHANNEL_ID:
+00016:     raise RuntimeError("IAEDU_CHANNEL_ID não está definida.")
+00017: if not API_KEY:
+00018:     raise RuntimeError("IAEDU_API_KEY não está definida.")
+00019: 
+00020: def ask_iaedu(message: str) -> str:
+00021:     thread_id = f"{THREAD_PREFIX}{uuid.uuid4()}"
+00022: 
+00023:     files = {
+00024:         "channel_id": (None, CHANNEL_ID),
+00025:         "thread_id": (None, thread_id),
+00026:         "user_info": (None, "{}"),
+00027:         "message": (None, message),
+00028:     }
+00029: 
+00030:     headers = {
+00031:         "x-api-key": API_KEY,
+00032:     }
+00033: 
+00034:     resp = requests.post(
+00035:         ENDPOINT,
+00036:         headers=headers,
+00037:         files=files,
+00038:         stream=True,
+00039:         timeout=(30, 600),
+00040:     )
+00041: 
+00042:     try:
+00043:         resp.raise_for_status()
+00044:     except Exception as e:
+00045:         body = ""
+00046:         try:
+00047:             body = resp.text[:2000]
+00048:         except Exception:
+00049:             pass
+00050:         raise RuntimeError(f"IAEdu request failed: {e}\nBODY_HEAD:\n{body}") from e
+00051: 
+00052:     full_text = ""
+00053:     final_message = None
+00054: 
+00055:     for line in resp.iter_lines(decode_unicode=True):
+00056:         if not line:
+00057:             continue
+00058: 
+00059:         try:
+00060:             data = json.loads(line)
+00061:         except json.JSONDecodeError:
+00062:             continue
+00063: 
+00064:         t = data.get("type")
+00065: 
+00066:         if t == "token":
+00067:             full_text += data.get("content", "") or ""
+00068: 
+00069:         elif t == "message":
+00070:             content_obj = data.get("content", {})
+00071:             if isinstance(content_obj, dict):
+00072:                 msg = content_obj.get("content")
+00073:                 if isinstance(msg, str):
+00074:                     final_message = msg.strip()
+00075:                     if final_message:
+00076:                         return final_message
+00077:             elif isinstance(content_obj, str):
+00078:                 final_message = content_obj.strip()
+00079:                 if final_message:
+00080:                     return final_message
+00081: 
+00082:         elif t == "done":
+00083:             if final_message:
+00084:                 return final_message.strip()
+00085:             if full_text.strip():
+00086:                 return full_text.strip()
+00087:             break
+00088: 
+00089:         elif t == "error":
+00090:             # Alguns agentes parecem mandar erro/timeout depois de já terem enviado a resposta.
+00091:             # Só tratamos como erro fatal se ainda não houver resposta útil.
+00092:             if final_message:
+00093:                 return final_message.strip()
+00094:             if full_text.strip():
+00095:                 return full_text.strip()
+00096:             # caso não haja nada útil, continuamos até ao fim e falharemos por vazio
+00097: 
+00098:     return (final_message or full_text).strip()
+00099: 
+00100: def main():
+00101:     if len(sys.argv) != 2:
+00102:         print("Uso: iaedu_from_prompt.py PROMPT_FILE", file=sys.stderr)
+00103:         sys.exit(1)
+00104: 
+00105:     prompt_file = sys.argv[1]
+00106:     with open(prompt_file, "r", encoding="utf-8") as f:
+00107:         prompt_text = f.read()
+00108: 
+00109:     answer = ask_iaedu(prompt_text)
+00110:     print(answer)
+00111: 
+00112: if __name__ == "__main__":
+00113:     main()
+
+
+============================================================================
+FILE: /home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_finish_only_20260618_090049/run.sh
+SCORE: 28
+CATEGORIES: secrets_file,accounts,empty,manifest,api
+============================================================================
+
+00001: #!/usr/bin/env bash
+00002: 
+00003: set +e
+00004: set +u
+00005: set +o pipefail 2>/dev/null || true
+00006: set +H 2>/dev/null || true
+00007: 
+00008: ROOT=/home/jpaiva/projetos/quixbugs_python_gpt55
+00009: SECRET=[REDACTED]
+00010: ACCOUNT=account2
+00011: PLAN_DIR=/home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_finish_only_20260618_090049/missing_plan
+00012: STAMP=20260618_090049
+00013: LOG=/home/jpaiva/projetos/quixbugs_python_gpt55/_smoke/gpt55_finish_only_20260618_090049.log
+00014: 
+00015: cd "$ROOT" || exit 1
+00016: 
+00017: unset IAEDU_ENDPOINT
+00018: unset IAEDU_CHANNEL_ID
+00019: unset IAEDU_API_KEY
+00020: 
+00021: export IAEDU_SECRETS_FILE="$SECRET"
+00022: 
+00023: {
+00024:   echo "===== GPT-5.5 FINISH ====="
+00025:   echo "START_DATE=$(date)"
+00026:   echo "ACCOUNT=$ACCOUNT"
+00027:   echo "EXPECTED_NEW_STATUS_FILES=91"
+00028:   echo
+00029: 
+00030:   OVERALL_RC=0
+00031: 
+00032:   for K in 1 2 3 4 5
+00033:   do
+00034:     MANIFEST="$PLAN_DIR/missing_${K}.txt"
+00035:     COUNT="$(wc -l < "$MANIFEST" 2>/dev/null || echo 0)"
+00036: 
+00037:     if [[ "$COUNT" -eq 0 ]]; then
+00038:       continue
+00039:     fi
+00040: 
+00041:     OUT="$ROOT/out/_continuation_gpt55_${ACCOUNT}_finish_missing${K}_${STAMP}"
+00042:     GROUP_EXPECTED=$((COUNT * K))
+00043: 
+00044:     echo
+00045:     echo "============================================================"
+00046:     echo "MISSING_PER_SUT=$K"
+00047:     echo "SUT_COUNT=$COUNT"
+00048:     echo "EXPECTED_STATUS_FILES=$GROUP_EXPECTED"
+00049:     echo "OUT_ROOT=$OUT"
+00050:     echo "============================================================"
+00051: 
+00052:     OUT_ROOT="$OUT"     SUT_LIST_FILE="$MANIFEST"     REPEATS="$K"     RUN_MUTATION=1     GEN_TIMEOUT_S=200     GEN_EMPTY_RETRY_MAX=15     GENERATION_RETRY_SLEEP_S=2     PYTEST_TIMEOUT_S=60     MUTATION_TIMEOUT_S=180     bash "$ROOT/scripts/run_quixbugs_gpt55_dataset.sh"
+00053: 
+00054:     GROUP_RC=$?
+00055: 
+00056:     if [[ "$GROUP_RC" -ne 0 ]]; then
+00057:       OVERALL_RC=1
+00058:     fi
+00059:   done
+00060: 
+00061:   echo
+00062:   echo "FINAL_RC=$OVERALL_RC"
+00063:   echo "END_DATE=$(date)"
+00064: 
+00065:   exit "$OVERALL_RC"
+00066: 
+00067: } 2>&1 | tee "$LOG"
+00068: 
+00069: RC=${PIPESTATUS[0]}
+00070: 
+00071: printf '%s\n' "$RC" > "$LOG.exit_code"
+00072: 
+00073: exit "$RC"
+
+
+============================================================================
+FILE: /home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_three_accounts_finalfill_20260619_075112/run_account1.sh
+SCORE: 28
+CATEGORIES: secrets_file,accounts,empty,manifest,api
+============================================================================
+
+00001: #!/usr/bin/env bash
+00002: 
+00003: set +e
+00004: set +u
+00005: set +o pipefail 2>/dev/null || true
+00006: set +H 2>/dev/null || true
+00007: 
+00008: ROOT=/home/jpaiva/projetos/quixbugs_python_gpt55
+00009: SECRET=[REDACTED]
+00010: ACCOUNT=account1
+00011: PLAN=/home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_three_accounts_finalfill_20260619_075112/plan
+00012: STAMP=20260619_075112
+00013: LOG=/home/jpaiva/projetos/quixbugs_python_gpt55/_smoke/gpt55_finalfill_account1_20260619_075112.log
+00014: 
+00015: cd "$ROOT" || exit 1
+00016: 
+00017: unset IAEDU_ENDPOINT
+00018: unset IAEDU_CHANNEL_ID
+00019: unset IAEDU_API_KEY
+00020: 
+00021: export IAEDU_SECRETS_FILE="$SECRET"
+00022: 
+00023: {
+00024:   echo "===== GPT-5.5 FINAL FILL ====="
+00025:   echo "START_DATE=$(date)"
+00026:   echo "ACCOUNT=$ACCOUNT"
+00027:   echo "EXPECTED_STATUS_FILES=10"
+00028:   echo
+00029: 
+00030:   OVERALL_RC=0
+00031: 
+00032:   for K in 1 2 3 4 5
+00033:   do
+00034:     MANIFEST="$PLAN/${ACCOUNT}_missing_${K}.txt"
+00035:     COUNT="$(wc -l < "$MANIFEST" 2>/dev/null || echo 0)"
+00036: 
+00037:     if [[ "$COUNT" -eq 0 ]]; then
+00038:       continue
+00039:     fi
+00040: 
+00041:     OUT="$ROOT/out/_continuation_gpt55_${ACCOUNT}_finalfill_missing${K}_${STAMP}"
+00042:     GROUP_EXPECTED=$((COUNT * K))
+00043: 
+00044:     echo
+00045:     echo "============================================================"
+00046:     echo "ACCOUNT=$ACCOUNT"
+00047:     echo "MISSING_PER_SUT=$K"
+00048:     echo "SUT_COUNT=$COUNT"
+00049:     echo "EXPECTED_STATUS_FILES=$GROUP_EXPECTED"
+00050:     echo "OUT_ROOT=$OUT"
+00051:     echo "============================================================"
+00052: 
+00053:     OUT_ROOT="$OUT"     SUT_LIST_FILE="$MANIFEST"     REPEATS="$K"     RUN_MUTATION=1     GEN_TIMEOUT_S=200     GEN_EMPTY_RETRY_MAX=15     GENERATION_RETRY_SLEEP_S=2     PYTEST_TIMEOUT_S=60     MUTATION_TIMEOUT_S=180     bash "$ROOT/scripts/run_quixbugs_gpt55_dataset.sh"
+00054: 
+00055:     GROUP_RC=$?
+00056: 
+00057:     if [[ "$GROUP_RC" -ne 0 ]]; then
+00058:       OVERALL_RC=1
+00059:     fi
+00060:   done
+00061: 
+00062:   echo
+00063:   echo "FINAL_RC=$OVERALL_RC"
+00064:   echo "END_DATE=$(date)"
+00065: 
+00066:   exit "$OVERALL_RC"
+00067: 
+00068: } 2>&1 | tee "$LOG"
+00069: 
+00070: RC=${PIPESTATUS[0]}
+00071: 
+00072: printf '%s\n' "$RC" > "$LOG.exit_code"
+00073: 
+00074: exit "$RC"
+
+
+============================================================================
+FILE: /home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_three_accounts_finalfill_20260619_075112/run_account2.sh
+SCORE: 28
+CATEGORIES: secrets_file,accounts,empty,manifest,api
+============================================================================
+
+00001: #!/usr/bin/env bash
+00002: 
+00003: set +e
+00004: set +u
+00005: set +o pipefail 2>/dev/null || true
+00006: set +H 2>/dev/null || true
+00007: 
+00008: ROOT=/home/jpaiva/projetos/quixbugs_python_gpt55
+00009: SECRET=[REDACTED]
+00010: ACCOUNT=account2
+00011: PLAN=/home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_three_accounts_finalfill_20260619_075112/plan
+00012: STAMP=20260619_075112
+00013: LOG=/home/jpaiva/projetos/quixbugs_python_gpt55/_smoke/gpt55_finalfill_account2_20260619_075112.log
+00014: 
+00015: cd "$ROOT" || exit 1
+00016: 
+00017: unset IAEDU_ENDPOINT
+00018: unset IAEDU_CHANNEL_ID
+00019: unset IAEDU_API_KEY
+00020: 
+00021: export IAEDU_SECRETS_FILE="$SECRET"
+00022: 
+00023: {
+00024:   echo "===== GPT-5.5 FINAL FILL ====="
+00025:   echo "START_DATE=$(date)"
+00026:   echo "ACCOUNT=$ACCOUNT"
+00027:   echo "EXPECTED_STATUS_FILES=10"
+00028:   echo
+00029: 
+00030:   OVERALL_RC=0
+00031: 
+00032:   for K in 1 2 3 4 5
+00033:   do
+00034:     MANIFEST="$PLAN/${ACCOUNT}_missing_${K}.txt"
+00035:     COUNT="$(wc -l < "$MANIFEST" 2>/dev/null || echo 0)"
+00036: 
+00037:     if [[ "$COUNT" -eq 0 ]]; then
+00038:       continue
+00039:     fi
+00040: 
+00041:     OUT="$ROOT/out/_continuation_gpt55_${ACCOUNT}_finalfill_missing${K}_${STAMP}"
+00042:     GROUP_EXPECTED=$((COUNT * K))
+00043: 
+00044:     echo
+00045:     echo "============================================================"
+00046:     echo "ACCOUNT=$ACCOUNT"
+00047:     echo "MISSING_PER_SUT=$K"
+00048:     echo "SUT_COUNT=$COUNT"
+00049:     echo "EXPECTED_STATUS_FILES=$GROUP_EXPECTED"
+00050:     echo "OUT_ROOT=$OUT"
+00051:     echo "============================================================"
+00052: 
+00053:     OUT_ROOT="$OUT"     SUT_LIST_FILE="$MANIFEST"     REPEATS="$K"     RUN_MUTATION=1     GEN_TIMEOUT_S=200     GEN_EMPTY_RETRY_MAX=15     GENERATION_RETRY_SLEEP_S=2     PYTEST_TIMEOUT_S=60     MUTATION_TIMEOUT_S=180     bash "$ROOT/scripts/run_quixbugs_gpt55_dataset.sh"
+00054: 
+00055:     GROUP_RC=$?
+00056: 
+00057:     if [[ "$GROUP_RC" -ne 0 ]]; then
+00058:       OVERALL_RC=1
+00059:     fi
+00060:   done
+00061: 
+00062:   echo
+00063:   echo "FINAL_RC=$OVERALL_RC"
+00064:   echo "END_DATE=$(date)"
+00065: 
+00066:   exit "$OVERALL_RC"
+00067: 
+00068: } 2>&1 | tee "$LOG"
+00069: 
+00070: RC=${PIPESTATUS[0]}
+00071: 
+00072: printf '%s\n' "$RC" > "$LOG.exit_code"
+00073: 
+00074: exit "$RC"
+
+
+============================================================================
+FILE: /home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_three_accounts_finalfill_20260619_075112/run_account3.sh
+SCORE: 28
+CATEGORIES: secrets_file,accounts,empty,manifest,api
+============================================================================
+
+00001: #!/usr/bin/env bash
+00002: 
+00003: set +e
+00004: set +u
+00005: set +o pipefail 2>/dev/null || true
+00006: set +H 2>/dev/null || true
+00007: 
+00008: ROOT=/home/jpaiva/projetos/quixbugs_python_gpt55
+00009: SECRET=[REDACTED]
+00010: ACCOUNT=account3
+00011: PLAN=/home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_three_accounts_finalfill_20260619_075112/plan
+00012: STAMP=20260619_075112
+00013: LOG=/home/jpaiva/projetos/quixbugs_python_gpt55/_smoke/gpt55_finalfill_account3_20260619_075112.log
+00014: 
+00015: cd "$ROOT" || exit 1
+00016: 
+00017: unset IAEDU_ENDPOINT
+00018: unset IAEDU_CHANNEL_ID
+00019: unset IAEDU_API_KEY
+00020: 
+00021: export IAEDU_SECRETS_FILE="$SECRET"
+00022: 
+00023: {
+00024:   echo "===== GPT-5.5 FINAL FILL ====="
+00025:   echo "START_DATE=$(date)"
+00026:   echo "ACCOUNT=$ACCOUNT"
+00027:   echo "EXPECTED_STATUS_FILES=10"
+00028:   echo
+00029: 
+00030:   OVERALL_RC=0
+00031: 
+00032:   for K in 1 2 3 4 5
+00033:   do
+00034:     MANIFEST="$PLAN/${ACCOUNT}_missing_${K}.txt"
+00035:     COUNT="$(wc -l < "$MANIFEST" 2>/dev/null || echo 0)"
+00036: 
+00037:     if [[ "$COUNT" -eq 0 ]]; then
+00038:       continue
+00039:     fi
+00040: 
+00041:     OUT="$ROOT/out/_continuation_gpt55_${ACCOUNT}_finalfill_missing${K}_${STAMP}"
+00042:     GROUP_EXPECTED=$((COUNT * K))
+00043: 
+00044:     echo
+00045:     echo "============================================================"
+00046:     echo "ACCOUNT=$ACCOUNT"
+00047:     echo "MISSING_PER_SUT=$K"
+00048:     echo "SUT_COUNT=$COUNT"
+00049:     echo "EXPECTED_STATUS_FILES=$GROUP_EXPECTED"
+00050:     echo "OUT_ROOT=$OUT"
+00051:     echo "============================================================"
+00052: 
+00053:     OUT_ROOT="$OUT"     SUT_LIST_FILE="$MANIFEST"     REPEATS="$K"     RUN_MUTATION=1     GEN_TIMEOUT_S=200     GEN_EMPTY_RETRY_MAX=15     GENERATION_RETRY_SLEEP_S=2     PYTEST_TIMEOUT_S=60     MUTATION_TIMEOUT_S=180     bash "$ROOT/scripts/run_quixbugs_gpt55_dataset.sh"
+00054: 
+00055:     GROUP_RC=$?
+00056: 
+00057:     if [[ "$GROUP_RC" -ne 0 ]]; then
+00058:       OVERALL_RC=1
+00059:     fi
+00060:   done
+00061: 
+00062:   echo
+00063:   echo "FINAL_RC=$OVERALL_RC"
+00064:   echo "END_DATE=$(date)"
+00065: 
+00066:   exit "$OVERALL_RC"
+00067: 
+00068: } 2>&1 | tee "$LOG"
+00069: 
+00070: RC=${PIPESTATUS[0]}
+00071: 
+00072: printf '%s\n' "$RC" > "$LOG.exit_code"
+00073: 
+00074: exit "$RC"
+
+
+============================================================================
+FILE: /home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_account1_fill_missing_20260618_082520/run.sh
+SCORE: 25
+CATEGORIES: secrets_file,accounts,empty,manifest
+============================================================================
+
+00001: #!/usr/bin/env bash
+00002: 
+00003: set +e
+00004: set +u
+00005: set +o pipefail 2>/dev/null || true
+00006: set +H 2>/dev/null || true
+00007: 
+00008: ROOT=/home/jpaiva/projetos/quixbugs_python_gpt55
+00009: SECRET=[REDACTED]
+00010: AUDIT=/home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_account1_fill_missing_20260618_082520
+00011: STAMP=20260618_082520
+00012: LOG=/home/jpaiva/projetos/quixbugs_python_gpt55/_smoke/gpt55_account1_fill_missing_20260618_082520.log
+00013: 
+00014: cd "$ROOT" || exit 1
+00015: 
+00016: export IAEDU_SECRETS_FILE="$SECRET"
+00017: 
+00018: {
+00019:   echo "===== GPT-5.5 ACCOUNT1 — FILL MISSING ====="
+00020:   echo "START_DATE=$(date)"
+00021:   echo "EXPECTED_NEW_STATUS_FILES=107"
+00022:   echo
+00023: 
+00024:   OVERALL_RC=0
+00025: 
+00026:   for K in 1 2 3 4 5
+00027:   do
+00028:     MANIFEST="$AUDIT/missing_${K}.txt"
+00029:     COUNT="$(wc -l < "$MANIFEST" 2>/dev/null || echo 0)"
+00030: 
+00031:     if [[ "$COUNT" -eq 0 ]]; then
+00032:       continue
+00033:     fi
+00034: 
+00035:     OUT="$ROOT/out/_continuation_gpt55_account1_fill_missing${K}_${STAMP}"
+00036:     EXPECTED=$((COUNT * K))
+00037: 
+00038:     echo
+00039:     echo "============================================================"
+00040:     echo "MISSING_PER_SUT=$K"
+00041:     echo "SUT_COUNT=$COUNT"
+00042:     echo "EXPECTED_STATUS_FILES=$EXPECTED"
+00043:     echo "OUT_ROOT=$OUT"
+00044:     echo "============================================================"
+00045: 
+00046:     OUT_ROOT="$OUT"     SUT_LIST_FILE="$MANIFEST"     REPEATS="$K"     RUN_MUTATION=1     GEN_TIMEOUT_S=200     GEN_EMPTY_RETRY_MAX=15     GENERATION_RETRY_SLEEP_S=2     PYTEST_TIMEOUT_S=60     MUTATION_TIMEOUT_S=180     bash "$ROOT/scripts/run_quixbugs_gpt55_dataset.sh"
+00047: 
+00048:     GROUP_RC=$?
+00049: 
+00050:     printf '%s\n' "$GROUP_RC"       > "$AUDIT/missing_${K}.exit_code"
+00051: 
+00052:     if [[ "$GROUP_RC" -ne 0 ]]; then
+00053:       OVERALL_RC=1
+00054:     fi
+00055:   done
+00056: 
+00057:   echo
+00058:   echo "FINAL_RC=$OVERALL_RC"
+00059:   echo "END_DATE=$(date)"
+00060: 
+00061:   exit "$OVERALL_RC"
+00062: 
+00063: } 2>&1 | tee "$LOG"
+00064: 
+00065: RC=${PIPESTATUS[0]}
+00066: 
+00067: printf '%s\n' "$RC"   > "$LOG.exit_code"
+00068: 
+00069: exit "$RC"
+
+
+============================================================================
+FILE: /home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_wrapperfix_continuation_20260618_075859/run_gpt55_continuation.sh
+SCORE: 25
+CATEGORIES: secrets_file,accounts,empty,manifest
+============================================================================
+
+00001: #!/usr/bin/env bash
+00002: 
+00003: set +e
+00004: set +u
+00005: set +o pipefail 2>/dev/null || true
+00006: set +H 2>/dev/null || true
+00007: 
+00008: ROOT=/home/jpaiva/projetos/quixbugs_python_gpt55
+00009: SECRET=[REDACTED]
+00010: MANIFEST=/home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_wrapperfix_continuation_20260618_075859/suts_015_040.txt
+00011: OUT=/home/jpaiva/projetos/quixbugs_python_gpt55/out/_continuation_gpt55_account3_wrapperfix_015_040_26suts_x5_mutation_20260618_075859
+00012: LOG=/home/jpaiva/projetos/quixbugs_python_gpt55/_smoke/continuation_gpt55_account3_wrapperfix_015_040_26suts_x5_mutation_20260618_075859.log
+00013: 
+00014: cd "$ROOT" || exit 1
+00015: 
+00016: export IAEDU_SECRETS_FILE="$SECRET"
+00017: 
+00018: {
+00019:   echo "===== GPT-5.5 WRAPPER-FIX CONTINUATION ====="
+00020:   echo "START_DATE=$(date)"
+00021:   echo "OUT_ROOT=$OUT"
+00022:   echo "EXPECTED_STATUS_FILES=130"
+00023:   echo
+00024: 
+00025:   OUT_ROOT="$OUT"   SUT_LIST_FILE="$MANIFEST"   REPEATS=5   RUN_MUTATION=1   GEN_TIMEOUT_S=200   GEN_EMPTY_RETRY_MAX=15   GENERATION_RETRY_SLEEP_S=2   PYTEST_TIMEOUT_S=60   MUTATION_TIMEOUT_S=180   bash "$ROOT/scripts/run_quixbugs_gpt55_dataset.sh"
+00026: 
+00027:   RC=$?
+00028: 
+00029:   echo
+00030:   echo "FINAL_RC=$RC"
+00031:   echo "END_DATE=$(date)"
+00032: 
+00033:   exit "$RC"
+00034: 
+00035: } 2>&1 | tee "$LOG"
+00036: 
+00037: RC=${PIPESTATUS[0]}
+00038: 
+00039: printf '%s\n' "$RC"   > "$LOG.exit_code"
+00040: 
+00041: exit "$RC"
+
+
+============================================================================
+FILE: /home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_account2_continuation_launch_20260617_125239/run_continuation.sh
+SCORE: 15
+CATEGORIES: accounts,empty,manifest
+============================================================================
+
+00001: #!/usr/bin/env bash
+00002: 
+00003: set +e
+00004: set +u
+00005: set +o pipefail 2>/dev/null || true
+00006: set +H 2>/dev/null || true
+00007: 
+00008: ROOT="/home/jpaiva/projetos/quixbugs_python_gpt55"
+00009: OUT="/home/jpaiva/projetos/quixbugs_python_gpt55/out/_continuation_gpt55_account2_015_040_26suts_x5_mutation"
+00010: LOG="/home/jpaiva/projetos/quixbugs_python_gpt55/_smoke/continuation_gpt55_account2_015_040_26suts_x5_mutation.log"
+00011: SECRET_FILE="/home/jpaiva/projetos/quixbugs_python_gpt55/secrets_account2.env"
+00012: MANIFEST="/home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_account2_continuation_launch_20260617_125239/suts_015_040.txt"
+00013: 
+00014: cd "$ROOT" || exit 1
+00015: 
+00016: mkdir -p "$ROOT/out" "$ROOT/_smoke"
+00017: 
+00018: set -a
+00019: source "$SECRET_FILE"
+00020: set +a
+00021: 
+00022: {
+00023:   echo "===== GPT-5.5 ACCOUNT 2 CONTINUATION ====="
+00024:   echo "START_DATE=$(date)"
+00025:   echo "ROOT=$ROOT"
+00026:   echo "OUT_ROOT=$OUT"
+00027:   echo "SUT_LIST_FILE=$MANIFEST"
+00028:   echo "REPEATS=5"
+00029:   echo "RUN_MUTATION=1"
+00030:   echo
+00031: 
+00032:   OUT_ROOT="$OUT"   SUT_LIST_FILE="$MANIFEST"   REPEATS=5   RUN_MUTATION=1   GEN_TIMEOUT_S=200   GEN_EMPTY_RETRY_MAX=15   GENERATION_RETRY_SLEEP_S=2   PYTEST_TIMEOUT_S=60   MUTATION_TIMEOUT_S=180   bash "$ROOT/scripts/run_quixbugs_gpt55_dataset.sh"
+00033: 
+00034:   RC=$?
+00035: 
+00036:   echo
+00037:   echo "CONTINUATION_RC=$RC"
+00038:   echo "END_DATE=$(date)"
+00039: 
+00040:   exit "$RC"
+00041: } 2>&1 | tee "$LOG"
+00042: 
+00043: RC=${PIPESTATUS[0]}
+00044: printf '%s\n' "$RC" > "$LOG.exit_code"
+00045: 
+00046: exit "$RC"
+
+
+============================================================================
+FILE: /home/jpaiva/projetos/quixbugs_python_gpt55/scripts/generator_cmd_iaedu.sh
+SCORE: 15
+CATEGORIES: secrets_file,empty,api
+============================================================================
+
+00001: #!/usr/bin/env bash
+00002: set -euo pipefail
+00003: 
+00004: # Usage:
+00005: #   scripts/generator_cmd_iaedu.sh final_prompt.txt > raw_output.py
+00006: #
+00007: # This is intentionally a single-call bridge.
+00008: # Retry-empty is handled by the outer one_sut workflow, not here.
+00009: 
+00010: PROMPT_FILE="${1:?usage: generator_cmd_iaedu.sh PROMPT_FILE}"
+00011: 
+00012: SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+00013: REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+00014: HELPER="$REPO_ROOT/common/iaedu_from_prompt.py"
+00015: DEFAULT_SECRETS_FILE="$REPO_ROOT/secrets.env"
+00016: SECRETS_FILE="${IAEDU_SECRETS_FILE:-$DEFAULT_SECRETS_FILE}"
+00017: 
+00018: # Respeitar credenciais já exportadas pelo launcher.
+00019: # Quando não existirem, carregar o ficheiro explicitamente selecionado.
+00020: if [[ -z "${IAEDU_ENDPOINT:-}" \
+00021:    || -z "${IAEDU_CHANNEL_ID:-}" \
+00022:    || -z "${IAEDU_API_KEY:-}" ]]
+00023: then
+00024:   if [[ ! -f "$SECRETS_FILE" ]]; then
+00025:     echo "[ERROR] secrets file not found: $SECRETS_FILE" >&2
+00026:     exit 1
+00027:   fi
+00028: 
+00029:   set -a
+00030:   # shellcheck disable=SC1090
+00031:   source "$SECRETS_FILE"
+00032:   set +a
+00033: fi
+00034: 
+00035: : "${IAEDU_ENDPOINT:?IAEDU_ENDPOINT is not defined}"
+00036: : "${IAEDU_CHANNEL_ID:?IAEDU_CHANNEL_ID is not defined}"
+00037: : "${IAEDU_API_KEY:?IAEDU_API_KEY is not defined}"
+00038: 
+00039: if [[ ! -f "$PROMPT_FILE" ]]; then
+00040:   echo "[ERROR] prompt file not found: $PROMPT_FILE" >&2
+00041:   exit 2
+00042: fi
+00043: 
+00044: if [[ ! -f "$HELPER" ]]; then
+00045:   echo "[ERROR] IAEdu helper not found: $HELPER" >&2
+00046:   exit 2
+00047: fi
+00048: 
+00049: # Most mature GPT-4o workflows call the helper with the prompt file path.
+00050: # Keep this wrapper minimal so attempt counts remain truthful.
+00051: python3 "$HELPER" "$PROMPT_FILE"
+
+
+============================================================================
+FILE: /home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_three_accounts_probe_20260617_125033/accounts_summary.tsv
+SCORE: 11
+CATEGORIES: accounts,empty
+============================================================================
+
+00001: account	secret_file	key_fingerprint	channel	return_code	response_bytes	nonempty	classification
+00002: account_1	/home/jpaiva/projetos/quixbugs_python_gpt55/secrets.env	b9941ad331f9	cmqdp3rpod25tnr01wsw0l3s8	0	1	0	EMPTY_RESPONSE_WITHOUT_EXPLICIT_CAUSE
+00003: account_2	/home/jpaiva/projetos/quixbugs_python_gpt55/secrets_account2.env	00904e1694a4	cmqi1huqb1z7ynr01vsg5mxkp	0	17	1	USABLE_NONEMPTY_RESPONSE
+00004: account_3	/home/jpaiva/projetos/quixbugs_python_gpt55/secrets_account3.env	NA	NA	NA	0	0	MISSING_SECRET_FILE
+
+
+============================================================================
+FILE: /home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_generation_boundary_20260617_123242.txt
+SCORE: 9
+CATEGORIES: quota,empty
+============================================================================
+
+00001: ===== GPT-5.5 GENERATION BOUNDARY AUDIT =====
+00002: DATE=Wed Jun 17 12:32:42 WEST 2026
+00003: OUT=/home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation
+00004: 
+00005: ===== ÚLTIMO SUT VÁLIDO: 014_python_knapsack =====
+00006: 
+00007: ----- 014_python_knapsack rep=1-1 -----
+00008: {
+00009:   "branch_coverage_pct": 100.0,
+00010:   "coverage_exit_code": 0,
+00011:   "dataset": "quixbugs_python",
+00012:   "effective_test_functions": 8,
+00013:   "generation_attempts": 1,
+00014:   "generation_empty_attempts": 0,
+00015:   "generation_exit_code": 0,
+00016:   "generation_final_attempt": 1,
+00017:   "language": "python",
+00018:   "line_coverage_pct": 100.0,
+00019:   "model": "gpt-5.5",
+00020:   "module_name": "sut",
+00021:   "mutation_score_pct": 87.5,
+00022:   "mutmut_exit_code": 0,
+00023:   "note": "ok",
+00024:   "pytest_final_exit_code": 0,
+00025:   "pytest_raw_exit_code": 0,
+00026:   "rep_id": "1-1",
+00027:   "repeat": 1,
+00028:   "run_dir": "/home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/014_python_knapsack/run_0001/1-1",
+00029:   "run_id": "run_0001",
+00030:   "run_mutation": 1,
+00031:   "sanitized_used": 0,
+00032:   "skipped_test_functions": 0,
+00033:   "status": "ok",
+00034:   "sut_name": "014_python_knapsack",
+00035:   "top_level_test_functions": 8
+00036: }
+00037: 
+00038: TRACE:
+00039: attempt	exit_code	bytes	nonempty	state
+00040: 1	0	910	1	nonempty_success
+00041: 
+00042: ----- 014_python_knapsack rep=1-2 -----
+00043: {
+00044:   "branch_coverage_pct": 100.0,
+00045:   "coverage_exit_code": 0,
+00046:   "dataset": "quixbugs_python",
+00047:   "effective_test_functions": 8,
+00048:   "generation_attempts": 1,
+00049:   "generation_empty_attempts": 0,
+00050:   "generation_exit_code": 0,
+00051:   "generation_final_attempt": 1,
+00052:   "language": "python",
+00053:   "line_coverage_pct": 100.0,
+00054:   "model": "gpt-5.5",
+00055:   "module_name": "sut",
+00056:   "mutation_score_pct": 90.625,
+00057:   "mutmut_exit_code": 0,
+00058:   "note": "ok",
+00059:   "pytest_final_exit_code": 0,
+00060:   "pytest_raw_exit_code": 1,
+00061:   "rep_id": "1-2",
+00062:   "repeat": 2,
+00063:   "run_dir": "/home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/014_python_knapsack/run_0001/1-2",
+00064:   "run_id": "run_0001",
+00065:   "run_mutation": 1,
+00066:   "sanitized_used": 1,
+00067:   "skipped_test_functions": 2,
+00068:   "status": "ok",
+00069:   "sut_name": "014_python_knapsack",
+00070:   "top_level_test_functions": 10
+00071: }
+00072: 
+00073: TRACE:
+00074: attempt	exit_code	bytes	nonempty	state
+00075: 1	0	1197	1	nonempty_success
+00076: 
+00077: ----- 014_python_knapsack rep=1-3 -----
+00078: {
+00079:   "branch_coverage_pct": 100.0,
+00080:   "coverage_exit_code": 0,
+00081:   "dataset": "quixbugs_python",
+00082:   "effective_test_functions": 8,
+00083:   "generation_attempts": 1,
+00084:   "generation_empty_attempts": 0,
+00085:   "generation_exit_code": 0,
+00086:   "generation_final_attempt": 1,
+00087:   "language": "python",
+00088:   "line_coverage_pct": 100.0,
+00089:   "model": "gpt-5.5",
+00090:   "module_name": "sut",
+00091:   "mutation_score_pct": 87.5,
+00092:   "mutmut_exit_code": 0,
+00093:   "note": "ok",
+00094:   "pytest_final_exit_code": 0,
+00095:   "pytest_raw_exit_code": 0,
+00096:   "rep_id": "1-3",
+00097:   "repeat": 3,
+00098:   "run_dir": "/home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/014_python_knapsack/run_0001/1-3",
+00099:   "run_id": "run_0001",
+00100:   "run_mutation": 1,
+00101:   "sanitized_used": 0,
+00102:   "skipped_test_functions": 0,
+00103:   "status": "ok",
+00104:   "sut_name": "014_python_knapsack",
+00105:   "top_level_test_functions": 8
+00106: }
+00107: 
+00108: TRACE:
+00109: attempt	exit_code	bytes	nonempty	state
+00110: 1	0	885	1	nonempty_success
+00111: 
+00112: ----- 014_python_knapsack rep=1-4 -----
+00113: {
+00114:   "branch_coverage_pct": 100.0,
+00115:   "coverage_exit_code": 0,
+00116:   "dataset": "quixbugs_python",
+00117:   "effective_test_functions": 8,
+00118:   "generation_attempts": 1,
+00119:   "generation_empty_attempts": 0,
+00120:   "generation_exit_code": 0,
+00121:   "generation_final_attempt": 1,
+00122:   "language": "python",
+00123:   "line_coverage_pct": 100.0,
+00124:   "model": "gpt-5.5",
+00125:   "module_name": "sut",
+00126:   "mutation_score_pct": 87.5,
+00127:   "mutmut_exit_code": 0,
+00128:   "note": "ok",
+00129:   "pytest_final_exit_code": 0,
+00130:   "pytest_raw_exit_code": 0,
+00131:   "rep_id": "1-4",
+00132:   "repeat": 4,
+00133:   "run_dir": "/home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/014_python_knapsack/run_0001/1-4",
+00134:   "run_id": "run_0001",
+00135:   "run_mutation": 1,
+00136:   "sanitized_used": 0,
+00137:   "skipped_test_functions": 0,
+00138:   "status": "ok",
+00139:   "sut_name": "014_python_knapsack",
+00140:   "top_level_test_functions": 8
+00141: }
+00142: 
+00143: TRACE:
+00144: attempt	exit_code	bytes	nonempty	state
+00145: 1	0	880	1	nonempty_success
+00146: 
+00147: ----- 014_python_knapsack rep=1-5 -----
+00148: {
+00149:   "branch_coverage_pct": 100.0,
+00150:   "coverage_exit_code": 0,
+00151:   "dataset": "quixbugs_python",
+00152:   "effective_test_functions": 8,
+00153:   "generation_attempts": 1,
+00154:   "generation_empty_attempts": 0,
+00155:   "generation_exit_code": 0,
+00156:   "generation_final_attempt": 1,
+00157:   "language": "python",
+00158:   "line_coverage_pct": 100.0,
+00159:   "model": "gpt-5.5",
+00160:   "module_name": "sut",
+00161:   "mutation_score_pct": 84.375,
+00162:   "mutmut_exit_code": 0,
+00163:   "note": "ok",
+00164:   "pytest_final_exit_code": 0,
+00165:   "pytest_raw_exit_code": 0,
+00166:   "rep_id": "1-5",
+00167:   "repeat": 5,
+00168:   "run_dir": "/home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/014_python_knapsack/run_0001/1-5",
+00169:   "run_id": "run_0001",
+00170:   "run_mutation": 1,
+00171:   "sanitized_used": 0,
+00172:   "skipped_test_functions": 0,
+00173:   "status": "ok",
+00174:   "sut_name": "014_python_knapsack",
+00175:   "top_level_test_functions": 8
+00176: }
+00177: 
+00178: TRACE:
+00179: attempt	exit_code	bytes	nonempty	state
+00180: 1	0	848	1	nonempty_success
+00181: 
+00182: ===== PRIMEIRO SUT COMPLETAMENTE VAZIO: 015_python_kth =====
+00183: 
+00184: ----- 015_python_kth rep=1-1 -----
+00185: {
+00186:   "branch_coverage_pct": null,
+00187:   "dataset": "quixbugs_python",
+00188:   "generation_attempts": 15,
+00189:   "generation_empty_attempts": 15,
+00190:   "generation_exit_code": 0,
+00191:   "generation_final_attempt": 0,
+00192:   "language": "python",
+00193:   "line_coverage_pct": null,
+00194:   "model": "gpt-5.5",
+00195:   "module_name": "sut",
+00196:   "mutation_score_pct": null,
+00197:   "note": "generation did not produce a usable non-empty output",
+00198:   "rep_id": "1-1",
+00199:   "repeat": 1,
+00200:   "run_dir": "/home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1",
+00201:   "run_id": "run_0001",
+00202:   "run_mutation": 1,
+00203:   "status": "generation_no_output",
+00204:   "sut_name": "015_python_kth"
+00205: }
+00206: 
+00207: TRACE:
+00208: attempt	exit_code	bytes	nonempty	state
+00209: 1	0	1	0	empty
+00210: 2	0	1	0	empty
+00211: 3	0	1	0	empty
+00212: 4	0	1	0	empty
+00213: 5	0	1	0	empty
+00214: 6	0	1	0	empty
+00215: 7	0	1	0	empty
+00216: 8	0	1	0	empty
+00217: 9	0	1	0	empty
+00218: 10	0	1	0	empty
+00219: 11	0	1	0	empty
+00220: 12	0	1	0	empty
+00221: 13	0	1	0	empty
+00222: 14	0	1	0	empty
+00223: 15	0	1	0	empty
+00224: 
+00225: GENERATION FILES:
+00226: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_1.raw.py	1 bytes
+00227: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_1.stderr.log	0 bytes
+00228: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_10.raw.py	1 bytes
+00229: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_10.stderr.log	0 bytes
+00230: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_11.raw.py	1 bytes
+00231: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_11.stderr.log	0 bytes
+00232: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_12.raw.py	1 bytes
+00233: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_12.stderr.log	0 bytes
+00234: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_13.raw.py	1 bytes
+00235: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_13.stderr.log	0 bytes
+00236: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_14.raw.py	1 bytes
+00237: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_14.stderr.log	0 bytes
+00238: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_15.raw.py	1 bytes
+00239: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_15.stderr.log	0 bytes
+00240: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_2.raw.py	1 bytes
+00241: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_2.stderr.log	0 bytes
+00242: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_3.raw.py	1 bytes
+00243: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_3.stderr.log	0 bytes
+00244: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_4.raw.py	1 bytes
+00245: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_4.stderr.log	0 bytes
+00246: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_5.raw.py	1 bytes
+00247: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_5.stderr.log	0 bytes
+00248: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_6.raw.py	1 bytes
+00249: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_6.stderr.log	0 bytes
+00250: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_7.raw.py	1 bytes
+00251: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_7.stderr.log	0 bytes
+00252: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_8.raw.py	1 bytes
+00253: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_8.stderr.log	0 bytes
+00254: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_9.raw.py	1 bytes
+00255: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/attempts/attempt_9.stderr.log	0 bytes
+00256: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/final_prompt.txt	1828 bytes
+00257: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/generation_meta.json	381 bytes
+00258: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/generation_retry_trace.tsv	255 bytes
+00259: 
+00260: POSSÍVEIS ERROS DE QUOTA/API:
+00261: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/generation_retry_trace.tsv:1:attempt	exit_code	bytes	nonempty	state
+00262: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/generation_retry_trace.tsv:2:1	0	1	0	empty
+00263: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/generation_retry_trace.tsv:3:2	0	1	0	empty
+00264: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/generation_retry_trace.tsv:4:3	0	1	0	empty
+00265: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/generation_retry_trace.tsv:5:4	0	1	0	empty
+00266: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/generation_retry_trace.tsv:6:5	0	1	0	empty
+00267: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/generation_retry_trace.tsv:7:6	0	1	0	empty
+00268: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/generation_retry_trace.tsv:8:7	0	1	0	empty
+00269: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/generation_retry_trace.tsv:9:8	0	1	0	empty
+00270: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/generation_retry_trace.tsv:10:9	0	1	0	empty
+00271: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/generation_retry_trace.tsv:11:10	0	1	0	empty
+00272: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/generation_retry_trace.tsv:12:11	0	1	0	empty
+00273: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/generation_retry_trace.tsv:13:12	0	1	0	empty
+00274: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/generation_retry_trace.tsv:14:13	0	1	0	empty
+00275: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/generation_retry_trace.tsv:15:14	0	1	0	empty
+00276: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/generation_retry_trace.tsv:16:15	0	1	0	empty
+00277: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/generation_meta.json:3:  "gen_empty_retry_max": 15,
+00278: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-1/generation/generation_meta.json:6:  "generation_empty_attempts": 15,
+00279: 
+00280: ----- 015_python_kth rep=1-2 -----
+00281: {
+00282:   "branch_coverage_pct": null,
+00283:   "dataset": "quixbugs_python",
+00284:   "generation_attempts": 15,
+00285:   "generation_empty_attempts": 15,
+00286:   "generation_exit_code": 0,
+00287:   "generation_final_attempt": 0,
+00288:   "language": "python",
+00289:   "line_coverage_pct": null,
+00290:   "model": "gpt-5.5",
+00291:   "module_name": "sut",
+00292:   "mutation_score_pct": null,
+00293:   "note": "generation did not produce a usable non-empty output",
+00294:   "rep_id": "1-2",
+00295:   "repeat": 2,
+00296:   "run_dir": "/home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2",
+00297:   "run_id": "run_0001",
+00298:   "run_mutation": 1,
+00299:   "status": "generation_no_output",
+00300:   "sut_name": "015_python_kth"
+00301: }
+00302: 
+00303: TRACE:
+00304: attempt	exit_code	bytes	nonempty	state
+00305: 1	0	1	0	empty
+00306: 2	0	1	0	empty
+00307: 3	0	1	0	empty
+00308: 4	0	1	0	empty
+00309: 5	0	1	0	empty
+00310: 6	0	1	0	empty
+00311: 7	0	1	0	empty
+00312: 8	0	1	0	empty
+00313: 9	0	1	0	empty
+00314: 10	0	1	0	empty
+00315: 11	0	1	0	empty
+00316: 12	0	1	0	empty
+00317: 13	0	1	0	empty
+00318: 14	0	1	0	empty
+00319: 15	0	1	0	empty
+00320: 
+00321: GENERATION FILES:
+00322: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_1.raw.py	1 bytes
+00323: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_1.stderr.log	0 bytes
+00324: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_10.raw.py	1 bytes
+00325: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_10.stderr.log	0 bytes
+00326: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_11.raw.py	1 bytes
+00327: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_11.stderr.log	0 bytes
+00328: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_12.raw.py	1 bytes
+00329: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_12.stderr.log	0 bytes
+00330: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_13.raw.py	1 bytes
+00331: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_13.stderr.log	0 bytes
+00332: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_14.raw.py	1 bytes
+00333: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_14.stderr.log	0 bytes
+00334: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_15.raw.py	1 bytes
+00335: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_15.stderr.log	0 bytes
+00336: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_2.raw.py	1 bytes
+00337: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_2.stderr.log	0 bytes
+00338: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_3.raw.py	1 bytes
+00339: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_3.stderr.log	0 bytes
+00340: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_4.raw.py	1 bytes
+00341: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_4.stderr.log	0 bytes
+00342: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_5.raw.py	1 bytes
+00343: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_5.stderr.log	0 bytes
+00344: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_6.raw.py	1 bytes
+00345: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_6.stderr.log	0 bytes
+00346: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_7.raw.py	1 bytes
+00347: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_7.stderr.log	0 bytes
+00348: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_8.raw.py	1 bytes
+00349: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_8.stderr.log	0 bytes
+00350: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_9.raw.py	1 bytes
+00351: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/attempts/attempt_9.stderr.log	0 bytes
+00352: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/final_prompt.txt	1828 bytes
+00353: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/generation_meta.json	381 bytes
+00354: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/generation_retry_trace.tsv	255 bytes
+00355: 
+00356: POSSÍVEIS ERROS DE QUOTA/API:
+00357: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/generation_retry_trace.tsv:1:attempt	exit_code	bytes	nonempty	state
+00358: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/generation_retry_trace.tsv:2:1	0	1	0	empty
+00359: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/generation_retry_trace.tsv:3:2	0	1	0	empty
+00360: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/generation_retry_trace.tsv:4:3	0	1	0	empty
+00361: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/generation_retry_trace.tsv:5:4	0	1	0	empty
+00362: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/generation_retry_trace.tsv:6:5	0	1	0	empty
+00363: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/generation_retry_trace.tsv:7:6	0	1	0	empty
+00364: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/generation_retry_trace.tsv:8:7	0	1	0	empty
+00365: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/generation_retry_trace.tsv:9:8	0	1	0	empty
+00366: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/generation_retry_trace.tsv:10:9	0	1	0	empty
+00367: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/generation_retry_trace.tsv:11:10	0	1	0	empty
+00368: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/generation_retry_trace.tsv:12:11	0	1	0	empty
+00369: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/generation_retry_trace.tsv:13:12	0	1	0	empty
+00370: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/generation_retry_trace.tsv:14:13	0	1	0	empty
+00371: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/generation_retry_trace.tsv:15:14	0	1	0	empty
+00372: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/generation_retry_trace.tsv:16:15	0	1	0	empty
+00373: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/generation_meta.json:3:  "gen_empty_retry_max": 15,
+00374: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-2/generation/generation_meta.json:6:  "generation_empty_attempts": 15,
+00375: 
+00376: ----- 015_python_kth rep=1-3 -----
+00377: {
+00378:   "branch_coverage_pct": null,
+00379:   "dataset": "quixbugs_python",
+00380:   "generation_attempts": 15,
+00381:   "generation_empty_attempts": 15,
+00382:   "generation_exit_code": 0,
+00383:   "generation_final_attempt": 0,
+00384:   "language": "python",
+00385:   "line_coverage_pct": null,
+00386:   "model": "gpt-5.5",
+00387:   "module_name": "sut",
+00388:   "mutation_score_pct": null,
+00389:   "note": "generation did not produce a usable non-empty output",
+00390:   "rep_id": "1-3",
+00391:   "repeat": 3,
+00392:   "run_dir": "/home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3",
+00393:   "run_id": "run_0001",
+00394:   "run_mutation": 1,
+00395:   "status": "generation_no_output",
+00396:   "sut_name": "015_python_kth"
+00397: }
+00398: 
+00399: TRACE:
+00400: attempt	exit_code	bytes	nonempty	state
+00401: 1	0	1	0	empty
+00402: 2	0	1	0	empty
+00403: 3	0	1	0	empty
+00404: 4	0	1	0	empty
+00405: 5	0	1	0	empty
+00406: 6	0	1	0	empty
+00407: 7	0	1	0	empty
+00408: 8	0	1	0	empty
+00409: 9	0	1	0	empty
+00410: 10	0	1	0	empty
+00411: 11	0	1	0	empty
+00412: 12	0	1	0	empty
+00413: 13	0	1	0	empty
+00414: 14	0	1	0	empty
+00415: 15	0	1	0	empty
+00416: 
+00417: GENERATION FILES:
+00418: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_1.raw.py	1 bytes
+00419: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_1.stderr.log	0 bytes
+00420: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_10.raw.py	1 bytes
+00421: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_10.stderr.log	0 bytes
+00422: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_11.raw.py	1 bytes
+00423: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_11.stderr.log	0 bytes
+00424: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_12.raw.py	1 bytes
+00425: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_12.stderr.log	0 bytes
+00426: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_13.raw.py	1 bytes
+00427: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_13.stderr.log	0 bytes
+00428: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_14.raw.py	1 bytes
+00429: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_14.stderr.log	0 bytes
+00430: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_15.raw.py	1 bytes
+00431: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_15.stderr.log	0 bytes
+00432: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_2.raw.py	1 bytes
+00433: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_2.stderr.log	0 bytes
+00434: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_3.raw.py	1 bytes
+00435: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_3.stderr.log	0 bytes
+00436: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_4.raw.py	1 bytes
+00437: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_4.stderr.log	0 bytes
+00438: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_5.raw.py	1 bytes
+00439: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_5.stderr.log	0 bytes
+00440: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_6.raw.py	1 bytes
+00441: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_6.stderr.log	0 bytes
+00442: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_7.raw.py	1 bytes
+00443: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_7.stderr.log	0 bytes
+00444: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_8.raw.py	1 bytes
+00445: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_8.stderr.log	0 bytes
+00446: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_9.raw.py	1 bytes
+00447: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/attempts/attempt_9.stderr.log	0 bytes
+00448: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/final_prompt.txt	1828 bytes
+00449: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/generation_meta.json	381 bytes
+00450: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/generation_retry_trace.tsv	255 bytes
+00451: 
+00452: POSSÍVEIS ERROS DE QUOTA/API:
+00453: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/generation_retry_trace.tsv:1:attempt	exit_code	bytes	nonempty	state
+00454: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/generation_retry_trace.tsv:2:1	0	1	0	empty
+00455: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/generation_retry_trace.tsv:3:2	0	1	0	empty
+00456: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/generation_retry_trace.tsv:4:3	0	1	0	empty
+00457: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/generation_retry_trace.tsv:5:4	0	1	0	empty
+00458: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/generation_retry_trace.tsv:6:5	0	1	0	empty
+00459: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/generation_retry_trace.tsv:7:6	0	1	0	empty
+00460: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/generation_retry_trace.tsv:8:7	0	1	0	empty
+00461: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/generation_retry_trace.tsv:9:8	0	1	0	empty
+00462: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/generation_retry_trace.tsv:10:9	0	1	0	empty
+00463: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/generation_retry_trace.tsv:11:10	0	1	0	empty
+00464: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/generation_retry_trace.tsv:12:11	0	1	0	empty
+00465: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/generation_retry_trace.tsv:13:12	0	1	0	empty
+00466: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/generation_retry_trace.tsv:14:13	0	1	0	empty
+00467: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/generation_retry_trace.tsv:15:14	0	1	0	empty
+00468: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/generation_retry_trace.tsv:16:15	0	1	0	empty
+00469: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/generation_meta.json:3:  "gen_empty_retry_max": 15,
+00470: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-3/generation/generation_meta.json:6:  "generation_empty_attempts": 15,
+00471: 
+00472: ----- 015_python_kth rep=1-4 -----
+00473: {
+00474:   "branch_coverage_pct": null,
+00475:   "dataset": "quixbugs_python",
+00476:   "generation_attempts": 15,
+00477:   "generation_empty_attempts": 15,
+00478:   "generation_exit_code": 0,
+00479:   "generation_final_attempt": 0,
+00480:   "language": "python",
+00481:   "line_coverage_pct": null,
+00482:   "model": "gpt-5.5",
+00483:   "module_name": "sut",
+00484:   "mutation_score_pct": null,
+00485:   "note": "generation did not produce a usable non-empty output",
+00486:   "rep_id": "1-4",
+00487:   "repeat": 4,
+00488:   "run_dir": "/home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4",
+00489:   "run_id": "run_0001",
+00490:   "run_mutation": 1,
+00491:   "status": "generation_no_output",
+00492:   "sut_name": "015_python_kth"
+00493: }
+00494: 
+00495: TRACE:
+00496: attempt	exit_code	bytes	nonempty	state
+00497: 1	0	1	0	empty
+00498: 2	0	1	0	empty
+00499: 3	0	1	0	empty
+00500: 4	0	1	0	empty
+00501: 5	0	1	0	empty
+00502: 6	0	1	0	empty
+00503: 7	0	1	0	empty
+00504: 8	0	1	0	empty
+00505: 9	0	1	0	empty
+00506: 10	0	1	0	empty
+00507: 11	0	1	0	empty
+00508: 12	0	1	0	empty
+00509: 13	0	1	0	empty
+00510: 14	0	1	0	empty
+00511: 15	0	1	0	empty
+00512: 
+00513: GENERATION FILES:
+00514: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_1.raw.py	1 bytes
+00515: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_1.stderr.log	0 bytes
+00516: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_10.raw.py	1 bytes
+00517: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_10.stderr.log	0 bytes
+00518: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_11.raw.py	1 bytes
+00519: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_11.stderr.log	0 bytes
+00520: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_12.raw.py	1 bytes
+00521: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_12.stderr.log	0 bytes
+00522: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_13.raw.py	1 bytes
+00523: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_13.stderr.log	0 bytes
+00524: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_14.raw.py	1 bytes
+00525: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_14.stderr.log	0 bytes
+00526: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_15.raw.py	1 bytes
+00527: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_15.stderr.log	0 bytes
+00528: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_2.raw.py	1 bytes
+00529: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_2.stderr.log	0 bytes
+00530: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_3.raw.py	1 bytes
+00531: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_3.stderr.log	0 bytes
+00532: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_4.raw.py	1 bytes
+00533: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_4.stderr.log	0 bytes
+00534: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_5.raw.py	1 bytes
+00535: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_5.stderr.log	0 bytes
+00536: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_6.raw.py	1 bytes
+00537: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_6.stderr.log	0 bytes
+00538: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_7.raw.py	1 bytes
+00539: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_7.stderr.log	0 bytes
+00540: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_8.raw.py	1 bytes
+00541: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_8.stderr.log	0 bytes
+00542: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_9.raw.py	1 bytes
+00543: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/attempts/attempt_9.stderr.log	0 bytes
+00544: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/final_prompt.txt	1828 bytes
+00545: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/generation_meta.json	381 bytes
+00546: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/generation_retry_trace.tsv	255 bytes
+00547: 
+00548: POSSÍVEIS ERROS DE QUOTA/API:
+00549: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/generation_retry_trace.tsv:1:attempt	exit_code	bytes	nonempty	state
+00550: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/generation_retry_trace.tsv:2:1	0	1	0	empty
+00551: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/generation_retry_trace.tsv:3:2	0	1	0	empty
+00552: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/generation_retry_trace.tsv:4:3	0	1	0	empty
+00553: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/generation_retry_trace.tsv:5:4	0	1	0	empty
+00554: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/generation_retry_trace.tsv:6:5	0	1	0	empty
+00555: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/generation_retry_trace.tsv:7:6	0	1	0	empty
+00556: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/generation_retry_trace.tsv:8:7	0	1	0	empty
+00557: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/generation_retry_trace.tsv:9:8	0	1	0	empty
+00558: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/generation_retry_trace.tsv:10:9	0	1	0	empty
+00559: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/generation_retry_trace.tsv:11:10	0	1	0	empty
+00560: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/generation_retry_trace.tsv:12:11	0	1	0	empty
+00561: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/generation_retry_trace.tsv:13:12	0	1	0	empty
+00562: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/generation_retry_trace.tsv:14:13	0	1	0	empty
+00563: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/generation_retry_trace.tsv:15:14	0	1	0	empty
+00564: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/generation_retry_trace.tsv:16:15	0	1	0	empty
+00565: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/generation_meta.json:3:  "gen_empty_retry_max": 15,
+00566: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-4/generation/generation_meta.json:6:  "generation_empty_attempts": 15,
+00567: 
+00568: ----- 015_python_kth rep=1-5 -----
+00569: {
+00570:   "branch_coverage_pct": null,
+00571:   "dataset": "quixbugs_python",
+00572:   "generation_attempts": 15,
+00573:   "generation_empty_attempts": 15,
+00574:   "generation_exit_code": 0,
+00575:   "generation_final_attempt": 0,
+00576:   "language": "python",
+00577:   "line_coverage_pct": null,
+00578:   "model": "gpt-5.5",
+00579:   "module_name": "sut",
+00580:   "mutation_score_pct": null,
+00581:   "note": "generation did not produce a usable non-empty output",
+00582:   "rep_id": "1-5",
+00583:   "repeat": 5,
+00584:   "run_dir": "/home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5",
+00585:   "run_id": "run_0001",
+00586:   "run_mutation": 1,
+00587:   "status": "generation_no_output",
+00588:   "sut_name": "015_python_kth"
+00589: }
+00590: 
+00591: TRACE:
+00592: attempt	exit_code	bytes	nonempty	state
+00593: 1	0	1	0	empty
+00594: 2	0	1	0	empty
+00595: 3	0	1	0	empty
+00596: 4	0	1	0	empty
+00597: 5	0	1	0	empty
+00598: 6	0	1	0	empty
+00599: 7	0	1	0	empty
+00600: 8	0	1	0	empty
+00601: 9	0	1	0	empty
+00602: 10	0	1	0	empty
+00603: 11	0	1	0	empty
+00604: 12	0	1	0	empty
+00605: 13	0	1	0	empty
+00606: 14	0	1	0	empty
+00607: 15	0	1	0	empty
+00608: 
+00609: GENERATION FILES:
+00610: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_1.raw.py	1 bytes
+00611: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_1.stderr.log	0 bytes
+00612: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_10.raw.py	1 bytes
+00613: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_10.stderr.log	0 bytes
+00614: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_11.raw.py	1 bytes
+00615: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_11.stderr.log	0 bytes
+00616: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_12.raw.py	1 bytes
+00617: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_12.stderr.log	0 bytes
+00618: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_13.raw.py	1 bytes
+00619: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_13.stderr.log	0 bytes
+00620: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_14.raw.py	1 bytes
+00621: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_14.stderr.log	0 bytes
+00622: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_15.raw.py	1 bytes
+00623: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_15.stderr.log	0 bytes
+00624: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_2.raw.py	1 bytes
+00625: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_2.stderr.log	0 bytes
+00626: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_3.raw.py	1 bytes
+00627: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_3.stderr.log	0 bytes
+00628: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_4.raw.py	1 bytes
+00629: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_4.stderr.log	0 bytes
+00630: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_5.raw.py	1 bytes
+00631: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_5.stderr.log	0 bytes
+00632: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_6.raw.py	1 bytes
+00633: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_6.stderr.log	0 bytes
+00634: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_7.raw.py	1 bytes
+00635: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_7.stderr.log	0 bytes
+00636: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_8.raw.py	1 bytes
+00637: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_8.stderr.log	0 bytes
+00638: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_9.raw.py	1 bytes
+00639: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/attempts/attempt_9.stderr.log	0 bytes
+00640: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/final_prompt.txt	1828 bytes
+00641: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/generation_meta.json	381 bytes
+00642: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/generation_retry_trace.tsv	255 bytes
+00643: 
+00644: POSSÍVEIS ERROS DE QUOTA/API:
+00645: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/generation_retry_trace.tsv:1:attempt	exit_code	bytes	nonempty	state
+00646: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/generation_retry_trace.tsv:2:1	0	1	0	empty
+00647: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/generation_retry_trace.tsv:3:2	0	1	0	empty
+00648: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/generation_retry_trace.tsv:4:3	0	1	0	empty
+00649: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/generation_retry_trace.tsv:5:4	0	1	0	empty
+00650: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/generation_retry_trace.tsv:6:5	0	1	0	empty
+00651: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/generation_retry_trace.tsv:7:6	0	1	0	empty
+00652: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/generation_retry_trace.tsv:8:7	0	1	0	empty
+00653: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/generation_retry_trace.tsv:9:8	0	1	0	empty
+00654: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/generation_retry_trace.tsv:10:9	0	1	0	empty
+00655: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/generation_retry_trace.tsv:11:10	0	1	0	empty
+00656: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/generation_retry_trace.tsv:12:11	0	1	0	empty
+00657: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/generation_retry_trace.tsv:13:12	0	1	0	empty
+00658: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/generation_retry_trace.tsv:14:13	0	1	0	empty
+00659: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/generation_retry_trace.tsv:15:14	0	1	0	empty
+00660: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/generation_retry_trace.tsv:16:15	0	1	0	empty
+00661: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/generation_meta.json:3:  "gen_empty_retry_max": 15,
+00662: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/015_python_kth/run_0001/1-5/generation/generation_meta.json:6:  "generation_empty_attempts": 15,
+00663: 
+00664: ===== ÚLTIMO SUT DA EXECUÇÃO: 040_python_wrap =====
+00665: {
+00666:   "branch_coverage_pct": null,
+00667:   "dataset": "quixbugs_python",
+00668:   "generation_attempts": 15,
+00669:   "generation_empty_attempts": 15,
+00670:   "generation_exit_code": 0,
+00671:   "generation_final_attempt": 0,
+00672:   "language": "python",
+00673:   "line_coverage_pct": null,
+00674:   "model": "gpt-5.5",
+00675:   "module_name": "sut",
+00676:   "mutation_score_pct": null,
+00677:   "note": "generation did not produce a usable non-empty output",
+00678:   "rep_id": "1-5",
+00679:   "repeat": 5,
+00680:   "run_dir": "/home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/040_python_wrap/run_0001/1-5",
+00681:   "run_id": "run_0001",
+00682:   "run_mutation": 1,
+00683:   "status": "generation_no_output",
+00684:   "sut_name": "040_python_wrap"
+00685: }
+00686: 
+00687: TRACE:
+00688: attempt	exit_code	bytes	nonempty	state
+00689: 1	0	1	0	empty
+00690: 2	0	1	0	empty
+00691: 3	0	1	0	empty
+00692: 4	0	1	0	empty
+00693: 5	0	1	0	empty
+00694: 6	0	1	0	empty
+00695: 7	0	1	0	empty
+00696: 8	0	1	0	empty
+00697: 9	0	1	0	empty
+00698: 10	0	1	0	empty
+00699: 11	0	1	0	empty
+00700: 12	0	1	0	empty
+00701: 13	0	1	0	empty
+00702: 14	0	1	0	empty
+00703: 15	0	1	0	empty
+00704: 
+00705: POSSÍVEIS ERROS DE QUOTA/API:
+00706: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/040_python_wrap/run_0001/1-5/generation/final_prompt.txt:39:        raise TypeError("text must be a string")
+00707: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/040_python_wrap/run_0001/1-5/generation/final_prompt.txt:41:        raise ValueError("cols must be a positive integer")
+00708: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/040_python_wrap/run_0001/1-5/generation/generation_retry_trace.tsv:1:attempt	exit_code	bytes	nonempty	state
+00709: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/040_python_wrap/run_0001/1-5/generation/generation_retry_trace.tsv:2:1	0	1	0	empty
+00710: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/040_python_wrap/run_0001/1-5/generation/generation_retry_trace.tsv:3:2	0	1	0	empty
+00711: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/040_python_wrap/run_0001/1-5/generation/generation_retry_trace.tsv:4:3	0	1	0	empty
+00712: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/040_python_wrap/run_0001/1-5/generation/generation_retry_trace.tsv:5:4	0	1	0	empty
+00713: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/040_python_wrap/run_0001/1-5/generation/generation_retry_trace.tsv:6:5	0	1	0	empty
+00714: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/040_python_wrap/run_0001/1-5/generation/generation_retry_trace.tsv:7:6	0	1	0	empty
+00715: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/040_python_wrap/run_0001/1-5/generation/generation_retry_trace.tsv:8:7	0	1	0	empty
+00716: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/040_python_wrap/run_0001/1-5/generation/generation_retry_trace.tsv:9:8	0	1	0	empty
+00717: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/040_python_wrap/run_0001/1-5/generation/generation_retry_trace.tsv:10:9	0	1	0	empty
+00718: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/040_python_wrap/run_0001/1-5/generation/generation_retry_trace.tsv:11:10	0	1	0	empty
+00719: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/040_python_wrap/run_0001/1-5/generation/generation_retry_trace.tsv:12:11	0	1	0	empty
+00720: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/040_python_wrap/run_0001/1-5/generation/generation_retry_trace.tsv:13:12	0	1	0	empty
+00721: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/040_python_wrap/run_0001/1-5/generation/generation_retry_trace.tsv:14:13	0	1	0	empty
+00722: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/040_python_wrap/run_0001/1-5/generation/generation_retry_trace.tsv:15:14	0	1	0	empty
+00723: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/040_python_wrap/run_0001/1-5/generation/generation_retry_trace.tsv:16:15	0	1	0	empty
+00724: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/040_python_wrap/run_0001/1-5/generation/generation_meta.json:3:  "gen_empty_retry_max": 15,
+00725: /home/jpaiva/projetos/quixbugs_python_gpt55/out/_final_gpt55_quixbugs_python_40suts_x5_mutation/040_python_wrap/run_0001/1-5/generation/generation_meta.json:6:  "generation_empty_attempts": 15,
+00726: 
+00727: ===== DISTRIBUIÇÃO POR SUT =====
+00728: 001_python_bitcount total=5 statuses={"ok": 5}
+00729: 002_python_breadth_first_search total=5 statuses={"ok": 5}
+00730: 003_python_bucketsort total=5 statuses={"ok": 5}
+00731: 004_python_depth_first_search total=5 statuses={"ok": 5}
+00732: 005_python_detect_cycle total=5 statuses={"ok": 5}
+00733: 006_python_find_first_in_sorted total=5 statuses={"ok": 5}
+00734: 007_python_find_in_sorted total=5 statuses={"ok": 5}
+00735: 008_python_flatten total=5 statuses={"ok": 5}
+00736: 009_python_gcd total=5 statuses={"ok": 5}
+00737: 010_python_get_factors total=5 statuses={"ok": 5}
+00738: 011_python_hanoi total=5 statuses={"ok": 5}
+00739: 012_python_is_valid_parenthesization total=5 statuses={"ok": 5}
+00740: 013_python_kheapsort total=5 statuses={"ok": 5}
+00741: 014_python_knapsack total=5 statuses={"ok": 5}
+00742: 015_python_kth total=5 statuses={"generation_no_output": 5}
+00743: 016_python_lcs_length total=5 statuses={"generation_no_output": 5}
+00744: 017_python_levenshtein total=5 statuses={"generation_no_output": 5}
+00745: 018_python_lis total=5 statuses={"generation_no_output": 5}
+00746: 019_python_longest_common_subsequence total=5 statuses={"generation_no_output": 5}
+00747: 020_python_max_sublist_sum total=5 statuses={"generation_no_output": 5}
+00748: 021_python_mergesort total=5 statuses={"generation_no_output": 5}
+00749: 022_python_minimum_spanning_tree total=5 statuses={"generation_no_output": 5}
+00750: 023_python_next_palindrome total=5 statuses={"generation_no_output": 5}
+00751: 024_python_next_permutation total=5 statuses={"generation_no_output": 5}
+00752: 025_python_pascal total=5 statuses={"generation_no_output": 5}
+00753: 026_python_possible_change total=5 statuses={"generation_no_output": 5}
+00754: 027_python_powerset total=5 statuses={"generation_no_output": 5}
+00755: 028_python_quicksort total=5 statuses={"generation_no_output": 5}
+00756: 029_python_reverse_linked_list total=5 statuses={"generation_no_output": 5}
+00757: 030_python_rpn_eval total=5 statuses={"generation_no_output": 5}
+00758: 031_python_shortest_path_length total=5 statuses={"generation_no_output": 5}
+00759: 032_python_shortest_path_lengths total=5 statuses={"generation_no_output": 5}
+00760: 033_python_shortest_paths total=5 statuses={"generation_no_output": 5}
+00761: 034_python_shunting_yard total=5 statuses={"generation_no_output": 5}
+00762: 035_python_sieve total=5 statuses={"generation_no_output": 5}
+00763: 036_python_sqrt total=5 statuses={"generation_no_output": 5}
+00764: 037_python_subsequences total=5 statuses={"generation_no_output": 5}
+00765: 038_python_to_base total=5 statuses={"generation_no_output": 5}
+00766: 039_python_topological_ordering total=5 statuses={"generation_no_output": 5}
+00767: 040_python_wrap total=5 statuses={"generation_no_output": 5}
+
+
+============================================================================
+FILE: /home/jpaiva/projetos/quixbugs_python_gpt55/_audit/gpt55_three_accounts_probe_20260617_125033/account_2.environment.txt
+SCORE: 9
+CATEGORIES: accounts
+============================================================================
+
+00001: secret_file=/home/jpaiva/projetos/quixbugs_python_gpt55/secrets_account2.env
+00002: endpoint=https://api.iaedu.pt/agent-chat//api/v1/agent/cmor5objoex9gfp01vm7p95jh/stream
+00003: channel=cmqi1huqb1z7ynr01vsg5mxkp
+00004: key_fingerprint=00904e1694a4
+00005: key_value=NOT_RECORDED

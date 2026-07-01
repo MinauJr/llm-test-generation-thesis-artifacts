@@ -1,0 +1,9 @@
+{
+  "removed": [
+    {
+      "line": "pkg-resources==0.0.0",
+      "reason": "known-bad"
+    }
+  ],
+  "rewritten": []
+}

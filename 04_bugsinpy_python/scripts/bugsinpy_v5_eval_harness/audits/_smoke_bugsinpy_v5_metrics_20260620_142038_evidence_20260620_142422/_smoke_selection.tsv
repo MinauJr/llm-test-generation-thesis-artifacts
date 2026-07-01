@@ -1,0 +1,4 @@
+model	sut_id	repeat	run_dir	test_count
+cluster-safe-qwen3-coder-30b-official-ctx32k	PySnooper_2f	5	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_metrics_20260620_142038/PySnooper_2f/run_0001/0001-5	5
+cluster-safe-qwen2.5-coder-14b-ctx32k	cookiecutter_1f	5	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_metrics_20260620_142038/cookiecutter_1f/run_0001/0007-5	5
+cluster-max-codellama-7b-instruct-ctx16k	matplotlib_16f	4	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_metrics_20260620_142038/matplotlib_16f/run_0001/0011-4	4

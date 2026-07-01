@@ -1,0 +1,3 @@
+/home/jpaiva/projetos/llm_test_generation_gpt4o/_audit_quixbugs_python_gpt4o_bootstrap_20260504_075940
+/home/jpaiva/projetos/quixbugs_python_cluster
+/home/jpaiva/projetos/quixbugs_python_gpt55

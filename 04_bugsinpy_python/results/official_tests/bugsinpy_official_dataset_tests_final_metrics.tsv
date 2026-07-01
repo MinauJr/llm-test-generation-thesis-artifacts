@@ -1,0 +1,17 @@
+sut_id	coverage_status	line_pct	branch_pct	mutation_status	mutation_score	generated_mutants	executed_mutants	killed	survived	timeout	not_run_budget_or_cap	coverage_target_files	mutation_patch_files
+PySnooper_2f	ok	32.6271	13.7500	ok	40.140845	142	142	57	85	0	0	pysnooper/tracer.py	pysnooper/tracer.py
+PySnooper_3f	ok	75.0000	50.0000	ok	75.000000	8	8	6	2	0	0	pysnooper/pysnooper.py	pysnooper/pysnooper.py
+ansible_14f	ok	32.7327	8.3333	ok	0.000000	210	210	0	210	0	0	lib/ansible/galaxy/api.py	lib/ansible/galaxy/api.py
+ansible_17f	ok	17.8782	7.3913	partial_budget_or_cap	0.000000	408	378	0	378	0	30	lib/ansible/module_utils/facts/hardware/linux.py	lib/ansible/module_utils/facts/hardware/linux.py
+black_2f	ok	46.4338	30.6754	partial_budget_or_cap	3.030303	2272	297	9	288	0	1975	black.py	black.py
+black_5f	ok	38.1124	22.2222	partial_budget_or_cap	5.444126	2062	349	19	330	0	1713	black.py	black.py
+cookiecutter_1f	ok	19.4286	3.7037	ok	11.764706	51	51	6	45	0	0	cookiecutter/generate.py	cookiecutter/generate.py
+cookiecutter_3f	ok	29.2135	5.5556	ok	20.000000	35	35	7	28	0	0	cookiecutter/prompt.py	cookiecutter/prompt.py
+httpie_1f	ok	31.6514	13.4615	ok	9.895833	192	192	17	173	2	0	httpie/downloads.py	httpie/downloads.py
+httpie_2f	ok	52.2727	19.4444	ok	12.173913	115	115	14	101	0	0	httpie/client.py,httpie/core.py	httpie/client.py,httpie/core.py
+matplotlib_16f	ok	49.3031	20.3448	partial_budget_or_cap	2.870813	1314	209	6	203	0	1105	lib/matplotlib/transforms.py	lib/matplotlib/transforms.py
+matplotlib_9f	ok	53.9281	21.2500	partial_budget_or_cap	0.900901	963	222	2	220	0	741	lib/matplotlib/projections/polar.py	lib/matplotlib/projections/polar.py
+thefuck_25f	ok	87.5000	100.0000	ok	0.000000	3	3	0	3	0	0	thefuck/rules/mkdir_p.py	thefuck/rules/mkdir_p.py
+tornado_14f	ok	41.6244	7.4074	ok	3.937008	254	254	8	244	2	0	tornado/ioloop.py	tornado/ioloop.py
+tornado_4f	ok	41.4337	20.4120	partial_budget_or_cap	14.414414	1116	333	48	285	0	783	tornado/web.py	tornado/web.py
+youtube-dl_35f	ok	22.6848	2.3684	partial_budget_or_cap	0.000000	991	500	0	500	0	491	youtube_dl/extractor/arte.py,youtube_dl/utils.py	youtube_dl/extractor/arte.py,youtube_dl/utils.py

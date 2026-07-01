@@ -1,0 +1,17 @@
+account	sut_id	target_module	slots	ok	pytest_raw_fail	generated_test_compile_fail	mutation_no_checked_mutants	generation_no_output	line_mean_penalized	branch_mean_penalized	mutation_mean_penalized
+account1	PySnooper_2f	pysnooper	5	0	0	0	5	0	40.902000	19.324000	0.000000
+account1	ansible_17f	ansible.utils.unicode	5	1	4	0	0	0	12.692000	7.500000	0.000000
+account1	cookiecutter_1f	cookiecutter.log	5	4	1	0	0	0	80.000000	80.000000	78.518519
+account1	httpie_2f	httpie.sessions	5	0	5	0	0	0	0.000000	0.000000	0.000000
+account1	thefuck_25f	thefuck.types	5	5	0	0	0	0	100.000000	100.000000	100.000000
+account1	youtube-dl_35f	youtube_dl.utils	5	0	5	0	0	0	0.000000	0.000000	0.000000
+account2	PySnooper_3f	pysnooper	5	0	5	0	0	0	0.000000	0.000000	0.000000
+account2	black_2f	blib2to3.pgen2.token	5	5	0	0	0	0	100.000000	100.000000	100.000000
+account2	cookiecutter_3f	cookiecutter.log	5	2	3	0	0	0	40.000000	40.000000	40.000000
+account2	matplotlib_16f	matplotlib.cbook	5	0	5	0	0	0	0.000000	0.000000	0.000000
+account2	tornado_14f	tornado.escape	5	2	3	0	0	0	35.674000	33.548000	29.668246
+account3	ansible_14f	ansible.utils.unicode	5	2	3	0	0	0	25.384000	15.000000	0.000000
+account3	black_5f	blib2to3.pgen2.driver	5	2	3	0	0	0	26.308000	22.188000	15.115512
+account3	httpie_1f	httpie.sessions	5	0	5	0	0	0	0.000000	0.000000	0.000000
+account3	matplotlib_9f	matplotlib.cbook	5	0	4	1	0	0	0.000000	0.000000	0.000000
+account3	tornado_4f	tornado.escape	5	4	1	0	0	0	66.456000	63.216000	52.509960

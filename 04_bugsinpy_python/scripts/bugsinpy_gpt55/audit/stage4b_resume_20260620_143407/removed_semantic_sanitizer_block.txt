@@ -1,0 +1,11 @@
+if [ "$CURRENT_STATUS" = "pytest_raw_fail" ]; then
+  echo
+  echo "===== STEP B — sanitization + final pytest ====="
+  set +e
+  "$PYTHON_BIN" "$SANITIZER" \
+    --run-dir "$RUN_DIR" \
+    --pytest-timeout-s "$PYTEST_TIMEOUT_S"
+  SANITIZER_RC=$?
+  set -u
+  echo "SANITIZER_RC=$SANITIZER_RC"
+

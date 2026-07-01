@@ -1,0 +1,2 @@
+valid	status	line_pct	branch_pct	mutation_score_pct	mutation_available	mutmut_counts	manual_fallback_used	mutation_manual_fallback_used
+True	ok	100.0	100.0	92.5925925925926	True	{'effective_mutants': 27, 'killed': 25, 'no_tests': 0, 'not_checked': 0, 'parse_source': 'manual_fallback_10z_mutant_execution', 'score_pct': 92.5925925925926, 'skipped': 0, 'survived': 2, 'suspicious': 0, 'timeout': 0, 'total': 27}	None	None

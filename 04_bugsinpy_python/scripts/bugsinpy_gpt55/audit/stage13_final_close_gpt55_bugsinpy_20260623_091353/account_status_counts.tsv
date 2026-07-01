@@ -1,0 +1,8 @@
+account	status	count
+account1	ok	15
+account1	pytest_raw_fail	15
+account2	ok	9
+account2	pytest_raw_fail	16
+account3	generated_test_compile_fail	1
+account3	ok	8
+account3	pytest_raw_fail	16

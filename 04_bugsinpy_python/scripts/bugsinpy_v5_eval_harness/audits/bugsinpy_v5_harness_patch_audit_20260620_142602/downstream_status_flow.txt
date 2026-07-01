@@ -1,0 +1,52 @@
+8:FINAL_OUT="${FINAL_OUT:-$REPO/out/_final_bugsinpy_gpt4o_full_5rep}"
+15:SANITIZER="$REPO/tools/sanitize_and_validate_bugsinpy_pytest.py"
+16:COVERAGE_TOOL="$REPO/tools/run_bugsinpy_coverage.py"
+17:MUTATION_TOOL="$REPO/tools/run_bugsinpy_mutation_flat.py"
+21:echo "FINAL_OUT=$FINAL_OUT"
+25:if [[ ! -d "$FINAL_OUT" ]]; then
+26:  echo "ERRO: FINAL_OUT nao existe: $FINAL_OUT"
+37:p = run_dir / "metrics" / "status.json"
+55:p = run_dir / "metrics" / "status.json"
+58:    print("status_json_missing")
+73:    "coverage_exit_code",
+74:    "coverage_available",
+77:    "mutation_available",
+78:    "mutation_score_pct",
+81:    "mutation_target_relpath",
+103:mapfile -t STATUS_FILES < <(find "$FINAL_OUT" -path "*/metrics/status.json" | sort)
+133:  STATUS_AFTER_RAW="$(get_status "$RUN_DIR")"
+134:  echo "STATUS_AFTER_RAW=$STATUS_AFTER_RAW"
+136:  if [[ "$STATUS_AFTER_RAW" == "pytest_raw_fail" ]]; then
+137:    run_tool "sanitizer" "$LOG_DIR/rerun_noapi_sanitizer.log" \
+142:    echo "SKIP sanitizer because status=$STATUS_AFTER_RAW"
+145:  STATUS_AFTER_TESTS="$(get_status "$RUN_DIR")"
+146:  echo "STATUS_AFTER_TESTS=$STATUS_AFTER_TESTS"
+148:  case "$STATUS_AFTER_TESTS" in
+149:    pytest_raw_pass|pytest_final_pass|coverage_pass|coverage_fail|ok|mutation_results_empty|mutation_no_checked_mutants)
+150:      run_tool "coverage" "$LOG_DIR/rerun_noapi_coverage.log" \
+155:      chmod -R u+rwX "$RUN_DIR/work/mutation_project" 2>/dev/null || true
+156:      rm -rf "$RUN_DIR/work/mutation_project" 2>/dev/null || true
+158:      run_tool "mutation_flat" "$LOG_DIR/rerun_noapi_mutation_flat.log" \
+161:          --mutation-timeout-s "$MUTATION_TIMEOUT_S"
+164:      echo "SKIP coverage/mutation because status=$STATUS_AFTER_TESTS"
+177:python3 - "$FINAL_OUT" <<'PY'
+187:for p in sorted(root.glob("*/run_0001/*/metrics/status.json")):
+209:summary_path = root / "dataset_summary.tsv"
+221:    "coverage_exit_code",
+222:    "coverage_available",
+225:    "mutation_available",
+226:    "mutation_score_pct",
+229:    "mutation_target_relpath",
+248:            d.get("coverage_exit_code"),
+249:            d.get("coverage_available"),
+252:            d.get("mutation_available"),
+253:            d.get("mutation_score_pct"),
+256:            d.get("mutation_target_relpath"),
+271:    ("mutation_score_pct_penalized_mean", f"{mean_penalised('mutation_score_pct'):.4f}"),
+285:print(f"MUTATION_SCORE_PCT_PENALIZED_MEAN={mean_penalised('mutation_score_pct'):.4f}")
+294:python3 - "$FINAL_OUT" <<'PY'
+304:    "mutation_results_empty",
+305:    "mutation_no_checked_mutants",
+311:for p in sorted(root.glob("*/run_0001/*/metrics/status.json")):
+330:        "mut=", d.get("mutation_score_pct"),
+344:print("mutation_mean_penalized=", mean_penalised("mutation_score_pct"))

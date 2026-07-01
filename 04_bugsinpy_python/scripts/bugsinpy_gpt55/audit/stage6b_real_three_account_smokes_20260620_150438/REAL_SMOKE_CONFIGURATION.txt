@@ -1,0 +1,13 @@
+created_at=2026-06-20T15:05:35+01:00
+smoke_root=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438
+manifest_root=/home/jpaiva/projetos/bugsinpy_gpt55/manifests/real_smokes/20260620_150438
+dry_run=0
+run_mutation=1
+generation_timeout_s=200
+generation_empty_retry_max=3
+pytest_timeout_s=60
+mutation_timeout_s=180
+client_source=/home/jpaiva/projetos/quixbugs_python_gpt55/common/iaedu_from_prompt.py
+generator_source=/home/jpaiva/projetos/quixbugs_python_gpt55/scripts/generator_cmd_iaedu.sh
+client_sha256=c86cd7ac4b125dab8a8b12e8fd8e3a496e82f12f41f7ac898bb6e2e31196005f
+generator_sha256=e841207915138c0fa057211781c43ce798475ff122a855a4b9b95d93ce17726b

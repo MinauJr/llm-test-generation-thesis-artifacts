@@ -1,0 +1,4 @@
+FINAL_ROOT=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827
+FINAL_AUDIT=/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827
+MANIFEST_ROOT=/home/jpaiva/projetos/bugsinpy_gpt55/manifests/final_gpt55_20260622_142827
+LATEST_CLOSURE=/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/_closure_audit_20260622_151202

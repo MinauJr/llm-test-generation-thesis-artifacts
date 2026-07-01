@@ -1,0 +1,9 @@
+{
+  "removed": [
+    {
+      "line": "tornado==6.0.4",
+      "reason": "self-requirement"
+    }
+  ],
+  "rewritten": []
+}

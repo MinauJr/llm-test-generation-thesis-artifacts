@@ -1,0 +1,9 @@
+BUGSINPY OFFICIAL DATASET TESTS — MUTATION V8
+Mutation is computed with a controlled AST mutant runner.
+Only patch_files from the validated V3 exact-runner plan are mutated.
+Each mutant is evaluated with the exact official dataset runner previously validated for that SUT.
+Timeout mutants are counted as killed for the mutation score numerator.
+Incompetent mutants are excluded from the mutation-score denominator.
+Per-SUT budget: 180s.
+Per-mutant timeout: 25s.
+Max mutants per SUT: 500.

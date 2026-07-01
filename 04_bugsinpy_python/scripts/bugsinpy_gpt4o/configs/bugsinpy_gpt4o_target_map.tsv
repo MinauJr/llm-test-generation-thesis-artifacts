@@ -1,0 +1,17 @@
+sut_id	target_module
+PySnooper_2f	pysnooper
+PySnooper_3f	pysnooper
+ansible_14f	ansible.utils.unicode
+ansible_17f	ansible.utils.unicode
+black_2f	blib2to3.pgen2.token
+black_5f	blib2to3.pgen2.driver
+cookiecutter_1f	cookiecutter.log
+cookiecutter_3f	cookiecutter.log
+httpie_1f	httpie.sessions
+httpie_2f	httpie.sessions
+matplotlib_16f	matplotlib.cbook
+matplotlib_9f	matplotlib.cbook
+thefuck_25f	thefuck.types
+tornado_14f	tornado.escape
+tornado_4f	tornado.escape
+youtube-dl_35f	youtube_dl.utils

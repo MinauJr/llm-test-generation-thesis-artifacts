@@ -26,3 +26,13 @@ Cleaned artefacts for the QuixBugs Python dataset, organised into:
 - `suts/`
 - `scripts/`
 - `results/`
+
+## 04_bugsinpy_python
+
+Cleaned artefacts for the BugsInPy Python dataset, organised into:
+
+- `suts_metadata/`
+- `scripts/`
+- `results/`
+
+Full prepared SUT checkouts and raw execution folders are intentionally omitted because of size.

@@ -1,0 +1,7 @@
+sut_id	target_module
+PySnooper_2f	pysnooper
+ansible_17f	ansible.utils.unicode
+cookiecutter_1f	cookiecutter.log
+httpie_2f	httpie.sessions
+thefuck_25f	thefuck.types
+youtube-dl_35f	youtube_dl.utils

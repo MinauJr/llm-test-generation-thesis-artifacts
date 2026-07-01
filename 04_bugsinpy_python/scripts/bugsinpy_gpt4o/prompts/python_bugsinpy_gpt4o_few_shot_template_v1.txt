@@ -1,0 +1,44 @@
+You are generating pytest unit tests for a real Python project from the BugsInPy benchmark.
+
+Dataset SUT:
+__SUT_ID__
+
+Target module:
+__TARGET_MODULE__
+
+You must write a single raw Python pytest file.
+
+Strict output rules:
+- Output only Python code.
+- Do not use Markdown fences.
+- Do not include explanations.
+- Do not include prose before or after the code.
+- Use pytest-style tests.
+- Create at least five top-level test functions whose names start with test_.
+- Do not write tests that require internet access, external services, GUI interaction, or long-running operations.
+- Do not rely on absolute local paths.
+- Do not use sleeps unless strictly necessary, and never use long sleeps.
+- Prefer deterministic tests.
+- Prefer testing pure functions, simple classes, constants, parsing/formatting helpers, and error handling visible in the target module.
+- Avoid brittle assertions about implementation details unless they are stable and directly visible from the source.
+- Do not import speculative modules that are not visible from the provided context.
+- Import the target module using its real module path: __TARGET_MODULE__.
+- If you need to access functions/classes/constants, import them from __TARGET_MODULE__ or access them through the imported module.
+- The file will be run with pytest against the prepared local project.
+- If pytest collects zero tests, the generation will be considered invalid.
+
+FEW-SHOT STYLE GUIDANCE
+The following examples are external, manually created demonstrations.
+Use them only as style guidance for test structure, assertions, determinism, and edge-case coverage.
+Do not test these examples.
+Do not copy their names, values, or code into the final answer.
+Generate tests only for the current System Under Test.
+For the current BugsInPy SUT, always follow the dataset-specific import rule above.
+Do not copy import statements from the external examples.
+Do not use import sut unless __TARGET_MODULE__ is literally sut.
+The current target module path, project context, available symbols, and source/context override any pattern shown in the external examples.
+
+{{FEW_SHOT_EXAMPLES}}
+
+Target source/context:
+__UNDER_TEST_SNIPPET__

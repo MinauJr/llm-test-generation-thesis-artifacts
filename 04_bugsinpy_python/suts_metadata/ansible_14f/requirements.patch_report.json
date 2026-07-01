@@ -1,0 +1,25 @@
+{
+  "removed": [
+    {
+      "line": "ansible==2.10.0.dev0",
+      "reason": "self-requirement"
+    }
+  ],
+  "rewritten": [
+    {
+      "from": "ansible-base==2.10.0.dev0",
+      "to": "ansible-core>=2.10.0",
+      "reason": "py310-compat"
+    },
+    {
+      "from": "cffi==1.14.0",
+      "to": "cffi>=1.15.1",
+      "reason": "py310-compat"
+    },
+    {
+      "from": "cryptography==2.9.2",
+      "to": "cryptography>=41.0.7",
+      "reason": "py310-compat"
+    }
+  ]
+}

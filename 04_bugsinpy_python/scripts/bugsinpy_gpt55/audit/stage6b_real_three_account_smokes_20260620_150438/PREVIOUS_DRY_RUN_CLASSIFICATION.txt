@@ -1,0 +1,5 @@
+previous_root=/home/jpaiva/projetos/bugsinpy_gpt55/out/_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_144822
+classification=preliminary_dry_run_not_a_valid_account_smoke
+reason=DRY_RUN_1_skipped_generation_pytest_coverage_and_mutation
+usable_in_final_metrics=no
+preserved=yes

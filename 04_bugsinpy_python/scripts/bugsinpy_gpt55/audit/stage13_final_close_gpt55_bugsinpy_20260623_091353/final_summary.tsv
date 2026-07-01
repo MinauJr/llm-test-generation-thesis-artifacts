@@ -1,0 +1,9 @@
+metric	value
+expected_slots	80
+actual_status_files	80
+line_mean_penalized	32.963500
+branch_mean_penalized	30.048500
+mutation_mean_penalized	29.672356
+status_count_pytest_raw_fail	47
+status_count_ok	32
+status_count_generated_test_compile_fail	1

@@ -1,0 +1,67 @@
+===== FULL WRAPPER LINES 115-175 =====
+   115	RAW_VALIDATOR_RC=$?
+   116	set -u
+   117	echo "RAW_VALIDATOR_RC=$RAW_VALIDATOR_RC"
+   118	
+   119	CURRENT_STATUS="$("$PYTHON_BIN" - "$STATUS_FILE" <<'PY'
+   120	import json, sys
+   121	from pathlib import Path
+   122	p = Path(sys.argv[1])
+   123	d = json.loads(p.read_text(encoding="utf-8"))
+   124	print(d.get("status", ""))
+   125	PY
+   126	)"
+   127	echo "STATUS_AFTER_RAW=$CURRENT_STATUS"
+   128	
+   129	if [ "$CURRENT_STATUS" = "pytest_raw_fail" ]; then
+   130	  echo
+   131	  echo "===== STRICT GENERATED-TEST POLICY ====="
+   132	  echo "Raw generated tests failed."
+   133	  echo "No generated test will be removed, skipped, disabled or semantically rewritten."
+   134	  echo "The original generated test and pytest logs remain preserved."
+   135	  echo "Pipeline stops before coverage and mutation."
+   136	fi
+   137	
+   138	if [ "$CURRENT_STATUS" != "pytest_raw_pass" ]; then
+   139	  echo "Pipeline stops before coverage because pytest did not reach a pass state."
+   140	  echo "FINAL_STATUS=$CURRENT_STATUS"
+   141	  exit 0
+   142	fi
+   143	
+   144	echo
+   145	echo "===== STEP C — coverage ====="
+   146	set +e
+   147	"$PYTHON_BIN" "$COVERAGE_TOOL" \
+   148	  --run-dir "$RUN_DIR" \
+   149	  --pytest-timeout-s "$PYTEST_TIMEOUT_S"
+   150	COVERAGE_RC=$?
+   151	set -u
+   152	echo "COVERAGE_RC=$COVERAGE_RC"
+   153	
+   154	CURRENT_STATUS="$("$PYTHON_BIN" - "$STATUS_FILE" <<'PY'
+   155	import json, sys
+   156	from pathlib import Path
+   157	p = Path(sys.argv[1])
+   158	d = json.loads(p.read_text(encoding="utf-8"))
+   159	print(d.get("status", ""))
+   160	PY
+   161	)"
+   162	echo "STATUS_AFTER_COVERAGE=$CURRENT_STATUS"
+   163	
+   164	COVERAGE_AVAILABLE="$("$PYTHON_BIN" - "$STATUS_FILE" <<'PY'
+   165	import json, sys
+   166	from pathlib import Path
+   167	p = Path(sys.argv[1])
+   168	d = json.loads(p.read_text(encoding="utf-8"))
+   169	print("1" if d.get("coverage_available") else "0")
+   170	PY
+   171	)"
+   172	
+   173	if [ "$COVERAGE_AVAILABLE" != "1" ]; then
+   174	  echo "Pipeline stops before mutation because coverage_available is not true."
+   175	  echo "FINAL_STATUS=$CURRENT_STATUS"
+
+===== STRICT MARKERS =====
+131:  echo "===== STRICT GENERATED-TEST POLICY ====="
+
+===== SANITIZER RESIDUALS =====

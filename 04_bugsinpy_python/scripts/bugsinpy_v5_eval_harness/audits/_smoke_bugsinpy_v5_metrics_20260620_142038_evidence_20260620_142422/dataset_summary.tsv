@@ -1,0 +1,8 @@
+metric	value
+out_base	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_metrics_20260620_142038
+total_status_files	3
+total_suts	3
+status_counts_json	"{""mutation_no_checked_mutants"": 2, ""mutation_results_empty"": 1}"
+line_pct_penalized_mean	42.3267
+branch_pct_penalized_mean	19.4727
+mutation_score_pct_penalized_mean	0.0000

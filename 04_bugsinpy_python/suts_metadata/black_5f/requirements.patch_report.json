@@ -1,0 +1,20 @@
+{
+  "removed": [
+    {
+      "line": "typed-ast==1.4.0",
+      "reason": "skip-py310"
+    }
+  ],
+  "rewritten": [
+    {
+      "from": "cffi==1.14.0",
+      "to": "cffi>=1.15.1",
+      "reason": "py310-compat"
+    },
+    {
+      "from": "cryptography==2.8",
+      "to": "cryptography>=41.0.7",
+      "reason": "py310-compat"
+    }
+  ]
+}

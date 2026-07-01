@@ -1,0 +1,10 @@
+205:legitimate_no_checked_result = (
+212:mutation_conclusive = (
+214:    or legitimate_no_checked_result
+228:    "mutation_conclusive": mutation_conclusive,
+237:mutation_mode = (
+240:    else "legitimate_no_checked"
+241:    if legitimate_no_checked_result
+254:print(f"mutation_mode={mutation_mode}")
+265:        "AUTOGATE_STATUS=FAILED:"
+270:print("AUTOGATE_STATUS=PASSED")

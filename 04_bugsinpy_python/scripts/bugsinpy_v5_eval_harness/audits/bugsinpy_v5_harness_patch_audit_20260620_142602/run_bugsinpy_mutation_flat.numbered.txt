@@ -1,0 +1,578 @@
+     1	from __future__ import annotations
+     2	
+     3	import argparse
+     4	import json
+     5	import os
+     6	import shutil
+     7	import subprocess
+     8	import sys
+     9	from pathlib import Path
+    10	
+    11	
+    12	IGNORE_NAMES = {
+    13	    "__pycache__",
+    14	    ".pytest_cache",
+    15	    ".mypy_cache",
+    16	    ".tox",
+    17	    ".git",
+    18	    ".hg",
+    19	    ".svn",
+    20	    ".coverage",
+    21	    "htmlcov",
+    22	    "mutants",
+    23	    "mutation_project",
+    24	    "freetype-2.6.1",
+    25	}
+    26	
+    27	
+    28	def parse_args():
+    29	    ap = argparse.ArgumentParser()
+    30	    ap.add_argument("--run-dir", required=True)
+    31	    ap.add_argument("--mutation-timeout-s", type=int, default=180)
+    32	    return ap.parse_args()
+    33	
+    34	
+    35	def read_json(path: Path) -> dict:
+    36	    if not path.exists():
+    37	        return {}
+    38	    try:
+    39	        return json.loads(path.read_text(encoding="utf-8"))
+    40	    except Exception:
+    41	        return {}
+    42	
+    43	
+    44	def write_json(path: Path, data: dict):
+    45	    path.parent.mkdir(parents=True, exist_ok=True)
+    46	    path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+    47	
+    48	
+    49	def update_status(run_dir: Path, **kwargs):
+    50	    p = run_dir / "metrics" / "status.json"
+    51	    d = read_json(p)
+    52	    d.update(kwargs)
+    53	    write_json(p, d)
+    54	    return d
+    55	
+    56	
+    57	def copy_contents(src: Path, dst: Path):
+    58	    if not src.exists():
+    59	        return
+    60	
+    61	    dst.mkdir(parents=True, exist_ok=True)
+    62	
+    63	    for item in src.iterdir():
+    64	        if item.name in IGNORE_NAMES:
+    65	            continue
+    66	
+    67	        target = dst / item.name
+    68	
+    69	        if item.is_dir():
+    70	            shutil.copytree(
+    71	                item,
+    72	                target,
+    73	                dirs_exist_ok=True,
+    74	                ignore=shutil.ignore_patterns(*IGNORE_NAMES),
+    75	            )
+    76	        else:
+    77	            target.parent.mkdir(parents=True, exist_ok=True)
+    78	            shutil.copy2(item, target)
+    79	
+    80	
+    81	def rel_if_under(path: Path, root: Path):
+    82	    try:
+    83	        return path.resolve().relative_to(root.resolve())
+    84	    except Exception:
+    85	        return None
+    86	
+    87	
+    88	def resolve_target(run_dir: Path, work_sut_dir: Path, target_module: str):
+    89	    prep = read_json(run_dir / "raw" / "work_sut_prepare.json")
+    90	
+    91	    import_roots = []
+    92	    for r in prep.get("import_roots") or []:
+    93	        rr = Path(r).resolve()
+    94	        if rr not in import_roots:
+    95	            import_roots.append(rr)
+    96	
+    97	    for r in [
+    98	        work_sut_dir,
+    99	        work_sut_dir / "src",
+   100	        work_sut_dir / "lib",
+   101	        work_sut_dir / "build" / "lib",
+   102	    ]:
+   103	        rr = r.resolve()
+   104	        if rr not in import_roots:
+   105	            import_roots.append(rr)
+   106	
+   107	    target_file = None
+   108	
+   109	    target_relpath = prep.get("target_relpath")
+   110	    if target_relpath:
+   111	        candidate = (work_sut_dir / target_relpath).resolve()
+   112	        if candidate.exists() and candidate.is_file():
+   113	            target_file = candidate
+   114	
+   115	    if target_file is None:
+   116	        base = Path(*target_module.split("."))
+   117	        candidates = []
+   118	
+   119	        for root in import_roots:
+   120	            candidates.append(root / (base.as_posix() + ".py"))
+   121	            candidates.append(root / base / "__init__.py")
+   122	
+   123	        for c in candidates:
+   124	            if c.exists() and c.is_file():
+   125	                target_file = c.resolve()
+   126	                break
+   127	
+   128	    if target_file is None:
+   129	        raise FileNotFoundError(f"cannot resolve target module {target_module} under {work_sut_dir}")
+   130	
+   131	    # Prefer the most specific import root. This is critical for lib/ and src/ layouts:
+   132	    # work/sut/lib/ansible/utils/unicode.py -> ansible/utils/unicode.py, not lib/ansible/utils/unicode.py.
+   133	    chosen_import_root = None
+   134	    target_rel = None
+   135	
+   136	    for root in sorted(import_roots, key=lambda x: len(str(x.resolve())), reverse=True):
+   137	        rel = rel_if_under(target_file, root)
+   138	        if rel is not None:
+   139	            chosen_import_root = root
+   140	            target_rel = rel
+   141	            break
+   142	
+   143	    if chosen_import_root is None or target_rel is None:
+   144	        chosen_import_root = work_sut_dir
+   145	        target_rel = target_file.relative_to(work_sut_dir)
+   146	
+   147	    return {
+   148	        "target_file": target_file,
+   149	        "target_rel": target_rel,
+   150	        "chosen_import_root": chosen_import_root,
+   151	        "import_roots": import_roots,
+   152	        "prep": prep,
+   153	    }
+   154	
+   155	
+   156	def mutation_import_shim(target_module: str) -> str:
+   157	    return (
+   158	        "# --- BugsInPy mutmut import shim start ---\n"
+   159	        "from pathlib import Path as _bugsinpy_Path\n"
+   160	        "import importlib as _bugsinpy_importlib\n"
+   161	        "import sys as _bugsinpy_sys\n"
+   162	        f"_bugsinpy_target_module = {target_module!r}\n"
+   163	        "_bugsinpy_this_file = _bugsinpy_Path(__file__).resolve()\n"
+   164	        "_bugsinpy_in_mutants = (\n"
+   165	        "    len(_bugsinpy_this_file.parents) > 2\n"
+   166	        "    and _bugsinpy_this_file.parents[1].name == 'mutants'\n"
+   167	        ")\n"
+   168	        "if _bugsinpy_in_mutants:\n"
+   169	        "    _bugsinpy_project_root = _bugsinpy_this_file.parents[2]\n"
+   170	        "    _bugsinpy_mutants_root = _bugsinpy_this_file.parents[1]\n"
+   171	        "else:\n"
+   172	        "    _bugsinpy_project_root = _bugsinpy_this_file.parents[1]\n"
+   173	        "    _bugsinpy_mutants_root = _bugsinpy_project_root / 'mutants'\n"
+   174	        "for _bugsinpy_p in [_bugsinpy_project_root, _bugsinpy_mutants_root]:\n"
+   175	        "    _bugsinpy_s = str(_bugsinpy_p)\n"
+   176	        "    if _bugsinpy_s in _bugsinpy_sys.path:\n"
+   177	        "        _bugsinpy_sys.path.remove(_bugsinpy_s)\n"
+   178	        "if _bugsinpy_in_mutants:\n"
+   179	        "    _bugsinpy_sys.path.insert(0, str(_bugsinpy_project_root))\n"
+   180	        "    _bugsinpy_sys.path.insert(0, str(_bugsinpy_mutants_root))\n"
+   181	        "else:\n"
+   182	        "    _bugsinpy_sys.path.insert(0, str(_bugsinpy_project_root))\n"
+   183	        "\n"
+   184	        "def _bugsinpy_force_package_path(_pkg_name):\n"
+   185	        "    _parts = _pkg_name.split('.')\n"
+   186	        "    _rel = _bugsinpy_Path(*_parts)\n"
+   187	        "    _mutant_pkg_dir = _bugsinpy_mutants_root / _rel\n"
+   188	        "    _original_pkg_dir = _bugsinpy_project_root / _rel\n"
+   189	        "    try:\n"
+   190	        "        _pkg = _bugsinpy_importlib.import_module(_pkg_name)\n"
+   191	        "    except Exception:\n"
+   192	        "        return\n"
+   193	        "    _pkg_path = getattr(_pkg, '__path__', None)\n"
+   194	        "    if _pkg_path is None:\n"
+   195	        "        return\n"
+   196	        "    _new_path = []\n"
+   197	        "    if _bugsinpy_in_mutants and _mutant_pkg_dir.exists():\n"
+   198	        "        _new_path.append(str(_mutant_pkg_dir))\n"
+   199	        "    if _original_pkg_dir.exists():\n"
+   200	        "        _new_path.append(str(_original_pkg_dir))\n"
+   201	        "    for _old in list(_pkg_path):\n"
+   202	        "        if _old not in _new_path:\n"
+   203	        "            _new_path.append(_old)\n"
+   204	        "    try:\n"
+   205	        "        _pkg.__path__ = _new_path\n"
+   206	        "    except Exception:\n"
+   207	        "        pass\n"
+   208	        "\n"
+   209	        "_bugsinpy_pkg_parts = _bugsinpy_target_module.split('.')\n"
+   210	        "for _bugsinpy_i in range(1, len(_bugsinpy_pkg_parts) + 1):\n"
+   211	        "    _bugsinpy_force_package_path('.'.join(_bugsinpy_pkg_parts[:_bugsinpy_i]))\n"
+   212	        "\n"
+   213	        "def _bugsinpy_restore_top_level_metadata():\n"
+   214	        "    try:\n"
+   215	        "        import ast as _bugsinpy_ast\n"
+   216	        "        _top_package = _bugsinpy_target_module.split('.', 1)[0]\n"
+   217	        "        _pkg = _bugsinpy_importlib.import_module(_top_package)\n"
+   218	        "        _original_init = _bugsinpy_project_root / _top_package / '__init__.py'\n"
+   219	        "        if not _original_init.exists():\n"
+   220	        "            return\n"
+   221	        "        _text = _original_init.read_text(encoding='utf-8', errors='replace')\n"
+   222	        "        _tree = _bugsinpy_ast.parse(_text, filename=str(_original_init))\n"
+   223	        "        for _node in _tree.body:\n"
+   224	        "            if isinstance(_node, _bugsinpy_ast.Assign):\n"
+   225	        "                _targets = list(_node.targets)\n"
+   226	        "                _value = _node.value\n"
+   227	        "            elif isinstance(_node, _bugsinpy_ast.AnnAssign):\n"
+   228	        "                _targets = [_node.target]\n"
+   229	        "                _value = _node.value\n"
+   230	        "            else:\n"
+   231	        "                continue\n"
+   232	        "            if not isinstance(_value, _bugsinpy_ast.Constant):\n"
+   233	        "                continue\n"
+   234	        "            for _target in _targets:\n"
+   235	        "                if not isinstance(_target, _bugsinpy_ast.Name):\n"
+   236	        "                    continue\n"
+   237	        "                _name = _target.id\n"
+   238	        "                if _name.startswith('__') and _name.endswith('__') and not hasattr(_pkg, _name):\n"
+   239	        "                    setattr(_pkg, _name, _value.value)\n"
+   240	        "        if not getattr(_pkg, '__file__', None):\n"
+   241	        "            try:\n"
+   242	        "                _pkg.__file__ = str(_original_init)\n"
+   243	        "            except Exception:\n"
+   244	        "                pass\n"
+   245	        "    except Exception:\n"
+   246	        "        pass\n"
+   247	        "\n"
+   248	        "_bugsinpy_restore_top_level_metadata()\n"
+   249	        "# --- BugsInPy mutmut import shim end ---\n"
+   250	        "\n"
+   251	    )
+   252	
+   253	
+   254	def prepare_tests(run_dir: Path, mutation_project: Path, target_module: str):
+   255	    status = read_json(run_dir / "metrics" / "status.json")
+   256	
+   257	    test_file = (
+   258	        status.get("canonical_test_file")
+   259	        or status.get("sanitized_test_file")
+   260	        or status.get("generated_test_file")
+   261	    )
+   262	
+   263	    if test_file:
+   264	        test_file = Path(test_file)
+   265	    else:
+   266	        test_file = run_dir / "work" / "tests" / "test_gpt_iaedu.py"
+   267	
+   268	    if not test_file.exists():
+   269	        raise FileNotFoundError(f"canonical/generated test not found: {test_file}")
+   270	
+   271	    tests_dir = mutation_project / "tests"
+   272	    tests_dir.mkdir(parents=True, exist_ok=True)
+   273	
+   274	    dst = tests_dir / "test_gpt_iaedu.py"
+   275	    text = test_file.read_text(encoding="utf-8", errors="replace")
+   276	
+   277	    if "BugsInPy mutmut import shim start" not in text:
+   278	        text = mutation_import_shim(target_module) + text
+   279	
+   280	    dst.write_text(text, encoding="utf-8")
+   281	    return dst
+   282	
+   283	
+   284	def build_mutation_project(run_dir: Path, work_sut_dir: Path, resolved: dict):
+   285	    mutation_project = run_dir / "work" / "mutation_project"
+   286	
+   287	    if mutation_project.exists():
+   288	        shutil.rmtree(mutation_project)
+   289	
+   290	    mutation_project.mkdir(parents=True, exist_ok=True)
+   291	
+   292	    # Copy full SUT, then overlay import roots into mutation_project root.
+   293	    copy_contents(work_sut_dir, mutation_project)
+   294	
+   295	    for root in resolved["import_roots"]:
+   296	        if root.exists():
+   297	            copy_contents(root, mutation_project)
+   298	
+   299	    target_file = resolved["target_file"]
+   300	    target_rel = resolved["target_rel"]
+   301	
+   302	    flat_target = mutation_project / target_rel
+   303	    if not flat_target.exists():
+   304	        flat_target.parent.mkdir(parents=True, exist_ok=True)
+   305	        shutil.copy2(target_file, flat_target)
+   306	
+   307	    return mutation_project, flat_target
+   308	
+   309	
+   310	def write_mutmut_config(mutation_project: Path, target_rel: Path):
+   311	    runner = "env PYTHONPATH=. PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python -m pytest -q --disable-warnings --import-mode=importlib tests/test_gpt_iaedu.py"
+   312	
+   313	    pyproject = mutation_project / "pyproject.toml"
+   314	    pyproject.write_text(
+   315	        "\n".join(
+   316	            [
+   317	                "[tool.mutmut]",
+   318	                f'paths_to_mutate = ["{target_rel.as_posix()}"]',
+   319	                'tests_dir = ["tests"]',
+   320	                f'runner = "{runner}"',
+   321	                "",
+   322	            ]
+   323	        ),
+   324	        encoding="utf-8",
+   325	    )
+   326	
+   327	    setup_cfg = mutation_project / "setup.cfg"
+   328	    setup_cfg.write_text(
+   329	        "\n".join(
+   330	            [
+   331	                "[mutmut]",
+   332	                f"paths_to_mutate={target_rel.as_posix()}",
+   333	                "tests_dir=tests",
+   334	                f"runner={runner}",
+   335	                "",
+   336	            ]
+   337	        ),
+   338	        encoding="utf-8",
+   339	    )
+   340	
+   341	
+   342	def run_cmd(cmd, cwd: Path, env: dict, timeout_s: int):
+   343	    try:
+   344	        return subprocess.run(
+   345	            cmd,
+   346	            cwd=str(cwd),
+   347	            env=env,
+   348	            text=True,
+   349	            stdout=subprocess.PIPE,
+   350	            stderr=subprocess.PIPE,
+   351	            timeout=timeout_s,
+   352	        )
+   353	    except subprocess.TimeoutExpired as e:
+   354	        cp = subprocess.CompletedProcess(cmd, 124)
+   355	        cp.stdout = e.stdout or ""
+   356	        cp.stderr = e.stderr or ""
+   357	        return cp
+   358	
+   359	
+   360	def parse_results(text: str):
+   361	    counts = {
+   362	        "killed": 0,
+   363	        "survived": 0,
+   364	        "timeout": 0,
+   365	        "suspicious": 0,
+   366	        "skipped": 0,
+   367	        "not_checked": 0,
+   368	        "no_tests": 0,
+   369	        "total": 0,
+   370	        "score_pct": None,
+   371	        "parse_source": "mutmut_results_lines",
+   372	    }
+   373	
+   374	    for line in text.splitlines():
+   375	        stripped = line.strip()
+   376	        if not stripped or ":" not in stripped:
+   377	            continue
+   378	
+   379	        status = stripped.rsplit(":", 1)[-1].strip().lower()
+   380	        counts["total"] += 1
+   381	
+   382	        if status == "killed":
+   383	            counts["killed"] += 1
+   384	        elif status == "survived":
+   385	            counts["survived"] += 1
+   386	        elif status == "timeout":
+   387	            counts["timeout"] += 1
+   388	        elif status == "suspicious":
+   389	            counts["suspicious"] += 1
+   390	        elif status == "skipped":
+   391	            counts["skipped"] += 1
+   392	        elif status == "no tests":
+   393	            counts["no_tests"] += 1
+   394	        elif status == "not checked":
+   395	            counts["not_checked"] += 1
+   396	
+   397	    denominator = counts["killed"] + counts["survived"] + counts["timeout"] + counts["suspicious"]
+   398	
+   399	    if denominator > 0:
+   400	        counts["score_pct"] = counts["killed"] / denominator * 100.0
+   401	
+   402	    return counts
+   403	
+   404	
+   405	def main() -> int:
+   406	    ns = parse_args()
+   407	
+   408	    run_dir = Path(ns.run_dir).resolve()
+   409	    metrics_dir = run_dir / "metrics"
+   410	    logs_dir = run_dir / "logs"
+   411	    metrics_dir.mkdir(parents=True, exist_ok=True)
+   412	    logs_dir.mkdir(parents=True, exist_ok=True)
+   413	
+   414	    status = read_json(metrics_dir / "status.json")
+   415	
+   416	    target_module = status.get("target_module")
+   417	    if not target_module:
+   418	        update_status(
+   419	            run_dir,
+   420	            status="mutation_missing_target_module",
+   421	            mutation_available=False,
+   422	            mutation_score_pct=None,
+   423	        )
+   424	        print("status=mutation_missing_target_module")
+   425	        return 0
+   426	
+   427	    work_sut_dir = Path(status.get("work_sut_dir") or run_dir / "work" / "sut").resolve()
+   428	    if not work_sut_dir.exists():
+   429	        update_status(
+   430	            run_dir,
+   431	            status="mutation_missing_work_sut_dir",
+   432	            mutation_available=False,
+   433	            mutation_score_pct=None,
+   434	        )
+   435	        print("status=mutation_missing_work_sut_dir")
+   436	        return 0
+   437	
+   438	    try:
+   439	        resolved = resolve_target(run_dir, work_sut_dir, target_module)
+   440	        mutation_project, flat_target = build_mutation_project(run_dir, work_sut_dir, resolved)
+   441	        prepare_tests(run_dir, mutation_project, target_module)
+   442	        write_mutmut_config(mutation_project, resolved["target_rel"])
+   443	    except Exception as e:
+   444	        update_status(
+   445	            run_dir,
+   446	            status="mutation_prepare_fail",
+   447	            mutation_available=False,
+   448	            mutation_score_pct=None,
+   449	            mutation_error=repr(e),
+   450	        )
+   451	        print("status=mutation_prepare_fail")
+   452	        print(repr(e))
+   453	        return 0
+   454	
+   455	    update_status(
+   456	        run_dir,
+   457	        mutation_project_dir=str(mutation_project),
+   458	        mutation_target_relpath=str(resolved["target_rel"]),
+   459	        mutation_flat_target=str(flat_target),
+   460	        mutation_import_root=str(resolved["chosen_import_root"]),
+   461	    )
+   462	
+   463	    if not flat_target.exists():
+   464	        update_status(
+   465	            run_dir,
+   466	            status="mutation_flat_target_missing",
+   467	            mutation_available=False,
+   468	            mutation_score_pct=None,
+   469	        )
+   470	        print("status=mutation_flat_target_missing")
+   471	        print(f"target not found in flat project: {flat_target}")
+   472	        return 0
+   473	
+   474	    repo = Path.cwd().resolve()
+   475	    root_repo = repo.parent.resolve()
+   476	    py_overrides = root_repo / "_py_overrides"
+   477	
+   478	    env = os.environ.copy()
+   479	    env["PYTEST_DISABLE_PLUGIN_AUTOLOAD"] = "1"
+   480	    env.setdefault("MUTANT_UNDER_TEST", "")
+   481	
+   482	    pythonpath_parts = []
+   483	    if py_overrides.exists():
+   484	        pythonpath_parts.append(str(py_overrides))
+   485	    pythonpath_parts.append(str(mutation_project))
+   486	    pythonpath_parts.append(".")
+   487	
+   488	    if env.get("PYTHONPATH"):
+   489	        pythonpath_parts.append(env["PYTHONPATH"])
+   490	
+   491	    env["PYTHONPATH"] = ":".join(pythonpath_parts)
+   492	
+   493	    update_status(run_dir, mutation_runner_pythonpath=env["PYTHONPATH"])
+   494	
+   495	    print("[A] Checking mutmut availability...")
+   496	    avail = run_cmd(
+   497	        [sys.executable, "-m", "mutmut", "--version"],
+   498	        cwd=mutation_project,
+   499	        env=env,
+   500	        timeout_s=30,
+   501	    )
+   502	    (logs_dir / "mutmut.version.stdout.log").write_text(avail.stdout or "", encoding="utf-8")
+   503	    (logs_dir / "mutmut.version.stderr.log").write_text(avail.stderr or "", encoding="utf-8")
+   504	
+   505	    print("[B] Running mutmut in flat mutation_project...")
+   506	    run = run_cmd(
+   507	        [sys.executable, "-m", "mutmut", "run"],
+   508	        cwd=mutation_project,
+   509	        env=env,
+   510	        timeout_s=ns.mutation_timeout_s,
+   511	    )
+   512	
+   513	    (logs_dir / "mutmut.stdout.log").write_text(run.stdout or "", encoding="utf-8")
+   514	    (logs_dir / "mutmut.stderr.log").write_text(run.stderr or "", encoding="utf-8")
+   515	
+   516	    print("[C] Running mutmut results...")
+   517	    results = run_cmd(
+   518	        [sys.executable, "-m", "mutmut", "results"],
+   519	        cwd=mutation_project,
+   520	        env=env,
+   521	        timeout_s=60,
+   522	    )
+   523	
+   524	    (logs_dir / "mutmut_results.stdout.log").write_text(results.stdout or "", encoding="utf-8")
+   525	    (logs_dir / "mutmut_results.stderr.log").write_text(results.stderr or "", encoding="utf-8")
+   526	    (metrics_dir / "mutation_results.txt").write_text(results.stdout or "", encoding="utf-8")
+   527	
+   528	    counts = parse_results(results.stdout or "")
+   529	    write_json(metrics_dir / "mutmut_counts.json", counts)
+   530	
+   531	    if counts["score_pct"] is not None:
+   532	        final_status = "ok"
+   533	        mutation_available = True
+   534	        mutation_score = counts["score_pct"]
+   535	    elif counts["total"] > 0:
+   536	        final_status = "mutation_no_checked_mutants"
+   537	        mutation_available = False
+   538	        mutation_score = None
+   539	    elif run.returncode == 124:
+   540	        final_status = "mutation_timeout"
+   541	        mutation_available = False
+   542	        mutation_score = None
+   543	    else:
+   544	        final_status = "mutation_results_empty"
+   545	        mutation_available = False
+   546	        mutation_score = None
+   547	
+   548	    update_status(
+   549	        run_dir,
+   550	        status=final_status,
+   551	        mutation_available=mutation_available,
+   552	        mutation_score_pct=mutation_score,
+   553	        mutmut_exit_code=run.returncode,
+   554	        mutmut_results_exit_code=results.returncode,
+   555	        mutmut_counts=counts,
+   556	        mutation_project_dir=str(mutation_project),
+   557	        mutation_target_relpath=str(resolved["target_rel"]),
+   558	        mutation_flat_target=str(flat_target),
+   559	        mutation_import_root=str(resolved["chosen_import_root"]),
+   560	        mutation_runner_pythonpath=env["PYTHONPATH"],
+   561	    )
+   562	
+   563	    print(f"status={final_status}")
+   564	    print(f"mutmut_exit_code={run.returncode}")
+   565	    print(f"mutmut_results_exit_code={results.returncode}")
+   566	    print(f"mutation_available={mutation_available}")
+   567	    print(f"mutation_score_pct={mutation_score}")
+   568	    print(f"counts={json.dumps(counts, sort_keys=True)}")
+   569	    print(f"mutation_project={mutation_project}")
+   570	    print(f"target_rel={resolved['target_rel']}")
+   571	    print(f"flat_target={flat_target}")
+   572	    print(f"chosen_import_root={resolved['chosen_import_root']}")
+   573	
+   574	    return 0
+   575	
+   576	
+   577	if __name__ == "__main__":
+   578	    raise SystemExit(main())

@@ -1,0 +1,2993 @@
+BUGSINPY GPT-5.5 — MUTATION NO CHECKED MUTANTS
+===============================================
+
+created_at=2026-06-20T15:21:01+01:00
+ladder_root=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033
+current_tool=/home/jpaiva/projetos/bugsinpy_gpt55/tools/run_bugsinpy_mutation_flat.py
+v5_tool=/home/jpaiva/projetos/bugsinpy_v5_eval_harness/tools/run_bugsinpy_mutation_flat_v5.py
+packageaware_tool=/home/jpaiva/projetos/bugsinpy_v5_eval_harness/tools/run_bugsinpy_mutation_flat_v5_packageaware.py
+
+
+######################################################################
+ACCOUNT=account2
+SUT_ID=tornado_4f
+TARGET_MODULE=tornado.escape
+STATUS=mutation_no_checked_mutants
+LINE_PCT=87.34
+BRANCH_PCT=87.5
+MUTMUT_EXIT_CODE=1
+RUN_DIR=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1
+######################################################################
+
+===== STATUS.JSON COMPLETO =====
+{
+  "dataset": "BugsInPy",
+  "language": "python",
+  "model": "gpt-5.5-iaedu",
+  "sut_id": "tornado_4f",
+  "sut_index": 1,
+  "sut_dir": "/home/jpaiva/projetos/SUTs/BugsInPy_OK/tornado_4f",
+  "work_sut_dir": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/sut",
+  "target_module": "tornado.escape",
+  "cov_target": "tornado",
+  "run_id": 1,
+  "rep": 1,
+  "status": "mutation_no_checked_mutants",
+  "dry_run": "0",
+  "prep_sut_exit_code": 0,
+  "context_exit_code": 0,
+  "render_prompt_exit_code": 0,
+  "generation_exit_code": 0,
+  "generation_attempts": 1,
+  "generation_empty_attempts": 0,
+  "generation_final_state": "nonempty_success",
+  "generation_output_nonempty": "true",
+  "generation_timeout_s": 200,
+  "generation_empty_retry_max": 2,
+  "generation_retry_sleep_s": 2,
+  "pytest_timeout_s": 60,
+  "mutation_timeout_s": 180,
+  "run_mutation": "1",
+  "pytest_raw_exit_code": 0,
+  "pytest_final_exit_code": null,
+  "coverage_exit_code": 0,
+  "mutmut_exit_code": 1,
+  "line_pct": 87.34,
+  "branch_pct": 87.5,
+  "mutation_score_pct": null,
+  "prompt_file": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/raw/prompt.txt",
+  "model_raw_output_file": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/raw/model_raw_output.py.txt",
+  "generated_test_file": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/tests/test_gpt_iaedu.py",
+  "runtime_pythonpath": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/sut::",
+  "generated_test_compile_exit_code": 0,
+  "sut_import_check_exit_code": 0,
+  "raw_pytest_passed": true,
+  "raw_pytest_timeout": false,
+  "canonical_test_file": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/tests/test_gpt_iaedu.py",
+  "coverage_scope": "target_module",
+  "coverage_target_used": "tornado.escape",
+  "coverage_xml": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/metrics/coverage.xml",
+  "coverage_available": true,
+  "mutation_project_dir": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project",
+  "mutation_target_relpath": "tornado/escape.py",
+  "mutation_flat_target": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project/tornado/escape.py",
+  "mutation_import_root": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/sut",
+  "mutation_runner_pythonpath": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project:.::",
+  "mutation_available": false,
+  "mutmut_results_exit_code": 0,
+  "mutmut_counts": {
+    "killed": 0,
+    "survived": 0,
+    "timeout": 0,
+    "suspicious": 0,
+    "skipped": 0,
+    "not_checked": 251,
+    "no_tests": 0,
+    "total": 251,
+    "score_pct": null,
+    "parse_source": "mutmut_results_lines"
+  }
+}
+===== TARGET SOURCE EXPECTED =====
+TARGET_RELATIVE=tornado/escape.py
+TARGET_SOURCE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/sut/tornado/escape.py
+TARGET_EXISTS=yes
+TARGET_SIZE=14124
+TARGET_SHA256=c9ab23b6d24e16ec571cbdc8a1df5c50ac690f417d4e85461fb66f4a06ca6369
+TARGET_LINES=429
+
+===== TESTE GERADO =====
+TEST_FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/tests/test_gpt_iaedu.py
+TEST_SHA256=092dbf2661068cdebbab75e6798df5be49e7cbc1e55ac84957604ce5efa0b475
+TEST_LINES=144
+
+===== MUTATION FILES =====
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/logs/mutmut.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/logs/mutmut.version.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/logs/mutmut_results.stderr.log
+1030 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/logs/mutmut.full_wrapper.log
+14046 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/logs/mutmut_results.stdout.log
+14046 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/metrics/mutation_results.txt
+203 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/metrics/mutmut_counts.json
+32 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/logs/mutmut.version.stdout.log
+4498 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/logs/mutmut.stdout.log
+
+===== MUTATION LOG CONTENT =====
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/logs/mutmut.full_wrapper.log
+SIZE=1030
+----------------------------------------------------------------------
+[A] Checking mutmut availability...
+[B] Running mutmut in flat mutation_project...
+[C] Running mutmut results...
+status=mutation_no_checked_mutants
+mutmut_exit_code=1
+mutmut_results_exit_code=0
+mutation_available=False
+mutation_score_pct=None
+counts={"killed": 0, "no_tests": 0, "not_checked": 251, "parse_source": "mutmut_results_lines", "score_pct": null, "skipped": 0, "survived": 0, "suspicious": 0, "timeout": 0, "total": 251}
+mutation_project=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project
+target_rel=tornado/escape.py
+flat_target=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project/tornado/escape.py
+chosen_import_root=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/sut
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/logs/mutmut.stderr.log
+SIZE=0
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/logs/mutmut.stdout.log
+SIZE=4498
+----------------------------------------------------------------------
+
+⠋ Generating mutants
+⠙ Generating mutants
+⠹ Generating mutants
+⠸ Generating mutants
+⠼ Generating mutants
+⠴ Generating mutants
+⠦ Generating mutants
+⠧ Generating mutants
+⠇ Generating mutants
+⠏ Generating mutants
+⠋ Generating mutants
+⠙ Generating mutants
+⠹ Generating mutants
+⠸ Generating mutants
+⠼ Generating mutants
+⠴ Generating mutants
+⠦ Generating mutants
+⠧ Generating mutants
+⠇ Generating mutants
+    done in 1284ms
+
+⠧ Running stats     
+⠇ Running stats
+⠏ Running stats
+⠋ Running stats
+⠙ Running stats
+⠹ Running stats
+⠸ Running stats
+⠼ Running stats
+⠴ Running stats
+⠦ Running stats
+⠧ Running stats
+⠇ Running stats
+⠏ Running stats
+⠋ Running stats
+⠙ Running stats
+⠹ Running stats
+⠸ Running stats
+
+==================================== ERRORS ====================================
+___________________ ERROR collecting tests/test_gpt_iaedu.py ___________________
+Traceback (most recent call last):
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/_pytest/runner.py", line 344, in from_call
+    result: TResult | None = func()
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/_pytest/runner.py", line 389, in collect
+    return list(collector.collect())
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/_pytest/python.py", line 554, in collect
+    self._register_setup_module_fixture()
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/_pytest/python.py", line 567, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/_pytest/python.py", line 280, in obj
+    self._obj = obj = self._getobj()
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/_pytest/python.py", line 551, in _getobj
+    return importtestmodule(self.path, self.config)
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/_pytest/python.py", line 498, in importtestmodule
+    mod = import_path(
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/_pytest/pathlib.py", line 587, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/_pytest/assertion/rewrite.py", line 186, in exec_module
+    exec(co, module.__dict__)
+  File "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project/mutants/tests/test_gpt_iaedu.py", line 96, in <module>
+    import tornado.escape as escape
+  File "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project/mutants/tornado/escape.py", line 2521, in <module>
+    to_unicode(
+  File "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project/mutants/tornado/escape.py", line 2095, in to_unicode
+    result = _mutmut_trampoline(x_to_unicode__mutmut_orig, x_to_unicode__mutmut_mutants, args, kwargs)
+  File "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project/mutants/tornado/escape.py", line 58, in _mutmut_trampoline
+    from mutmut.__main__ import record_trampoline_hit
+  File "/usr/local/lib/python3.10/dist-packages/mutmut/__main__.py", line 978, in <module>
+    set_start_method('fork')
+  File "/usr/lib/python3.10/multiprocessing/context.py", line 247, in set_start_method
+    raise RuntimeError('context has already been set')
+RuntimeError: context has already been set
+=========================== short test summary info ============================
+ERROR tests/test_gpt_iaedu.py - RuntimeError: context has already been set
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.19s
+failed to collect stats. runner returned 2
+
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/logs/mutmut.version.stderr.log
+SIZE=0
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/logs/mutmut.version.stdout.log
+SIZE=32
+----------------------------------------------------------------------
+python -m mutmut, version 3.4.0
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/logs/mutmut_results.stderr.log
+SIZE=0
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/logs/mutmut_results.stdout.log
+SIZE=14046
+----------------------------------------------------------------------
+    tornado.escape.x_xhtml_escape__mutmut_1: not checked
+    tornado.escape.x_xhtml_escape__mutmut_2: not checked
+    tornado.escape.x_xhtml_escape__mutmut_3: not checked
+    tornado.escape.x_xhtml_escape__mutmut_4: not checked
+    tornado.escape.x_xhtml_escape__mutmut_5: not checked
+    tornado.escape.x_xhtml_escape__mutmut_6: not checked
+    tornado.escape.x_xhtml_escape__mutmut_7: not checked
+    tornado.escape.x_xhtml_escape__mutmut_8: not checked
+    tornado.escape.x_xhtml_unescape__mutmut_1: not checked
+    tornado.escape.x_xhtml_unescape__mutmut_2: not checked
+    tornado.escape.x_xhtml_unescape__mutmut_3: not checked
+    tornado.escape.x_xhtml_unescape__mutmut_4: not checked
+    tornado.escape.x_xhtml_unescape__mutmut_5: not checked
+    tornado.escape.x_xhtml_unescape__mutmut_6: not checked
+    tornado.escape.x_xhtml_unescape__mutmut_7: not checked
+    tornado.escape.x_xhtml_unescape__mutmut_8: not checked
+    tornado.escape.x_json_encode__mutmut_1: not checked
+    tornado.escape.x_json_encode__mutmut_2: not checked
+    tornado.escape.x_json_encode__mutmut_3: not checked
+    tornado.escape.x_json_encode__mutmut_4: not checked
+    tornado.escape.x_json_encode__mutmut_5: not checked
+    tornado.escape.x_json_encode__mutmut_6: not checked
+    tornado.escape.x_json_encode__mutmut_7: not checked
+    tornado.escape.x_json_decode__mutmut_1: not checked
+    tornado.escape.x_json_decode__mutmut_2: not checked
+    tornado.escape.x_squeeze__mutmut_1: not checked
+    tornado.escape.x_squeeze__mutmut_2: not checked
+    tornado.escape.x_squeeze__mutmut_3: not checked
+    tornado.escape.x_squeeze__mutmut_4: not checked
+    tornado.escape.x_squeeze__mutmut_5: not checked
+    tornado.escape.x_squeeze__mutmut_6: not checked
+    tornado.escape.x_squeeze__mutmut_7: not checked
+    tornado.escape.x_squeeze__mutmut_8: not checked
+    tornado.escape.x_url_escape__mutmut_1: not checked
+    tornado.escape.x_url_escape__mutmut_2: not checked
+    tornado.escape.x_url_escape__mutmut_3: not checked
+    tornado.escape.x_url_escape__mutmut_4: not checked
+    tornado.escape.x_url_unescape__mutmut_1: not checked
+    tornado.escape.x_url_unescape__mutmut_2: not checked
+    tornado.escape.x_url_unescape__mutmut_3: not checked
+    tornado.escape.x_url_unescape__mutmut_4: not checked
+    tornado.escape.x_url_unescape__mutmut_5: not checked
+    tornado.escape.x_url_unescape__mutmut_6: not checked
+    tornado.escape.x_url_unescape__mutmut_7: not checked
+    tornado.escape.x_url_unescape__mutmut_8: not checked
+    tornado.escape.x_url_unescape__mutmut_9: not checked
+    tornado.escape.x_url_unescape__mutmut_10: not checked
+    tornado.escape.x_url_unescape__mutmut_11: not checked
+    tornado.escape.x_url_unescape__mutmut_12: not checked
+    tornado.escape.x_url_unescape__mutmut_13: not checked
+    tornado.escape.x_url_unescape__mutmut_14: not checked
+    tornado.escape.x_url_unescape__mutmut_15: not checked
+    tornado.escape.x_url_unescape__mutmut_16: not checked
+    tornado.escape.x_url_unescape__mutmut_17: not checked
+    tornado.escape.x_url_unescape__mutmut_18: not checked
+    tornado.escape.x_url_unescape__mutmut_19: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_1: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_2: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_3: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_4: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_5: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_6: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_7: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_8: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_9: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_10: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_11: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_12: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_13: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_14: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_15: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_16: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_17: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_18: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_19: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_20: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_21: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_22: not checked
+    tornado.escape.x_utf8__mutmut_1: not checked
+    tornado.escape.x_utf8__mutmut_2: not checked
+    tornado.escape.x_utf8__mutmut_3: not checked
+    tornado.escape.x_utf8__mutmut_4: not checked
+    tornado.escape.x_utf8__mutmut_5: not checked
+    tornado.escape.x_utf8__mutmut_6: not checked
+    tornado.escape.x_utf8__mutmut_7: not checked
+    tornado.escape.x_utf8__mutmut_8: not checked
+    tornado.escape.x_utf8__mutmut_9: not checked
+    tornado.escape.x_utf8__mutmut_10: not checked
+    tornado.escape.x_to_unicode__mutmut_1: not checked
+    tornado.escape.x_to_unicode__mutmut_2: not checked
+    tornado.escape.x_to_unicode__mutmut_3: not checked
+    tornado.escape.x_to_unicode__mutmut_4: not checked
+    tornado.escape.x_to_unicode__mutmut_5: not checked
+    tornado.escape.x_to_unicode__mutmut_6: not checked
+    tornado.escape.x_to_unicode__mutmut_7: not checked
+    tornado.escape.x_to_unicode__mutmut_8: not checked
+    tornado.escape.x_to_unicode__mutmut_9: not checked
+    tornado.escape.x_to_unicode__mutmut_10: not checked
+    tornado.escape.x_to_basestring__mutmut_1: not checked
+    tornado.escape.x_to_basestring__mutmut_2: not checked
+    tornado.escape.x_to_basestring__mutmut_3: not checked
+    tornado.escape.x_to_basestring__mutmut_4: not checked
+    tornado.escape.x_to_basestring__mutmut_5: not checked
+    tornado.escape.x_to_basestring__mutmut_6: not checked
+    tornado.escape.x_to_basestring__mutmut_7: not checked
+    tornado.escape.x_to_basestring__mutmut_8: not checked
+    tornado.escape.x_to_basestring__mutmut_9: not checked
+    tornado.escape.x_to_basestring__mutmut_10: not checked
+    tornado.escape.x_recursive_unicode__mutmut_1: not checked
+    tornado.escape.x_recursive_unicode__mutmut_2: not checked
+    tornado.escape.x_recursive_unicode__mutmut_3: not checked
+    tornado.escape.x_recursive_unicode__mutmut_4: not checked
+    tornado.escape.x_recursive_unicode__mutmut_5: not checked
+    tornado.escape.x_recursive_unicode__mutmut_6: not checked
+    tornado.escape.x_recursive_unicode__mutmut_7: not checked
+    tornado.escape.x_recursive_unicode__mutmut_8: not checked
+    tornado.escape.x_linkify__mutmut_1: not checked
+    tornado.escape.x_linkify__mutmut_2: not checked
+    tornado.escape.x_linkify__mutmut_3: not checked
+    tornado.escape.x_linkify__mutmut_4: not checked
+    tornado.escape.x_linkify__mutmut_5: not checked
+    tornado.escape.x_linkify__mutmut_6: not checked
+    tornado.escape.x_linkify__mutmut_7: not checked
+    tornado.escape.x_linkify__mutmut_8: not checked
+    tornado.escape.x_linkify__mutmut_9: not checked
+    tornado.escape.x_linkify__mutmut_10: not checked
+    tornado.escape.x_linkify__mutmut_11: not checked
+    tornado.escape.x_linkify__mutmut_12: not checked
+    tornado.escape.x_linkify__mutmut_13: not checked
+    tornado.escape.x_linkify__mutmut_14: not checked
+    tornado.escape.x_linkify__mutmut_15: not checked
+    tornado.escape.x_linkify__mutmut_16: not checked
+    tornado.escape.x_linkify__mutmut_17: not checked
+    tornado.escape.x_linkify__mutmut_18: not checked
+    tornado.escape.x_linkify__mutmut_19: not checked
+    tornado.escape.x_linkify__mutmut_20: not checked
+    tornado.escape.x_linkify__mutmut_21: not checked
+    tornado.escape.x_linkify__mutmut_22: not checked
+    tornado.escape.x_linkify__mutmut_23: not checked
+    tornado.escape.x_linkify__mutmut_24: not checked
+    tornado.escape.x_linkify__mutmut_25: not checked
+    tornado.escape.x_linkify__mutmut_26: not checked
+    tornado.escape.x_linkify__mutmut_27: not checked
+    tornado.escape.x_linkify__mutmut_28: not checked
+    tornado.escape.x_linkify__mutmut_29: not checked
+    tornado.escape.x_linkify__mutmut_30: not checked
+    tornado.escape.x_linkify__mutmut_31: not checked
+    tornado.escape.x_linkify__mutmut_32: not checked
+    tornado.escape.x_linkify__mutmut_33: not checked
+    tornado.escape.x_linkify__mutmut_34: not checked
+    tornado.escape.x_linkify__mutmut_35: not checked
+    tornado.escape.x_linkify__mutmut_36: not checked
+    tornado.escape.x_linkify__mutmut_37: not checked
+    tornado.escape.x_linkify__mutmut_38: not checked
+    tornado.escape.x_linkify__mutmut_39: not checked
+    tornado.escape.x_linkify__mutmut_40: not checked
+    tornado.escape.x_linkify__mutmut_41: not checked
+    tornado.escape.x_linkify__mutmut_42: not checked
+    tornado.escape.x_linkify__mutmut_43: not checked
+    tornado.escape.x_linkify__mutmut_44: not checked
+    tornado.escape.x_linkify__mutmut_45: not checked
+    tornado.escape.x_linkify__mutmut_46: not checked
+    tornado.escape.x_linkify__mutmut_47: not checked
+    tornado.escape.x_linkify__mutmut_48: not checked
+    tornado.escape.x_linkify__mutmut_49: not checked
+    tornado.escape.x_linkify__mutmut_50: not checked
+    tornado.escape.x_linkify__mutmut_51: not checked
+    tornado.escape.x_linkify__mutmut_52: not checked
+    tornado.escape.x_linkify__mutmut_53: not checked
+    tornado.escape.x_linkify__mutmut_54: not checked
+    tornado.escape.x_linkify__mutmut_55: not checked
+    tornado.escape.x_linkify__mutmut_56: not checked
+    tornado.escape.x_linkify__mutmut_57: not checked
+    tornado.escape.x_linkify__mutmut_58: not checked
+    tornado.escape.x_linkify__mutmut_59: not checked
+    tornado.escape.x_linkify__mutmut_60: not checked
+    tornado.escape.x_linkify__mutmut_61: not checked
+    tornado.escape.x_linkify__mutmut_62: not checked
+    tornado.escape.x_linkify__mutmut_63: not checked
+    tornado.escape.x_linkify__mutmut_64: not checked
+    tornado.escape.x_linkify__mutmut_65: not checked
+    tornado.escape.x_linkify__mutmut_66: not checked
+    tornado.escape.x_linkify__mutmut_67: not checked
+    tornado.escape.x_linkify__mutmut_68: not checked
+    tornado.escape.x_linkify__mutmut_69: not checked
+    tornado.escape.x_linkify__mutmut_70: not checked
+    tornado.escape.x_linkify__mutmut_71: not checked
+    tornado.escape.x_linkify__mutmut_72: not checked
+    tornado.escape.x_linkify__mutmut_73: not checked
+    tornado.escape.x_linkify__mutmut_74: not checked
+    tornado.escape.x_linkify__mutmut_75: not checked
+    tornado.escape.x_linkify__mutmut_76: not checked
+    tornado.escape.x_linkify__mutmut_77: not checked
+    tornado.escape.x_linkify__mutmut_78: not checked
+    tornado.escape.x_linkify__mutmut_79: not checked
+    tornado.escape.x_linkify__mutmut_80: not checked
+    tornado.escape.x_linkify__mutmut_81: not checked
+    tornado.escape.x_linkify__mutmut_82: not checked
+    tornado.escape.x_linkify__mutmut_83: not checked
+    tornado.escape.x_linkify__mutmut_84: not checked
+    tornado.escape.x_linkify__mutmut_85: not checked
+    tornado.escape.x_linkify__mutmut_86: not checked
+    tornado.escape.x_linkify__mutmut_87: not checked
+    tornado.escape.x_linkify__mutmut_88: not checked
+    tornado.escape.x_linkify__mutmut_89: not checked
+    tornado.escape.x_linkify__mutmut_90: not checked
+    tornado.escape.x_linkify__mutmut_91: not checked
+    tornado.escape.x_linkify__mutmut_92: not checked
+    tornado.escape.x_linkify__mutmut_93: not checked
+    tornado.escape.x_linkify__mutmut_94: not checked
+    tornado.escape.x_linkify__mutmut_95: not checked
+    tornado.escape.x_linkify__mutmut_96: not checked
+    tornado.escape.x__convert_entity__mutmut_1: not checked
+    tornado.escape.x__convert_entity__mutmut_2: not checked
+    tornado.escape.x__convert_entity__mutmut_3: not checked
+    tornado.escape.x__convert_entity__mutmut_4: not checked
+    tornado.escape.x__convert_entity__mutmut_5: not checked
+    tornado.escape.x__convert_entity__mutmut_6: not checked
+    tornado.escape.x__convert_entity__mutmut_7: not checked
+    tornado.escape.x__convert_entity__mutmut_8: not checked
+    tornado.escape.x__convert_entity__mutmut_9: not checked
+    tornado.escape.x__convert_entity__mutmut_10: not checked
+    tornado.escape.x__convert_entity__mutmut_11: not checked
+    tornado.escape.x__convert_entity__mutmut_12: not checked
+    tornado.escape.x__convert_entity__mutmut_13: not checked
+    tornado.escape.x__convert_entity__mutmut_14: not checked
+    tornado.escape.x__convert_entity__mutmut_15: not checked
+    tornado.escape.x__convert_entity__mutmut_16: not checked
+    tornado.escape.x__convert_entity__mutmut_17: not checked
+    tornado.escape.x__convert_entity__mutmut_18: not checked
+    tornado.escape.x__convert_entity__mutmut_19: not checked
+    tornado.escape.x__convert_entity__mutmut_20: not checked
+    tornado.escape.x__convert_entity__mutmut_21: not checked
+    tornado.escape.x__convert_entity__mutmut_22: not checked
+    tornado.escape.x__convert_entity__mutmut_23: not checked
+    tornado.escape.x__convert_entity__mutmut_24: not checked
+    tornado.escape.x__convert_entity__mutmut_25: not checked
+    tornado.escape.x__convert_entity__mutmut_26: not checked
+    tornado.escape.x__convert_entity__mutmut_27: not checked
+    tornado.escape.x__convert_entity__mutmut_28: not checked
+    tornado.escape.x__convert_entity__mutmut_29: not checked
+    tornado.escape.x__convert_entity__mutmut_30: not checked
+    tornado.escape.x__convert_entity__mutmut_31: not checked
+    tornado.escape.x__convert_entity__mutmut_32: not checked
+    tornado.escape.x__convert_entity__mutmut_33: not checked
+    tornado.escape.x__convert_entity__mutmut_34: not checked
+    tornado.escape.x__convert_entity__mutmut_35: not checked
+    tornado.escape.x__convert_entity__mutmut_36: not checked
+    tornado.escape.x__build_unicode_map__mutmut_1: not checked
+    tornado.escape.x__build_unicode_map__mutmut_2: not checked
+    tornado.escape.x__build_unicode_map__mutmut_3: not checked
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/metrics/mutation_results.txt
+SIZE=14046
+----------------------------------------------------------------------
+    tornado.escape.x_xhtml_escape__mutmut_1: not checked
+    tornado.escape.x_xhtml_escape__mutmut_2: not checked
+    tornado.escape.x_xhtml_escape__mutmut_3: not checked
+    tornado.escape.x_xhtml_escape__mutmut_4: not checked
+    tornado.escape.x_xhtml_escape__mutmut_5: not checked
+    tornado.escape.x_xhtml_escape__mutmut_6: not checked
+    tornado.escape.x_xhtml_escape__mutmut_7: not checked
+    tornado.escape.x_xhtml_escape__mutmut_8: not checked
+    tornado.escape.x_xhtml_unescape__mutmut_1: not checked
+    tornado.escape.x_xhtml_unescape__mutmut_2: not checked
+    tornado.escape.x_xhtml_unescape__mutmut_3: not checked
+    tornado.escape.x_xhtml_unescape__mutmut_4: not checked
+    tornado.escape.x_xhtml_unescape__mutmut_5: not checked
+    tornado.escape.x_xhtml_unescape__mutmut_6: not checked
+    tornado.escape.x_xhtml_unescape__mutmut_7: not checked
+    tornado.escape.x_xhtml_unescape__mutmut_8: not checked
+    tornado.escape.x_json_encode__mutmut_1: not checked
+    tornado.escape.x_json_encode__mutmut_2: not checked
+    tornado.escape.x_json_encode__mutmut_3: not checked
+    tornado.escape.x_json_encode__mutmut_4: not checked
+    tornado.escape.x_json_encode__mutmut_5: not checked
+    tornado.escape.x_json_encode__mutmut_6: not checked
+    tornado.escape.x_json_encode__mutmut_7: not checked
+    tornado.escape.x_json_decode__mutmut_1: not checked
+    tornado.escape.x_json_decode__mutmut_2: not checked
+    tornado.escape.x_squeeze__mutmut_1: not checked
+    tornado.escape.x_squeeze__mutmut_2: not checked
+    tornado.escape.x_squeeze__mutmut_3: not checked
+    tornado.escape.x_squeeze__mutmut_4: not checked
+    tornado.escape.x_squeeze__mutmut_5: not checked
+    tornado.escape.x_squeeze__mutmut_6: not checked
+    tornado.escape.x_squeeze__mutmut_7: not checked
+    tornado.escape.x_squeeze__mutmut_8: not checked
+    tornado.escape.x_url_escape__mutmut_1: not checked
+    tornado.escape.x_url_escape__mutmut_2: not checked
+    tornado.escape.x_url_escape__mutmut_3: not checked
+    tornado.escape.x_url_escape__mutmut_4: not checked
+    tornado.escape.x_url_unescape__mutmut_1: not checked
+    tornado.escape.x_url_unescape__mutmut_2: not checked
+    tornado.escape.x_url_unescape__mutmut_3: not checked
+    tornado.escape.x_url_unescape__mutmut_4: not checked
+    tornado.escape.x_url_unescape__mutmut_5: not checked
+    tornado.escape.x_url_unescape__mutmut_6: not checked
+    tornado.escape.x_url_unescape__mutmut_7: not checked
+    tornado.escape.x_url_unescape__mutmut_8: not checked
+    tornado.escape.x_url_unescape__mutmut_9: not checked
+    tornado.escape.x_url_unescape__mutmut_10: not checked
+    tornado.escape.x_url_unescape__mutmut_11: not checked
+    tornado.escape.x_url_unescape__mutmut_12: not checked
+    tornado.escape.x_url_unescape__mutmut_13: not checked
+    tornado.escape.x_url_unescape__mutmut_14: not checked
+    tornado.escape.x_url_unescape__mutmut_15: not checked
+    tornado.escape.x_url_unescape__mutmut_16: not checked
+    tornado.escape.x_url_unescape__mutmut_17: not checked
+    tornado.escape.x_url_unescape__mutmut_18: not checked
+    tornado.escape.x_url_unescape__mutmut_19: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_1: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_2: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_3: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_4: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_5: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_6: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_7: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_8: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_9: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_10: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_11: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_12: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_13: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_14: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_15: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_16: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_17: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_18: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_19: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_20: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_21: not checked
+    tornado.escape.x_parse_qs_bytes__mutmut_22: not checked
+    tornado.escape.x_utf8__mutmut_1: not checked
+    tornado.escape.x_utf8__mutmut_2: not checked
+    tornado.escape.x_utf8__mutmut_3: not checked
+    tornado.escape.x_utf8__mutmut_4: not checked
+    tornado.escape.x_utf8__mutmut_5: not checked
+    tornado.escape.x_utf8__mutmut_6: not checked
+    tornado.escape.x_utf8__mutmut_7: not checked
+    tornado.escape.x_utf8__mutmut_8: not checked
+    tornado.escape.x_utf8__mutmut_9: not checked
+    tornado.escape.x_utf8__mutmut_10: not checked
+    tornado.escape.x_to_unicode__mutmut_1: not checked
+    tornado.escape.x_to_unicode__mutmut_2: not checked
+    tornado.escape.x_to_unicode__mutmut_3: not checked
+    tornado.escape.x_to_unicode__mutmut_4: not checked
+    tornado.escape.x_to_unicode__mutmut_5: not checked
+    tornado.escape.x_to_unicode__mutmut_6: not checked
+    tornado.escape.x_to_unicode__mutmut_7: not checked
+    tornado.escape.x_to_unicode__mutmut_8: not checked
+    tornado.escape.x_to_unicode__mutmut_9: not checked
+    tornado.escape.x_to_unicode__mutmut_10: not checked
+    tornado.escape.x_to_basestring__mutmut_1: not checked
+    tornado.escape.x_to_basestring__mutmut_2: not checked
+    tornado.escape.x_to_basestring__mutmut_3: not checked
+    tornado.escape.x_to_basestring__mutmut_4: not checked
+    tornado.escape.x_to_basestring__mutmut_5: not checked
+    tornado.escape.x_to_basestring__mutmut_6: not checked
+    tornado.escape.x_to_basestring__mutmut_7: not checked
+    tornado.escape.x_to_basestring__mutmut_8: not checked
+    tornado.escape.x_to_basestring__mutmut_9: not checked
+    tornado.escape.x_to_basestring__mutmut_10: not checked
+    tornado.escape.x_recursive_unicode__mutmut_1: not checked
+    tornado.escape.x_recursive_unicode__mutmut_2: not checked
+    tornado.escape.x_recursive_unicode__mutmut_3: not checked
+    tornado.escape.x_recursive_unicode__mutmut_4: not checked
+    tornado.escape.x_recursive_unicode__mutmut_5: not checked
+    tornado.escape.x_recursive_unicode__mutmut_6: not checked
+    tornado.escape.x_recursive_unicode__mutmut_7: not checked
+    tornado.escape.x_recursive_unicode__mutmut_8: not checked
+    tornado.escape.x_linkify__mutmut_1: not checked
+    tornado.escape.x_linkify__mutmut_2: not checked
+    tornado.escape.x_linkify__mutmut_3: not checked
+    tornado.escape.x_linkify__mutmut_4: not checked
+    tornado.escape.x_linkify__mutmut_5: not checked
+    tornado.escape.x_linkify__mutmut_6: not checked
+    tornado.escape.x_linkify__mutmut_7: not checked
+    tornado.escape.x_linkify__mutmut_8: not checked
+    tornado.escape.x_linkify__mutmut_9: not checked
+    tornado.escape.x_linkify__mutmut_10: not checked
+    tornado.escape.x_linkify__mutmut_11: not checked
+    tornado.escape.x_linkify__mutmut_12: not checked
+    tornado.escape.x_linkify__mutmut_13: not checked
+    tornado.escape.x_linkify__mutmut_14: not checked
+    tornado.escape.x_linkify__mutmut_15: not checked
+    tornado.escape.x_linkify__mutmut_16: not checked
+    tornado.escape.x_linkify__mutmut_17: not checked
+    tornado.escape.x_linkify__mutmut_18: not checked
+    tornado.escape.x_linkify__mutmut_19: not checked
+    tornado.escape.x_linkify__mutmut_20: not checked
+    tornado.escape.x_linkify__mutmut_21: not checked
+    tornado.escape.x_linkify__mutmut_22: not checked
+    tornado.escape.x_linkify__mutmut_23: not checked
+    tornado.escape.x_linkify__mutmut_24: not checked
+    tornado.escape.x_linkify__mutmut_25: not checked
+    tornado.escape.x_linkify__mutmut_26: not checked
+    tornado.escape.x_linkify__mutmut_27: not checked
+    tornado.escape.x_linkify__mutmut_28: not checked
+    tornado.escape.x_linkify__mutmut_29: not checked
+    tornado.escape.x_linkify__mutmut_30: not checked
+    tornado.escape.x_linkify__mutmut_31: not checked
+    tornado.escape.x_linkify__mutmut_32: not checked
+    tornado.escape.x_linkify__mutmut_33: not checked
+    tornado.escape.x_linkify__mutmut_34: not checked
+    tornado.escape.x_linkify__mutmut_35: not checked
+    tornado.escape.x_linkify__mutmut_36: not checked
+    tornado.escape.x_linkify__mutmut_37: not checked
+    tornado.escape.x_linkify__mutmut_38: not checked
+    tornado.escape.x_linkify__mutmut_39: not checked
+    tornado.escape.x_linkify__mutmut_40: not checked
+    tornado.escape.x_linkify__mutmut_41: not checked
+    tornado.escape.x_linkify__mutmut_42: not checked
+    tornado.escape.x_linkify__mutmut_43: not checked
+    tornado.escape.x_linkify__mutmut_44: not checked
+    tornado.escape.x_linkify__mutmut_45: not checked
+    tornado.escape.x_linkify__mutmut_46: not checked
+    tornado.escape.x_linkify__mutmut_47: not checked
+    tornado.escape.x_linkify__mutmut_48: not checked
+    tornado.escape.x_linkify__mutmut_49: not checked
+    tornado.escape.x_linkify__mutmut_50: not checked
+    tornado.escape.x_linkify__mutmut_51: not checked
+    tornado.escape.x_linkify__mutmut_52: not checked
+    tornado.escape.x_linkify__mutmut_53: not checked
+    tornado.escape.x_linkify__mutmut_54: not checked
+    tornado.escape.x_linkify__mutmut_55: not checked
+    tornado.escape.x_linkify__mutmut_56: not checked
+    tornado.escape.x_linkify__mutmut_57: not checked
+    tornado.escape.x_linkify__mutmut_58: not checked
+    tornado.escape.x_linkify__mutmut_59: not checked
+    tornado.escape.x_linkify__mutmut_60: not checked
+    tornado.escape.x_linkify__mutmut_61: not checked
+    tornado.escape.x_linkify__mutmut_62: not checked
+    tornado.escape.x_linkify__mutmut_63: not checked
+    tornado.escape.x_linkify__mutmut_64: not checked
+    tornado.escape.x_linkify__mutmut_65: not checked
+    tornado.escape.x_linkify__mutmut_66: not checked
+    tornado.escape.x_linkify__mutmut_67: not checked
+    tornado.escape.x_linkify__mutmut_68: not checked
+    tornado.escape.x_linkify__mutmut_69: not checked
+    tornado.escape.x_linkify__mutmut_70: not checked
+    tornado.escape.x_linkify__mutmut_71: not checked
+    tornado.escape.x_linkify__mutmut_72: not checked
+    tornado.escape.x_linkify__mutmut_73: not checked
+    tornado.escape.x_linkify__mutmut_74: not checked
+    tornado.escape.x_linkify__mutmut_75: not checked
+    tornado.escape.x_linkify__mutmut_76: not checked
+    tornado.escape.x_linkify__mutmut_77: not checked
+    tornado.escape.x_linkify__mutmut_78: not checked
+    tornado.escape.x_linkify__mutmut_79: not checked
+    tornado.escape.x_linkify__mutmut_80: not checked
+    tornado.escape.x_linkify__mutmut_81: not checked
+    tornado.escape.x_linkify__mutmut_82: not checked
+    tornado.escape.x_linkify__mutmut_83: not checked
+    tornado.escape.x_linkify__mutmut_84: not checked
+    tornado.escape.x_linkify__mutmut_85: not checked
+    tornado.escape.x_linkify__mutmut_86: not checked
+    tornado.escape.x_linkify__mutmut_87: not checked
+    tornado.escape.x_linkify__mutmut_88: not checked
+    tornado.escape.x_linkify__mutmut_89: not checked
+    tornado.escape.x_linkify__mutmut_90: not checked
+    tornado.escape.x_linkify__mutmut_91: not checked
+    tornado.escape.x_linkify__mutmut_92: not checked
+    tornado.escape.x_linkify__mutmut_93: not checked
+    tornado.escape.x_linkify__mutmut_94: not checked
+    tornado.escape.x_linkify__mutmut_95: not checked
+    tornado.escape.x_linkify__mutmut_96: not checked
+    tornado.escape.x__convert_entity__mutmut_1: not checked
+    tornado.escape.x__convert_entity__mutmut_2: not checked
+    tornado.escape.x__convert_entity__mutmut_3: not checked
+    tornado.escape.x__convert_entity__mutmut_4: not checked
+    tornado.escape.x__convert_entity__mutmut_5: not checked
+    tornado.escape.x__convert_entity__mutmut_6: not checked
+    tornado.escape.x__convert_entity__mutmut_7: not checked
+    tornado.escape.x__convert_entity__mutmut_8: not checked
+    tornado.escape.x__convert_entity__mutmut_9: not checked
+    tornado.escape.x__convert_entity__mutmut_10: not checked
+    tornado.escape.x__convert_entity__mutmut_11: not checked
+    tornado.escape.x__convert_entity__mutmut_12: not checked
+    tornado.escape.x__convert_entity__mutmut_13: not checked
+    tornado.escape.x__convert_entity__mutmut_14: not checked
+    tornado.escape.x__convert_entity__mutmut_15: not checked
+    tornado.escape.x__convert_entity__mutmut_16: not checked
+    tornado.escape.x__convert_entity__mutmut_17: not checked
+    tornado.escape.x__convert_entity__mutmut_18: not checked
+    tornado.escape.x__convert_entity__mutmut_19: not checked
+    tornado.escape.x__convert_entity__mutmut_20: not checked
+    tornado.escape.x__convert_entity__mutmut_21: not checked
+    tornado.escape.x__convert_entity__mutmut_22: not checked
+    tornado.escape.x__convert_entity__mutmut_23: not checked
+    tornado.escape.x__convert_entity__mutmut_24: not checked
+    tornado.escape.x__convert_entity__mutmut_25: not checked
+    tornado.escape.x__convert_entity__mutmut_26: not checked
+    tornado.escape.x__convert_entity__mutmut_27: not checked
+    tornado.escape.x__convert_entity__mutmut_28: not checked
+    tornado.escape.x__convert_entity__mutmut_29: not checked
+    tornado.escape.x__convert_entity__mutmut_30: not checked
+    tornado.escape.x__convert_entity__mutmut_31: not checked
+    tornado.escape.x__convert_entity__mutmut_32: not checked
+    tornado.escape.x__convert_entity__mutmut_33: not checked
+    tornado.escape.x__convert_entity__mutmut_34: not checked
+    tornado.escape.x__convert_entity__mutmut_35: not checked
+    tornado.escape.x__convert_entity__mutmut_36: not checked
+    tornado.escape.x__build_unicode_map__mutmut_1: not checked
+    tornado.escape.x__build_unicode_map__mutmut_2: not checked
+    tornado.escape.x__build_unicode_map__mutmut_3: not checked
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/metrics/mutmut_counts.json
+SIZE=203
+----------------------------------------------------------------------
+{
+  "killed": 0,
+  "survived": 0,
+  "timeout": 0,
+  "suspicious": 0,
+  "skipped": 0,
+  "not_checked": 251,
+  "no_tests": 0,
+  "total": 251,
+  "score_pct": null,
+  "parse_source": "mutmut_results_lines"
+}
+===== MUTMUT CACHE / CONFIG =====
+d	4096	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project/mutants
+f	203	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project/mutants/setup.cfg
+f	203	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project/setup.cfg
+f	211	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project/maint/test/redbot/tox.ini
+f	211	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/sut/maint/test/redbot/tox.ini
+f	224	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project/mutants/pyproject.toml
+f	224	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project/pyproject.toml
+f	292	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project/maint/test/websocket/tox.ini
+f	292	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/sut/maint/test/websocket/tox.ini
+f	302	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project/maint/test/mypy/tox.ini
+f	302	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/sut/maint/test/mypy/tox.ini
+f	317	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project/maint/vm/freebsd/tox.ini
+f	317	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/sut/maint/vm/freebsd/tox.ini
+f	345	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/sut/setup.cfg
+f	402	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project/maint/test/cython/tox.ini
+f	402	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/sut/maint/test/cython/tox.ini
+f	5559	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project/tox.ini
+f	5559	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/sut/tox.ini
+f	647	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project/maint/vm/windows/tox.ini
+f	647	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/sut/maint/vm/windows/tox.ini
+f	677	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project/maint/vm/ubuntu12.04/tox.ini
+f	677	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/sut/maint/vm/ubuntu12.04/tox.ini
+f	713	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project/maint/vm/ubuntu14.04/tox.ini
+f	713	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/sut/maint/vm/ubuntu14.04/tox.ini
+
+===== ENVIRONMENT / PYTHON PATHS IN STATUS =====
+{
+  "target_module": "tornado.escape",
+  "cov_target": "tornado",
+  "mutation_timeout_s": 180,
+  "run_mutation": "1",
+  "mutmut_exit_code": 1,
+  "mutation_score_pct": null,
+  "runtime_pythonpath": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/sut::",
+  "coverage_target_used": "tornado.escape",
+  "mutation_project_dir": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project",
+  "mutation_target_relpath": "tornado/escape.py",
+  "mutation_flat_target": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project/tornado/escape.py",
+  "mutation_import_root": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/sut",
+  "mutation_runner_pythonpath": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account2/candidate_1_tornado_4f/tornado_4f/run_0001/0001-1/work/mutation_project:.::",
+  "mutation_available": false,
+  "mutmut_results_exit_code": 0,
+  "mutmut_counts": {
+    "killed": 0,
+    "survived": 0,
+    "timeout": 0,
+    "suspicious": 0,
+    "skipped": 0,
+    "not_checked": 251,
+    "no_tests": 0,
+    "total": 251,
+    "score_pct": null,
+    "parse_source": "mutmut_results_lines"
+  }
+}
+
+===== HISTORICAL SUCCESS FOR SAME SUT =====
+historical_status_json=/home/jpaiva/projetos/bugsinpy_gpt4o/out/_eval_cluster_bugsinpy_run3_v4_compact_strict/cluster-safe-qwen3.5-9b-ctx32k/tornado_4f/run_0001/0015-3/metrics/status.json
+{
+  "branch_pct": 16.07,
+  "coverage_exit_code": 0,
+  "line_pct": 49.37,
+  "mutation_available": true,
+  "mutation_score_pct": 0.0,
+  "mutmut_exit_code": 0,
+  "pytest_final_exit_code": null,
+  "pytest_raw_exit_code": 0,
+  "status": "ok",
+  "sut_id": "tornado_4f",
+  "target_module": "tornado.escape"
+}
+
+HISTORICAL_RUN_DIR=/home/jpaiva/projetos/bugsinpy_gpt4o/out/_eval_cluster_bugsinpy_run3_v4_compact_strict/cluster-safe-qwen3.5-9b-ctx32k/tornado_4f/run_0001/0015-3
+HISTORICAL_MUTATION_FILES:
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_eval_cluster_bugsinpy_run3_v4_compact_strict/cluster-safe-qwen3.5-9b-ctx32k/tornado_4f/run_0001/0015-3/logs/mutmut.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_eval_cluster_bugsinpy_run3_v4_compact_strict/cluster-safe-qwen3.5-9b-ctx32k/tornado_4f/run_0001/0015-3/logs/mutmut.version.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_eval_cluster_bugsinpy_run3_v4_compact_strict/cluster-safe-qwen3.5-9b-ctx32k/tornado_4f/run_0001/0015-3/logs/mutmut_results.stderr.log
+1066 bytes	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_eval_cluster_bugsinpy_run3_v4_compact_strict/cluster-safe-qwen3.5-9b-ctx32k/tornado_4f/run_0001/0015-3/logs/rerun_noapi_mutation_flat.log
+10798 bytes	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_eval_cluster_bugsinpy_run3_v4_compact_strict/cluster-safe-qwen3.5-9b-ctx32k/tornado_4f/run_0001/0015-3/logs/mutmut_results.stdout.log
+10798 bytes	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_eval_cluster_bugsinpy_run3_v4_compact_strict/cluster-safe-qwen3.5-9b-ctx32k/tornado_4f/run_0001/0015-3/metrics/mutation_results.txt
+16505 bytes	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_eval_cluster_bugsinpy_run3_v4_compact_strict/cluster-safe-qwen3.5-9b-ctx32k/tornado_4f/run_0001/0015-3/logs/mutmut.stdout.log
+203 bytes	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_eval_cluster_bugsinpy_run3_v4_compact_strict/cluster-safe-qwen3.5-9b-ctx32k/tornado_4f/run_0001/0015-3/metrics/mutmut_counts.json
+2445 bytes	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_eval_cluster_bugsinpy_run3_v4_compact_strict/cluster-safe-qwen3.5-9b-ctx32k/tornado_4f/run_0001/0015-3/work/mutation_project/mutants/mutmut-stats.json
+32 bytes	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_eval_cluster_bugsinpy_run3_v4_compact_strict/cluster-safe-qwen3.5-9b-ctx32k/tornado_4f/run_0001/0015-3/logs/mutmut.version.stdout.log
+
+
+######################################################################
+ACCOUNT=account3
+SUT_ID=cookiecutter_1f
+TARGET_MODULE=cookiecutter.log
+STATUS=mutation_no_checked_mutants
+LINE_PCT=100.0
+BRANCH_PCT=100.0
+MUTMUT_EXIT_CODE=1
+RUN_DIR=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1
+######################################################################
+
+===== STATUS.JSON COMPLETO =====
+{
+  "dataset": "BugsInPy",
+  "language": "python",
+  "model": "gpt-5.5-iaedu",
+  "sut_id": "cookiecutter_1f",
+  "sut_index": 1,
+  "sut_dir": "/home/jpaiva/projetos/SUTs/BugsInPy_OK/cookiecutter_1f",
+  "work_sut_dir": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/sut",
+  "target_module": "cookiecutter.log",
+  "cov_target": "cookiecutter",
+  "run_id": 2,
+  "rep": 1,
+  "status": "mutation_no_checked_mutants",
+  "dry_run": "0",
+  "prep_sut_exit_code": 0,
+  "context_exit_code": 0,
+  "render_prompt_exit_code": 0,
+  "generation_exit_code": 0,
+  "generation_attempts": 1,
+  "generation_empty_attempts": 0,
+  "generation_final_state": "nonempty_success",
+  "generation_output_nonempty": "true",
+  "generation_timeout_s": 200,
+  "generation_empty_retry_max": 2,
+  "generation_retry_sleep_s": 2,
+  "pytest_timeout_s": 60,
+  "mutation_timeout_s": 180,
+  "run_mutation": "1",
+  "pytest_raw_exit_code": 0,
+  "pytest_final_exit_code": null,
+  "coverage_exit_code": 0,
+  "mutmut_exit_code": 1,
+  "line_pct": 100.0,
+  "branch_pct": 100.0,
+  "mutation_score_pct": null,
+  "prompt_file": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/raw/prompt.txt",
+  "model_raw_output_file": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/raw/model_raw_output.py.txt",
+  "generated_test_file": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/tests/test_gpt_iaedu.py",
+  "runtime_pythonpath": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/sut::",
+  "generated_test_compile_exit_code": 0,
+  "sut_import_check_exit_code": 0,
+  "raw_pytest_passed": true,
+  "raw_pytest_timeout": false,
+  "canonical_test_file": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/tests/test_gpt_iaedu.py",
+  "coverage_scope": "target_module",
+  "coverage_target_used": "cookiecutter.log",
+  "coverage_xml": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/metrics/coverage.xml",
+  "coverage_available": true,
+  "mutation_project_dir": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/mutation_project",
+  "mutation_target_relpath": "cookiecutter/log.py",
+  "mutation_flat_target": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/mutation_project/cookiecutter/log.py",
+  "mutation_import_root": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/sut",
+  "mutation_runner_pythonpath": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/mutation_project:.::",
+  "mutation_available": false,
+  "mutmut_results_exit_code": 0,
+  "mutmut_counts": {
+    "killed": 0,
+    "survived": 0,
+    "timeout": 0,
+    "suspicious": 0,
+    "skipped": 0,
+    "not_checked": 27,
+    "no_tests": 0,
+    "total": 27,
+    "score_pct": null,
+    "parse_source": "mutmut_results_lines"
+  }
+}
+===== TARGET SOURCE EXPECTED =====
+TARGET_RELATIVE=cookiecutter/log.py
+TARGET_SOURCE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/sut/cookiecutter/log.py
+TARGET_EXISTS=yes
+TARGET_SIZE=1568
+TARGET_SHA256=e0ac03d328d2e6318ad7ba499bde2361b24389bd2bfe185dff56dd34df82e72d
+TARGET_LINES=51
+
+===== TESTE GERADO =====
+TEST_FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/tests/test_gpt_iaedu.py
+TEST_SHA256=4866c2162e4221695056faeafe96c59b4a709888268a5a4ae53669c40052dae5
+TEST_LINES=139
+
+===== MUTATION FILES =====
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/logs/mutmut.version.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/logs/mutmut_results.stderr.log
+1062 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/logs/mutmut.full_wrapper.log
+1719 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/logs/mutmut_results.stdout.log
+1719 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/metrics/mutation_results.txt
+201 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/metrics/mutmut_counts.json
+2084 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/logs/mutmut.stderr.log
+32 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/logs/mutmut.version.stdout.log
+660 bytes	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/logs/mutmut.stdout.log
+
+===== MUTATION LOG CONTENT =====
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/logs/mutmut.full_wrapper.log
+SIZE=1062
+----------------------------------------------------------------------
+[A] Checking mutmut availability...
+[B] Running mutmut in flat mutation_project...
+[C] Running mutmut results...
+status=mutation_no_checked_mutants
+mutmut_exit_code=1
+mutmut_results_exit_code=0
+mutation_available=False
+mutation_score_pct=None
+counts={"killed": 0, "no_tests": 0, "not_checked": 27, "parse_source": "mutmut_results_lines", "score_pct": null, "skipped": 0, "survived": 0, "suspicious": 0, "timeout": 0, "total": 27}
+mutation_project=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/mutation_project
+target_rel=cookiecutter/log.py
+flat_target=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/mutation_project/cookiecutter/log.py
+chosen_import_root=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/sut
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/logs/mutmut.stderr.log
+SIZE=2084
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/usr/local/lib/python3.10/dist-packages/mutmut/__main__.py", line 1527, in <module>
+    cli()
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/click/core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/click/core.py", line 1406, in main
+    rv = self.invoke(ctx)
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/click/core.py", line 1873, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/click/core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/mutmut/__main__.py", line 1006, in run
+    _run(mutant_names, max_children)
+  File "/usr/local/lib/python3.10/dist-packages/mutmut/__main__.py", line 1037, in _run
+    collect_or_load_stats(runner)
+  File "/usr/local/lib/python3.10/dist-packages/mutmut/__main__.py", line 857, in collect_or_load_stats
+    run_stats_collection(runner)
+  File "/usr/local/lib/python3.10/dist-packages/mutmut/__main__.py", line 823, in run_stats_collection
+    collect_stats_exit_code = runner.run_stats(tests=tests)
+  File "/usr/local/lib/python3.10/dist-packages/mutmut/__main__.py", line 475, in run_stats
+    return int(self.execute_pytest(pytest_args, plugins=[stats_collector]))
+  File "/usr/local/lib/python3.10/dist-packages/mutmut/__main__.py", line 447, in execute_pytest
+    raise BadTestExecutionCommandsException(params)
+BadTestExecutionCommandsException: Failed to run pytest with args: ['--rootdir=.', '--tb=native', '-x', '-q', 'tests']. If your config sets debug=true, the original pytest error should be above.
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/logs/mutmut.stdout.log
+SIZE=660
+----------------------------------------------------------------------
+
+⠋ Generating mutants
+⠙ Generating mutants
+⠹ Generating mutants
+⠸ Generating mutants
+⠼ Generating mutants
+⠴ Generating mutants
+⠦ Generating mutants
+⠧ Generating mutants
+⠇ Generating mutants
+⠏ Generating mutants
+⠋ Generating mutants
+⠙ Generating mutants
+⠹ Generating mutants
+⠸ Generating mutants
+⠼ Generating mutants
+⠴ Generating mutants
+⠦ Generating mutants
+⠧ Generating mutants
+⠇ Generating mutants
+    done in 249ms
+
+⠧ Running stats     
+⠇ Running stats
+⠏ Running stats
+⠋ Running stats
+⠙ Running stats
+⠹ Running stats
+⠸ Running stats
+⠼ Running stats
+⠴ Running stats
+⠦ Running stats
+⠧ Running stats
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/logs/mutmut.version.stderr.log
+SIZE=0
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/logs/mutmut.version.stdout.log
+SIZE=32
+----------------------------------------------------------------------
+python -m mutmut, version 3.4.0
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/logs/mutmut_results.stderr.log
+SIZE=0
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/logs/mutmut_results.stdout.log
+SIZE=1719
+----------------------------------------------------------------------
+    cookiecutter.log.x_configure_logger__mutmut_1: not checked
+    cookiecutter.log.x_configure_logger__mutmut_2: not checked
+    cookiecutter.log.x_configure_logger__mutmut_3: not checked
+    cookiecutter.log.x_configure_logger__mutmut_4: not checked
+    cookiecutter.log.x_configure_logger__mutmut_5: not checked
+    cookiecutter.log.x_configure_logger__mutmut_6: not checked
+    cookiecutter.log.x_configure_logger__mutmut_7: not checked
+    cookiecutter.log.x_configure_logger__mutmut_8: not checked
+    cookiecutter.log.x_configure_logger__mutmut_9: not checked
+    cookiecutter.log.x_configure_logger__mutmut_10: not checked
+    cookiecutter.log.x_configure_logger__mutmut_11: not checked
+    cookiecutter.log.x_configure_logger__mutmut_12: not checked
+    cookiecutter.log.x_configure_logger__mutmut_13: not checked
+    cookiecutter.log.x_configure_logger__mutmut_14: not checked
+    cookiecutter.log.x_configure_logger__mutmut_15: not checked
+    cookiecutter.log.x_configure_logger__mutmut_16: not checked
+    cookiecutter.log.x_configure_logger__mutmut_17: not checked
+    cookiecutter.log.x_configure_logger__mutmut_18: not checked
+    cookiecutter.log.x_configure_logger__mutmut_19: not checked
+    cookiecutter.log.x_configure_logger__mutmut_20: not checked
+    cookiecutter.log.x_configure_logger__mutmut_21: not checked
+    cookiecutter.log.x_configure_logger__mutmut_22: not checked
+    cookiecutter.log.x_configure_logger__mutmut_23: not checked
+    cookiecutter.log.x_configure_logger__mutmut_24: not checked
+    cookiecutter.log.x_configure_logger__mutmut_25: not checked
+    cookiecutter.log.x_configure_logger__mutmut_26: not checked
+    cookiecutter.log.x_configure_logger__mutmut_27: not checked
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/metrics/mutation_results.txt
+SIZE=1719
+----------------------------------------------------------------------
+    cookiecutter.log.x_configure_logger__mutmut_1: not checked
+    cookiecutter.log.x_configure_logger__mutmut_2: not checked
+    cookiecutter.log.x_configure_logger__mutmut_3: not checked
+    cookiecutter.log.x_configure_logger__mutmut_4: not checked
+    cookiecutter.log.x_configure_logger__mutmut_5: not checked
+    cookiecutter.log.x_configure_logger__mutmut_6: not checked
+    cookiecutter.log.x_configure_logger__mutmut_7: not checked
+    cookiecutter.log.x_configure_logger__mutmut_8: not checked
+    cookiecutter.log.x_configure_logger__mutmut_9: not checked
+    cookiecutter.log.x_configure_logger__mutmut_10: not checked
+    cookiecutter.log.x_configure_logger__mutmut_11: not checked
+    cookiecutter.log.x_configure_logger__mutmut_12: not checked
+    cookiecutter.log.x_configure_logger__mutmut_13: not checked
+    cookiecutter.log.x_configure_logger__mutmut_14: not checked
+    cookiecutter.log.x_configure_logger__mutmut_15: not checked
+    cookiecutter.log.x_configure_logger__mutmut_16: not checked
+    cookiecutter.log.x_configure_logger__mutmut_17: not checked
+    cookiecutter.log.x_configure_logger__mutmut_18: not checked
+    cookiecutter.log.x_configure_logger__mutmut_19: not checked
+    cookiecutter.log.x_configure_logger__mutmut_20: not checked
+    cookiecutter.log.x_configure_logger__mutmut_21: not checked
+    cookiecutter.log.x_configure_logger__mutmut_22: not checked
+    cookiecutter.log.x_configure_logger__mutmut_23: not checked
+    cookiecutter.log.x_configure_logger__mutmut_24: not checked
+    cookiecutter.log.x_configure_logger__mutmut_25: not checked
+    cookiecutter.log.x_configure_logger__mutmut_26: not checked
+    cookiecutter.log.x_configure_logger__mutmut_27: not checked
+
+----------------------------------------------------------------------
+FILE=/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/metrics/mutmut_counts.json
+SIZE=201
+----------------------------------------------------------------------
+{
+  "killed": 0,
+  "survived": 0,
+  "timeout": 0,
+  "suspicious": 0,
+  "skipped": 0,
+  "not_checked": 27,
+  "no_tests": 0,
+  "total": 27,
+  "score_pct": null,
+  "parse_source": "mutmut_results_lines"
+}
+===== MUTMUT CACHE / CONFIG =====
+d	4096	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/mutation_project/mutants
+f	161	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/sut/pyproject.toml
+f	205	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/mutation_project/mutants/setup.cfg
+f	205	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/mutation_project/setup.cfg
+f	226	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/mutation_project/mutants/pyproject.toml
+f	226	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/mutation_project/pyproject.toml
+f	473	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/sut/setup.cfg
+f	988	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/mutation_project/tox.ini
+f	988	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/sut/tox.ini
+
+===== ENVIRONMENT / PYTHON PATHS IN STATUS =====
+{
+  "target_module": "cookiecutter.log",
+  "cov_target": "cookiecutter",
+  "mutation_timeout_s": 180,
+  "run_mutation": "1",
+  "mutmut_exit_code": 1,
+  "mutation_score_pct": null,
+  "runtime_pythonpath": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/sut::",
+  "coverage_target_used": "cookiecutter.log",
+  "mutation_project_dir": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/mutation_project",
+  "mutation_target_relpath": "cookiecutter/log.py",
+  "mutation_flat_target": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/mutation_project/cookiecutter/log.py",
+  "mutation_import_root": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/sut",
+  "mutation_runner_pythonpath": "/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/mutation_project:.::",
+  "mutation_available": false,
+  "mutmut_results_exit_code": 0,
+  "mutmut_counts": {
+    "killed": 0,
+    "survived": 0,
+    "timeout": 0,
+    "suspicious": 0,
+    "skipped": 0,
+    "not_checked": 27,
+    "no_tests": 0,
+    "total": 27,
+    "score_pct": null,
+    "parse_source": "mutmut_results_lines"
+  }
+}
+
+===== HISTORICAL SUCCESS FOR SAME SUT =====
+historical_status_json=/home/jpaiva/projetos/bugsinpy_gpt4o/out/_final_claude47_bugsinpy_python_v1/cookiecutter_1f/run_0001/0007-5/metrics/status.json
+{
+  "branch_pct": 100.0,
+  "coverage_exit_code": 0,
+  "line_pct": 100.0,
+  "mutation_available": true,
+  "mutation_score_pct": 74.07407407407408,
+  "mutmut_exit_code": 1,
+  "pytest_final_exit_code": null,
+  "pytest_raw_exit_code": 0,
+  "status": "ok",
+  "sut_id": "cookiecutter_1f",
+  "target_module": "cookiecutter.log"
+}
+
+HISTORICAL_RUN_DIR=/home/jpaiva/projetos/bugsinpy_gpt4o/out/_final_claude47_bugsinpy_python_v1/cookiecutter_1f/run_0001/0007-5
+HISTORICAL_MUTATION_FILES:
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_final_claude47_bugsinpy_python_v1/cookiecutter_1f/run_0001/0007-5/logs/mutmut.version.stderr.log
+0 bytes	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_final_claude47_bugsinpy_python_v1/cookiecutter_1f/run_0001/0007-5/logs/mutmut_results.stderr.log
+1719 bytes	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_final_claude47_bugsinpy_python_v1/cookiecutter_1f/run_0001/0007-5/logs/mutmut_results.stdout.log
+1719 bytes	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_final_claude47_bugsinpy_python_v1/cookiecutter_1f/run_0001/0007-5/metrics/mutation_results.txt
+1736 bytes	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_final_claude47_bugsinpy_python_v1/cookiecutter_1f/run_0001/0007-5/metrics/mutation_manual_fallback_10z_results.tsv
+201 bytes	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_final_claude47_bugsinpy_python_v1/cookiecutter_1f/run_0001/0007-5/metrics/mutmut_counts.json
+2238 bytes	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_final_claude47_bugsinpy_python_v1/cookiecutter_1f/run_0001/0007-5/logs/mutmut.stderr.log
+32 bytes	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_final_claude47_bugsinpy_python_v1/cookiecutter_1f/run_0001/0007-5/logs/mutmut.version.stdout.log
+660 bytes	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_final_claude47_bugsinpy_python_v1/cookiecutter_1f/run_0001/0007-5/logs/mutmut.stdout.log
+984 bytes	/home/jpaiva/projetos/bugsinpy_gpt4o/out/_final_claude47_bugsinpy_python_v1/cookiecutter_1f/run_0001/0007-5/logs/mutmut.full_wrapper.log
+
+
+######################################################################
+CURRENT MUTATION TOOL
+######################################################################
+     1	from __future__ import annotations
+     2	
+     3	import argparse
+     4	import json
+     5	import os
+     6	import shutil
+     7	import subprocess
+     8	import sys
+     9	from pathlib import Path
+    10	
+    11	
+    12	IGNORE_NAMES = {
+    13	    "__pycache__",
+    14	    ".pytest_cache",
+    15	    ".mypy_cache",
+    16	    ".tox",
+    17	    ".git",
+    18	    ".hg",
+    19	    ".svn",
+    20	    ".coverage",
+    21	    "htmlcov",
+    22	    "mutants",
+    23	    "mutation_project",
+    24	    "freetype-2.6.1",
+    25	}
+    26	
+    27	
+    28	def parse_args():
+    29	    ap = argparse.ArgumentParser()
+    30	    ap.add_argument("--run-dir", required=True)
+    31	    ap.add_argument("--mutation-timeout-s", type=int, default=180)
+    32	    return ap.parse_args()
+    33	
+    34	
+    35	def read_json(path: Path) -> dict:
+    36	    if not path.exists():
+    37	        return {}
+    38	    try:
+    39	        return json.loads(path.read_text(encoding="utf-8"))
+    40	    except Exception:
+    41	        return {}
+    42	
+    43	
+    44	def write_json(path: Path, data: dict):
+    45	    path.parent.mkdir(parents=True, exist_ok=True)
+    46	    path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+    47	
+    48	
+    49	def update_status(run_dir: Path, **kwargs):
+    50	    p = run_dir / "metrics" / "status.json"
+    51	    d = read_json(p)
+    52	    d.update(kwargs)
+    53	    write_json(p, d)
+    54	    return d
+    55	
+    56	
+    57	def copy_contents(src: Path, dst: Path):
+    58	    if not src.exists():
+    59	        return
+    60	
+    61	    dst.mkdir(parents=True, exist_ok=True)
+    62	
+    63	    for item in src.iterdir():
+    64	        if item.name in IGNORE_NAMES:
+    65	            continue
+    66	
+    67	        target = dst / item.name
+    68	
+    69	        if item.is_dir():
+    70	            shutil.copytree(
+    71	                item,
+    72	                target,
+    73	                dirs_exist_ok=True,
+    74	                ignore=shutil.ignore_patterns(*IGNORE_NAMES),
+    75	            )
+    76	        else:
+    77	            target.parent.mkdir(parents=True, exist_ok=True)
+    78	            shutil.copy2(item, target)
+    79	
+    80	
+    81	def rel_if_under(path: Path, root: Path):
+    82	    try:
+    83	        return path.resolve().relative_to(root.resolve())
+    84	    except Exception:
+    85	        return None
+    86	
+    87	
+    88	def resolve_target(run_dir: Path, work_sut_dir: Path, target_module: str):
+    89	    prep = read_json(run_dir / "raw" / "work_sut_prepare.json")
+    90	
+    91	    import_roots = []
+    92	    for r in prep.get("import_roots") or []:
+    93	        rr = Path(r).resolve()
+    94	        if rr not in import_roots:
+    95	            import_roots.append(rr)
+    96	
+    97	    for r in [
+    98	        work_sut_dir,
+    99	        work_sut_dir / "src",
+   100	        work_sut_dir / "lib",
+   101	        work_sut_dir / "build" / "lib",
+   102	    ]:
+   103	        rr = r.resolve()
+   104	        if rr not in import_roots:
+   105	            import_roots.append(rr)
+   106	
+   107	    target_file = None
+   108	
+   109	    target_relpath = prep.get("target_relpath")
+   110	    if target_relpath:
+   111	        candidate = (work_sut_dir / target_relpath).resolve()
+   112	        if candidate.exists() and candidate.is_file():
+   113	            target_file = candidate
+   114	
+   115	    if target_file is None:
+   116	        base = Path(*target_module.split("."))
+   117	        candidates = []
+   118	
+   119	        for root in import_roots:
+   120	            candidates.append(root / (base.as_posix() + ".py"))
+   121	            candidates.append(root / base / "__init__.py")
+   122	
+   123	        for c in candidates:
+   124	            if c.exists() and c.is_file():
+   125	                target_file = c.resolve()
+   126	                break
+   127	
+   128	    if target_file is None:
+   129	        raise FileNotFoundError(f"cannot resolve target module {target_module} under {work_sut_dir}")
+   130	
+   131	    # Prefer the most specific import root. This is critical for lib/ and src/ layouts:
+   132	    # work/sut/lib/ansible/utils/unicode.py -> ansible/utils/unicode.py, not lib/ansible/utils/unicode.py.
+   133	    chosen_import_root = None
+   134	    target_rel = None
+   135	
+   136	    for root in sorted(import_roots, key=lambda x: len(str(x.resolve())), reverse=True):
+   137	        rel = rel_if_under(target_file, root)
+   138	        if rel is not None:
+   139	            chosen_import_root = root
+   140	            target_rel = rel
+   141	            break
+   142	
+   143	    if chosen_import_root is None or target_rel is None:
+   144	        chosen_import_root = work_sut_dir
+   145	        target_rel = target_file.relative_to(work_sut_dir)
+   146	
+   147	    return {
+   148	        "target_file": target_file,
+   149	        "target_rel": target_rel,
+   150	        "chosen_import_root": chosen_import_root,
+   151	        "import_roots": import_roots,
+   152	        "prep": prep,
+   153	    }
+   154	
+   155	
+   156	def mutation_import_shim(target_module: str) -> str:
+   157	    return (
+   158	        "# --- BugsInPy mutmut import shim start ---\n"
+   159	        "from pathlib import Path as _bugsinpy_Path\n"
+   160	        "import importlib as _bugsinpy_importlib\n"
+   161	        "import sys as _bugsinpy_sys\n"
+   162	        f"_bugsinpy_target_module = {target_module!r}\n"
+   163	        "_bugsinpy_this_file = _bugsinpy_Path(__file__).resolve()\n"
+   164	        "_bugsinpy_in_mutants = (\n"
+   165	        "    len(_bugsinpy_this_file.parents) > 2\n"
+   166	        "    and _bugsinpy_this_file.parents[1].name == 'mutants'\n"
+   167	        ")\n"
+   168	        "if _bugsinpy_in_mutants:\n"
+   169	        "    _bugsinpy_project_root = _bugsinpy_this_file.parents[2]\n"
+   170	        "    _bugsinpy_mutants_root = _bugsinpy_this_file.parents[1]\n"
+   171	        "else:\n"
+   172	        "    _bugsinpy_project_root = _bugsinpy_this_file.parents[1]\n"
+   173	        "    _bugsinpy_mutants_root = _bugsinpy_project_root / 'mutants'\n"
+   174	        "for _bugsinpy_p in [_bugsinpy_project_root, _bugsinpy_mutants_root]:\n"
+   175	        "    _bugsinpy_s = str(_bugsinpy_p)\n"
+   176	        "    if _bugsinpy_s in _bugsinpy_sys.path:\n"
+   177	        "        _bugsinpy_sys.path.remove(_bugsinpy_s)\n"
+   178	        "if _bugsinpy_in_mutants:\n"
+   179	        "    _bugsinpy_sys.path.insert(0, str(_bugsinpy_project_root))\n"
+   180	        "    _bugsinpy_sys.path.insert(0, str(_bugsinpy_mutants_root))\n"
+   181	        "else:\n"
+   182	        "    _bugsinpy_sys.path.insert(0, str(_bugsinpy_project_root))\n"
+   183	        "\n"
+   184	        "def _bugsinpy_force_package_path(_pkg_name):\n"
+   185	        "    _parts = _pkg_name.split('.')\n"
+   186	        "    _rel = _bugsinpy_Path(*_parts)\n"
+   187	        "    _mutant_pkg_dir = _bugsinpy_mutants_root / _rel\n"
+   188	        "    _original_pkg_dir = _bugsinpy_project_root / _rel\n"
+   189	        "    try:\n"
+   190	        "        _pkg = _bugsinpy_importlib.import_module(_pkg_name)\n"
+   191	        "    except Exception:\n"
+   192	        "        return\n"
+   193	        "    _pkg_path = getattr(_pkg, '__path__', None)\n"
+   194	        "    if _pkg_path is None:\n"
+   195	        "        return\n"
+   196	        "    _new_path = []\n"
+   197	        "    if _bugsinpy_in_mutants and _mutant_pkg_dir.exists():\n"
+   198	        "        _new_path.append(str(_mutant_pkg_dir))\n"
+   199	        "    if _original_pkg_dir.exists():\n"
+   200	        "        _new_path.append(str(_original_pkg_dir))\n"
+   201	        "    for _old in list(_pkg_path):\n"
+   202	        "        if _old not in _new_path:\n"
+   203	        "            _new_path.append(_old)\n"
+   204	        "    try:\n"
+   205	        "        _pkg.__path__ = _new_path\n"
+   206	        "    except Exception:\n"
+   207	        "        pass\n"
+   208	        "\n"
+   209	        "_bugsinpy_pkg_parts = _bugsinpy_target_module.split('.')\n"
+   210	        "for _bugsinpy_i in range(1, len(_bugsinpy_pkg_parts) + 1):\n"
+   211	        "    _bugsinpy_force_package_path('.'.join(_bugsinpy_pkg_parts[:_bugsinpy_i]))\n"
+   212	        "\n"
+   213	        "def _bugsinpy_restore_top_level_metadata():\n"
+   214	        "    try:\n"
+   215	        "        import ast as _bugsinpy_ast\n"
+   216	        "        _top_package = _bugsinpy_target_module.split('.', 1)[0]\n"
+   217	        "        _pkg = _bugsinpy_importlib.import_module(_top_package)\n"
+   218	        "        _original_init = _bugsinpy_project_root / _top_package / '__init__.py'\n"
+   219	        "        if not _original_init.exists():\n"
+   220	        "            return\n"
+   221	        "        _text = _original_init.read_text(encoding='utf-8', errors='replace')\n"
+   222	        "        _tree = _bugsinpy_ast.parse(_text, filename=str(_original_init))\n"
+   223	        "        for _node in _tree.body:\n"
+   224	        "            if isinstance(_node, _bugsinpy_ast.Assign):\n"
+   225	        "                _targets = list(_node.targets)\n"
+   226	        "                _value = _node.value\n"
+   227	        "            elif isinstance(_node, _bugsinpy_ast.AnnAssign):\n"
+   228	        "                _targets = [_node.target]\n"
+   229	        "                _value = _node.value\n"
+   230	        "            else:\n"
+   231	        "                continue\n"
+   232	        "            if not isinstance(_value, _bugsinpy_ast.Constant):\n"
+   233	        "                continue\n"
+   234	        "            for _target in _targets:\n"
+   235	        "                if not isinstance(_target, _bugsinpy_ast.Name):\n"
+   236	        "                    continue\n"
+   237	        "                _name = _target.id\n"
+   238	        "                if _name.startswith('__') and _name.endswith('__') and not hasattr(_pkg, _name):\n"
+   239	        "                    setattr(_pkg, _name, _value.value)\n"
+   240	        "        if not getattr(_pkg, '__file__', None):\n"
+   241	        "            try:\n"
+   242	        "                _pkg.__file__ = str(_original_init)\n"
+   243	        "            except Exception:\n"
+   244	        "                pass\n"
+   245	        "    except Exception:\n"
+   246	        "        pass\n"
+   247	        "\n"
+   248	        "_bugsinpy_restore_top_level_metadata()\n"
+   249	        "# --- BugsInPy mutmut import shim end ---\n"
+   250	        "\n"
+   251	    )
+   252	
+   253	
+   254	def prepare_tests(run_dir: Path, mutation_project: Path, target_module: str):
+   255	    status = read_json(run_dir / "metrics" / "status.json")
+   256	
+   257	    test_file = (
+   258	        status.get("canonical_test_file")
+   259	        or status.get("sanitized_test_file")
+   260	        or status.get("generated_test_file")
+   261	    )
+   262	
+   263	    if test_file:
+   264	        test_file = Path(test_file)
+   265	    else:
+   266	        test_file = run_dir / "work" / "tests" / "test_gpt_iaedu.py"
+   267	
+   268	    if not test_file.exists():
+   269	        raise FileNotFoundError(f"canonical/generated test not found: {test_file}")
+   270	
+   271	    tests_dir = mutation_project / "tests"
+   272	    tests_dir.mkdir(parents=True, exist_ok=True)
+   273	
+   274	    dst = tests_dir / "test_gpt_iaedu.py"
+   275	    text = test_file.read_text(encoding="utf-8", errors="replace")
+   276	
+   277	    if "BugsInPy mutmut import shim start" not in text:
+   278	        text = mutation_import_shim(target_module) + text
+   279	
+   280	    dst.write_text(text, encoding="utf-8")
+   281	    return dst
+   282	
+   283	
+   284	def build_mutation_project(run_dir: Path, work_sut_dir: Path, resolved: dict):
+   285	    mutation_project = run_dir / "work" / "mutation_project"
+   286	
+   287	    if mutation_project.exists():
+   288	        shutil.rmtree(mutation_project)
+   289	
+   290	    mutation_project.mkdir(parents=True, exist_ok=True)
+   291	
+   292	    # Copy full SUT, then overlay import roots into mutation_project root.
+   293	    copy_contents(work_sut_dir, mutation_project)
+   294	
+   295	    for root in resolved["import_roots"]:
+   296	        if root.exists():
+   297	            copy_contents(root, mutation_project)
+   298	
+   299	    target_file = resolved["target_file"]
+   300	    target_rel = resolved["target_rel"]
+   301	
+   302	    flat_target = mutation_project / target_rel
+   303	    if not flat_target.exists():
+   304	        flat_target.parent.mkdir(parents=True, exist_ok=True)
+   305	        shutil.copy2(target_file, flat_target)
+   306	
+   307	    return mutation_project, flat_target
+   308	
+   309	
+   310	def write_mutmut_config(mutation_project: Path, target_rel: Path):
+   311	    runner = "env PYTHONPATH=. PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python -m pytest -q --disable-warnings --import-mode=importlib tests/test_gpt_iaedu.py"
+   312	
+   313	    pyproject = mutation_project / "pyproject.toml"
+   314	    pyproject.write_text(
+   315	        "\n".join(
+   316	            [
+   317	                "[tool.mutmut]",
+   318	                f'paths_to_mutate = ["{target_rel.as_posix()}"]',
+   319	                'tests_dir = ["tests"]',
+   320	                f'runner = "{runner}"',
+   321	                "",
+   322	            ]
+   323	        ),
+   324	        encoding="utf-8",
+   325	    )
+   326	
+   327	    setup_cfg = mutation_project / "setup.cfg"
+   328	    setup_cfg.write_text(
+   329	        "\n".join(
+   330	            [
+   331	                "[mutmut]",
+   332	                f"paths_to_mutate={target_rel.as_posix()}",
+   333	                "tests_dir=tests",
+   334	                f"runner={runner}",
+   335	                "",
+   336	            ]
+   337	        ),
+   338	        encoding="utf-8",
+   339	    )
+   340	
+   341	
+   342	def run_cmd(cmd, cwd: Path, env: dict, timeout_s: int):
+   343	    try:
+   344	        return subprocess.run(
+   345	            cmd,
+   346	            cwd=str(cwd),
+   347	            env=env,
+   348	            text=True,
+   349	            stdout=subprocess.PIPE,
+   350	            stderr=subprocess.PIPE,
+   351	            timeout=timeout_s,
+   352	        )
+   353	    except subprocess.TimeoutExpired as e:
+   354	        cp = subprocess.CompletedProcess(cmd, 124)
+   355	        cp.stdout = e.stdout or ""
+   356	        cp.stderr = e.stderr or ""
+   357	        return cp
+   358	
+   359	
+   360	def parse_results(text: str):
+   361	    counts = {
+   362	        "killed": 0,
+   363	        "survived": 0,
+   364	        "timeout": 0,
+   365	        "suspicious": 0,
+   366	        "skipped": 0,
+   367	        "not_checked": 0,
+   368	        "no_tests": 0,
+   369	        "total": 0,
+   370	        "score_pct": None,
+   371	        "parse_source": "mutmut_results_lines",
+   372	    }
+   373	
+   374	    for line in text.splitlines():
+   375	        stripped = line.strip()
+   376	        if not stripped or ":" not in stripped:
+   377	            continue
+   378	
+   379	        status = stripped.rsplit(":", 1)[-1].strip().lower()
+   380	        counts["total"] += 1
+   381	
+   382	        if status == "killed":
+   383	            counts["killed"] += 1
+   384	        elif status == "survived":
+   385	            counts["survived"] += 1
+   386	        elif status == "timeout":
+   387	            counts["timeout"] += 1
+   388	        elif status == "suspicious":
+   389	            counts["suspicious"] += 1
+   390	        elif status == "skipped":
+   391	            counts["skipped"] += 1
+   392	        elif status == "no tests":
+   393	            counts["no_tests"] += 1
+   394	        elif status == "not checked":
+   395	            counts["not_checked"] += 1
+   396	
+   397	    denominator = counts["killed"] + counts["survived"] + counts["timeout"] + counts["suspicious"]
+   398	
+   399	    if denominator > 0:
+   400	        counts["score_pct"] = counts["killed"] / denominator * 100.0
+   401	
+   402	    return counts
+   403	
+   404	
+   405	def main() -> int:
+   406	    ns = parse_args()
+   407	
+   408	    run_dir = Path(ns.run_dir).resolve()
+   409	    metrics_dir = run_dir / "metrics"
+   410	    logs_dir = run_dir / "logs"
+   411	    metrics_dir.mkdir(parents=True, exist_ok=True)
+   412	    logs_dir.mkdir(parents=True, exist_ok=True)
+   413	
+   414	    status = read_json(metrics_dir / "status.json")
+   415	
+   416	    target_module = status.get("target_module")
+   417	    if not target_module:
+   418	        update_status(
+   419	            run_dir,
+   420	            status="mutation_missing_target_module",
+   421	            mutation_available=False,
+   422	            mutation_score_pct=None,
+   423	        )
+   424	        print("status=mutation_missing_target_module")
+   425	        return 0
+   426	
+   427	    work_sut_dir = Path(status.get("work_sut_dir") or run_dir / "work" / "sut").resolve()
+   428	    if not work_sut_dir.exists():
+   429	        update_status(
+   430	            run_dir,
+   431	            status="mutation_missing_work_sut_dir",
+   432	            mutation_available=False,
+   433	            mutation_score_pct=None,
+   434	        )
+   435	        print("status=mutation_missing_work_sut_dir")
+   436	        return 0
+   437	
+   438	    try:
+   439	        resolved = resolve_target(run_dir, work_sut_dir, target_module)
+   440	        mutation_project, flat_target = build_mutation_project(run_dir, work_sut_dir, resolved)
+   441	        prepare_tests(run_dir, mutation_project, target_module)
+   442	        write_mutmut_config(mutation_project, resolved["target_rel"])
+   443	    except Exception as e:
+   444	        update_status(
+   445	            run_dir,
+   446	            status="mutation_prepare_fail",
+   447	            mutation_available=False,
+   448	            mutation_score_pct=None,
+   449	            mutation_error=repr(e),
+   450	        )
+   451	        print("status=mutation_prepare_fail")
+   452	        print(repr(e))
+   453	        return 0
+   454	
+   455	    update_status(
+   456	        run_dir,
+   457	        mutation_project_dir=str(mutation_project),
+   458	        mutation_target_relpath=str(resolved["target_rel"]),
+   459	        mutation_flat_target=str(flat_target),
+   460	        mutation_import_root=str(resolved["chosen_import_root"]),
+   461	    )
+   462	
+   463	    if not flat_target.exists():
+   464	        update_status(
+   465	            run_dir,
+   466	            status="mutation_flat_target_missing",
+   467	            mutation_available=False,
+   468	            mutation_score_pct=None,
+   469	        )
+   470	        print("status=mutation_flat_target_missing")
+   471	        print(f"target not found in flat project: {flat_target}")
+   472	        return 0
+   473	
+   474	    repo = Path.cwd().resolve()
+   475	    py_overrides = repo / "_py_overrides"
+   476	
+   477	    env = os.environ.copy()
+   478	    env["PYTEST_DISABLE_PLUGIN_AUTOLOAD"] = "1"
+   479	    env.setdefault("MUTANT_UNDER_TEST", "")
+   480	
+   481	    pythonpath_parts = []
+   482	    if py_overrides.exists():
+   483	        pythonpath_parts.append(str(py_overrides))
+   484	    pythonpath_parts.append(str(mutation_project))
+   485	    pythonpath_parts.append(".")
+   486	
+   487	    if env.get("PYTHONPATH"):
+   488	        pythonpath_parts.append(env["PYTHONPATH"])
+   489	
+   490	    env["PYTHONPATH"] = ":".join(pythonpath_parts)
+   491	
+   492	    update_status(run_dir, mutation_runner_pythonpath=env["PYTHONPATH"])
+   493	
+   494	    print("[A] Checking mutmut availability...")
+   495	    avail = run_cmd(
+   496	        [sys.executable, "-m", "mutmut", "--version"],
+   497	        cwd=mutation_project,
+   498	        env=env,
+   499	        timeout_s=30,
+   500	    )
+
+
+######################################################################
+V5 MUTATION TOOL
+######################################################################
+     1	from __future__ import annotations
+     2	
+     3	import argparse
+     4	import json
+     5	import os
+     6	import shutil
+     7	import subprocess
+     8	import sys
+     9	from pathlib import Path
+    10	
+    11	
+    12	IGNORE_NAMES = {
+    13	    "__pycache__",
+    14	    ".pytest_cache",
+    15	    ".mypy_cache",
+    16	    ".tox",
+    17	    ".git",
+    18	    ".hg",
+    19	    ".svn",
+    20	    ".coverage",
+    21	    "htmlcov",
+    22	    "mutants",
+    23	    "mutation_project",
+    24	    "freetype-2.6.1",
+    25	}
+    26	
+    27	
+    28	def parse_args():
+    29	    ap = argparse.ArgumentParser()
+    30	    ap.add_argument("--run-dir", required=True)
+    31	    ap.add_argument("--mutation-timeout-s", type=int, default=180)
+    32	    return ap.parse_args()
+    33	
+    34	
+    35	def read_json(path: Path) -> dict:
+    36	    if not path.exists():
+    37	        return {}
+    38	    try:
+    39	        return json.loads(path.read_text(encoding="utf-8"))
+    40	    except Exception:
+    41	        return {}
+    42	
+    43	
+    44	def write_json(path: Path, data: dict):
+    45	    path.parent.mkdir(parents=True, exist_ok=True)
+    46	    path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+    47	
+    48	
+    49	def update_status(run_dir: Path, **kwargs):
+    50	    p = run_dir / "metrics" / "status.json"
+    51	    d = read_json(p)
+    52	    d.update(kwargs)
+    53	    write_json(p, d)
+    54	    return d
+    55	
+    56	
+    57	def copy_contents(src: Path, dst: Path):
+    58	    if not src.exists():
+    59	        return
+    60	
+    61	    dst.mkdir(parents=True, exist_ok=True)
+    62	
+    63	    for item in src.iterdir():
+    64	        if item.name in IGNORE_NAMES:
+    65	            continue
+    66	
+    67	        target = dst / item.name
+    68	
+    69	        if item.is_dir():
+    70	            shutil.copytree(
+    71	                item,
+    72	                target,
+    73	                dirs_exist_ok=True,
+    74	                ignore=shutil.ignore_patterns(*IGNORE_NAMES),
+    75	            )
+    76	        else:
+    77	            target.parent.mkdir(parents=True, exist_ok=True)
+    78	            shutil.copy2(item, target)
+    79	
+    80	
+    81	def rel_if_under(path: Path, root: Path):
+    82	    try:
+    83	        return path.resolve().relative_to(root.resolve())
+    84	    except Exception:
+    85	        return None
+    86	
+    87	
+    88	def resolve_target(run_dir: Path, work_sut_dir: Path, target_module: str):
+    89	    prep = read_json(run_dir / "raw" / "work_sut_prepare.json")
+    90	
+    91	    import_roots = []
+    92	    for r in prep.get("import_roots") or []:
+    93	        rr = Path(r).resolve()
+    94	        if rr not in import_roots:
+    95	            import_roots.append(rr)
+    96	
+    97	    for r in [
+    98	        work_sut_dir,
+    99	        work_sut_dir / "src",
+   100	        work_sut_dir / "lib",
+   101	        work_sut_dir / "build" / "lib",
+   102	    ]:
+   103	        rr = r.resolve()
+   104	        if rr not in import_roots:
+   105	            import_roots.append(rr)
+   106	
+   107	    target_file = None
+   108	
+   109	    target_relpath = prep.get("target_relpath")
+   110	    if target_relpath:
+   111	        candidate = (work_sut_dir / target_relpath).resolve()
+   112	        if candidate.exists() and candidate.is_file():
+   113	            target_file = candidate
+   114	
+   115	    if target_file is None:
+   116	        base = Path(*target_module.split("."))
+   117	        candidates = []
+   118	
+   119	        for root in import_roots:
+   120	            candidates.append(root / (base.as_posix() + ".py"))
+   121	            candidates.append(root / base / "__init__.py")
+   122	
+   123	        for c in candidates:
+   124	            if c.exists() and c.is_file():
+   125	                target_file = c.resolve()
+   126	                break
+   127	
+   128	    if target_file is None:
+   129	        raise FileNotFoundError(f"cannot resolve target module {target_module} under {work_sut_dir}")
+   130	
+   131	    # Prefer the most specific import root. This is critical for lib/ and src/ layouts:
+   132	    # work/sut/lib/ansible/utils/unicode.py -> ansible/utils/unicode.py, not lib/ansible/utils/unicode.py.
+   133	    chosen_import_root = None
+   134	    target_rel = None
+   135	
+   136	    for root in sorted(import_roots, key=lambda x: len(str(x.resolve())), reverse=True):
+   137	        rel = rel_if_under(target_file, root)
+   138	        if rel is not None:
+   139	            chosen_import_root = root
+   140	            target_rel = rel
+   141	            break
+   142	
+   143	    if chosen_import_root is None or target_rel is None:
+   144	        chosen_import_root = work_sut_dir
+   145	        target_rel = target_file.relative_to(work_sut_dir)
+   146	
+   147	    return {
+   148	        "target_file": target_file,
+   149	        "target_rel": target_rel,
+   150	        "chosen_import_root": chosen_import_root,
+   151	        "import_roots": import_roots,
+   152	        "prep": prep,
+   153	    }
+   154	
+   155	
+   156	def mutation_import_shim(target_module: str) -> str:
+   157	    return (
+   158	        "# --- BugsInPy mutmut import shim start ---\n"
+   159	        "from pathlib import Path as _bugsinpy_Path\n"
+   160	        "import importlib as _bugsinpy_importlib\n"
+   161	        "import sys as _bugsinpy_sys\n"
+   162	        f"_bugsinpy_target_module = {target_module!r}\n"
+   163	        "_bugsinpy_this_file = _bugsinpy_Path(__file__).resolve()\n"
+   164	        "_bugsinpy_in_mutants = (\n"
+   165	        "    len(_bugsinpy_this_file.parents) > 2\n"
+   166	        "    and _bugsinpy_this_file.parents[1].name == 'mutants'\n"
+   167	        ")\n"
+   168	        "if _bugsinpy_in_mutants:\n"
+   169	        "    _bugsinpy_project_root = _bugsinpy_this_file.parents[2]\n"
+   170	        "    _bugsinpy_mutants_root = _bugsinpy_this_file.parents[1]\n"
+   171	        "else:\n"
+   172	        "    _bugsinpy_project_root = _bugsinpy_this_file.parents[1]\n"
+   173	        "    _bugsinpy_mutants_root = _bugsinpy_project_root / 'mutants'\n"
+   174	        "for _bugsinpy_p in [_bugsinpy_project_root, _bugsinpy_mutants_root]:\n"
+   175	        "    _bugsinpy_s = str(_bugsinpy_p)\n"
+   176	        "    if _bugsinpy_s in _bugsinpy_sys.path:\n"
+   177	        "        _bugsinpy_sys.path.remove(_bugsinpy_s)\n"
+   178	        "if _bugsinpy_in_mutants:\n"
+   179	        "    _bugsinpy_sys.path.insert(0, str(_bugsinpy_project_root))\n"
+   180	        "    _bugsinpy_sys.path.insert(0, str(_bugsinpy_mutants_root))\n"
+   181	        "else:\n"
+   182	        "    _bugsinpy_sys.path.insert(0, str(_bugsinpy_project_root))\n"
+   183	        "\n"
+   184	        "def _bugsinpy_force_package_path(_pkg_name):\n"
+   185	        "    _parts = _pkg_name.split('.')\n"
+   186	        "    _rel = _bugsinpy_Path(*_parts)\n"
+   187	        "    _mutant_pkg_dir = _bugsinpy_mutants_root / _rel\n"
+   188	        "    _original_pkg_dir = _bugsinpy_project_root / _rel\n"
+   189	        "    try:\n"
+   190	        "        _pkg = _bugsinpy_importlib.import_module(_pkg_name)\n"
+   191	        "    except Exception:\n"
+   192	        "        return\n"
+   193	        "    _pkg_path = getattr(_pkg, '__path__', None)\n"
+   194	        "    if _pkg_path is None:\n"
+   195	        "        return\n"
+   196	        "    _new_path = []\n"
+   197	        "    if _bugsinpy_in_mutants and _mutant_pkg_dir.exists():\n"
+   198	        "        _new_path.append(str(_mutant_pkg_dir))\n"
+   199	        "    if _original_pkg_dir.exists():\n"
+   200	        "        _new_path.append(str(_original_pkg_dir))\n"
+   201	        "    for _old in list(_pkg_path):\n"
+   202	        "        if _old not in _new_path:\n"
+   203	        "            _new_path.append(_old)\n"
+   204	        "    try:\n"
+   205	        "        _pkg.__path__ = _new_path\n"
+   206	        "    except Exception:\n"
+   207	        "        pass\n"
+   208	        "\n"
+   209	        "_bugsinpy_pkg_parts = _bugsinpy_target_module.split('.')\n"
+   210	        "for _bugsinpy_i in range(1, len(_bugsinpy_pkg_parts) + 1):\n"
+   211	        "    _bugsinpy_force_package_path('.'.join(_bugsinpy_pkg_parts[:_bugsinpy_i]))\n"
+   212	        "\n"
+   213	        "def _bugsinpy_restore_top_level_metadata():\n"
+   214	        "    try:\n"
+   215	        "        import ast as _bugsinpy_ast\n"
+   216	        "        _top_package = _bugsinpy_target_module.split('.', 1)[0]\n"
+   217	        "        _pkg = _bugsinpy_importlib.import_module(_top_package)\n"
+   218	        "        _original_init = _bugsinpy_project_root / _top_package / '__init__.py'\n"
+   219	        "        if not _original_init.exists():\n"
+   220	        "            return\n"
+   221	        "        _text = _original_init.read_text(encoding='utf-8', errors='replace')\n"
+   222	        "        _tree = _bugsinpy_ast.parse(_text, filename=str(_original_init))\n"
+   223	        "        for _node in _tree.body:\n"
+   224	        "            if isinstance(_node, _bugsinpy_ast.Assign):\n"
+   225	        "                _targets = list(_node.targets)\n"
+   226	        "                _value = _node.value\n"
+   227	        "            elif isinstance(_node, _bugsinpy_ast.AnnAssign):\n"
+   228	        "                _targets = [_node.target]\n"
+   229	        "                _value = _node.value\n"
+   230	        "            else:\n"
+   231	        "                continue\n"
+   232	        "            if not isinstance(_value, _bugsinpy_ast.Constant):\n"
+   233	        "                continue\n"
+   234	        "            for _target in _targets:\n"
+   235	        "                if not isinstance(_target, _bugsinpy_ast.Name):\n"
+   236	        "                    continue\n"
+   237	        "                _name = _target.id\n"
+   238	        "                if _name.startswith('__') and _name.endswith('__') and not hasattr(_pkg, _name):\n"
+   239	        "                    setattr(_pkg, _name, _value.value)\n"
+   240	        "        if not getattr(_pkg, '__file__', None):\n"
+   241	        "            try:\n"
+   242	        "                _pkg.__file__ = str(_original_init)\n"
+   243	        "            except Exception:\n"
+   244	        "                pass\n"
+   245	        "    except Exception:\n"
+   246	        "        pass\n"
+   247	        "\n"
+   248	        "_bugsinpy_restore_top_level_metadata()\n"
+   249	        "# --- BugsInPy mutmut import shim end ---\n"
+   250	        "\n"
+   251	    )
+   252	
+   253	
+   254	def prepare_tests(run_dir: Path, mutation_project: Path, target_module: str):
+   255	    status = read_json(run_dir / "metrics" / "status.json")
+   256	
+   257	    test_file = (
+   258	        status.get("canonical_test_file")
+   259	        or status.get("sanitized_test_file")
+   260	        or status.get("generated_test_file")
+   261	    )
+   262	
+   263	    if test_file:
+   264	        test_file = Path(test_file)
+   265	    else:
+   266	        test_file = run_dir / "work" / "tests" / "test_gpt_iaedu.py"
+   267	
+   268	    if not test_file.exists():
+   269	        raise FileNotFoundError(f"canonical/generated test not found: {test_file}")
+   270	
+   271	    tests_dir = mutation_project / "tests"
+   272	    tests_dir.mkdir(parents=True, exist_ok=True)
+   273	
+   274	    dst = tests_dir / "test_gpt_iaedu.py"
+   275	    text = test_file.read_text(encoding="utf-8", errors="replace")
+   276	
+   277	    if "BugsInPy mutmut import shim start" not in text:
+   278	        text = mutation_import_shim(target_module) + text
+   279	
+   280	    dst.write_text(text, encoding="utf-8")
+   281	    return dst
+   282	
+   283	
+   284	def build_mutation_project(run_dir: Path, work_sut_dir: Path, resolved: dict):
+   285	    mutation_project = run_dir / "work" / "mutation_project"
+   286	
+   287	    if mutation_project.exists():
+   288	        shutil.rmtree(mutation_project)
+   289	
+   290	    mutation_project.mkdir(parents=True, exist_ok=True)
+   291	
+   292	    # Copy full SUT, then overlay import roots into mutation_project root.
+   293	    copy_contents(work_sut_dir, mutation_project)
+   294	
+   295	    for root in resolved["import_roots"]:
+   296	        if root.exists():
+   297	            copy_contents(root, mutation_project)
+   298	
+   299	    # Isolate mutation testing from dataset-provided tests and pytest
+   300	    # configuration. Only the generated/canonical test is added later.
+   301	    removed_test_artifacts = []
+   302	
+   303	    for name in ("tests", "test"):
+   304	        candidate = mutation_project / name
+   305	
+   306	        if candidate.is_dir():
+   307	            shutil.rmtree(candidate)
+   308	            removed_test_artifacts.append(str(candidate))
+   309	        elif candidate.exists():
+   310	            candidate.unlink()
+   311	            removed_test_artifacts.append(str(candidate))
+   312	
+   313	    for name in ("pytest.ini", "tox.ini"):
+   314	        candidate = mutation_project / name
+   315	
+   316	        if candidate.exists():
+   317	            if candidate.is_dir():
+   318	                shutil.rmtree(candidate)
+   319	            else:
+   320	                candidate.unlink()
+   321	
+   322	            removed_test_artifacts.append(str(candidate))
+   323	
+   324	    for candidate in sorted(mutation_project.rglob("conftest.py")):
+   325	        try:
+   326	            candidate.unlink()
+   327	            removed_test_artifacts.append(str(candidate))
+   328	        except FileNotFoundError:
+   329	            pass
+   330	
+   331	    write_json(
+   332	        run_dir / "metrics" / "mutation_isolation.json",
+   333	        {
+   334	            "policy": "generated_test_only",
+   335	            "removed_test_artifacts": removed_test_artifacts,
+   336	        },
+   337	    )
+   338	
+   339	    target_file = resolved["target_file"]
+   340	    target_rel = resolved["target_rel"]
+   341	
+   342	    flat_target = mutation_project / target_rel
+   343	    if not flat_target.exists():
+   344	        flat_target.parent.mkdir(parents=True, exist_ok=True)
+   345	        shutil.copy2(target_file, flat_target)
+   346	
+   347	    return mutation_project, flat_target
+   348	
+   349	
+   350	def write_mutmut_config(mutation_project: Path, target_rel: Path):
+   351	    runner = "env PYTHONPATH=. PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 PYTEST_ADDOPTS= python -m pytest -c /dev/null -q --disable-warnings --import-mode=importlib tests/test_gpt_iaedu.py"
+   352	
+   353	    pyproject = mutation_project / "pyproject.toml"
+   354	    pyproject.write_text(
+   355	        "\n".join(
+   356	            [
+   357	                "[tool.mutmut]",
+   358	                f'paths_to_mutate = ["{target_rel.as_posix()}"]',
+   359	                'tests_dir = ["tests"]',
+   360	                f'runner = "{runner}"',
+   361	                "",
+   362	            ]
+   363	        ),
+   364	        encoding="utf-8",
+   365	    )
+   366	
+   367	    setup_cfg = mutation_project / "setup.cfg"
+   368	    setup_cfg.write_text(
+   369	        "\n".join(
+   370	            [
+   371	                "[mutmut]",
+   372	                f"paths_to_mutate={target_rel.as_posix()}",
+   373	                "tests_dir=tests",
+   374	                f"runner={runner}",
+   375	                "",
+   376	            ]
+   377	        ),
+   378	        encoding="utf-8",
+   379	    )
+   380	
+   381	
+   382	def run_cmd(cmd, cwd: Path, env: dict, timeout_s: int):
+   383	    try:
+   384	        return subprocess.run(
+   385	            cmd,
+   386	            cwd=str(cwd),
+   387	            env=env,
+   388	            text=True,
+   389	            stdout=subprocess.PIPE,
+   390	            stderr=subprocess.PIPE,
+   391	            timeout=timeout_s,
+   392	        )
+   393	    except subprocess.TimeoutExpired as e:
+   394	        cp = subprocess.CompletedProcess(cmd, 124)
+   395	        cp.stdout = e.stdout or ""
+   396	        cp.stderr = e.stderr or ""
+   397	        return cp
+   398	
+   399	
+   400	def parse_results(text: str):
+   401	    counts = {
+   402	        "killed": 0,
+   403	        "survived": 0,
+   404	        "timeout": 0,
+   405	        "suspicious": 0,
+   406	        "skipped": 0,
+   407	        "not_checked": 0,
+   408	        "no_tests": 0,
+   409	        "total": 0,
+   410	        "score_pct": None,
+   411	        "parse_source": "mutmut_results_lines",
+   412	    }
+   413	
+   414	    for line in text.splitlines():
+   415	        stripped = line.strip()
+   416	        if not stripped or ":" not in stripped:
+   417	            continue
+   418	
+   419	        status = stripped.rsplit(":", 1)[-1].strip().lower()
+   420	        counts["total"] += 1
+   421	
+   422	        if status == "killed":
+   423	            counts["killed"] += 1
+   424	        elif status == "survived":
+   425	            counts["survived"] += 1
+   426	        elif status == "timeout":
+   427	            counts["timeout"] += 1
+   428	        elif status == "suspicious":
+   429	            counts["suspicious"] += 1
+   430	        elif status == "skipped":
+   431	            counts["skipped"] += 1
+   432	        elif status == "no tests":
+   433	            counts["no_tests"] += 1
+   434	        elif status == "not checked":
+   435	            counts["not_checked"] += 1
+   436	
+   437	    denominator = counts["killed"] + counts["survived"] + counts["timeout"] + counts["suspicious"]
+   438	
+   439	    if denominator > 0:
+   440	        counts["score_pct"] = counts["killed"] / denominator * 100.0
+   441	
+   442	    return counts
+   443	
+   444	
+   445	def main() -> int:
+   446	    ns = parse_args()
+   447	
+   448	    run_dir = Path(ns.run_dir).resolve()
+   449	    metrics_dir = run_dir / "metrics"
+   450	    logs_dir = run_dir / "logs"
+   451	    metrics_dir.mkdir(parents=True, exist_ok=True)
+   452	    logs_dir.mkdir(parents=True, exist_ok=True)
+   453	
+   454	    status = read_json(metrics_dir / "status.json")
+   455	
+   456	    target_module = status.get("target_module")
+   457	    if not target_module:
+   458	        update_status(
+   459	            run_dir,
+   460	            status="mutation_missing_target_module",
+   461	            mutation_available=False,
+   462	            mutation_score_pct=None,
+   463	        )
+   464	        print("status=mutation_missing_target_module")
+   465	        return 0
+   466	
+   467	    work_sut_dir = Path(status.get("work_sut_dir") or run_dir / "work" / "sut").resolve()
+   468	    if not work_sut_dir.exists():
+   469	        update_status(
+   470	            run_dir,
+   471	            status="mutation_missing_work_sut_dir",
+   472	            mutation_available=False,
+   473	            mutation_score_pct=None,
+   474	        )
+   475	        print("status=mutation_missing_work_sut_dir")
+   476	        return 0
+   477	
+   478	    try:
+   479	        resolved = resolve_target(run_dir, work_sut_dir, target_module)
+   480	        mutation_project, flat_target = build_mutation_project(run_dir, work_sut_dir, resolved)
+   481	        prepare_tests(run_dir, mutation_project, target_module)
+   482	        write_mutmut_config(mutation_project, resolved["target_rel"])
+   483	    except Exception as e:
+   484	        update_status(
+   485	            run_dir,
+   486	            status="mutation_prepare_fail",
+   487	            mutation_available=False,
+   488	            mutation_score_pct=None,
+   489	            mutation_error=repr(e),
+   490	        )
+   491	        print("status=mutation_prepare_fail")
+   492	        print(repr(e))
+   493	        return 0
+   494	
+   495	    update_status(
+   496	        run_dir,
+   497	        mutation_project_dir=str(mutation_project),
+   498	        mutation_target_relpath=str(resolved["target_rel"]),
+   499	        mutation_flat_target=str(flat_target),
+   500	        mutation_import_root=str(resolved["chosen_import_root"]),
+   501	    )
+   502	
+   503	    if not flat_target.exists():
+   504	        update_status(
+   505	            run_dir,
+   506	            status="mutation_flat_target_missing",
+   507	            mutation_available=False,
+   508	            mutation_score_pct=None,
+   509	        )
+   510	        print("status=mutation_flat_target_missing")
+   511	        print(f"target not found in flat project: {flat_target}")
+   512	        return 0
+   513	
+   514	    repo = Path.cwd().resolve()
+   515	    root_repo = repo.parent.resolve()
+   516	    py_overrides = root_repo / "_py_overrides"
+   517	
+   518	    env = os.environ.copy()
+   519	    env["PYTEST_DISABLE_PLUGIN_AUTOLOAD"] = "1"
+   520	    env["PYTEST_ADDOPTS"] = ""
+   521	    env["PYTHONDONTWRITEBYTECODE"] = "1"
+   522	    env.setdefault("MUTANT_UNDER_TEST", "")
+   523	
+   524	    pythonpath_parts = []
+   525	    if py_overrides.exists():
+   526	        pythonpath_parts.append(str(py_overrides))
+   527	    pythonpath_parts.append(str(mutation_project))
+   528	    pythonpath_parts.append(".")
+   529	
+   530	    if env.get("PYTHONPATH"):
+   531	        pythonpath_parts.append(env["PYTHONPATH"])
+   532	
+   533	    env["PYTHONPATH"] = ":".join(pythonpath_parts)
+   534	
+   535	    update_status(run_dir, mutation_runner_pythonpath=env["PYTHONPATH"])
+   536	
+   537	    print("[A] Checking mutmut availability...")
+   538	    avail = run_cmd(
+   539	        [sys.executable, "-m", "mutmut", "--version"],
+   540	        cwd=mutation_project,
+   541	        env=env,
+   542	        timeout_s=30,
+   543	    )
+   544	    (logs_dir / "mutmut.version.stdout.log").write_text(avail.stdout or "", encoding="utf-8")
+   545	    (logs_dir / "mutmut.version.stderr.log").write_text(avail.stderr or "", encoding="utf-8")
+   546	
+   547	    print("[B] Running mutmut in flat mutation_project...")
+   548	    run = run_cmd(
+   549	        [sys.executable, "-m", "mutmut", "run"],
+   550	        cwd=mutation_project,
+   551	        env=env,
+   552	        timeout_s=ns.mutation_timeout_s,
+   553	    )
+   554	
+   555	    (logs_dir / "mutmut.stdout.log").write_text(run.stdout or "", encoding="utf-8")
+   556	    (logs_dir / "mutmut.stderr.log").write_text(run.stderr or "", encoding="utf-8")
+   557	
+   558	    print("[C] Running mutmut results...")
+   559	    results = run_cmd(
+   560	        [sys.executable, "-m", "mutmut", "results"],
+   561	        cwd=mutation_project,
+   562	        env=env,
+   563	        timeout_s=60,
+   564	    )
+   565	
+   566	    (logs_dir / "mutmut_results.stdout.log").write_text(results.stdout or "", encoding="utf-8")
+   567	    (logs_dir / "mutmut_results.stderr.log").write_text(results.stderr or "", encoding="utf-8")
+   568	    (metrics_dir / "mutation_results.txt").write_text(results.stdout or "", encoding="utf-8")
+   569	
+   570	    counts = parse_results(results.stdout or "")
+   571	    write_json(metrics_dir / "mutmut_counts.json", counts)
+   572	
+   573	    if counts["score_pct"] is not None:
+   574	        final_status = "ok"
+   575	        mutation_available = True
+   576	        mutation_score = counts["score_pct"]
+   577	    elif counts["total"] > 0:
+   578	        final_status = "mutation_no_checked_mutants"
+   579	        mutation_available = False
+   580	        mutation_score = None
+   581	    elif run.returncode == 124:
+   582	        final_status = "mutation_timeout"
+   583	        mutation_available = False
+   584	        mutation_score = None
+   585	    else:
+   586	        final_status = "mutation_results_empty"
+   587	        mutation_available = False
+   588	        mutation_score = None
+   589	
+   590	    update_status(
+   591	        run_dir,
+   592	        status=final_status,
+   593	        mutation_available=mutation_available,
+   594	        mutation_score_pct=mutation_score,
+   595	        mutmut_exit_code=run.returncode,
+   596	        mutmut_results_exit_code=results.returncode,
+   597	        mutmut_counts=counts,
+   598	        mutation_project_dir=str(mutation_project),
+   599	        mutation_target_relpath=str(resolved["target_rel"]),
+   600	        mutation_flat_target=str(flat_target),
+   601	        mutation_import_root=str(resolved["chosen_import_root"]),
+   602	        mutation_runner_pythonpath=env["PYTHONPATH"],
+   603	    )
+   604	
+   605	    print(f"status={final_status}")
+   606	    print(f"mutmut_exit_code={run.returncode}")
+   607	    print(f"mutmut_results_exit_code={results.returncode}")
+   608	    print(f"mutation_available={mutation_available}")
+   609	    print(f"mutation_score_pct={mutation_score}")
+   610	    print(f"counts={json.dumps(counts, sort_keys=True)}")
+   611	    print(f"mutation_project={mutation_project}")
+   612	    print(f"target_rel={resolved['target_rel']}")
+   613	    print(f"flat_target={flat_target}")
+   614	    print(f"chosen_import_root={resolved['chosen_import_root']}")
+   615	
+   616	    return 0
+   617	
+   618	
+   619	if __name__ == "__main__":
+   620	    raise SystemExit(main())
+
+
+######################################################################
+PACKAGE-AWARE MUTATION TOOL
+######################################################################
+     1	from __future__ import annotations
+     2	
+     3	import argparse
+     4	import json
+     5	import os
+     6	import shutil
+     7	import subprocess
+     8	import sys
+     9	from pathlib import Path
+    10	
+    11	
+    12	IGNORE_NAMES = {
+    13	    "__pycache__",
+    14	    ".pytest_cache",
+    15	    ".mypy_cache",
+    16	    ".tox",
+    17	    ".git",
+    18	    ".hg",
+    19	    ".svn",
+    20	    ".coverage",
+    21	    "htmlcov",
+    22	    "mutants",
+    23	    "mutation_project",
+    24	    "freetype-2.6.1",
+    25	}
+    26	
+    27	
+    28	def parse_args():
+    29	    ap = argparse.ArgumentParser()
+    30	    ap.add_argument("--run-dir", required=True)
+    31	    ap.add_argument("--mutation-timeout-s", type=int, default=180)
+    32	    return ap.parse_args()
+    33	
+    34	
+    35	def read_json(path: Path) -> dict:
+    36	    if not path.exists():
+    37	        return {}
+    38	    try:
+    39	        return json.loads(path.read_text(encoding="utf-8"))
+    40	    except Exception:
+    41	        return {}
+    42	
+    43	
+    44	def write_json(path: Path, data: dict):
+    45	    path.parent.mkdir(parents=True, exist_ok=True)
+    46	    path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+    47	
+    48	
+    49	def update_status(run_dir: Path, **kwargs):
+    50	    p = run_dir / "metrics" / "status.json"
+    51	    d = read_json(p)
+    52	    d.update(kwargs)
+    53	    write_json(p, d)
+    54	    return d
+    55	
+    56	
+    57	def copy_contents(src: Path, dst: Path):
+    58	    if not src.exists():
+    59	        return
+    60	
+    61	    dst.mkdir(parents=True, exist_ok=True)
+    62	
+    63	    for item in src.iterdir():
+    64	        if item.name in IGNORE_NAMES:
+    65	            continue
+    66	
+    67	        target = dst / item.name
+    68	
+    69	        if item.is_dir():
+    70	            shutil.copytree(
+    71	                item,
+    72	                target,
+    73	                dirs_exist_ok=True,
+    74	                ignore=shutil.ignore_patterns(*IGNORE_NAMES),
+    75	            )
+    76	        else:
+    77	            target.parent.mkdir(parents=True, exist_ok=True)
+    78	            shutil.copy2(item, target)
+    79	
+    80	
+    81	def rel_if_under(path: Path, root: Path):
+    82	    try:
+    83	        return path.resolve().relative_to(root.resolve())
+    84	    except Exception:
+    85	        return None
+    86	
+    87	
+    88	def resolve_target(run_dir: Path, work_sut_dir: Path, target_module: str):
+    89	    prep = read_json(run_dir / "raw" / "work_sut_prepare.json")
+    90	
+    91	    import_roots = []
+    92	    for r in prep.get("import_roots") or []:
+    93	        rr = Path(r).resolve()
+    94	        if rr not in import_roots:
+    95	            import_roots.append(rr)
+    96	
+    97	    for r in [
+    98	        work_sut_dir,
+    99	        work_sut_dir / "src",
+   100	        work_sut_dir / "lib",
+   101	        work_sut_dir / "build" / "lib",
+   102	    ]:
+   103	        rr = r.resolve()
+   104	        if rr not in import_roots:
+   105	            import_roots.append(rr)
+   106	
+   107	    target_file = None
+   108	
+   109	    target_relpath = prep.get("target_relpath")
+   110	    if target_relpath:
+   111	        candidate = (work_sut_dir / target_relpath).resolve()
+   112	        if candidate.exists() and candidate.is_file():
+   113	            target_file = candidate
+   114	
+   115	    if target_file is None:
+   116	        base = Path(*target_module.split("."))
+   117	        candidates = []
+   118	
+   119	        for root in import_roots:
+   120	            candidates.append(root / (base.as_posix() + ".py"))
+   121	            candidates.append(root / base / "__init__.py")
+   122	
+   123	        for c in candidates:
+   124	            if c.exists() and c.is_file():
+   125	                target_file = c.resolve()
+   126	                break
+   127	
+   128	    if target_file is None:
+   129	        raise FileNotFoundError(f"cannot resolve target module {target_module} under {work_sut_dir}")
+   130	
+   131	    # Prefer the most specific import root. This is critical for lib/ and src/ layouts:
+   132	    # work/sut/lib/ansible/utils/unicode.py -> ansible/utils/unicode.py, not lib/ansible/utils/unicode.py.
+   133	    chosen_import_root = None
+   134	    target_rel = None
+   135	
+   136	    for root in sorted(import_roots, key=lambda x: len(str(x.resolve())), reverse=True):
+   137	        rel = rel_if_under(target_file, root)
+   138	        if rel is not None:
+   139	            chosen_import_root = root
+   140	            target_rel = rel
+   141	            break
+   142	
+   143	    if chosen_import_root is None or target_rel is None:
+   144	        chosen_import_root = work_sut_dir
+   145	        target_rel = target_file.relative_to(work_sut_dir)
+   146	
+   147	
+   148	        # Package-aware mutation targeting.
+   149	        # importlib resolves a package to __init__.py, but mutating only
+   150	        # that file misses the implementation modules inside the package.
+   151	        if target_file.name == "__init__.py":
+   152	            package_dir = target_file.parent
+   153	            try:
+   154	                package_rel = package_dir.relative_to(work_sut_dir)
+   155	            except ValueError:
+   156	                package_rel = None
+   157	        
+   158	            if package_rel is not None:
+   159	                target_rel = package_rel
+   160	    return {
+   161	        "target_file": target_file,
+   162	        "target_rel": target_rel,
+   163	        "chosen_import_root": chosen_import_root,
+   164	        "import_roots": import_roots,
+   165	        "prep": prep,
+   166	    }
+   167	
+   168	
+   169	def mutation_import_shim(target_module: str) -> str:
+   170	    return (
+   171	        "# --- BugsInPy mutmut import shim start ---\n"
+   172	        "from pathlib import Path as _bugsinpy_Path\n"
+   173	        "import importlib as _bugsinpy_importlib\n"
+   174	        "import sys as _bugsinpy_sys\n"
+   175	        f"_bugsinpy_target_module = {target_module!r}\n"
+   176	        "_bugsinpy_this_file = _bugsinpy_Path(__file__).resolve()\n"
+   177	        "_bugsinpy_in_mutants = (\n"
+   178	        "    len(_bugsinpy_this_file.parents) > 2\n"
+   179	        "    and _bugsinpy_this_file.parents[1].name == 'mutants'\n"
+   180	        ")\n"
+   181	        "if _bugsinpy_in_mutants:\n"
+   182	        "    _bugsinpy_project_root = _bugsinpy_this_file.parents[2]\n"
+   183	        "    _bugsinpy_mutants_root = _bugsinpy_this_file.parents[1]\n"
+   184	        "else:\n"
+   185	        "    _bugsinpy_project_root = _bugsinpy_this_file.parents[1]\n"
+   186	        "    _bugsinpy_mutants_root = _bugsinpy_project_root / 'mutants'\n"
+   187	        "for _bugsinpy_p in [_bugsinpy_project_root, _bugsinpy_mutants_root]:\n"
+   188	        "    _bugsinpy_s = str(_bugsinpy_p)\n"
+   189	        "    if _bugsinpy_s in _bugsinpy_sys.path:\n"
+   190	        "        _bugsinpy_sys.path.remove(_bugsinpy_s)\n"
+   191	        "if _bugsinpy_in_mutants:\n"
+   192	        "    _bugsinpy_sys.path.insert(0, str(_bugsinpy_project_root))\n"
+   193	        "    _bugsinpy_sys.path.insert(0, str(_bugsinpy_mutants_root))\n"
+   194	        "else:\n"
+   195	        "    _bugsinpy_sys.path.insert(0, str(_bugsinpy_project_root))\n"
+   196	        "\n"
+   197	        "def _bugsinpy_force_package_path(_pkg_name):\n"
+   198	        "    _parts = _pkg_name.split('.')\n"
+   199	        "    _rel = _bugsinpy_Path(*_parts)\n"
+   200	        "    _mutant_pkg_dir = _bugsinpy_mutants_root / _rel\n"
+   201	        "    _original_pkg_dir = _bugsinpy_project_root / _rel\n"
+   202	        "    try:\n"
+   203	        "        _pkg = _bugsinpy_importlib.import_module(_pkg_name)\n"
+   204	        "    except Exception:\n"
+   205	        "        return\n"
+   206	        "    _pkg_path = getattr(_pkg, '__path__', None)\n"
+   207	        "    if _pkg_path is None:\n"
+   208	        "        return\n"
+   209	        "    _new_path = []\n"
+   210	        "    if _bugsinpy_in_mutants and _mutant_pkg_dir.exists():\n"
+   211	        "        _new_path.append(str(_mutant_pkg_dir))\n"
+   212	        "    if _original_pkg_dir.exists():\n"
+   213	        "        _new_path.append(str(_original_pkg_dir))\n"
+   214	        "    for _old in list(_pkg_path):\n"
+   215	        "        if _old not in _new_path:\n"
+   216	        "            _new_path.append(_old)\n"
+   217	        "    try:\n"
+   218	        "        _pkg.__path__ = _new_path\n"
+   219	        "    except Exception:\n"
+   220	        "        pass\n"
+   221	        "\n"
+   222	        "_bugsinpy_pkg_parts = _bugsinpy_target_module.split('.')\n"
+   223	        "for _bugsinpy_i in range(1, len(_bugsinpy_pkg_parts) + 1):\n"
+   224	        "    _bugsinpy_force_package_path('.'.join(_bugsinpy_pkg_parts[:_bugsinpy_i]))\n"
+   225	        "\n"
+   226	        "def _bugsinpy_restore_top_level_metadata():\n"
+   227	        "    try:\n"
+   228	        "        import ast as _bugsinpy_ast\n"
+   229	        "        _top_package = _bugsinpy_target_module.split('.', 1)[0]\n"
+   230	        "        _pkg = _bugsinpy_importlib.import_module(_top_package)\n"
+   231	        "        _original_init = _bugsinpy_project_root / _top_package / '__init__.py'\n"
+   232	        "        if not _original_init.exists():\n"
+   233	        "            return\n"
+   234	        "        _text = _original_init.read_text(encoding='utf-8', errors='replace')\n"
+   235	        "        _tree = _bugsinpy_ast.parse(_text, filename=str(_original_init))\n"
+   236	        "        for _node in _tree.body:\n"
+   237	        "            if isinstance(_node, _bugsinpy_ast.Assign):\n"
+   238	        "                _targets = list(_node.targets)\n"
+   239	        "                _value = _node.value\n"
+   240	        "            elif isinstance(_node, _bugsinpy_ast.AnnAssign):\n"
+   241	        "                _targets = [_node.target]\n"
+   242	        "                _value = _node.value\n"
+   243	        "            else:\n"
+   244	        "                continue\n"
+   245	        "            if not isinstance(_value, _bugsinpy_ast.Constant):\n"
+   246	        "                continue\n"
+   247	        "            for _target in _targets:\n"
+   248	        "                if not isinstance(_target, _bugsinpy_ast.Name):\n"
+   249	        "                    continue\n"
+   250	        "                _name = _target.id\n"
+   251	        "                if _name.startswith('__') and _name.endswith('__') and not hasattr(_pkg, _name):\n"
+   252	        "                    setattr(_pkg, _name, _value.value)\n"
+   253	        "        if not getattr(_pkg, '__file__', None):\n"
+   254	        "            try:\n"
+   255	        "                _pkg.__file__ = str(_original_init)\n"
+   256	        "            except Exception:\n"
+   257	        "                pass\n"
+   258	        "    except Exception:\n"
+   259	        "        pass\n"
+   260	        "\n"
+   261	        "_bugsinpy_restore_top_level_metadata()\n"
+   262	        "# --- BugsInPy mutmut import shim end ---\n"
+   263	        "\n"
+   264	    )
+   265	
+   266	
+   267	def prepare_tests(run_dir: Path, mutation_project: Path, target_module: str):
+   268	    status = read_json(run_dir / "metrics" / "status.json")
+   269	
+   270	    test_file = (
+   271	        status.get("canonical_test_file")
+   272	        or status.get("sanitized_test_file")
+   273	        or status.get("generated_test_file")
+   274	    )
+   275	
+   276	    if test_file:
+   277	        test_file = Path(test_file)
+   278	    else:
+   279	        test_file = run_dir / "work" / "tests" / "test_gpt_iaedu.py"
+   280	
+   281	    if not test_file.exists():
+   282	        raise FileNotFoundError(f"canonical/generated test not found: {test_file}")
+   283	
+   284	    tests_dir = mutation_project / "tests"
+   285	    tests_dir.mkdir(parents=True, exist_ok=True)
+   286	
+   287	    dst = tests_dir / "test_gpt_iaedu.py"
+   288	    text = test_file.read_text(encoding="utf-8", errors="replace")
+   289	
+   290	    if "BugsInPy mutmut import shim start" not in text:
+   291	        text = mutation_import_shim(target_module) + text
+   292	
+   293	    dst.write_text(text, encoding="utf-8")
+   294	    return dst
+   295	
+   296	
+   297	def build_mutation_project(run_dir: Path, work_sut_dir: Path, resolved: dict):
+   298	    mutation_project = run_dir / "work" / "mutation_project"
+   299	
+   300	    if mutation_project.exists():
+   301	        shutil.rmtree(mutation_project)
+   302	
+   303	    mutation_project.mkdir(parents=True, exist_ok=True)
+   304	
+   305	    # Copy full SUT, then overlay import roots into mutation_project root.
+   306	    copy_contents(work_sut_dir, mutation_project)
+   307	
+   308	    for root in resolved["import_roots"]:
+   309	        if root.exists():
+   310	            copy_contents(root, mutation_project)
+   311	
+   312	    # Isolate mutation testing from dataset-provided tests and pytest
+   313	    # configuration. Only the generated/canonical test is added later.
+   314	    removed_test_artifacts = []
+   315	
+   316	    for name in ("tests", "test"):
+   317	        candidate = mutation_project / name
+   318	
+   319	        if candidate.is_dir():
+   320	            shutil.rmtree(candidate)
+   321	            removed_test_artifacts.append(str(candidate))
+   322	        elif candidate.exists():
+   323	            candidate.unlink()
+   324	            removed_test_artifacts.append(str(candidate))
+   325	
+   326	    for name in ("pytest.ini", "tox.ini"):
+   327	        candidate = mutation_project / name
+   328	
+   329	        if candidate.exists():
+   330	            if candidate.is_dir():
+   331	                shutil.rmtree(candidate)
+   332	            else:
+   333	                candidate.unlink()
+   334	
+   335	            removed_test_artifacts.append(str(candidate))
+   336	
+   337	    for candidate in sorted(mutation_project.rglob("conftest.py")):
+   338	        try:
+   339	            candidate.unlink()
+   340	            removed_test_artifacts.append(str(candidate))
+   341	        except FileNotFoundError:
+   342	            pass
+   343	
+   344	    write_json(
+   345	        run_dir / "metrics" / "mutation_isolation.json",
+   346	        {
+   347	            "policy": "generated_test_only",
+   348	            "removed_test_artifacts": removed_test_artifacts,
+   349	        },
+   350	    )
+   351	
+   352	    target_file = resolved["target_file"]
+   353	    target_rel = resolved["target_rel"]
+   354	
+   355	    flat_target = mutation_project / target_rel
+   356	    if not flat_target.exists():
+   357	        flat_target.parent.mkdir(parents=True, exist_ok=True)
+   358	        shutil.copy2(target_file, flat_target)
+   359	
+   360	    return mutation_project, flat_target
+   361	
+   362	
+   363	def write_mutmut_config(mutation_project: Path, target_rel: Path):
+   364	    runner = "env PYTHONPATH=. PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 PYTEST_ADDOPTS= python -m pytest -c /dev/null -q --disable-warnings --import-mode=importlib tests/test_gpt_iaedu.py"
+   365	
+   366	    pyproject = mutation_project / "pyproject.toml"
+   367	    pyproject.write_text(
+   368	        "\n".join(
+   369	            [
+   370	                "[tool.mutmut]",
+   371	                f'paths_to_mutate = ["{target_rel.as_posix()}"]',
+   372	                'tests_dir = ["tests"]',
+   373	                f'runner = "{runner}"',
+   374	                "",
+   375	            ]
+   376	        ),
+   377	        encoding="utf-8",
+   378	    )
+   379	
+   380	    setup_cfg = mutation_project / "setup.cfg"
+   381	    setup_cfg.write_text(
+   382	        "\n".join(
+   383	            [
+   384	                "[mutmut]",
+   385	                f"paths_to_mutate={target_rel.as_posix()}",
+   386	                "tests_dir=tests",
+   387	                f"runner={runner}",
+   388	                "",
+   389	            ]
+   390	        ),
+   391	        encoding="utf-8",
+   392	    )
+   393	
+   394	
+   395	def run_cmd(cmd, cwd: Path, env: dict, timeout_s: int):
+   396	    try:
+   397	        return subprocess.run(
+   398	            cmd,
+   399	            cwd=str(cwd),
+   400	            env=env,
+   401	            text=True,
+   402	            stdout=subprocess.PIPE,
+   403	            stderr=subprocess.PIPE,
+   404	            timeout=timeout_s,
+   405	        )
+   406	    except subprocess.TimeoutExpired as e:
+   407	        cp = subprocess.CompletedProcess(cmd, 124)
+   408	        cp.stdout = e.stdout or ""
+   409	        cp.stderr = e.stderr or ""
+   410	        return cp
+   411	
+   412	
+   413	def parse_results(text: str):
+   414	    counts = {
+   415	        "killed": 0,
+   416	        "survived": 0,
+   417	        "timeout": 0,
+   418	        "suspicious": 0,
+   419	        "skipped": 0,
+   420	        "not_checked": 0,
+   421	        "no_tests": 0,
+   422	        "total": 0,
+   423	        "score_pct": None,
+   424	        "parse_source": "mutmut_results_lines",
+   425	    }
+   426	
+   427	    for line in text.splitlines():
+   428	        stripped = line.strip()
+   429	        if not stripped or ":" not in stripped:
+   430	            continue
+   431	
+   432	        status = stripped.rsplit(":", 1)[-1].strip().lower()
+   433	        counts["total"] += 1
+   434	
+   435	        if status == "killed":
+   436	            counts["killed"] += 1
+   437	        elif status == "survived":
+   438	            counts["survived"] += 1
+   439	        elif status == "timeout":
+   440	            counts["timeout"] += 1
+   441	        elif status == "suspicious":
+   442	            counts["suspicious"] += 1
+   443	        elif status == "skipped":
+   444	            counts["skipped"] += 1
+   445	        elif status == "no tests":
+   446	            counts["no_tests"] += 1
+   447	        elif status == "not checked":
+   448	            counts["not_checked"] += 1
+   449	
+   450	    denominator = counts["killed"] + counts["survived"] + counts["timeout"] + counts["suspicious"]
+   451	
+   452	    if denominator > 0:
+   453	        counts["score_pct"] = counts["killed"] / denominator * 100.0
+   454	
+   455	    return counts
+   456	
+   457	
+   458	def main() -> int:
+   459	    ns = parse_args()
+   460	
+   461	    run_dir = Path(ns.run_dir).resolve()
+   462	    metrics_dir = run_dir / "metrics"
+   463	    logs_dir = run_dir / "logs"
+   464	    metrics_dir.mkdir(parents=True, exist_ok=True)
+   465	    logs_dir.mkdir(parents=True, exist_ok=True)
+   466	
+   467	    status = read_json(metrics_dir / "status.json")
+   468	
+   469	    target_module = status.get("target_module")
+   470	    if not target_module:
+   471	        update_status(
+   472	            run_dir,
+   473	            status="mutation_missing_target_module",
+   474	            mutation_available=False,
+   475	            mutation_score_pct=None,
+   476	        )
+   477	        print("status=mutation_missing_target_module")
+   478	        return 0
+   479	
+   480	    work_sut_dir = Path(status.get("work_sut_dir") or run_dir / "work" / "sut").resolve()
+   481	    if not work_sut_dir.exists():
+   482	        update_status(
+   483	            run_dir,
+   484	            status="mutation_missing_work_sut_dir",
+   485	            mutation_available=False,
+   486	            mutation_score_pct=None,
+   487	        )
+   488	        print("status=mutation_missing_work_sut_dir")
+   489	        return 0
+   490	
+   491	    try:
+   492	        resolved = resolve_target(run_dir, work_sut_dir, target_module)
+   493	        mutation_project, flat_target = build_mutation_project(run_dir, work_sut_dir, resolved)
+   494	        prepare_tests(run_dir, mutation_project, target_module)
+   495	        write_mutmut_config(mutation_project, resolved["target_rel"])
+   496	    except Exception as e:
+   497	        update_status(
+   498	            run_dir,
+   499	            status="mutation_prepare_fail",
+   500	            mutation_available=False,
+   501	            mutation_score_pct=None,
+   502	            mutation_error=repr(e),
+   503	        )
+   504	        print("status=mutation_prepare_fail")
+   505	        print(repr(e))
+   506	        return 0
+   507	
+   508	    update_status(
+   509	        run_dir,
+   510	        mutation_project_dir=str(mutation_project),
+   511	        mutation_target_relpath=str(resolved["target_rel"]),
+   512	        mutation_flat_target=str(flat_target),
+   513	        mutation_import_root=str(resolved["chosen_import_root"]),
+   514	    )
+   515	
+   516	    if not flat_target.exists():
+   517	        update_status(
+   518	            run_dir,
+   519	            status="mutation_flat_target_missing",
+   520	            mutation_available=False,
+   521	            mutation_score_pct=None,
+   522	        )
+   523	        print("status=mutation_flat_target_missing")
+   524	        print(f"target not found in flat project: {flat_target}")
+   525	        return 0
+   526	
+   527	    repo = Path.cwd().resolve()
+   528	    root_repo = repo.parent.resolve()
+   529	    py_overrides = root_repo / "_py_overrides"
+   530	
+   531	    env = os.environ.copy()
+   532	    env["PYTEST_DISABLE_PLUGIN_AUTOLOAD"] = "1"
+   533	    env["PYTEST_ADDOPTS"] = ""
+   534	    env["PYTHONDONTWRITEBYTECODE"] = "1"
+   535	    env.setdefault("MUTANT_UNDER_TEST", "")
+   536	
+   537	    pythonpath_parts = []
+   538	    if py_overrides.exists():
+   539	        pythonpath_parts.append(str(py_overrides))
+   540	    pythonpath_parts.append(str(mutation_project))
+   541	    pythonpath_parts.append(".")
+   542	
+   543	    if env.get("PYTHONPATH"):
+   544	        pythonpath_parts.append(env["PYTHONPATH"])
+   545	
+   546	    env["PYTHONPATH"] = ":".join(pythonpath_parts)
+   547	
+   548	    update_status(run_dir, mutation_runner_pythonpath=env["PYTHONPATH"])
+   549	
+   550	    print("[A] Checking mutmut availability...")
+   551	    avail = run_cmd(
+   552	        [sys.executable, "-m", "mutmut", "--version"],
+   553	        cwd=mutation_project,
+   554	        env=env,
+   555	        timeout_s=30,
+   556	    )
+   557	    (logs_dir / "mutmut.version.stdout.log").write_text(avail.stdout or "", encoding="utf-8")
+   558	    (logs_dir / "mutmut.version.stderr.log").write_text(avail.stderr or "", encoding="utf-8")
+   559	
+   560	    print("[B] Running mutmut in flat mutation_project...")
+   561	    run = run_cmd(
+   562	        [sys.executable, "-m", "mutmut", "run"],
+   563	        cwd=mutation_project,
+   564	        env=env,
+   565	        timeout_s=ns.mutation_timeout_s,
+   566	    )
+   567	
+   568	    (logs_dir / "mutmut.stdout.log").write_text(run.stdout or "", encoding="utf-8")
+   569	    (logs_dir / "mutmut.stderr.log").write_text(run.stderr or "", encoding="utf-8")
+   570	
+   571	    print("[C] Running mutmut results...")
+   572	    results = run_cmd(
+   573	        [sys.executable, "-m", "mutmut", "results"],
+   574	        cwd=mutation_project,
+   575	        env=env,
+   576	        timeout_s=60,
+   577	    )
+   578	
+   579	    (logs_dir / "mutmut_results.stdout.log").write_text(results.stdout or "", encoding="utf-8")
+   580	    (logs_dir / "mutmut_results.stderr.log").write_text(results.stderr or "", encoding="utf-8")
+   581	    (metrics_dir / "mutation_results.txt").write_text(results.stdout or "", encoding="utf-8")
+   582	
+   583	    counts = parse_results(results.stdout or "")
+   584	    write_json(metrics_dir / "mutmut_counts.json", counts)
+   585	
+   586	    if counts["score_pct"] is not None:
+   587	        final_status = "ok"
+   588	        mutation_available = True
+   589	        mutation_score = counts["score_pct"]
+   590	    elif counts["total"] > 0:
+   591	        final_status = "mutation_no_checked_mutants"
+   592	        mutation_available = False
+   593	        mutation_score = None
+   594	    elif run.returncode == 124:
+   595	        final_status = "mutation_timeout"
+   596	        mutation_available = False
+   597	        mutation_score = None
+   598	    else:
+   599	        final_status = "mutation_results_empty"
+   600	        mutation_available = False
+   601	        mutation_score = None
+   602	
+   603	    update_status(
+   604	        run_dir,
+   605	        status=final_status,
+   606	        mutation_available=mutation_available,
+   607	        mutation_score_pct=mutation_score,
+   608	        mutmut_exit_code=run.returncode,
+   609	        mutmut_results_exit_code=results.returncode,
+   610	        mutmut_counts=counts,
+   611	        mutation_project_dir=str(mutation_project),
+   612	        mutation_target_relpath=str(resolved["target_rel"]),
+   613	        mutation_flat_target=str(flat_target),
+   614	        mutation_import_root=str(resolved["chosen_import_root"]),
+   615	        mutation_runner_pythonpath=env["PYTHONPATH"],
+   616	    )
+   617	
+   618	    print(f"status={final_status}")
+   619	    print(f"mutmut_exit_code={run.returncode}")
+   620	    print(f"mutmut_results_exit_code={results.returncode}")
+   621	    print(f"mutation_available={mutation_available}")
+   622	    print(f"mutation_score_pct={mutation_score}")
+   623	    print(f"counts={json.dumps(counts, sort_keys=True)}")
+   624	    print(f"mutation_project={mutation_project}")
+   625	    print(f"target_rel={resolved['target_rel']}")
+   626	    print(f"flat_target={flat_target}")
+   627	    print(f"chosen_import_root={resolved['chosen_import_root']}")
+   628	
+   629	    return 0
+   630	
+   631	
+   632	if __name__ == "__main__":
+   633	    raise SystemExit(main())

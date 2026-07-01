@@ -1,0 +1,41 @@
+{
+  "branch_pct_strict0_mean": 14.306249985905968,
+  "branch_pct_strict0_mean_previous_nodeid_fixed": 14.306249985905968,
+  "coverage_available_runs": 251,
+  "executable_coverage_runs": 251,
+  "final_root": "/home/jpaiva/projetos/bugsinpy_gpt4o/out/_FINAL_BUGSINPY_V5_STRICT0_NODEID_RESCUE_MUTATION_V5_LOGCORRECTED_20260622_173525",
+  "global_class_counts": {
+    "evaluated_coverage_and_mutation": 169,
+    "evaluated_coverage_nodeid_rescue_mutation_unavailable": 6,
+    "evaluated_coverage_only_mutation_no_checked": 79,
+    "strict_zero_cluster_generation_not_ok": 117,
+    "strict_zero_downstream_pytest_final_fail": 5,
+    "strict_zero_no_runnable_tests_after_sanitization": 145,
+    "strict_zero_sanitization_no_failed_tests_detected": 39
+  },
+  "global_status_counts": {
+    "cluster_generation_timeout": 1,
+    "cluster_invalid_python_syntax": 112,
+    "cluster_invalid_test_structure": 4,
+    "mutation_no_checked_mutants": 79,
+    "nodeid_rescue_coverage_recovered": 6,
+    "ok": 169,
+    "pytest_final_fail": 5,
+    "pytest_no_runnable_tests": 145,
+    "sanitization_no_failed_tests_detected": 39
+  },
+  "line_pct_strict0_mean": 22.688224151716007,
+  "line_pct_strict0_mean_previous_nodeid_fixed": 22.688224151716007,
+  "mutation_available_runs": 169,
+  "mutation_score_pct_strict0_mean": 14.668050928172297,
+  "mutation_score_pct_strict0_mean_previous_nodeid_fixed": 0.0,
+  "mutation_v4_batch_root": "/home/jpaiva/projetos/bugsinpy_gpt4o/out/_MUTATION_V4_BATCH_20260622_161055",
+  "mutation_v5_batch_targets": 248,
+  "mutation_v5_logcorrected_rows": 157,
+  "mutation_v5_no_checked_runs": 79,
+  "mutation_v5_no_tests_runs": 0,
+  "mutation_v5_ok_runs": 169,
+  "nodeid_rescue_v1_recovered_runs": 6,
+  "old_fixed_nodeid_root": "/home/jpaiva/projetos/bugsinpy_gpt4o/out/_FINAL_BUGSINPY_V5_STRICT0_NODEID_RESCUE_V1_FIXED_20260622_153721",
+  "total_requested_runs": 560
+}

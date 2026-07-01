@@ -1,0 +1,2 @@
+result=patched
+file=/home/jpaiva/projetos/bugsinpy_gpt55/tools/run_bugsinpy_mutation_flat.py

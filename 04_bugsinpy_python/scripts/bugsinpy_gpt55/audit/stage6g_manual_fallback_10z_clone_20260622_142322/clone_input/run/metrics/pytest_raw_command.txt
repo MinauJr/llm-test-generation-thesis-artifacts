@@ -1,0 +1,1 @@
+python3 -m pytest -vv --tb=short --import-mode=importlib /home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_LADDER_GPT55_BUGSINPY_20260620_151033/account3/candidate_2_cookiecutter_1f/cookiecutter_1f/run_0002/0001-1/work/tests/test_gpt_iaedu.py

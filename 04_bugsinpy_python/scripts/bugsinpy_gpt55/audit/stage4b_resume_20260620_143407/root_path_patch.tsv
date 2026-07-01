@@ -1,0 +1,5 @@
+result	file	detail	old	new
+already_patched	/home/jpaiva/projetos/bugsinpy_gpt55/scripts/run_bugsinpy_gpt4o_dataset_full.sh	count=1	REPO="${REPO:-$HOME/projetos/llm_test_generation_gpt4o/bugsinpy_gpt4o}"	REPO="${REPO:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
+already_patched	/home/jpaiva/projetos/bugsinpy_gpt55/scripts/run_bugsinpy_gpt4o_one_sut.sh	count=1	REPO="${REPO:-$HOME/projetos/llm_test_generation_gpt4o/bugsinpy_gpt4o}"	REPO="${REPO:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
+already_patched	/home/jpaiva/projetos/bugsinpy_gpt55/scripts/run_bugsinpy_gpt4o_one_sut.sh	count=1	ROOT="${ROOT:-$HOME/projetos/llm_test_generation_gpt4o}"	ROOT="${ROOT:-$REPO}"
+already_patched	/home/jpaiva/projetos/bugsinpy_gpt55/scripts/run_bugsinpy_gpt4o_one_sut_full.sh	count=1	REPO="${REPO:-$HOME/projetos/llm_test_generation_gpt4o/bugsinpy_gpt4o}"	REPO="${REPO:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"

@@ -1,0 +1,5 @@
+/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_mutation_fix_20260620_142951/PySnooper_2f/run_0001/0001-5/work/mutation_project/pysnooper/__init__.py
+/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_mutation_fix_20260620_142951/PySnooper_2f/run_0001/0001-5/work/mutation_project/pysnooper/pycompat.py
+/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_mutation_fix_20260620_142951/PySnooper_2f/run_0001/0001-5/work/mutation_project/pysnooper/tracer.py
+/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_mutation_fix_20260620_142951/PySnooper_2f/run_0001/0001-5/work/mutation_project/pysnooper/utils.py
+/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_mutation_fix_20260620_142951/PySnooper_2f/run_0001/0001-5/work/mutation_project/pysnooper/variables.py

@@ -1,0 +1,4 @@
+account	sut_id	generation	status	classification	metrics_usable
+account1	cookiecutter_1f	nonempty_first_attempt	pytest_raw_fail	legitimate_generated_test_failure	no
+account2	httpie_1f	nonempty_first_attempt	pytest_raw_fail	legitimate_generated_test_failure	no
+account3	tornado_4f	nonempty_first_attempt	pytest_raw_fail	legitimate_generated_test_failure	no

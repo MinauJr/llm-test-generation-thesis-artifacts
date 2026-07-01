@@ -1,0 +1,1260 @@
+
+----------------------------------------------------------------
+/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_package_target_20260620_144631/PySnooper_2f/run_0001/0001-5/logs/mutmut.stdout.log
+----------------------------------------------------------------
+
+⠋ Generating mutants
+⠙ Generating mutants
+⠹ Generating mutants
+⠸ Generating mutants
+⠼ Generating mutants
+⠴ Generating mutants
+⠦ Generating mutants
+⠧ Generating mutants
+⠇ Generating mutants
+⠏ Generating mutants
+⠋ Generating mutants
+⠙ Generating mutants
+⠹ Generating mutants
+⠸ Generating mutants
+⠼ Generating mutants
+⠴ Generating mutants
+⠦ Generating mutants
+⠧ Generating mutants
+⠇ Generating mutants
+⠧ Generating mutants
+⠇ Generating mutants
+⠧ Generating mutants
+⠇ Generating mutants
+⠧ Generating mutants
+⠇ Generating mutants
+⠧ Generating mutants
+⠇ Generating mutants
+    done in 2761ms
+
+⠧ Running stats     
+⠇ Running stats
+⠏ Running stats
+⠋ Running stats
+⠙ Running stats
+⠹ Running stats
+⠸ Running stats
+⠼ Running stats
+⠴ Running stats
+⠦ Running stats
+.....                                                                    [100%]
+5 passed in 0.21s
+Stopping early, because we could not find any test case for any mutant. It seems that the selected tests do not cover any code that we mutated.
+You can set debug=true to see the executed test names in the output above.
+You can use mutmut browse to check which parts of the source code we mutated.
+If some of the mutated code should be covered by the executed tests, consider opening an issue (with a MRE if possible).
+
+
+----------------------------------------------------------------
+/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_package_target_20260620_144631/PySnooper_2f/run_0001/0001-5/logs/mutmut.stderr.log
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_package_target_20260620_144631/PySnooper_2f/run_0001/0001-5/logs/mutmut_results.stdout.log
+----------------------------------------------------------------
+    pysnooper.utils.x__check_methods__mutmut_1: not checked
+    pysnooper.utils.x__check_methods__mutmut_2: not checked
+    pysnooper.utils.x__check_methods__mutmut_3: not checked
+    pysnooper.utils.x__check_methods__mutmut_4: not checked
+    pysnooper.utils.x__check_methods__mutmut_5: not checked
+    pysnooper.utils.x_shitcode__mutmut_1: not checked
+    pysnooper.utils.x_shitcode__mutmut_2: not checked
+    pysnooper.utils.x_shitcode__mutmut_3: not checked
+    pysnooper.utils.x_shitcode__mutmut_4: not checked
+    pysnooper.utils.x_shitcode__mutmut_5: not checked
+    pysnooper.utils.x_shitcode__mutmut_6: not checked
+    pysnooper.utils.x_shitcode__mutmut_7: not checked
+    pysnooper.utils.x_shitcode__mutmut_8: not checked
+    pysnooper.utils.x_get_repr_function__mutmut_1: not checked
+    pysnooper.utils.x_get_repr_function__mutmut_2: not checked
+    pysnooper.utils.x_get_repr_function__mutmut_3: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_1: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_2: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_3: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_4: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_5: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_6: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_7: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_8: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_9: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_10: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_11: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_12: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_13: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_14: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_15: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_16: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_17: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_18: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_19: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_20: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_21: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_22: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_23: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_24: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_25: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_26: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_27: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_28: not checked
+    pysnooper.utils.x_truncate__mutmut_1: not checked
+    pysnooper.utils.x_truncate__mutmut_2: not checked
+    pysnooper.utils.x_truncate__mutmut_3: not checked
+    pysnooper.utils.x_truncate__mutmut_4: not checked
+    pysnooper.utils.x_truncate__mutmut_5: not checked
+    pysnooper.utils.x_truncate__mutmut_6: not checked
+    pysnooper.utils.x_truncate__mutmut_7: not checked
+    pysnooper.utils.x_truncate__mutmut_8: not checked
+    pysnooper.utils.x_truncate__mutmut_9: not checked
+    pysnooper.utils.x_truncate__mutmut_10: not checked
+    pysnooper.utils.x_truncate__mutmut_11: not checked
+    pysnooper.utils.x_truncate__mutmut_12: not checked
+    pysnooper.utils.x_truncate__mutmut_13: not checked
+    pysnooper.utils.x_truncate__mutmut_14: not checked
+    pysnooper.utils.x_truncate__mutmut_15: not checked
+    pysnooper.utils.x_truncate__mutmut_16: not checked
+    pysnooper.utils.x_truncate__mutmut_17: not checked
+    pysnooper.utils.x_ensure_tuple__mutmut_1: not checked
+    pysnooper.utils.x_ensure_tuple__mutmut_2: not checked
+    pysnooper.utils.x_ensure_tuple__mutmut_3: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_1: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_2: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_3: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_4: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_5: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_6: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_7: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_8: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_9: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_10: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_11: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_12: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_13: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_14: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_15: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_16: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_17: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_18: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_19: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_1: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_2: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_3: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_4: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_5: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_6: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_7: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_8: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_9: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_10: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_11: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_12: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_13: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_14: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_15: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_16: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_17: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_18: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_19: not checked
+    pysnooper.variables.xǁBaseVariableǁitems__mutmut_1: not checked
+    pysnooper.variables.xǁBaseVariableǁitems__mutmut_2: not checked
+    pysnooper.variables.xǁBaseVariableǁitems__mutmut_3: not checked
+    pysnooper.variables.xǁBaseVariableǁitems__mutmut_4: not checked
+    pysnooper.variables.xǁBaseVariableǁitems__mutmut_5: not checked
+    pysnooper.variables.xǁBaseVariableǁitems__mutmut_6: not checked
+    pysnooper.variables.xǁBaseVariableǁitems__mutmut_7: not checked
+    pysnooper.variables.xǁBaseVariableǁitems__mutmut_8: not checked
+    pysnooper.variables.xǁBaseVariableǁitems__mutmut_9: not checked
+    pysnooper.variables.xǁBaseVariableǁ__hash____mutmut_1: not checked
+    pysnooper.variables.xǁBaseVariableǁ__eq____mutmut_1: not checked
+    pysnooper.variables.xǁBaseVariableǁ__eq____mutmut_2: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_1: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_2: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_3: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_4: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_5: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_6: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_7: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_8: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_9: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_10: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_11: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_12: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_13: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_14: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_15: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_16: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_17: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_18: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_19: not checked
+    pysnooper.variables.xǁCommonVariableǁ_safe_keys__mutmut_1: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_1: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_2: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_3: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_4: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_5: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_6: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_7: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_8: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_9: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_10: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_11: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_12: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_13: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_14: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_15: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_16: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_17: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_18: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_19: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_20: not checked
+    pysnooper.variables.xǁAttrsǁ_format_key__mutmut_1: not checked
+    pysnooper.variables.xǁAttrsǁ_format_key__mutmut_2: not checked
+    pysnooper.variables.xǁAttrsǁ_get_value__mutmut_1: not checked
+    pysnooper.variables.xǁAttrsǁ_get_value__mutmut_2: not checked
+    pysnooper.variables.xǁAttrsǁ_get_value__mutmut_3: not checked
+    pysnooper.variables.xǁAttrsǁ_get_value__mutmut_4: not checked
+    pysnooper.variables.xǁKeysǁ_format_key__mutmut_1: not checked
+    pysnooper.variables.xǁKeysǁ_format_key__mutmut_2: not checked
+    pysnooper.variables.xǁKeysǁ_format_key__mutmut_3: not checked
+    pysnooper.variables.xǁIndicesǁ_keys__mutmut_1: not checked
+    pysnooper.variables.xǁIndicesǁ__getitem____mutmut_1: not checked
+    pysnooper.variables.xǁIndicesǁ__getitem____mutmut_2: not checked
+    pysnooper.variables.xǁIndicesǁ__getitem____mutmut_3: not checked
+    pysnooper.variables.xǁIndicesǁ__getitem____mutmut_4: not checked
+    pysnooper.variables.xǁExplodingǁ_items__mutmut_1: not checked
+    pysnooper.variables.xǁExplodingǁ_items__mutmut_2: not checked
+    pysnooper.variables.xǁExplodingǁ_items__mutmut_3: not checked
+    pysnooper.variables.xǁExplodingǁ_items__mutmut_4: not checked
+    pysnooper.variables.xǁExplodingǁ_items__mutmut_5: not checked
+    pysnooper.variables.xǁExplodingǁ_items__mutmut_6: not checked
+    pysnooper.variables.xǁExplodingǁ_items__mutmut_7: not checked
+    pysnooper.variables.xǁExplodingǁ_items__mutmut_8: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_1: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_2: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_3: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_4: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_5: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_6: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_7: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_8: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_9: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_10: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_11: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_12: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_13: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_14: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_15: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_16: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_17: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_18: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_19: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_20: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_21: not checked
+    pysnooper.tracer.xǁUnavailableSourceǁ__getitem____mutmut_1: not checked
+    pysnooper.tracer.xǁUnavailableSourceǁ__getitem____mutmut_2: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_1: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_2: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_3: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_4: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_5: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_6: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_7: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_8: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_9: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_10: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_11: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_12: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_13: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_14: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_15: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_16: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_17: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_18: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_19: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_20: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_21: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_22: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_23: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_24: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_25: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_26: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_27: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_28: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_29: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_30: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_31: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_32: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_33: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_34: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_35: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_36: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_37: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_38: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_39: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_40: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_41: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_42: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_43: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_44: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_45: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_46: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_47: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_48: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_49: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_50: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_51: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_52: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_53: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_54: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_55: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_56: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_57: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_58: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_59: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_60: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_61: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_62: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_63: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_64: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_65: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_66: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_67: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_68: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_69: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_70: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_71: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_72: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_73: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_74: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_75: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_76: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_77: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_78: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_79: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_1: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_2: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_3: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_4: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_5: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_6: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_7: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_8: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_9: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_10: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_11: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_12: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_13: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_14: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_15: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_16: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_17: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_18: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_19: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_20: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_21: not checked
+    pysnooper.tracer.xǁFileWriterǁ__init____mutmut_1: not checked
+    pysnooper.tracer.xǁFileWriterǁ__init____mutmut_2: not checked
+    pysnooper.tracer.xǁFileWriterǁ__init____mutmut_3: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_1: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_2: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_3: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_4: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_5: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_6: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_7: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_8: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_9: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_10: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_11: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_12: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_13: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_14: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_15: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_1: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_2: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_3: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_4: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_5: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_6: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_7: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_8: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_9: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_10: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_11: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_12: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_13: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_14: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_15: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_16: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_17: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_18: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_19: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_20: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_21: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_22: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_23: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_24: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_25: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_26: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_27: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_28: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_29: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_30: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_31: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_32: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_33: not checked
+    pysnooper.tracer.xǁTracerǁ__call____mutmut_1: not checked
+    pysnooper.tracer.xǁTracerǁ__call____mutmut_2: not checked
+    pysnooper.tracer.xǁTracerǁ__call____mutmut_3: not checked
+    pysnooper.tracer.xǁTracerǁwrite__mutmut_1: not checked
+    pysnooper.tracer.xǁTracerǁwrite__mutmut_2: not checked
+    pysnooper.tracer.xǁTracerǁwrite__mutmut_3: not checked
+    pysnooper.tracer.xǁTracerǁwrite__mutmut_4: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_1: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_2: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_3: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_4: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_5: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_6: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_7: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_8: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_9: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_10: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_11: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_12: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_13: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_14: not checked
+    pysnooper.tracer.xǁTracerǁ__exit____mutmut_1: not checked
+    pysnooper.tracer.xǁTracerǁ__exit____mutmut_2: not checked
+    pysnooper.tracer.xǁTracerǁ__exit____mutmut_3: not checked
+    pysnooper.tracer.xǁTracerǁ__exit____mutmut_4: not checked
+    pysnooper.tracer.xǁTracerǁ__exit____mutmut_5: not checked
+    pysnooper.tracer.xǁTracerǁ__exit____mutmut_6: not checked
+    pysnooper.tracer.xǁTracerǁ__exit____mutmut_7: not checked
+    pysnooper.tracer.xǁTracerǁ_is_internal_frame__mutmut_1: not checked
+    pysnooper.tracer.xǁTracerǁset_thread_info_padding__mutmut_1: not checked
+    pysnooper.tracer.xǁTracerǁset_thread_info_padding__mutmut_2: not checked
+    pysnooper.tracer.xǁTracerǁset_thread_info_padding__mutmut_3: not checked
+    pysnooper.tracer.xǁTracerǁset_thread_info_padding__mutmut_4: not checked
+    pysnooper.tracer.xǁTracerǁset_thread_info_padding__mutmut_5: not checked
+    pysnooper.tracer.xǁTracerǁset_thread_info_padding__mutmut_6: not checked
+    pysnooper.tracer.xǁTracerǁset_thread_info_padding__mutmut_7: not checked
+    pysnooper.tracer.xǁTracerǁset_thread_info_padding__mutmut_8: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_1: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_2: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_3: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_4: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_5: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_6: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_7: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_8: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_9: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_10: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_11: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_12: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_13: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_14: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_15: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_16: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_17: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_18: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_19: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_20: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_21: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_22: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_23: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_24: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_25: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_26: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_27: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_28: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_29: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_30: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_31: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_32: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_33: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_34: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_35: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_36: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_37: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_38: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_39: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_40: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_41: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_42: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_43: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_44: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_45: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_46: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_47: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_48: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_49: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_50: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_51: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_52: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_53: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_54: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_55: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_56: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_57: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_58: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_59: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_60: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_61: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_62: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_63: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_64: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_65: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_66: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_67: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_68: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_69: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_70: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_71: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_72: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_73: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_74: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_75: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_76: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_77: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_78: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_79: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_80: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_81: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_82: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_83: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_84: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_85: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_86: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_87: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_88: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_89: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_90: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_91: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_92: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_93: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_94: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_95: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_96: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_97: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_98: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_99: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_100: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_101: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_102: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_103: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_104: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_105: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_106: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_107: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_108: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_109: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_110: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_111: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_112: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_113: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_114: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_115: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_116: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_117: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_118: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_119: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_120: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_121: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_122: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_123: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_124: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_125: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_126: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_127: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_128: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_129: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_130: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_131: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_132: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_133: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_134: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_135: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_136: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_137: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_138: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_139: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_140: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_141: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_142: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_143: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_144: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_145: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_146: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_147: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_148: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_149: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_150: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_151: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_152: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_153: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_154: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_155: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_156: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_157: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_158: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_159: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_160: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_161: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_162: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_163: not checked
+
+----------------------------------------------------------------
+/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_package_target_20260620_144631/PySnooper_2f/run_0001/0001-5/logs/mutmut_results.stderr.log
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_package_target_20260620_144631/PySnooper_2f/run_0001/0001-5/metrics/mutation_results.txt
+----------------------------------------------------------------
+    pysnooper.utils.x__check_methods__mutmut_1: not checked
+    pysnooper.utils.x__check_methods__mutmut_2: not checked
+    pysnooper.utils.x__check_methods__mutmut_3: not checked
+    pysnooper.utils.x__check_methods__mutmut_4: not checked
+    pysnooper.utils.x__check_methods__mutmut_5: not checked
+    pysnooper.utils.x_shitcode__mutmut_1: not checked
+    pysnooper.utils.x_shitcode__mutmut_2: not checked
+    pysnooper.utils.x_shitcode__mutmut_3: not checked
+    pysnooper.utils.x_shitcode__mutmut_4: not checked
+    pysnooper.utils.x_shitcode__mutmut_5: not checked
+    pysnooper.utils.x_shitcode__mutmut_6: not checked
+    pysnooper.utils.x_shitcode__mutmut_7: not checked
+    pysnooper.utils.x_shitcode__mutmut_8: not checked
+    pysnooper.utils.x_get_repr_function__mutmut_1: not checked
+    pysnooper.utils.x_get_repr_function__mutmut_2: not checked
+    pysnooper.utils.x_get_repr_function__mutmut_3: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_1: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_2: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_3: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_4: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_5: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_6: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_7: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_8: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_9: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_10: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_11: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_12: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_13: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_14: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_15: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_16: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_17: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_18: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_19: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_20: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_21: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_22: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_23: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_24: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_25: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_26: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_27: not checked
+    pysnooper.utils.x_get_shortish_repr__mutmut_28: not checked
+    pysnooper.utils.x_truncate__mutmut_1: not checked
+    pysnooper.utils.x_truncate__mutmut_2: not checked
+    pysnooper.utils.x_truncate__mutmut_3: not checked
+    pysnooper.utils.x_truncate__mutmut_4: not checked
+    pysnooper.utils.x_truncate__mutmut_5: not checked
+    pysnooper.utils.x_truncate__mutmut_6: not checked
+    pysnooper.utils.x_truncate__mutmut_7: not checked
+    pysnooper.utils.x_truncate__mutmut_8: not checked
+    pysnooper.utils.x_truncate__mutmut_9: not checked
+    pysnooper.utils.x_truncate__mutmut_10: not checked
+    pysnooper.utils.x_truncate__mutmut_11: not checked
+    pysnooper.utils.x_truncate__mutmut_12: not checked
+    pysnooper.utils.x_truncate__mutmut_13: not checked
+    pysnooper.utils.x_truncate__mutmut_14: not checked
+    pysnooper.utils.x_truncate__mutmut_15: not checked
+    pysnooper.utils.x_truncate__mutmut_16: not checked
+    pysnooper.utils.x_truncate__mutmut_17: not checked
+    pysnooper.utils.x_ensure_tuple__mutmut_1: not checked
+    pysnooper.utils.x_ensure_tuple__mutmut_2: not checked
+    pysnooper.utils.x_ensure_tuple__mutmut_3: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_1: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_2: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_3: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_4: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_5: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_6: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_7: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_8: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_9: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_10: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_11: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_12: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_13: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_14: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_15: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_16: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_17: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_18: not checked
+    pysnooper.variables.x_needs_parentheses__mutmut_19: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_1: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_2: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_3: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_4: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_5: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_6: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_7: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_8: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_9: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_10: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_11: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_12: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_13: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_14: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_15: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_16: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_17: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_18: not checked
+    pysnooper.variables.xǁBaseVariableǁ__init____mutmut_19: not checked
+    pysnooper.variables.xǁBaseVariableǁitems__mutmut_1: not checked
+    pysnooper.variables.xǁBaseVariableǁitems__mutmut_2: not checked
+    pysnooper.variables.xǁBaseVariableǁitems__mutmut_3: not checked
+    pysnooper.variables.xǁBaseVariableǁitems__mutmut_4: not checked
+    pysnooper.variables.xǁBaseVariableǁitems__mutmut_5: not checked
+    pysnooper.variables.xǁBaseVariableǁitems__mutmut_6: not checked
+    pysnooper.variables.xǁBaseVariableǁitems__mutmut_7: not checked
+    pysnooper.variables.xǁBaseVariableǁitems__mutmut_8: not checked
+    pysnooper.variables.xǁBaseVariableǁitems__mutmut_9: not checked
+    pysnooper.variables.xǁBaseVariableǁ__hash____mutmut_1: not checked
+    pysnooper.variables.xǁBaseVariableǁ__eq____mutmut_1: not checked
+    pysnooper.variables.xǁBaseVariableǁ__eq____mutmut_2: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_1: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_2: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_3: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_4: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_5: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_6: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_7: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_8: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_9: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_10: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_11: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_12: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_13: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_14: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_15: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_16: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_17: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_18: not checked
+    pysnooper.variables.xǁCommonVariableǁ_items__mutmut_19: not checked
+    pysnooper.variables.xǁCommonVariableǁ_safe_keys__mutmut_1: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_1: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_2: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_3: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_4: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_5: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_6: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_7: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_8: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_9: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_10: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_11: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_12: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_13: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_14: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_15: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_16: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_17: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_18: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_19: not checked
+    pysnooper.variables.xǁAttrsǁ_keys__mutmut_20: not checked
+    pysnooper.variables.xǁAttrsǁ_format_key__mutmut_1: not checked
+    pysnooper.variables.xǁAttrsǁ_format_key__mutmut_2: not checked
+    pysnooper.variables.xǁAttrsǁ_get_value__mutmut_1: not checked
+    pysnooper.variables.xǁAttrsǁ_get_value__mutmut_2: not checked
+    pysnooper.variables.xǁAttrsǁ_get_value__mutmut_3: not checked
+    pysnooper.variables.xǁAttrsǁ_get_value__mutmut_4: not checked
+    pysnooper.variables.xǁKeysǁ_format_key__mutmut_1: not checked
+    pysnooper.variables.xǁKeysǁ_format_key__mutmut_2: not checked
+    pysnooper.variables.xǁKeysǁ_format_key__mutmut_3: not checked
+    pysnooper.variables.xǁIndicesǁ_keys__mutmut_1: not checked
+    pysnooper.variables.xǁIndicesǁ__getitem____mutmut_1: not checked
+    pysnooper.variables.xǁIndicesǁ__getitem____mutmut_2: not checked
+    pysnooper.variables.xǁIndicesǁ__getitem____mutmut_3: not checked
+    pysnooper.variables.xǁIndicesǁ__getitem____mutmut_4: not checked
+    pysnooper.variables.xǁExplodingǁ_items__mutmut_1: not checked
+    pysnooper.variables.xǁExplodingǁ_items__mutmut_2: not checked
+    pysnooper.variables.xǁExplodingǁ_items__mutmut_3: not checked
+    pysnooper.variables.xǁExplodingǁ_items__mutmut_4: not checked
+    pysnooper.variables.xǁExplodingǁ_items__mutmut_5: not checked
+    pysnooper.variables.xǁExplodingǁ_items__mutmut_6: not checked
+    pysnooper.variables.xǁExplodingǁ_items__mutmut_7: not checked
+    pysnooper.variables.xǁExplodingǁ_items__mutmut_8: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_1: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_2: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_3: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_4: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_5: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_6: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_7: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_8: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_9: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_10: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_11: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_12: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_13: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_14: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_15: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_16: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_17: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_18: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_19: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_20: not checked
+    pysnooper.tracer.x_get_local_reprs__mutmut_21: not checked
+    pysnooper.tracer.xǁUnavailableSourceǁ__getitem____mutmut_1: not checked
+    pysnooper.tracer.xǁUnavailableSourceǁ__getitem____mutmut_2: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_1: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_2: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_3: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_4: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_5: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_6: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_7: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_8: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_9: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_10: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_11: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_12: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_13: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_14: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_15: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_16: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_17: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_18: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_19: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_20: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_21: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_22: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_23: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_24: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_25: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_26: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_27: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_28: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_29: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_30: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_31: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_32: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_33: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_34: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_35: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_36: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_37: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_38: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_39: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_40: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_41: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_42: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_43: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_44: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_45: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_46: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_47: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_48: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_49: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_50: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_51: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_52: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_53: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_54: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_55: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_56: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_57: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_58: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_59: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_60: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_61: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_62: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_63: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_64: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_65: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_66: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_67: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_68: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_69: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_70: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_71: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_72: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_73: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_74: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_75: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_76: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_77: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_78: not checked
+    pysnooper.tracer.x_get_source_from_frame__mutmut_79: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_1: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_2: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_3: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_4: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_5: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_6: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_7: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_8: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_9: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_10: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_11: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_12: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_13: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_14: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_15: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_16: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_17: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_18: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_19: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_20: not checked
+    pysnooper.tracer.x_get_write_function__mutmut_21: not checked
+    pysnooper.tracer.xǁFileWriterǁ__init____mutmut_1: not checked
+    pysnooper.tracer.xǁFileWriterǁ__init____mutmut_2: not checked
+    pysnooper.tracer.xǁFileWriterǁ__init____mutmut_3: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_1: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_2: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_3: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_4: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_5: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_6: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_7: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_8: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_9: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_10: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_11: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_12: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_13: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_14: not checked
+    pysnooper.tracer.xǁFileWriterǁwrite__mutmut_15: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_1: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_2: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_3: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_4: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_5: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_6: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_7: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_8: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_9: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_10: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_11: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_12: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_13: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_14: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_15: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_16: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_17: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_18: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_19: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_20: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_21: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_22: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_23: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_24: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_25: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_26: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_27: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_28: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_29: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_30: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_31: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_32: not checked
+    pysnooper.tracer.xǁTracerǁ__init____mutmut_33: not checked
+    pysnooper.tracer.xǁTracerǁ__call____mutmut_1: not checked
+    pysnooper.tracer.xǁTracerǁ__call____mutmut_2: not checked
+    pysnooper.tracer.xǁTracerǁ__call____mutmut_3: not checked
+    pysnooper.tracer.xǁTracerǁwrite__mutmut_1: not checked
+    pysnooper.tracer.xǁTracerǁwrite__mutmut_2: not checked
+    pysnooper.tracer.xǁTracerǁwrite__mutmut_3: not checked
+    pysnooper.tracer.xǁTracerǁwrite__mutmut_4: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_1: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_2: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_3: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_4: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_5: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_6: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_7: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_8: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_9: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_10: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_11: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_12: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_13: not checked
+    pysnooper.tracer.xǁTracerǁ__enter____mutmut_14: not checked
+    pysnooper.tracer.xǁTracerǁ__exit____mutmut_1: not checked
+    pysnooper.tracer.xǁTracerǁ__exit____mutmut_2: not checked
+    pysnooper.tracer.xǁTracerǁ__exit____mutmut_3: not checked
+    pysnooper.tracer.xǁTracerǁ__exit____mutmut_4: not checked
+    pysnooper.tracer.xǁTracerǁ__exit____mutmut_5: not checked
+    pysnooper.tracer.xǁTracerǁ__exit____mutmut_6: not checked
+    pysnooper.tracer.xǁTracerǁ__exit____mutmut_7: not checked
+    pysnooper.tracer.xǁTracerǁ_is_internal_frame__mutmut_1: not checked
+    pysnooper.tracer.xǁTracerǁset_thread_info_padding__mutmut_1: not checked
+    pysnooper.tracer.xǁTracerǁset_thread_info_padding__mutmut_2: not checked
+    pysnooper.tracer.xǁTracerǁset_thread_info_padding__mutmut_3: not checked
+    pysnooper.tracer.xǁTracerǁset_thread_info_padding__mutmut_4: not checked
+    pysnooper.tracer.xǁTracerǁset_thread_info_padding__mutmut_5: not checked
+    pysnooper.tracer.xǁTracerǁset_thread_info_padding__mutmut_6: not checked
+    pysnooper.tracer.xǁTracerǁset_thread_info_padding__mutmut_7: not checked
+    pysnooper.tracer.xǁTracerǁset_thread_info_padding__mutmut_8: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_1: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_2: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_3: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_4: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_5: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_6: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_7: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_8: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_9: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_10: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_11: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_12: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_13: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_14: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_15: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_16: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_17: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_18: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_19: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_20: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_21: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_22: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_23: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_24: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_25: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_26: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_27: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_28: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_29: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_30: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_31: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_32: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_33: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_34: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_35: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_36: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_37: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_38: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_39: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_40: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_41: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_42: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_43: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_44: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_45: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_46: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_47: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_48: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_49: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_50: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_51: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_52: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_53: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_54: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_55: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_56: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_57: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_58: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_59: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_60: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_61: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_62: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_63: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_64: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_65: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_66: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_67: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_68: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_69: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_70: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_71: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_72: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_73: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_74: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_75: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_76: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_77: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_78: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_79: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_80: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_81: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_82: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_83: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_84: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_85: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_86: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_87: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_88: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_89: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_90: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_91: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_92: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_93: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_94: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_95: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_96: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_97: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_98: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_99: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_100: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_101: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_102: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_103: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_104: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_105: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_106: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_107: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_108: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_109: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_110: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_111: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_112: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_113: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_114: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_115: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_116: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_117: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_118: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_119: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_120: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_121: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_122: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_123: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_124: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_125: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_126: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_127: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_128: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_129: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_130: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_131: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_132: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_133: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_134: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_135: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_136: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_137: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_138: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_139: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_140: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_141: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_142: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_143: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_144: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_145: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_146: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_147: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_148: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_149: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_150: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_151: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_152: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_153: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_154: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_155: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_156: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_157: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_158: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_159: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_160: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_161: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_162: not checked
+    pysnooper.tracer.xǁTracerǁtrace__mutmut_163: not checked
+
+----------------------------------------------------------------
+/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_package_target_20260620_144631/PySnooper_2f/run_0001/0001-5/metrics/mutmut_counts.json
+----------------------------------------------------------------
+{
+  "killed": 0,
+  "survived": 0,
+  "timeout": 0,
+  "suspicious": 0,
+  "skipped": 0,
+  "not_checked": 550,
+  "no_tests": 0,
+  "total": 550,
+  "score_pct": null,
+  "parse_source": "mutmut_results_lines"
+}
+----------------------------------------------------------------
+/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_package_target_20260620_144631/PySnooper_2f/run_0001/0001-5/metrics/status.json
+----------------------------------------------------------------
+{
+  "branch_pct": 3.39,
+  "canonical_test_file": "/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_package_target_20260620_144631/PySnooper_2f/run_0001/0001-5/work/tests/test_gpt_iaedu.py",
+  "cluster_duration_s": "1.0",
+  "cluster_generation_status": "ok",
+  "cov_target": "pysnooper",
+  "coverage_available": true,
+  "coverage_exit_code": 0,
+  "coverage_scope": "target_module",
+  "coverage_target_used": "pysnooper",
+  "coverage_xml": "/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_package_target_20260620_144631/PySnooper_2f/run_0001/0001-5/metrics/coverage.xml",
+  "dataset": "BugsInPy",
+  "dry_run": 0,
+  "generated_test_compile_exit_code": 0,
+  "generated_test_file": "/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_package_target_20260620_144631/PySnooper_2f/run_0001/0001-5/work/tests/test_gpt_iaedu.py",
+  "generation_attempts": 1,
+  "generation_empty_attempts": 0,
+  "generation_empty_retry_max": 15,
+  "generation_exit_code": 0,
+  "generation_final_state": "cluster_imported_nonempty_success",
+  "generation_output_nonempty": true,
+  "generation_retry_sleep_s": 2,
+  "generation_timeout_s": 200,
+  "language": "python",
+  "line_pct": 26.84,
+  "model": "cluster-safe-qwen3-coder-30b-official-ctx32k",
+  "model_raw_output_file": "/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_package_target_20260620_144631/PySnooper_2f/run_0001/0001-5/raw/model_raw_output.py.txt",
+  "mutation_available": false,
+  "mutation_flat_target": "/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_package_target_20260620_144631/PySnooper_2f/run_0001/0001-5/work/mutation_project/pysnooper",
+  "mutation_import_root": "/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_package_target_20260620_144631/PySnooper_2f/run_0001/0001-5/work/sut",
+  "mutation_project_cleaned": true,
+  "mutation_project_cleaned_at": "2026-06-20T13:46:52.982040+00:00",
+  "mutation_project_dir": "/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_package_target_20260620_144631/PySnooper_2f/run_0001/0001-5/work/mutation_project",
+  "mutation_runner_pythonpath": "/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_package_target_20260620_144631/PySnooper_2f/run_0001/0001-5/work/mutation_project:.",
+  "mutation_score_pct": null,
+  "mutation_target_relpath": "pysnooper",
+  "mutation_timeout_s": 180,
+  "mutmut_counts": {
+    "killed": 0,
+    "no_tests": 0,
+    "not_checked": 550,
+    "parse_source": "mutmut_results_lines",
+    "score_pct": null,
+    "skipped": 0,
+    "survived": 0,
+    "suspicious": 0,
+    "timeout": 0,
+    "total": 550
+  },
+  "mutmut_exit_code": 1,
+  "mutmut_results_exit_code": 0,
+  "prompt_file": "/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_package_target_20260620_144631/PySnooper_2f/run_0001/0001-5/raw/prompt.txt",
+  "pytest_raw_exit_code": 0,
+  "pytest_timeout_s": 60,
+  "raw_pytest_passed": true,
+  "raw_pytest_timeout": false,
+  "rep": 5,
+  "run_id": 1,
+  "run_mutation": 1,
+  "runnable_gate_source": "pytest_raw",
+  "runnable_passed_count": 5,
+  "runnable_skipped_count": 0,
+  "runnable_test_count": 5,
+  "runnable_xfailed_count": 0,
+  "runnable_xpassed_count": 0,
+  "runtime_pythonpath": "/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_package_target_20260620_144631/PySnooper_2f/run_0001/0001-5/work/sut",
+  "status": "mutation_no_checked_mutants",
+  "sut_dir": "/home/jpaiva/projetos/SUTs/BugsInPy/PySnooper_2f",
+  "sut_id": "PySnooper_2f",
+  "sut_import_check_exit_code": 0,
+  "sut_index": 1,
+  "target_module": "pysnooper",
+  "work_sut_dir": "/home/jpaiva/projetos/bugsinpy_gpt4o/out/_smoke_bugsinpy_v5_package_target_20260620_144631/PySnooper_2f/run_0001/0001-5/work/sut"
+}

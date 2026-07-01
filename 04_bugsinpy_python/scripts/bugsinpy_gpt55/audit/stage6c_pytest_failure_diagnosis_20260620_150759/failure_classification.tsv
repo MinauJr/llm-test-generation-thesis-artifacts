@@ -1,0 +1,4 @@
+account	sut_id	status	compile_rc	import_rc	pytest_rc	classification	environment_hits	generated_test_hits	run_dir
+account1	cookiecutter_1f	pytest_raw_fail			1	possible_harness_or_environment_failure	pluggy	\bFAILED\b,assert .* ==,assert .* is 	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account1/cookiecutter_1f/run_0001/0001-1
+account2	httpie_1f	pytest_raw_fail			1	possible_harness_or_environment_failure	pluggy	AssertionError,\bFAILED\b,assert .* ==,assert .* is 	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account2/httpie_1f/run_0001/0001-1
+account3	tornado_4f	pytest_raw_fail			1	possible_harness_or_environment_failure	pluggy	\bFAILED\b,assert .* ==,assert .* is ,TypeError	/home/jpaiva/projetos/bugsinpy_gpt55/out/_REAL_SMOKE_GPT55_BUGSINPY_3ACCOUNTS_20260620_150438/account3/tornado_4f/run_0001/0001-1

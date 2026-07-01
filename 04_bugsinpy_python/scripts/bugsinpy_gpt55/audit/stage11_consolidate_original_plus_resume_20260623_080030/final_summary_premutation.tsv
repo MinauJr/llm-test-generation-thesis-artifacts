@@ -1,0 +1,14 @@
+metric	value
+expected_slots	80
+consolidated_slots	80
+errors	0
+source_original	68
+source_resume	12
+mutation_reprocess_no_tokens	5
+line_mean_penalized	32.963500
+branch_mean_penalized	30.048500
+mutation_mean_penalized	25.988265
+status_count_pytest_raw_fail	47
+status_count_ok	27
+status_count_mutation_no_checked_mutants	5
+status_count_generated_test_compile_fail	1

@@ -1,0 +1,72 @@
+9:import subprocess
+42:        p = subprocess.run(
+47:            stdout=subprocess.PIPE,
+48:            stderr=subprocess.PIPE,
+54:    except subprocess.TimeoutExpired as e:
+62:def extract_failed_test_names(log_paths: list[Path]) -> list[str]:
+96:def build_sanitized_source(source: str, failed_names: list[str]) -> tuple[str, list[str]]:
+108:    failed = set(failed_names)
+110:    skipped = []
+113:        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name in failed:
+121:            insertions.append((line_no - 1, indent + '@pytest.mark.skip(reason="sanitized: failed during raw pytest gate")'))
+122:            skipped.append(node.name)
+124:    if not skipped:
+125:        raise RuntimeError(f"could not find failed test functions in source: {failed_names}")
+130:    sanitized = "\n".join(lines)
+132:        sanitized += "\n"
+134:    if not has_pytest_import(sanitized):
+135:        sanitized = "import pytest\n" + sanitized
+137:    return sanitized, skipped
+151:    status_path = metrics_dir / "status.json"
+152:    if not status_path.exists():
+153:        print(f"ERROR: status.json not found: {status_path}", file=sys.stderr)
+156:    status = json.loads(status_path.read_text(encoding="utf-8"))
+158:    work_sut_dir = Path(status["work_sut_dir"]).resolve()
+159:    raw_test = Path(status["generated_test_file"]).resolve()
+160:    sanitized_test = raw_test.with_name("test_gpt_iaedu_sanitized.py")
+162:    failed_names = extract_failed_test_names([
+167:    status["sanitization_attempted"] = True
+168:    status["sanitized_skipped_tests"] = failed_names
+169:    status["sanitized_test_file"] = str(sanitized_test)
+170:    status["pytest_final_exit_code"] = None
+171:    status["final_pytest_passed"] = False
+173:    write_text(metrics_dir / "sanitized_skipped_tests.txt", "\n".join(failed_names) + ("\n" if failed_names else ""))
+175:    if not failed_names:
+176:        status["status"] = "sanitization_no_failed_tests_detected"
+177:        status_path.write_text(json.dumps(status, indent=2), encoding="utf-8")
+178:        print("status=sanitization_no_failed_tests_detected")
+183:        sanitized_source, skipped = build_sanitized_source(source, failed_names)
+185:        status["status"] = "sanitization_fail"
+186:        status["sanitization_error"] = f"{type(e).__name__}: {e}"
+187:        status_path.write_text(json.dumps(status, indent=2), encoding="utf-8")
+188:        print("status=sanitization_fail")
+189:        print(status["sanitization_error"])
+192:    sanitized_test.write_text(sanitized_source, encoding="utf-8")
+201:    print("[A] Compiling sanitized pytest file...")
+203:        [args.python_bin, "-m", "py_compile", str(sanitized_test)],
+207:        stdout_path=logs_dir / "sanitized_compile.stdout.log",
+208:        stderr_path=logs_dir / "sanitized_compile.stderr.log",
+211:    write_text(metrics_dir / "sanitized_compile_exit_code.txt", str(compile_rc) + "\n")
+212:    status["sanitized_compile_exit_code"] = compile_rc
+215:        status["status"] = "sanitized_compile_fail"
+216:        status_path.write_text(json.dumps(status, indent=2), encoding="utf-8")
+217:        print("status=sanitized_compile_fail")
+220:    print("[B] Running final pytest on sanitized suite...")
+228:        str(sanitized_test),
+231:    write_text(metrics_dir / "pytest_final_command.txt", " ".join(final_cmd) + "\n")
+238:        stdout_path=logs_dir / "pytest_final.stdout.log",
+239:        stderr_path=logs_dir / "pytest_final.stderr.log",
+242:    write_text(metrics_dir / "pytest_final_exit_code.txt", str(final_rc) + "\n")
+243:    status["pytest_final_exit_code"] = final_rc
+246:        status["status"] = "pytest_final_pass"
+247:        status["final_pytest_passed"] = True
+248:        status["canonical_test_file"] = str(sanitized_test)
+250:        status["status"] = "pytest_no_tests_final"
+252:        status["status"] = "pytest_final_timeout"
+254:        status["status"] = "pytest_final_fail"
+256:    status_path.write_text(json.dumps(status, indent=2), encoding="utf-8")
+258:    print(f"status={status['status']}")
+259:    print(f"sanitized_skipped_tests={','.join(skipped)}")
+260:    print(f"sanitized_compile_exit_code={compile_rc}")
+261:    print(f"pytest_final_exit_code={final_rc}")
+262:    print(f"canonical_test_file={status.get('canonical_test_file')}")

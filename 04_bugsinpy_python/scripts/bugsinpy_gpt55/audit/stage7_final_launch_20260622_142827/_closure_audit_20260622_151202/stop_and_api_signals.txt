@@ -1,0 +1,708 @@
+===== STOP / API / EMPTY OUTPUT SIGNALS =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.result.tsv:21:account3	20	matplotlib_9f	matplotlib.cbook	20	5	generated_test_compile_fail	true				/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/matplotlib_9f/run_0020/0001-1/metrics/status.json
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.result.tsv:22:account3	21	tornado_4f	tornado.escape	21	1	generation_no_output	false				/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/tornado_4f/run_0021/0001-1/metrics/status.json
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:38:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:71:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:78:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/PySnooper_3f/run_0001/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:79:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:90:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:92:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:96:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:103:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:104:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:105:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:173:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:206:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:213:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/PySnooper_3f/run_0002/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:214:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:225:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:227:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:231:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:238:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:239:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:240:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:308:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:341:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:348:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/PySnooper_3f/run_0003/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:349:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:360:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:362:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:366:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:373:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:374:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:375:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:443:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:476:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:483:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/PySnooper_3f/run_0004/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:484:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:495:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:497:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:501:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:508:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:509:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:510:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:578:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:611:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:618:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/PySnooper_3f/run_0005/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:619:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:630:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:632:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:636:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:643:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:644:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:645:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:713:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:746:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:753:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/black_2f/run_0006/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:754:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:765:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:767:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:771:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:846:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:919:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:952:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:959:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/black_2f/run_0007/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:960:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:971:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:973:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:977:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1052:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1125:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1158:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1165:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/black_2f/run_0008/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1166:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1177:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1179:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1183:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1258:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1331:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1364:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1371:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/black_2f/run_0009/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1372:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1383:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1385:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1389:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1464:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1537:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1570:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1577:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/black_2f/run_0010/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1578:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1589:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1591:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1595:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1670:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1743:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1776:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1783:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/cookiecutter_3f/run_0011/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1784:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1795:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1797:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1801:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1808:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1809:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1810:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1878:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1911:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1918:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/cookiecutter_3f/run_0012/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1919:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1930:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1932:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1936:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1943:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1944:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:1945:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2013:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2046:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2053:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/cookiecutter_3f/run_0013/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2054:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2065:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2067:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2071:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2146:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2219:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2252:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2259:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/cookiecutter_3f/run_0014/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2260:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2271:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2273:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2277:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2352:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2425:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2458:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2465:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/cookiecutter_3f/run_0015/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2466:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2477:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2479:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2483:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2490:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2491:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2492:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2560:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2593:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2600:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/matplotlib_16f/run_0016/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2601:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2612:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2614:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2618:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2625:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2626:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2627:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2695:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2728:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2735:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/matplotlib_16f/run_0017/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2736:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2747:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2749:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2753:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2760:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2761:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2762:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2830:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2863:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2870:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/matplotlib_16f/run_0018/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2871:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2882:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2884:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2888:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2895:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2896:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2897:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2965:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:2998:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3005:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/matplotlib_16f/run_0019/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3006:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3017:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3019:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3023:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3030:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3031:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3032:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3100:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3133:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3140:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/matplotlib_16f/run_0020/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3141:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3152:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3154:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3158:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3165:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3166:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3167:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3235:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3268:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3269:  attempt 2/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3270:  attempt 3/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3272:DONE status=generation_no_output
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3274:attempts=3 empty_attempts=3
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3280:CURRENT_STATUS=generation_no_output
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3281:WARN: expected generation_ready before validation, got: generation_no_output
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3289:STATUS_COUNTS={"generation_no_output": 1, "ok": 7, "pytest_raw_fail": 13}
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3303:slot_status=generation_no_output
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.screen.log:3310:STOP_REASON=generation_no_output
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.sh:20:STOP_REASON=""
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.sh:93:      STOP_REASON="missing_status_json"
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.sh:94:      echo "STOP_REASON=$STOP_REASON"
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.sh:139:      generation_no_output|generation_no_output_account_blocked|generation_api_quota_exhausted|generation_api_auth_error|generation_api_rate_limited|generation_api_error|timeout)
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.sh:140:        STOP_REASON="$STATUS"
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.sh:141:        echo "STOP_REASON=$STOP_REASON"
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.sh:148:      STOP_REASON="generation_output_empty"
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.sh:149:      echo "STOP_REASON=$STOP_REASON"
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:38:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:71:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:78:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/ansible_14f/run_0001/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:79:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:90:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:92:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:96:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:171:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:244:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:277:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:284:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/ansible_14f/run_0002/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:285:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:296:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:298:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:302:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:309:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:310:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:311:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:379:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:412:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:419:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/ansible_14f/run_0003/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:420:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:431:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:433:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:437:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:547:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:620:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:653:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:660:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/ansible_14f/run_0004/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:661:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:672:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:674:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:678:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:685:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:686:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:687:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:755:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:788:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:795:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/ansible_14f/run_0005/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:796:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:807:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:809:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:813:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:820:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:821:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:822:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:890:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:923:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:930:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/black_5f/run_0006/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:931:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:942:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:944:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:948:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1029:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1102:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1135:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1142:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/black_5f/run_0007/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1143:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1154:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1156:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1160:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1167:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1168:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1169:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1237:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1270:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1277:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/black_5f/run_0008/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1278:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1289:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1291:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1295:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1376:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1449:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1482:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1489:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/black_5f/run_0009/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1490:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1501:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1503:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1507:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1514:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1515:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1516:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1584:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1617:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1624:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/black_5f/run_0010/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1625:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1636:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1638:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1642:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1649:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1650:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1651:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1719:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1752:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1759:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/httpie_1f/run_0011/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1760:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1771:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1773:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1777:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1784:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1785:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1786:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1854:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1887:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1894:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/httpie_1f/run_0012/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1895:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1906:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1908:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1912:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1919:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1920:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1921:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:1989:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2022:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2029:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/httpie_1f/run_0013/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2030:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2041:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2043:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2047:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2054:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2055:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2056:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2124:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2157:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2164:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/httpie_1f/run_0014/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2165:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2176:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2178:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2182:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2189:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2190:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2191:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2259:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2292:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2299:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/httpie_1f/run_0015/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2300:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2311:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2313:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2317:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2324:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2325:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2326:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2394:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2427:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2434:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/matplotlib_9f/run_0016/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2435:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2446:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2448:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2452:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2459:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2460:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2461:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2529:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2562:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2569:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/matplotlib_9f/run_0017/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2570:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2581:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2583:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2587:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2594:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2595:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2596:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2664:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2697:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2704:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/matplotlib_9f/run_0018/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2705:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2716:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2718:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2722:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2729:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2730:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2731:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2799:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2832:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2839:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/matplotlib_9f/run_0019/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2840:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2851:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2853:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2857:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2864:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2865:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2866:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2934:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2967:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2974:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/matplotlib_9f/run_0020/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2975:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2986:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2988:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2989:status=generated_test_compile_fail
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2991:STATUS_AFTER_RAW=generated_test_compile_fail
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:2993:FINAL_STATUS=generated_test_compile_fail
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:3000:STATUS_COUNTS={"generated_test_compile_fail": 1, "ok": 4, "pytest_raw_fail": 15}
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:3014:slot_status=generated_test_compile_fail
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:3058:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:3091:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:3092:  attempt 2/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:3093:  attempt 3/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:3095:DONE status=generation_no_output
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:3097:attempts=3 empty_attempts=3
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:3103:CURRENT_STATUS=generation_no_output
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:3104:WARN: expected generation_ready before validation, got: generation_no_output
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:3112:STATUS_COUNTS={"generated_test_compile_fail": 1, "generation_no_output": 1, "ok": 4, "pytest_raw_fail": 15}
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:3126:slot_status=generation_no_output
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.screen.log:3133:STOP_REASON=generation_no_output
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/_closure_audit_20260622_151202/account_status_counts.tsv:2:account1	generation_no_output	1
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/_closure_audit_20260622_151202/account_status_counts.tsv:6:account2	generation_no_output	1
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/_closure_audit_20260622_151202/account_status_counts.tsv:9:account3	generated_test_compile_fail	1
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/_closure_audit_20260622_151202/account_status_counts.tsv:10:account3	generation_no_output	1
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/_closure_audit_20260622_151202/account3.result.tsv:21:account3	20	matplotlib_9f	matplotlib.cbook	20	5	generated_test_compile_fail	true				/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/matplotlib_9f/run_0020/0001-1/metrics/status.json
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/_closure_audit_20260622_151202/account3.result.tsv:22:account3	21	tornado_4f	tornado.escape	21	1	generation_no_output	false				/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/tornado_4f/run_0021/0001-1/metrics/status.json
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/_closure_audit_20260622_151202/status_counts.tsv:5:generation_no_output	3
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/_closure_audit_20260622_151202/status_counts.tsv:6:generated_test_compile_fail	1
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/_closure_audit_20260622_151202/account1.result.tsv:30:account1	29	youtube-dl_35f	youtube_dl.utils	29	4	generation_no_output	false				/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/youtube-dl_35f/run_0029/0001-1/metrics/status.json
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/_closure_audit_20260622_151202/final_quick_summary.tsv:7:generation_no_output_count	3
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/_closure_audit_20260622_151202/sut_summary.tsv:1:account	sut_id	target_module	status_files	ok	pytest_raw_fail	generation_no_output	mutation_no_checked_mutants	line_mean_penalized	branch_mean_penalized	mutation_mean_penalized
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/_closure_audit_20260622_151202/all_status_inventory.tsv:1:account	sut_id	target_module	run_id	rep	status	generation_output_nonempty	generation_attempts	generation_empty_attempts	pytest_raw_exit_code	coverage_exit_code	mutmut_exit_code	mutmut_results_exit_code	line_pct	branch_pct	mutation_score_pct	mutation_available	status_json	run_dir	error
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/_closure_audit_20260622_151202/all_status_inventory.tsv:30:account1	youtube-dl_35f	youtube_dl.utils	29		generation_no_output	false	3	3									/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/youtube-dl_35f/run_0029/0001-1/metrics/status.json	/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/youtube-dl_35f/run_0029/0001-1	
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/_closure_audit_20260622_151202/all_status_inventory.tsv:51:account2	tornado_14f	tornado.escape	21		generation_no_output	false	3	3									/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/tornado_14f/run_0021/0001-1/metrics/status.json	/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/tornado_14f/run_0021/0001-1	
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/_closure_audit_20260622_151202/all_status_inventory.tsv:71:account3	matplotlib_9f	matplotlib.cbook	20		generated_test_compile_fail	true	1										/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/matplotlib_9f/run_0020/0001-1/metrics/status.json	/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/matplotlib_9f/run_0020/0001-1	
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/_closure_audit_20260622_151202/all_status_inventory.tsv:72:account3	tornado_4f	tornado.escape	21		generation_no_output	false	3	3									/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/tornado_4f/run_0021/0001-1/metrics/status.json	/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/tornado_4f/run_0021/0001-1	
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/_closure_audit_20260622_151202/account2.result.tsv:22:account2	21	tornado_14f	tornado.escape	21	1	generation_no_output	false				/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/tornado_14f/run_0021/0001-1/metrics/status.json
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account2.result.tsv:22:account2	21	tornado_14f	tornado.escape	21	1	generation_no_output	false				/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/tornado_14f/run_0021/0001-1/metrics/status.json
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:38:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:71:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:78:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/PySnooper_2f/run_0001/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:79:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:90:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:92:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:96:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:167:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:240:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:273:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:280:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/PySnooper_2f/run_0002/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:281:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:292:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:294:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:298:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:372:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:445:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:478:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:485:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/PySnooper_2f/run_0003/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:486:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:497:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:499:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:503:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:575:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:648:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:681:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:688:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/PySnooper_2f/run_0004/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:689:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:700:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:702:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:706:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:780:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:853:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:886:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:893:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/PySnooper_2f/run_0005/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:894:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:905:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:907:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:911:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:983:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1056:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1089:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1096:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/ansible_17f/run_0006/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1097:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1108:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1110:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1114:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1224:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1297:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1330:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1337:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/ansible_17f/run_0007/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1338:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1349:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1351:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1355:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1362:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1363:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1364:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1432:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1465:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1472:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/ansible_17f/run_0008/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1473:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1484:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1486:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1490:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1497:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1498:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1499:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1567:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1600:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1607:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/ansible_17f/run_0009/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1608:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1619:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1621:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1625:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1632:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1633:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1634:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1702:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1735:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1742:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/ansible_17f/run_0010/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1743:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1754:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1756:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1760:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1767:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1768:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1769:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1837:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1870:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1877:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/cookiecutter_1f/run_0011/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1878:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1889:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1891:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1895:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:1970:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2043:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2076:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2083:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/cookiecutter_1f/run_0012/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2084:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2095:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2097:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2101:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2176:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2249:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2282:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2289:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/cookiecutter_1f/run_0013/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2290:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2301:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2303:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2307:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2382:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2455:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2488:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2495:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/cookiecutter_1f/run_0014/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2496:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2507:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2509:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2513:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2520:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2521:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2522:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2590:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2623:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2630:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/cookiecutter_1f/run_0015/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2631:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2642:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2644:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2648:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2723:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2796:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2829:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2836:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/httpie_2f/run_0016/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2837:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2848:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2850:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2854:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2861:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2862:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2863:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2931:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2964:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2971:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/httpie_2f/run_0017/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2972:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2983:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2985:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2989:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2996:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2997:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:2998:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3066:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3099:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3106:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/httpie_2f/run_0018/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3107:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3118:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3120:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3124:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3131:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3132:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3133:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3201:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3234:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3241:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/httpie_2f/run_0019/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3242:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3253:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3255:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3259:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3266:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3267:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3268:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3336:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3369:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3376:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/httpie_2f/run_0020/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3377:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3388:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3390:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3394:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3401:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3402:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3403:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3471:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3504:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3511:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/thefuck_25f/run_0021/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3512:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3523:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3525:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3529:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3604:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3677:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3710:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3717:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/thefuck_25f/run_0022/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3718:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3729:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3731:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3735:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3810:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3883:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3916:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3923:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/thefuck_25f/run_0023/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3924:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3935:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3937:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:3941:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4016:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4089:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4122:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4129:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/thefuck_25f/run_0024/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4130:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4141:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4143:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4147:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4222:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4295:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4328:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4335:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/thefuck_25f/run_0025/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4336:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4347:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4349:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4353:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4428:generation_empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4501:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4534:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4541:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/youtube-dl_35f/run_0026/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4542:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4553:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4555:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4559:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4566:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4567:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4568:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4636:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4669:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4676:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/youtube-dl_35f/run_0027/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4677:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4688:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4690:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4694:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4701:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4702:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4703:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4771:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4804:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4811:generated_test_file=/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/youtube-dl_35f/run_0028/0001-1/work/tests/test_gpt_iaedu.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4812:attempts=1 empty_attempts=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4823:===== STEP A0 — normalize generated pytest file =====
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4825:[A] Compiling generated pytest file...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4829:generated_test_compile_exit_code=0
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4836:Raw generated tests failed.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4837:No generated test will be removed, skipped, disabled or semantically rewritten.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4838:The original generated test and pytest logs remain preserved.
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4906:RAW_VALIDATOR=/home/jpaiva/projetos/bugsinpy_gpt55/tools/validate_bugsinpy_generated_pytest.py
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4939:  attempt 1/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4940:  attempt 2/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4941:  attempt 3/3...
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4943:DONE status=generation_no_output
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4945:attempts=3 empty_attempts=3
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4951:CURRENT_STATUS=generation_no_output
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4952:WARN: expected generation_ready before validation, got: generation_no_output
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4960:STATUS_COUNTS={"generation_no_output": 1, "mutation_no_checked_mutants": 5, "ok": 10, "pytest_raw_fail": 13}
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4974:slot_status=generation_no_output
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.screen.log:4981:STOP_REASON=generation_no_output
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.sh:20:STOP_REASON=""
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.sh:93:      STOP_REASON="missing_status_json"
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.sh:94:      echo "STOP_REASON=$STOP_REASON"
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.sh:139:      generation_no_output|generation_no_output_account_blocked|generation_api_quota_exhausted|generation_api_auth_error|generation_api_rate_limited|generation_api_error|timeout)
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.sh:140:        STOP_REASON="$STATUS"
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.sh:141:        echo "STOP_REASON=$STOP_REASON"
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.sh:148:      STOP_REASON="generation_output_empty"
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account3.sh:149:      echo "STOP_REASON=$STOP_REASON"
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.sh:20:STOP_REASON=""
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.sh:93:      STOP_REASON="missing_status_json"
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.sh:94:      echo "STOP_REASON=$STOP_REASON"
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.sh:139:      generation_no_output|generation_no_output_account_blocked|generation_api_quota_exhausted|generation_api_auth_error|generation_api_rate_limited|generation_api_error|timeout)
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.sh:140:        STOP_REASON="$STATUS"
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.sh:141:        echo "STOP_REASON=$STOP_REASON"
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.sh:148:      STOP_REASON="generation_output_empty"
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.sh:149:      echo "STOP_REASON=$STOP_REASON"
+/home/jpaiva/projetos/bugsinpy_gpt55/audit/stage7_final_launch_20260622_142827/run_final_account1.result.tsv:30:account1	29	youtube-dl_35f	youtube_dl.utils	29	4	generation_no_output	false				/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/youtube-dl_35f/run_0029/0001-1/metrics/status.json

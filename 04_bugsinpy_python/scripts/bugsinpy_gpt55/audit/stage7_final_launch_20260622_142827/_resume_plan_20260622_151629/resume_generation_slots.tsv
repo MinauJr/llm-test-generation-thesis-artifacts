@@ -1,0 +1,13 @@
+account	planned_run_id	sut_id	target_module	planned_rep	resume_reason	old_status	old_status_json	old_run_dir
+account1	29	youtube-dl_35f	youtube_dl.utils	4	generation_empty_or_api_stop	generation_no_output	/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/youtube-dl_35f/run_0029/0001-1/metrics/status.json	/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account1/youtube-dl_35f/run_0029/0001-1
+account1	30	youtube-dl_35f	youtube_dl.utils	5	missing_run_id			
+account2	21	tornado_14f	tornado.escape	1	generation_empty_or_api_stop	generation_no_output	/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/tornado_14f/run_0021/0001-1/metrics/status.json	/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account2/tornado_14f/run_0021/0001-1
+account2	22	tornado_14f	tornado.escape	2	missing_run_id			
+account2	23	tornado_14f	tornado.escape	3	missing_run_id			
+account2	24	tornado_14f	tornado.escape	4	missing_run_id			
+account2	25	tornado_14f	tornado.escape	5	missing_run_id			
+account3	21	tornado_4f	tornado.escape	1	generation_empty_or_api_stop	generation_no_output	/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/tornado_4f/run_0021/0001-1/metrics/status.json	/home/jpaiva/projetos/bugsinpy_gpt55/out/_FINAL_GPT55_BUGSINPY_16SUTS_5REPS_3ACCOUNTS_20260622_142827/account3/tornado_4f/run_0021/0001-1
+account3	22	tornado_4f	tornado.escape	2	missing_run_id			
+account3	23	tornado_4f	tornado.escape	3	missing_run_id			
+account3	24	tornado_4f	tornado.escape	4	missing_run_id			
+account3	25	tornado_4f	tornado.escape	5	missing_run_id			
