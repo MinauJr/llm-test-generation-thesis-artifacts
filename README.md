@@ -58,3 +58,13 @@ Cleaned artefacts for the QuixBugs Java dataset, organised into:
 - `results/`
 
 Raw generated tests, repeated model outputs, logs, figures, backups, Python SUTs and build artefacts are intentionally omitted.
+
+## 07_defects4j_java
+
+Cleaned artefacts for the Defects4J Java dataset, organised into:
+
+- `suts_metadata/`
+- `scripts/`
+- `results/`
+
+Raw generated tests, repeated model outputs, full Defects4J project sources, logs, figures, backups and build artefacts are intentionally omitted.

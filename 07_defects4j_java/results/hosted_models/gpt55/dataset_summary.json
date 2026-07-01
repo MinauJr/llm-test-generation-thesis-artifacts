@@ -1,0 +1,10 @@
+{
+  "repetitions": 85,
+  "by_final_status": {
+    "ok": 83,
+    "generation_failure": 2
+  },
+  "line_pct_penalized_mean": 90.40331828235294,
+  "branch_pct_penalized_mean": 68.34558823529412,
+  "pit_score_pct_penalized_mean": 89.36500016470588
+}

@@ -1,0 +1,107 @@
+{
+  "sut_id": "JacksonXml_5f",
+  "targets": [
+    {
+      "class": "com.fasterxml.jackson.dataformat.xml.ser.XmlSerializerProvider",
+      "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonXml_5f/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java",
+      "methods": [
+        {
+          "name": "XmlSerializerProvider",
+          "kind": "method",
+          "line": 39,
+          "extra": "public XmlSerializerProvider(XmlRootNameLookup rootNames)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonXml_5f/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java"
+        },
+        {
+          "name": "XmlSerializerProvider",
+          "kind": "method",
+          "line": 45,
+          "extra": "public XmlSerializerProvider(XmlSerializerProvider src,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonXml_5f/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java"
+        },
+        {
+          "name": "XmlSerializerProvider",
+          "kind": "method",
+          "line": 55,
+          "extra": "protected XmlSerializerProvider(XmlSerializerProvider src) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonXml_5f/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java"
+        },
+        {
+          "name": "_asXmlGenerator",
+          "kind": "method",
+          "line": 219,
+          "extra": "protected ToXmlGenerator _asXmlGenerator(JsonGenerator gen)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonXml_5f/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java"
+        },
+        {
+          "name": "_initWithRootName",
+          "kind": "method",
+          "line": 179,
+          "extra": "protected void _initWithRootName(ToXmlGenerator xgen, QName rootName) throws IOException",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonXml_5f/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java"
+        },
+        {
+          "name": "_rootNameFromConfig",
+          "kind": "method",
+          "line": 206,
+          "extra": "protected QName _rootNameFromConfig()",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonXml_5f/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java"
+        },
+        {
+          "name": "_serializeXmlNull",
+          "kind": "method",
+          "line": 158,
+          "extra": "protected void _serializeXmlNull(JsonGenerator jgen) throws IOException",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonXml_5f/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java"
+        },
+        {
+          "name": "_startRootArray",
+          "kind": "method",
+          "line": 172,
+          "extra": "protected void _startRootArray(ToXmlGenerator xgen, QName rootName) throws IOException",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonXml_5f/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java"
+        },
+        {
+          "name": "_wrapAsIOE",
+          "kind": "method",
+          "line": 234,
+          "extra": "protected IOException _wrapAsIOE(JsonGenerator g, Exception e) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonXml_5f/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java"
+        },
+        {
+          "name": "copy",
+          "kind": "method",
+          "line": 69,
+          "extra": "public DefaultSerializerProvider copy() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonXml_5f/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java"
+        },
+        {
+          "name": "createInstance",
+          "kind": "method",
+          "line": 74,
+          "extra": "public DefaultSerializerProvider createInstance(SerializationConfig config,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonXml_5f/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java"
+        },
+        {
+          "name": "serializeValue",
+          "kind": "method",
+          "line": 81,
+          "extra": "public void serializeValue(JsonGenerator gen, Object value) throws IOException",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonXml_5f/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java"
+        },
+        {
+          "name": "serializeValue",
+          "kind": "method",
+          "line": 121,
+          "extra": "public void serializeValue(JsonGenerator gen, Object value, JavaType rootType,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonXml_5f/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java"
+        }
+      ],
+      "kind_counts": {
+        "method": 13
+      },
+      "error": ""
+    }
+  ],
+  "total_methods": 13
+}

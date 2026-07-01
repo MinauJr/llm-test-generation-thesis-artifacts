@@ -1,0 +1,212 @@
+{
+  "sut_id": "Time_24f",
+  "targets": [
+    {
+      "class": "org.joda.time.format.DateTimeParserBucket",
+      "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java",
+      "methods": [
+        {
+          "name": "DateTimeParserBucket",
+          "kind": "method",
+          "line": 86,
+          "extra": "public DateTimeParserBucket(long instantLocal, Chronology chrono, Locale locale) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "DateTimeParserBucket",
+          "kind": "method",
+          "line": 102,
+          "extra": "public DateTimeParserBucket(long instantLocal, Chronology chrono, Locale locale, Integer pivotYear) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "DateTimeParserBucket",
+          "kind": "method",
+          "line": 116,
+          "extra": "public DateTimeParserBucket(long instantLocal, Chronology chrono,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "SavedField",
+          "kind": "method",
+          "line": 455,
+          "extra": "SavedField(DateTimeField field, int value) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "SavedField",
+          "kind": "method",
+          "line": 462,
+          "extra": "SavedField(DateTimeField field, String text, Locale locale) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "SavedState",
+          "kind": "method",
+          "line": 423,
+          "extra": "SavedState() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "compareReverse",
+          "kind": "method",
+          "line": 498,
+          "extra": "static int compareReverse(DurationField a, DurationField b) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "compareTo",
+          "kind": "method",
+          "line": 486,
+          "extra": "public int compareTo(SavedField obj) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "computeMillis",
+          "kind": "method",
+          "line": 305,
+          "extra": "public long computeMillis() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "computeMillis",
+          "kind": "method",
+          "line": 317,
+          "extra": "public long computeMillis(boolean resetFields) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "computeMillis",
+          "kind": "method",
+          "line": 331,
+          "extra": "public long computeMillis(boolean resetFields, String text) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "getChronology",
+          "kind": "method",
+          "line": 132,
+          "extra": "public Chronology getChronology() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "getLocale",
+          "kind": "method",
+          "line": 142,
+          "extra": "public Locale getLocale() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "getOffset",
+          "kind": "method",
+          "line": 172,
+          "extra": "public int getOffset() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "getPivotYear",
+          "kind": "method",
+          "line": 199,
+          "extra": "public Integer getPivotYear() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "getZone",
+          "kind": "method",
+          "line": 151,
+          "extra": "public DateTimeZone getZone() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "restoreState",
+          "kind": "method",
+          "line": 288,
+          "extra": "public boolean restoreState(Object savedState) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "restoreState",
+          "kind": "method",
+          "line": 430,
+          "extra": "boolean restoreState(DateTimeParserBucket enclosing) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "saveField",
+          "kind": "method",
+          "line": 223,
+          "extra": "public void saveField(DateTimeField field, int value) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "saveField",
+          "kind": "method",
+          "line": 233,
+          "extra": "public void saveField(DateTimeFieldType fieldType, int value) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "saveField",
+          "kind": "method",
+          "line": 244,
+          "extra": "public void saveField(DateTimeFieldType fieldType, String text, Locale locale) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "saveField",
+          "kind": "method",
+          "line": 248,
+          "extra": "private void saveField(SavedField field) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "saveState",
+          "kind": "method",
+          "line": 273,
+          "extra": "public Object saveState() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "set",
+          "kind": "method",
+          "line": 469,
+          "extra": "long set(long millis, boolean reset) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "setOffset",
+          "kind": "method",
+          "line": 180,
+          "extra": "public void setOffset(int offset) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "setPivotYear",
+          "kind": "method",
+          "line": 212,
+          "extra": "public void setPivotYear(Integer pivotYear) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "setZone",
+          "kind": "method",
+          "line": 161,
+          "extra": "public void setZone(DateTimeZone zone) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        },
+        {
+          "name": "sort",
+          "kind": "method",
+          "line": 403,
+          "extra": "private static void sort(SavedField[] array, int high) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Time_24f/src/main/java/org/joda/time/format/DateTimeParserBucket.java"
+        }
+      ],
+      "kind_counts": {
+        "method": 28
+      },
+      "error": ""
+    }
+  ],
+  "total_methods": 28
+}

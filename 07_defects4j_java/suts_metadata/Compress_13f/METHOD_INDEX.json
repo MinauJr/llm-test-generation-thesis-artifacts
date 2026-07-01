@@ -1,0 +1,317 @@
+{
+  "sut_id": "Compress_13f",
+  "targets": [
+    {
+      "class": "org.apache.commons.compress.archivers.zip.ZipArchiveEntry",
+      "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java",
+      "methods": [
+        {
+          "name": "ZipArchiveEntry",
+          "kind": "method",
+          "line": 96,
+          "extra": "public ZipArchiveEntry(String name) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "ZipArchiveEntry",
+          "kind": "method",
+          "line": 110,
+          "extra": "public ZipArchiveEntry(java.util.zip.ZipEntry entry) throws ZipException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "ZipArchiveEntry",
+          "kind": "method",
+          "line": 135,
+          "extra": "public ZipArchiveEntry(ZipArchiveEntry entry) throws ZipException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "ZipArchiveEntry",
+          "kind": "method",
+          "line": 144,
+          "extra": "protected ZipArchiveEntry() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "ZipArchiveEntry",
+          "kind": "method",
+          "line": 157,
+          "extra": "public ZipArchiveEntry(File inputFile, String entryName) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "addAsFirstExtraField",
+          "kind": "method",
+          "line": 361,
+          "extra": "public void addAsFirstExtraField(ZipExtraField ze) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "addExtraField",
+          "kind": "method",
+          "line": 342,
+          "extra": "public void addExtraField(ZipExtraField ze) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "clone",
+          "kind": "method",
+          "line": 172,
+          "extra": "public Object clone() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "equals",
+          "kind": "method",
+          "line": 649,
+          "extra": "public boolean equals(Object obj) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "getCentralDirectoryExtra",
+          "kind": "method",
+          "line": 485,
+          "extra": "public byte[] getCentralDirectoryExtra() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "getExternalAttributes",
+          "kind": "method",
+          "line": 231,
+          "extra": "public long getExternalAttributes() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "getExtraField",
+          "kind": "method",
+          "line": 408,
+          "extra": "public ZipExtraField getExtraField(ZipShort type) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "getExtraFields",
+          "kind": "method",
+          "line": 307,
+          "extra": "public ZipExtraField[] getExtraFields() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "getExtraFields",
+          "kind": "method",
+          "line": 320,
+          "extra": "public ZipExtraField[] getExtraFields(boolean includeUnparseable) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "getGeneralPurposeBit",
+          "kind": "method",
+          "line": 592,
+          "extra": "public GeneralPurposeBit getGeneralPurposeBit() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "getInternalAttributes",
+          "kind": "method",
+          "line": 215,
+          "extra": "public int getInternalAttributes() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "getLastModifiedDate",
+          "kind": "method",
+          "line": 641,
+          "extra": "public Date getLastModifiedDate() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "getLocalFileDataExtra",
+          "kind": "method",
+          "line": 476,
+          "extra": "public byte[] getLocalFileDataExtra() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "getMethod",
+          "kind": "method",
+          "line": 190,
+          "extra": "public int getMethod() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "getName",
+          "kind": "method",
+          "line": 494,
+          "extra": "public String getName() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "getPlatform",
+          "kind": "method",
+          "line": 275,
+          "extra": "public int getPlatform() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "getRawName",
+          "kind": "method",
+          "line": 565,
+          "extra": "public byte[] getRawName() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "getSize",
+          "kind": "method",
+          "line": 524,
+          "extra": "public long getSize() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "getUnixMode",
+          "kind": "method",
+          "line": 263,
+          "extra": "public int getUnixMode() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "getUnparseableExtraFieldData",
+          "kind": "method",
+          "line": 422,
+          "extra": "public UnparseableExtraFieldData getUnparseableExtraFieldData() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "hashCode",
+          "kind": "method",
+          "line": 580,
+          "extra": "public int hashCode() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "isDirectory",
+          "kind": "method",
+          "line": 503,
+          "extra": "public boolean isDirectory() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "mergeExtraFields",
+          "kind": "method",
+          "line": 612,
+          "extra": "private void mergeExtraFields(ZipExtraField[] f, boolean local)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "removeExtraField",
+          "kind": "method",
+          "line": 380,
+          "extra": "public void removeExtraField(ZipShort type) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "removeUnparseableExtraFieldData",
+          "kind": "method",
+          "line": 395,
+          "extra": "public void removeUnparseableExtraFieldData() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "setCentralDirectoryExtra",
+          "kind": "method",
+          "line": 461,
+          "extra": "public void setCentralDirectoryExtra(byte[] b) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "setExternalAttributes",
+          "kind": "method",
+          "line": 239,
+          "extra": "public void setExternalAttributes(long value) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "setExtra",
+          "kind": "method",
+          "line": 435,
+          "extra": "public void setExtra(byte[] extra) throws RuntimeException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "setExtra",
+          "kind": "method",
+          "line": 454,
+          "extra": "protected void setExtra() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "setExtraFields",
+          "kind": "method",
+          "line": 291,
+          "extra": "public void setExtraFields(ZipExtraField[] fields) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "setGeneralPurposeBit",
+          "kind": "method",
+          "line": 600,
+          "extra": "public void setGeneralPurposeBit(GeneralPurposeBit b) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "setInternalAttributes",
+          "kind": "method",
+          "line": 223,
+          "extra": "public void setInternalAttributes(int value) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "setMethod",
+          "kind": "method",
+          "line": 202,
+          "extra": "public void setMethod(int method) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "setName",
+          "kind": "method",
+          "line": 511,
+          "extra": "protected void setName(String name) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "setName",
+          "kind": "method",
+          "line": 551,
+          "extra": "protected void setName(String name, byte[] rawName) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "setPlatform",
+          "kind": "method",
+          "line": 283,
+          "extra": "protected void setPlatform(int platform) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "setSize",
+          "kind": "method",
+          "line": 535,
+          "extra": "public void setSize(long size) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        },
+        {
+          "name": "setUnixMode",
+          "kind": "method",
+          "line": 248,
+          "extra": "public void setUnixMode(int mode) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Compress_13f/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java"
+        }
+      ],
+      "kind_counts": {
+        "method": 43
+      },
+      "error": ""
+    }
+  ],
+  "total_methods": 43
+}

@@ -1,0 +1,925 @@
+You are generating a single Java JUnit 4 test class for a real Defects4J project.
+
+STRICT OUTPUT RULES
+- Output ONLY raw Java source code.
+- Do NOT use markdown fences.
+- Do NOT include explanations.
+- Do NOT include prose before or after the Java file.
+- Produce exactly one public test class.
+- Use package {{TEST_PACKAGE}};
+- The class name must be {{TEST_CLASS_NAME}}.
+- Use JUnit 4 style imports and annotations.
+- For exception tests, use the safest JUnit 4 pattern supported by the current project.
+- Do NOT assume that assertThrows is available unless it is clearly supported by the project classpath.
+- When in doubt, prefer JUnit 4 @Test(expected = ExceptionType.class) for simple exception-only checks.
+- If checking exception messages and assertThrows is not clearly supported, use a JUnit 4 try/catch pattern with fail(...) and assertEquals(...).
+- Do not use JUnit 5.
+- Do not invent helper classes, extra files, or external resources.
+- Do not use mocking libraries unless they are already clearly available in the provided project context.
+- Do not assume APIs, constructors, methods, fields, or constants that are not visible in the supplied context.
+- Prefer a small number of safe, compilable tests over many fragile tests.
+- Avoid filesystem, network, time-sensitive, locale-sensitive, environment-sensitive, or random-dependent behaviour unless clearly required and safely controllable.
+- Avoid infinite loops, heavy workloads, or large generated fixtures.
+- If a method/constructor visibility is unclear, do not rely on it.
+- Keep imports minimal and plausible.
+- Do not add comments unless essential.
+
+GOAL
+Generate tests that are as likely as possible to compile and run inside the real project classpath.
+FEW-SHOT STYLE GUIDANCE
+The following examples are external, manually created demonstrations.
+Use them only as style guidance for test structure, assertions, determinism, and edge-case coverage.
+Do not test these examples.
+Do not copy their names, values, or code into the final answer.
+Generate tests only for the current System Under Test.
+The current target class source, related context, package, class name, imports, and project classpath override any pattern shown in the external examples.
+Do not copy imports, package declarations, class names, exception-testing idioms, helper structure, or values from the external examples unless they are valid for the current Defects4J project.
+
+EXTERNAL FEW-SHOT EXAMPLES — Group 4: Java project-level
+
+These examples are external demonstrations only.
+They were manually created and are not part of any evaluated dataset.
+They must not be tested directly.
+Do not copy their class names, method names, package names, values, or test names into the final answer.
+Use them only to learn the expected JUnit style, assertion style, deterministic structure, exception testing, and edge-case coverage.
+
+Intended reuse: SF110, Defects4J
+
+EXAMPLE 1 — example_01_ticket_workflow — External production code
+<external_sut_java>
+
+// File: src/main/java/example/SupportTicket.java
+package example;
+
+public class SupportTicket {
+    public static final String OPEN = "OPEN";
+    public static final String IN_PROGRESS = "IN_PROGRESS";
+    public static final String WAITING_CUSTOMER = "WAITING_CUSTOMER";
+    public static final String RESOLVED = "RESOLVED";
+
+    private final String title;
+    private final int priority;
+    private String status;
+    private int publicReplies;
+    private int internalNotes;
+
+    public SupportTicket(String title, int priority) {
+        String cleanedTitle = title == null ? "" : title.trim();
+
+        if (cleanedTitle.isEmpty()) {
+            throw new IllegalArgumentException("title is required");
+        }
+
+        if (priority < 1 || priority > 5) {
+            throw new IllegalArgumentException("priority must be between 1 and 5");
+        }
+
+        this.title = cleanedTitle;
+        this.priority = priority;
+        this.status = OPEN;
+        this.publicReplies = 0;
+        this.internalNotes = 0;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public int getPublicReplies() {
+        return publicReplies;
+    }
+
+    public int getInternalNotes() {
+        return internalNotes;
+    }
+
+    void setStatus(String status) {
+        this.status = status;
+    }
+
+    void incrementPublicReplies() {
+        publicReplies++;
+    }
+
+    void incrementInternalNotes() {
+        internalNotes++;
+    }
+}
+
+// File: src/main/java/example/TicketWorkflow.java
+package example;
+
+public class TicketWorkflow {
+    public void assign(SupportTicket ticket) {
+        requireTicket(ticket);
+
+        if (!SupportTicket.OPEN.equals(ticket.getStatus())) {
+            throw new IllegalStateException("only open tickets can be assigned");
+        }
+
+        ticket.setStatus(SupportTicket.IN_PROGRESS);
+    }
+
+    public void requestCustomerInformation(SupportTicket ticket, String publicMessage) {
+        requireTicket(ticket);
+        requireMessage(publicMessage);
+
+        if (!SupportTicket.IN_PROGRESS.equals(ticket.getStatus())) {
+            throw new IllegalStateException("ticket must be in progress");
+        }
+
+        ticket.incrementPublicReplies();
+        ticket.setStatus(SupportTicket.WAITING_CUSTOMER);
+    }
+
+    public void receiveCustomerReply(SupportTicket ticket, String reply) {
+        requireTicket(ticket);
+        requireMessage(reply);
+
+        if (!SupportTicket.WAITING_CUSTOMER.equals(ticket.getStatus())) {
+            throw new IllegalStateException("ticket is not waiting for customer");
+        }
+
+        ticket.incrementPublicReplies();
+        ticket.setStatus(SupportTicket.IN_PROGRESS);
+    }
+
+    public void addInternalNote(SupportTicket ticket, String note) {
+        requireTicket(ticket);
+        requireMessage(note);
+
+        if (SupportTicket.RESOLVED.equals(ticket.getStatus())) {
+            throw new IllegalStateException("resolved tickets cannot be changed");
+        }
+
+        ticket.incrementInternalNotes();
+    }
+
+    public void resolve(SupportTicket ticket) {
+        requireTicket(ticket);
+
+        if (!SupportTicket.IN_PROGRESS.equals(ticket.getStatus())) {
+            throw new IllegalStateException("only in-progress tickets can be resolved");
+        }
+
+        ticket.setStatus(SupportTicket.RESOLVED);
+    }
+
+    private void requireTicket(SupportTicket ticket) {
+        if (ticket == null) {
+            throw new IllegalArgumentException("ticket is required");
+        }
+    }
+
+    private void requireMessage(String message) {
+        if (message == null || message.trim().isEmpty()) {
+            throw new IllegalArgumentException("message is required");
+        }
+    }
+}
+
+</external_sut_java>
+
+EXAMPLE 1 — example_01_ticket_workflow — Good JUnit tests
+<external_tests_junit>
+
+// File: src/test/java/example/TicketWorkflowTest.java
+package example;
+
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
+
+public class TicketWorkflowTest {
+    @Test
+    public void supportTicketRequiresTitle() {
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> new SupportTicket("   ", 3)
+        );
+
+        assertEquals("title is required", exception.getMessage());
+    }
+
+    @Test
+    public void supportTicketRequiresPriorityInsideRange() {
+        IllegalArgumentException low = assertThrows(
+                IllegalArgumentException.class,
+                () -> new SupportTicket("Broken login", 0)
+        );
+
+        IllegalArgumentException high = assertThrows(
+                IllegalArgumentException.class,
+                () -> new SupportTicket("Broken login", 6)
+        );
+
+        assertEquals("priority must be between 1 and 5", low.getMessage());
+        assertEquals("priority must be between 1 and 5", high.getMessage());
+    }
+
+    @Test
+    public void supportTicketNormalisesTitleAndStartsOpen() {
+        SupportTicket ticket = new SupportTicket("  Broken login  ", 2);
+
+        assertEquals("Broken login", ticket.getTitle());
+        assertEquals(2, ticket.getPriority());
+        assertEquals(SupportTicket.OPEN, ticket.getStatus());
+        assertEquals(0, ticket.getPublicReplies());
+        assertEquals(0, ticket.getInternalNotes());
+    }
+
+    @Test
+    public void assignMovesOpenTicketToInProgress() {
+        SupportTicket ticket = new SupportTicket("Broken login", 2);
+        TicketWorkflow workflow = new TicketWorkflow();
+
+        workflow.assign(ticket);
+
+        assertEquals(SupportTicket.IN_PROGRESS, ticket.getStatus());
+    }
+
+    @Test
+    public void assignRejectsNullTicket() {
+        TicketWorkflow workflow = new TicketWorkflow();
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> workflow.assign(null)
+        );
+
+        assertEquals("ticket is required", exception.getMessage());
+    }
+
+    @Test
+    public void assignRejectsTicketThatIsNotOpen() {
+        SupportTicket ticket = new SupportTicket("Broken login", 2);
+        TicketWorkflow workflow = new TicketWorkflow();
+
+        workflow.assign(ticket);
+
+        IllegalStateException exception = assertThrows(
+                IllegalStateException.class,
+                () -> workflow.assign(ticket)
+        );
+
+        assertEquals("only open tickets can be assigned", exception.getMessage());
+    }
+
+    @Test
+    public void requestCustomerInformationMovesTicketToWaitingAndAddsPublicReply() {
+        SupportTicket ticket = new SupportTicket("Broken login", 2);
+        TicketWorkflow workflow = new TicketWorkflow();
+
+        workflow.assign(ticket);
+        workflow.requestCustomerInformation(ticket, "Please send a screenshot");
+
+        assertEquals(SupportTicket.WAITING_CUSTOMER, ticket.getStatus());
+        assertEquals(1, ticket.getPublicReplies());
+    }
+
+    @Test
+    public void requestCustomerInformationRejectsBlankMessage() {
+        SupportTicket ticket = new SupportTicket("Broken login", 2);
+        TicketWorkflow workflow = new TicketWorkflow();
+
+        workflow.assign(ticket);
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> workflow.requestCustomerInformation(ticket, "   ")
+        );
+
+        assertEquals("message is required", exception.getMessage());
+    }
+
+    @Test
+    public void requestCustomerInformationRequiresInProgressTicket() {
+        SupportTicket ticket = new SupportTicket("Broken login", 2);
+        TicketWorkflow workflow = new TicketWorkflow();
+
+        IllegalStateException exception = assertThrows(
+                IllegalStateException.class,
+                () -> workflow.requestCustomerInformation(ticket, "Need more details")
+        );
+
+        assertEquals("ticket must be in progress", exception.getMessage());
+    }
+
+    @Test
+    public void customerReplyResumesWaitingTicket() {
+        SupportTicket ticket = new SupportTicket("Broken login", 2);
+        TicketWorkflow workflow = new TicketWorkflow();
+
+        workflow.assign(ticket);
+        workflow.requestCustomerInformation(ticket, "Need more details");
+        workflow.receiveCustomerReply(ticket, "Screenshot attached");
+
+        assertEquals(SupportTicket.IN_PROGRESS, ticket.getStatus());
+        assertEquals(2, ticket.getPublicReplies());
+    }
+
+    @Test
+    public void customerReplyRequiresWaitingTicket() {
+        SupportTicket ticket = new SupportTicket("Broken login", 2);
+        TicketWorkflow workflow = new TicketWorkflow();
+
+        workflow.assign(ticket);
+
+        IllegalStateException exception = assertThrows(
+                IllegalStateException.class,
+                () -> workflow.receiveCustomerReply(ticket, "Screenshot attached")
+        );
+
+        assertEquals("ticket is not waiting for customer", exception.getMessage());
+    }
+
+    @Test
+    public void addInternalNoteIncrementsInternalNotesForOpenTicket() {
+        SupportTicket ticket = new SupportTicket("Broken login", 2);
+        TicketWorkflow workflow = new TicketWorkflow();
+
+        workflow.addInternalNote(ticket, "Investigating");
+
+        assertEquals(1, ticket.getInternalNotes());
+    }
+
+    @Test
+    public void addInternalNoteRejectsResolvedTicket() {
+        SupportTicket ticket = new SupportTicket("Broken login", 2);
+        TicketWorkflow workflow = new TicketWorkflow();
+
+        workflow.assign(ticket);
+        workflow.resolve(ticket);
+
+        IllegalStateException exception = assertThrows(
+                IllegalStateException.class,
+                () -> workflow.addInternalNote(ticket, "Too late")
+        );
+
+        assertEquals("resolved tickets cannot be changed", exception.getMessage());
+    }
+
+    @Test
+    public void resolveMovesInProgressTicketToResolved() {
+        SupportTicket ticket = new SupportTicket("Broken login", 2);
+        TicketWorkflow workflow = new TicketWorkflow();
+
+        workflow.assign(ticket);
+        workflow.resolve(ticket);
+
+        assertEquals(SupportTicket.RESOLVED, ticket.getStatus());
+    }
+
+    @Test
+    public void resolveRequiresInProgressTicket() {
+        SupportTicket ticket = new SupportTicket("Broken login", 2);
+        TicketWorkflow workflow = new TicketWorkflow();
+
+        IllegalStateException exception = assertThrows(
+                IllegalStateException.class,
+                () -> workflow.resolve(ticket)
+        );
+
+        assertEquals("only in-progress tickets can be resolved", exception.getMessage());
+    }
+
+    @Test
+    public void supportTicketRejectsNullTitle() {
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> new SupportTicket(null, 3)
+        );
+
+        assertEquals("title is required", exception.getMessage());
+    }
+
+    @Test
+    public void supportTicketAcceptsPriorityBoundaries() {
+        SupportTicket lowest = new SupportTicket("Low", 1);
+        SupportTicket highest = new SupportTicket("High", 5);
+
+        assertEquals(1, lowest.getPriority());
+        assertEquals(5, highest.getPriority());
+    }
+
+    @Test
+    public void requestCustomerInformationRejectsNullTicket() {
+        TicketWorkflow workflow = new TicketWorkflow();
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> workflow.requestCustomerInformation(null, "Need details")
+        );
+
+        assertEquals("ticket is required", exception.getMessage());
+    }
+
+    @Test
+    public void requestCustomerInformationRejectsNullMessage() {
+        SupportTicket ticket = new SupportTicket("Broken login", 2);
+        TicketWorkflow workflow = new TicketWorkflow();
+
+        workflow.assign(ticket);
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> workflow.requestCustomerInformation(ticket, null)
+        );
+
+        assertEquals("message is required", exception.getMessage());
+    }
+
+    @Test
+    public void customerReplyRejectsNullTicket() {
+        TicketWorkflow workflow = new TicketWorkflow();
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> workflow.receiveCustomerReply(null, "Reply")
+        );
+
+        assertEquals("ticket is required", exception.getMessage());
+    }
+
+    @Test
+    public void customerReplyRejectsNullMessage() {
+        SupportTicket ticket = new SupportTicket("Broken login", 2);
+        TicketWorkflow workflow = new TicketWorkflow();
+
+        workflow.assign(ticket);
+        workflow.requestCustomerInformation(ticket, "Need details");
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> workflow.receiveCustomerReply(ticket, null)
+        );
+
+        assertEquals("message is required", exception.getMessage());
+    }
+
+    @Test
+    public void customerReplyRejectsBlankMessage() {
+        SupportTicket ticket = new SupportTicket("Broken login", 2);
+        TicketWorkflow workflow = new TicketWorkflow();
+
+        workflow.assign(ticket);
+        workflow.requestCustomerInformation(ticket, "Need details");
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> workflow.receiveCustomerReply(ticket, "   ")
+        );
+
+        assertEquals("message is required", exception.getMessage());
+    }
+
+    @Test
+    public void addInternalNoteRejectsNullTicket() {
+        TicketWorkflow workflow = new TicketWorkflow();
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> workflow.addInternalNote(null, "Investigating")
+        );
+
+        assertEquals("ticket is required", exception.getMessage());
+    }
+
+    @Test
+    public void addInternalNoteRejectsNullMessage() {
+        SupportTicket ticket = new SupportTicket("Broken login", 2);
+        TicketWorkflow workflow = new TicketWorkflow();
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> workflow.addInternalNote(ticket, null)
+        );
+
+        assertEquals("message is required", exception.getMessage());
+    }
+
+    @Test
+    public void addInternalNoteRejectsBlankMessage() {
+        SupportTicket ticket = new SupportTicket("Broken login", 2);
+        TicketWorkflow workflow = new TicketWorkflow();
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> workflow.addInternalNote(ticket, "   ")
+        );
+
+        assertEquals("message is required", exception.getMessage());
+    }
+
+    @Test
+    public void resolveRejectsNullTicket() {
+        TicketWorkflow workflow = new TicketWorkflow();
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> workflow.resolve(null)
+        );
+
+        assertEquals("ticket is required", exception.getMessage());
+    }
+
+}
+
+</external_tests_junit>
+
+EXAMPLE 2 — example_02_inventory_order — External production code
+<external_sut_java>
+
+// File: src/main/java/example/OrderLine.java
+package example;
+
+public class OrderLine {
+    private final Product product;
+    private final int quantity;
+
+    public OrderLine(Product product, int quantity) {
+        if (product == null) {
+            throw new IllegalArgumentException("product is required");
+        }
+
+        if (quantity <= 0) {
+            throw new IllegalArgumentException("quantity must be positive");
+        }
+
+        this.product = product;
+        this.quantity = quantity;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public int subtotalCents() {
+        return product.getUnitPriceCents() * quantity;
+    }
+}
+
+// File: src/main/java/example/OrderService.java
+package example;
+
+import java.util.List;
+
+public class OrderService {
+    public int calculateTotalCents(List<OrderLine> lines, String couponCode) {
+        if (lines == null || lines.isEmpty()) {
+            throw new IllegalArgumentException("order must contain lines");
+        }
+
+        int total = 0;
+
+        for (OrderLine line : lines) {
+            total += line.subtotalCents();
+        }
+
+        if ("SAVE10".equals(couponCode)) {
+            total = total - total / 10;
+        } else if (couponCode != null && !couponCode.trim().isEmpty()) {
+            throw new IllegalArgumentException("unknown coupon");
+        }
+
+        return total;
+    }
+
+    public void reserveStock(List<OrderLine> lines) {
+        if (lines == null || lines.isEmpty()) {
+            throw new IllegalArgumentException("order must contain lines");
+        }
+
+        for (OrderLine line : lines) {
+            line.getProduct().reserve(line.getQuantity());
+        }
+    }
+}
+
+// File: src/main/java/example/Product.java
+package example;
+
+public class Product {
+    private final String sku;
+    private final int unitPriceCents;
+    private int stock;
+
+    public Product(String sku, int unitPriceCents, int stock) {
+        String cleanedSku = sku == null ? "" : sku.trim();
+
+        if (cleanedSku.isEmpty()) {
+            throw new IllegalArgumentException("sku is required");
+        }
+
+        if (unitPriceCents <= 0) {
+            throw new IllegalArgumentException("price must be positive");
+        }
+
+        if (stock < 0) {
+            throw new IllegalArgumentException("stock cannot be negative");
+        }
+
+        this.sku = cleanedSku;
+        this.unitPriceCents = unitPriceCents;
+        this.stock = stock;
+    }
+
+    public String getSku() {
+        return sku;
+    }
+
+    public int getUnitPriceCents() {
+        return unitPriceCents;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public boolean hasStock(int quantity) {
+        return quantity > 0 && stock >= quantity;
+    }
+
+    public void reserve(int quantity) {
+        if (!hasStock(quantity)) {
+            throw new IllegalArgumentException("insufficient stock");
+        }
+
+        stock -= quantity;
+    }
+}
+
+</external_sut_java>
+
+EXAMPLE 2 — example_02_inventory_order — Good JUnit tests
+<external_tests_junit>
+
+// File: src/test/java/example/OrderServiceTest.java
+package example;
+
+import org.junit.Test;
+
+import java.util.Arrays;
+import java.util.Collections;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
+
+public class OrderServiceTest {
+    @Test
+    public void productRequiresSku() {
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> new Product("   ", 1000, 2)
+        );
+
+        assertEquals("sku is required", exception.getMessage());
+    }
+
+    @Test
+    public void productRequiresPositivePrice() {
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> new Product("ABC", 0, 2)
+        );
+
+        assertEquals("price must be positive", exception.getMessage());
+    }
+
+    @Test
+    public void productRejectsNegativeStock() {
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> new Product("ABC", 1000, -1)
+        );
+
+        assertEquals("stock cannot be negative", exception.getMessage());
+    }
+
+    @Test
+    public void productNormalisesSkuAndExposesValues() {
+        Product product = new Product("  ABC  ", 1250, 3);
+
+        assertEquals("ABC", product.getSku());
+        assertEquals(1250, product.getUnitPriceCents());
+        assertEquals(3, product.getStock());
+    }
+
+    @Test
+    public void productHasStockOnlyForPositiveAvailableQuantity() {
+        Product product = new Product("ABC", 1250, 3);
+
+        assertEquals(false, product.hasStock(0));
+        assertEquals(true, product.hasStock(3));
+        assertEquals(false, product.hasStock(4));
+    }
+
+    @Test
+    public void productReserveReducesStock() {
+        Product product = new Product("ABC", 1250, 3);
+
+        product.reserve(2);
+
+        assertEquals(1, product.getStock());
+    }
+
+    @Test
+    public void productReserveRejectsInsufficientStock() {
+        Product product = new Product("ABC", 1250, 1);
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> product.reserve(2)
+        );
+
+        assertEquals("insufficient stock", exception.getMessage());
+    }
+
+    @Test
+    public void orderLineRequiresProduct() {
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> new OrderLine(null, 1)
+        );
+
+        assertEquals("product is required", exception.getMessage());
+    }
+
+    @Test
+    public void orderLineRequiresPositiveQuantity() {
+        Product product = new Product("ABC", 1250, 3);
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> new OrderLine(product, 0)
+        );
+
+        assertEquals("quantity must be positive", exception.getMessage());
+    }
+
+    @Test
+    public void orderLineCalculatesSubtotal() {
+        Product product = new Product("ABC", 1250, 3);
+        OrderLine line = new OrderLine(product, 2);
+
+        assertEquals(product, line.getProduct());
+        assertEquals(2, line.getQuantity());
+        assertEquals(2500, line.subtotalCents());
+    }
+
+    @Test
+    public void calculateTotalRejectsNullLines() {
+        OrderService service = new OrderService();
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> service.calculateTotalCents(null, null)
+        );
+
+        assertEquals("order must contain lines", exception.getMessage());
+    }
+
+    @Test
+    public void calculateTotalRejectsEmptyLines() {
+        OrderService service = new OrderService();
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> service.calculateTotalCents(Collections.emptyList(), null)
+        );
+
+        assertEquals("order must contain lines", exception.getMessage());
+    }
+
+    @Test
+    public void calculateTotalAddsLineSubtotals() {
+        Product first = new Product("A", 1000, 5);
+        Product second = new Product("B", 250, 5);
+        OrderService service = new OrderService();
+
+        int total = service.calculateTotalCents(
+                Arrays.asList(new OrderLine(first, 2), new OrderLine(second, 4)),
+                null
+        );
+
+        assertEquals(3000, total);
+    }
+
+    @Test
+    public void calculateTotalAppliesSaveTenCoupon() {
+        Product product = new Product("A", 1000, 5);
+        OrderService service = new OrderService();
+
+        int total = service.calculateTotalCents(
+                Collections.singletonList(new OrderLine(product, 3)),
+                "SAVE10"
+        );
+
+        assertEquals(2700, total);
+    }
+
+    @Test
+    public void calculateTotalIgnoresBlankCoupon() {
+        Product product = new Product("A", 1000, 5);
+        OrderService service = new OrderService();
+
+        int total = service.calculateTotalCents(
+                Collections.singletonList(new OrderLine(product, 1)),
+                "   "
+        );
+
+        assertEquals(1000, total);
+    }
+
+    @Test
+    public void calculateTotalRejectsUnknownCoupon() {
+        Product product = new Product("A", 1000, 5);
+        OrderService service = new OrderService();
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> service.calculateTotalCents(
+                        Collections.singletonList(new OrderLine(product, 1)),
+                        "BAD"
+                )
+        );
+
+        assertEquals("unknown coupon", exception.getMessage());
+    }
+
+    @Test
+    public void reserveStockRejectsEmptyLines() {
+        OrderService service = new OrderService();
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> service.reserveStock(Collections.emptyList())
+        );
+
+        assertEquals("order must contain lines", exception.getMessage());
+    }
+
+    @Test
+    public void reserveStockReducesAllProductStocks() {
+        Product first = new Product("A", 1000, 5);
+        Product second = new Product("B", 250, 4);
+        OrderService service = new OrderService();
+
+        service.reserveStock(Arrays.asList(new OrderLine(first, 2), new OrderLine(second, 3)));
+
+        assertEquals(3, first.getStock());
+        assertEquals(1, second.getStock());
+    }
+
+    @Test
+    public void productRejectsNullSku() {
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> new Product(null, 1000, 2)
+        );
+
+        assertEquals("sku is required", exception.getMessage());
+    }
+
+    @Test
+    public void reserveStockRejectsNullLines() {
+        OrderService service = new OrderService();
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> service.reserveStock(null)
+        );
+
+        assertEquals("order must contain lines", exception.getMessage());
+    }
+
+}
+
+</external_tests_junit>
+
+
+
+The target class is:
+{{TARGET_CLASS}}
+
+PROJECT/SUT ID
+{{SUT_ID}}
+
+TARGET CLASS SOURCE
+{{TARGET_CLASS_SOURCE}}
+
+OPTIONAL RELATED CONTEXT
+{{RELATED_CONTEXT}}

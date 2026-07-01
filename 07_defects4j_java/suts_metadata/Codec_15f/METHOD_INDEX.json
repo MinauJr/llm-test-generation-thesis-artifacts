@@ -1,0 +1,100 @@
+{
+  "sut_id": "Codec_15f",
+  "targets": [
+    {
+      "class": "org.apache.commons.codec.language.Soundex",
+      "file": "/home/jpaiva/projetos/SUTs/defects4j/Codec_15f/src/main/java/org/apache/commons/codec/language/Soundex.java",
+      "methods": [
+        {
+          "name": "Soundex",
+          "kind": "method",
+          "line": 81,
+          "extra": "public Soundex() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Codec_15f/src/main/java/org/apache/commons/codec/language/Soundex.java"
+        },
+        {
+          "name": "Soundex",
+          "kind": "method",
+          "line": 95,
+          "extra": "public Soundex(final char[] mapping) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Codec_15f/src/main/java/org/apache/commons/codec/language/Soundex.java"
+        },
+        {
+          "name": "Soundex",
+          "kind": "method",
+          "line": 108,
+          "extra": "public Soundex(final String mapping) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Codec_15f/src/main/java/org/apache/commons/codec/language/Soundex.java"
+        },
+        {
+          "name": "difference",
+          "kind": "method",
+          "line": 131,
+          "extra": "public int difference(final String s1, final String s2) throws EncoderException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Codec_15f/src/main/java/org/apache/commons/codec/language/Soundex.java"
+        },
+        {
+          "name": "encode",
+          "kind": "method",
+          "line": 149,
+          "extra": "public Object encode(final Object obj) throws EncoderException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Codec_15f/src/main/java/org/apache/commons/codec/language/Soundex.java"
+        },
+        {
+          "name": "encode",
+          "kind": "method",
+          "line": 166,
+          "extra": "public String encode(final String str) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Codec_15f/src/main/java/org/apache/commons/codec/language/Soundex.java"
+        },
+        {
+          "name": "getMappingCode",
+          "kind": "method",
+          "line": 183,
+          "extra": "private char getMappingCode(final String str, final int index) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Codec_15f/src/main/java/org/apache/commons/codec/language/Soundex.java"
+        },
+        {
+          "name": "getMaxLength",
+          "kind": "method",
+          "line": 208,
+          "extra": "public int getMaxLength() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Codec_15f/src/main/java/org/apache/commons/codec/language/Soundex.java"
+        },
+        {
+          "name": "getSoundexMapping",
+          "kind": "method",
+          "line": 217,
+          "extra": "private char[] getSoundexMapping() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Codec_15f/src/main/java/org/apache/commons/codec/language/Soundex.java"
+        },
+        {
+          "name": "map",
+          "kind": "method",
+          "line": 230,
+          "extra": "private char map(final char ch) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Codec_15f/src/main/java/org/apache/commons/codec/language/Soundex.java"
+        },
+        {
+          "name": "setMaxLength",
+          "kind": "method",
+          "line": 246,
+          "extra": "public void setMaxLength(final int maxLength) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Codec_15f/src/main/java/org/apache/commons/codec/language/Soundex.java"
+        },
+        {
+          "name": "soundex",
+          "kind": "method",
+          "line": 259,
+          "extra": "public String soundex(String str) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Codec_15f/src/main/java/org/apache/commons/codec/language/Soundex.java"
+        }
+      ],
+      "kind_counts": {
+        "method": 12
+      },
+      "error": ""
+    }
+  ],
+  "total_methods": 12
+}

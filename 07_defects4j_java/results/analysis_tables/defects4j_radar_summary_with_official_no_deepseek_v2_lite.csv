@@ -1,0 +1,14 @@
+approach,category,expected,found,executable_count,executable_pct,line_penalized,branch_penalized,mutation_penalized,line_nonpenalized,branch_nonpenalized,mutation_nonpenalized,line_available,branch_available,mutation_available,status_counts
+Dataset tests,official,17,17,17,100.0000,54.6292,49.2883,78.8129,54.6292,49.2883,78.8129,17,17,17,ok:17
+EvoSuite,non_ai,85,85,83,97.6471,96.0568,69.8573,78.4712,98.3714,71.5406,85.5135,83,83,78,failed:2;ok:83
+Randoop,non_ai,85,85,81,95.2941,46.3484,27.1078,30.7820,48.6372,28.4464,32.3021,81,81,81,ok:81;unknown:4
+GPT-4o,iaedu,85,85,83,97.6471,85.0695,56.4559,76.9329,87.1194,57.8163,78.7867,83,83,83,generated_test_compile_fail:2;ok:83
+GPT-5.5,iaedu,85,85,83,97.6471,90.4033,68.3456,89.3650,92.5817,69.9925,91.5184,83,83,83,generation_failure:2;ok:83
+Claude 4.7,iaedu,85,85,84,98.8235,94.5802,64.4706,87.0007,95.7061,65.2381,88.0364,84,84,84,generated_test_compile_fail:1;ok:84
+CodeLlama,cluster,85,85,7,8.2353,6.4165,3.4118,2.9218,77.9143,41.4286,35.4793,7,7,7,final_execution_fail:2;generated_test_compile_fail:70;invalid_structural_output:6;ok:7
+Codestral,cluster,85,85,28,32.9412,28.3345,18.3235,23.6621,86.0153,55.6250,71.8315,28,28,28,generated_test_compile_fail:57;ok:28
+DeepSeek-Coder-V2,cluster,85,85,27,31.7647,28.5164,20.4706,24.6036,89.7738,64.4444,77.4559,27,27,27,generated_test_compile_fail:58;ok:27
+DeepSeek-V2,cluster,85,85,8,9.4118,4.8235,2.7059,1.7647,51.2500,28.7500,18.7500,8,8,8,final_execution_fail:2;generated_test_compile_fail:74;invalid_structural_output:1;ok:8
+Qwen2.5-Coder,cluster,85,85,25,29.4118,26.6750,18.3824,23.0825,90.6952,62.5000,78.4805,25,25,25,generated_test_compile_fail:60;ok:25
+Qwen3-Coder,cluster,85,85,30,35.2941,34.2786,27.0588,31.5789,97.1226,76.6667,89.4734,30,30,30,final_execution_fail:4;generated_test_compile_fail:51;ok:30
+Qwen3.5,cluster,85,85,15,17.6471,13.1396,12.1176,11.2236,74.4576,68.6667,63.6005,15,15,15,final_execution_fail:1;generated_test_compile_fail:59;invalid_structural_output:10;ok:15

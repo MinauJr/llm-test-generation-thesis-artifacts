@@ -1,0 +1,334 @@
+{
+  "sut_id": "Jsoup_91f",
+  "targets": [
+    {
+      "class": "org.jsoup.UncheckedIOException",
+      "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/UncheckedIOException.java",
+      "methods": [
+        {
+          "name": "UncheckedIOException",
+          "kind": "method",
+          "line": 6,
+          "extra": "public UncheckedIOException(IOException cause) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/UncheckedIOException.java"
+        },
+        {
+          "name": "UncheckedIOException",
+          "kind": "method",
+          "line": 10,
+          "extra": "public UncheckedIOException(String message) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/UncheckedIOException.java"
+        },
+        {
+          "name": "ioException",
+          "kind": "method",
+          "line": 14,
+          "extra": "public IOException ioException() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/UncheckedIOException.java"
+        }
+      ],
+      "kind_counts": {
+        "method": 3
+      },
+      "error": ""
+    },
+    {
+      "class": "org.jsoup.parser.CharacterReader",
+      "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java",
+      "methods": [
+        {
+          "name": "CharacterReader",
+          "kind": "method",
+          "line": 30,
+          "extra": "public CharacterReader(Reader input, int sz) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "CharacterReader",
+          "kind": "method",
+          "line": 42,
+          "extra": "public CharacterReader(Reader input) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "CharacterReader",
+          "kind": "method",
+          "line": 46,
+          "extra": "public CharacterReader(String input) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "advance",
+          "kind": "method",
+          "line": 119,
+          "extra": "public void advance() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "bufferUp",
+          "kind": "method",
+          "line": 50,
+          "extra": "private void bufferUp() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "cacheString",
+          "kind": "method",
+          "line": 484,
+          "extra": "private static String cacheString(final char[] charBuf, final String[] stringCache, final int start, final int count) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "consume",
+          "kind": "method",
+          "line": 102,
+          "extra": "char consume() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "consumeData",
+          "kind": "method",
+          "line": 246,
+          "extra": "String consumeData() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "consumeDigitSequence",
+          "kind": "method",
+          "line": 352,
+          "extra": "String consumeDigitSequence() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "consumeHexSequence",
+          "kind": "method",
+          "line": 339,
+          "extra": "String consumeHexSequence() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "consumeLetterSequence",
+          "kind": "method",
+          "line": 304,
+          "extra": "String consumeLetterSequence() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "consumeLetterThenDigitSequence",
+          "kind": "method",
+          "line": 318,
+          "extra": "String consumeLetterThenDigitSequence() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "consumeTagName",
+          "kind": "method",
+          "line": 268,
+          "extra": "String consumeTagName() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "consumeTo",
+          "kind": "method",
+          "line": 182,
+          "extra": "public String consumeTo(char c) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "consumeTo",
+          "kind": "method",
+          "line": 193,
+          "extra": "String consumeTo(String seq) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "consumeToAny",
+          "kind": "method",
+          "line": 209,
+          "extra": "public String consumeToAny(final char... chars) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "consumeToAnySorted",
+          "kind": "method",
+          "line": 230,
+          "extra": "String consumeToAnySorted(final char... chars) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "consumeToEnd",
+          "kind": "method",
+          "line": 297,
+          "extra": "String consumeToEnd() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "containsIgnoreCase",
+          "kind": "method",
+          "line": 448,
+          "extra": "boolean containsIgnoreCase(String seq) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "current",
+          "kind": "method",
+          "line": 97,
+          "extra": "public char current() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "isBinary",
+          "kind": "method",
+          "line": 461,
+          "extra": "boolean isBinary() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "isEmpty",
+          "kind": "method",
+          "line": 84,
+          "extra": "public boolean isEmpty() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "isEmptyNoBufferUp",
+          "kind": "method",
+          "line": 89,
+          "extra": "private boolean isEmptyNoBufferUp() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "mark",
+          "kind": "method",
+          "line": 123,
+          "extra": "void mark() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "matchConsume",
+          "kind": "method",
+          "line": 429,
+          "extra": "boolean matchConsume(String seq) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "matchConsumeIgnoreCase",
+          "kind": "method",
+          "line": 439,
+          "extra": "boolean matchConsumeIgnoreCase(String seq) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "matches",
+          "kind": "method",
+          "line": 365,
+          "extra": "boolean matches(char c) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "matches",
+          "kind": "method",
+          "line": 370,
+          "extra": "boolean matches(String seq) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "matchesAny",
+          "kind": "method",
+          "line": 397,
+          "extra": "boolean matchesAny(char... seq) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "matchesAnySorted",
+          "kind": "method",
+          "line": 410,
+          "extra": "boolean matchesAnySorted(char[] seq) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "matchesDigit",
+          "kind": "method",
+          "line": 422,
+          "extra": "boolean matchesDigit() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "matchesIgnoreCase",
+          "kind": "method",
+          "line": 382,
+          "extra": "boolean matchesIgnoreCase(String seq) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "matchesLetter",
+          "kind": "method",
+          "line": 415,
+          "extra": "boolean matchesLetter() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "nextIndexOf",
+          "kind": "method",
+          "line": 142,
+          "extra": "int nextIndexOf(char c) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "nextIndexOf",
+          "kind": "method",
+          "line": 158,
+          "extra": "int nextIndexOf(CharSequence seq) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "pos",
+          "kind": "method",
+          "line": 76,
+          "extra": "public int pos() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "rangeEquals",
+          "kind": "method",
+          "line": 519,
+          "extra": "static boolean rangeEquals(final char[] charBuf, final int start, int count, final String cached) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "rangeEquals",
+          "kind": "method",
+          "line": 533,
+          "extra": "boolean rangeEquals(final int start, final int count, final String cached) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "rewindToMark",
+          "kind": "method",
+          "line": 130,
+          "extra": "void rewindToMark() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "toString",
+          "kind": "method",
+          "line": 473,
+          "extra": "public String toString() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        },
+        {
+          "name": "unconsume",
+          "kind": "method",
+          "line": 109,
+          "extra": "void unconsume() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f/src/main/java/org/jsoup/parser/CharacterReader.java"
+        }
+      ],
+      "kind_counts": {
+        "method": 41
+      },
+      "error": ""
+    }
+  ],
+  "total_methods": 44
+}

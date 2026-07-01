@@ -1,0 +1,29 @@
+Defects4J official/original relevant dataset tests
+
+dataset = Defects4J official/original relevant tests
+suts_expected = 17
+suts_with_status = 17
+suts_missing_status = 0
+suts_valid_ok = 17
+suts_non_ok = 0
+status_counts = {'ok': 17}
+line_metric_available = 17
+branch_metric_available = 17
+mutation_metric_available = 17
+line_coverage_mean_available = 54.6292
+branch_coverage_mean_available = 49.2883
+mutation_score_mean_available = 78.8129
+line_coverage_mean_strict0 = 54.6292
+branch_coverage_mean_strict0 = 49.2883
+mutation_score_mean_strict0 = 78.8129
+zero_metric_count = 0
+warning_count = 0
+
+status_counts:
+  ok: 17
+
+zero_metrics:
+  none
+
+warnings:
+  none

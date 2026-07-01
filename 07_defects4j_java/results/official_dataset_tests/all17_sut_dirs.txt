@@ -1,0 +1,17 @@
+/home/jpaiva/projetos/SUTs/defects4j/Chart_5f
+/home/jpaiva/projetos/SUTs/defects4j/Cli_23f
+/home/jpaiva/projetos/SUTs/defects4j/Closure_77f
+/home/jpaiva/projetos/SUTs/defects4j/Codec_15f
+/home/jpaiva/projetos/SUTs/defects4j/Collections_18f
+/home/jpaiva/projetos/SUTs/defects4j/Compress_13f
+/home/jpaiva/projetos/SUTs/defects4j/Csv_4f
+/home/jpaiva/projetos/SUTs/defects4j/Gson_17f
+/home/jpaiva/projetos/SUTs/defects4j/JacksonCore_13f
+/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f
+/home/jpaiva/projetos/SUTs/defects4j/JacksonXml_5f
+/home/jpaiva/projetos/SUTs/defects4j/Jsoup_91f
+/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f
+/home/jpaiva/projetos/SUTs/defects4j/Lang_52f
+/home/jpaiva/projetos/SUTs/defects4j/Math_9f
+/home/jpaiva/projetos/SUTs/defects4j/Mockito_19f
+/home/jpaiva/projetos/SUTs/defects4j/Time_24f

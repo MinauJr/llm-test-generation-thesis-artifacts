@@ -1,0 +1,93 @@
+{
+  "sut_id": "JacksonCore_13f",
+  "targets": [
+    {
+      "class": "com.fasterxml.jackson.core.json.JsonGeneratorImpl",
+      "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonCore_13f/src/main/java/com/fasterxml/jackson/core/json/JsonGeneratorImpl.java",
+      "methods": [
+        {
+          "name": "JsonGeneratorImpl",
+          "kind": "method",
+          "line": 101,
+          "extra": "public JsonGeneratorImpl(IOContext ctxt, int features, ObjectCodec codec)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonCore_13f/src/main/java/com/fasterxml/jackson/core/json/JsonGeneratorImpl.java"
+        },
+        {
+          "name": "_checkStdFeatureChanges",
+          "kind": "method",
+          "line": 137,
+          "extra": "protected void _checkStdFeatureChanges(int newFeatureFlags, int changedFeatures) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonCore_13f/src/main/java/com/fasterxml/jackson/core/json/JsonGeneratorImpl.java"
+        },
+        {
+          "name": "disable",
+          "kind": "method",
+          "line": 128,
+          "extra": "public JsonGenerator disable(Feature f) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonCore_13f/src/main/java/com/fasterxml/jackson/core/json/JsonGeneratorImpl.java"
+        },
+        {
+          "name": "enable",
+          "kind": "method",
+          "line": 119,
+          "extra": "public JsonGenerator enable(Feature f) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonCore_13f/src/main/java/com/fasterxml/jackson/core/json/JsonGeneratorImpl.java"
+        },
+        {
+          "name": "getCharacterEscapes",
+          "kind": "method",
+          "line": 170,
+          "extra": "public CharacterEscapes getCharacterEscapes() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonCore_13f/src/main/java/com/fasterxml/jackson/core/json/JsonGeneratorImpl.java"
+        },
+        {
+          "name": "getHighestEscapedChar",
+          "kind": "method",
+          "line": 149,
+          "extra": "public int getHighestEscapedChar() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonCore_13f/src/main/java/com/fasterxml/jackson/core/json/JsonGeneratorImpl.java"
+        },
+        {
+          "name": "setCharacterEscapes",
+          "kind": "method",
+          "line": 154,
+          "extra": "public JsonGenerator setCharacterEscapes(CharacterEscapes esc)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonCore_13f/src/main/java/com/fasterxml/jackson/core/json/JsonGeneratorImpl.java"
+        },
+        {
+          "name": "setHighestNonEscapedChar",
+          "kind": "method",
+          "line": 143,
+          "extra": "public JsonGenerator setHighestNonEscapedChar(int charCode) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonCore_13f/src/main/java/com/fasterxml/jackson/core/json/JsonGeneratorImpl.java"
+        },
+        {
+          "name": "setRootValueSeparator",
+          "kind": "method",
+          "line": 175,
+          "extra": "public JsonGenerator setRootValueSeparator(SerializableString sep) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonCore_13f/src/main/java/com/fasterxml/jackson/core/json/JsonGeneratorImpl.java"
+        },
+        {
+          "name": "version",
+          "kind": "method",
+          "line": 187,
+          "extra": "public Version version() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonCore_13f/src/main/java/com/fasterxml/jackson/core/json/JsonGeneratorImpl.java"
+        },
+        {
+          "name": "writeStringField",
+          "kind": "method",
+          "line": 200,
+          "extra": "public final void writeStringField(String fieldName, String value) throws IOException",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonCore_13f/src/main/java/com/fasterxml/jackson/core/json/JsonGeneratorImpl.java"
+        }
+      ],
+      "kind_counts": {
+        "method": 11
+      },
+      "error": ""
+    }
+  ],
+  "total_methods": 11
+}

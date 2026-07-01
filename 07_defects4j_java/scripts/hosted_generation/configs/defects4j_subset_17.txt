@@ -1,0 +1,17 @@
+Chart_5f
+Cli_23f
+Closure_77f
+Codec_15f
+Collections_18f
+Compress_13f
+Csv_4f
+Gson_17f
+JacksonCore_13f
+JacksonDatabind_17f
+JacksonXml_5f
+Jsoup_91f
+JxPath_22f
+Lang_52f
+Math_9f
+Mockito_19f
+Time_24f

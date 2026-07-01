@@ -1,0 +1,109 @@
+{
+  "dataset": "defects4j",
+  "count": 17,
+  "suts": [
+    {
+      "id": "Chart_5f",
+      "project": "Chart",
+      "bug_id": 5,
+      "version": "f"
+    },
+    {
+      "id": "Cli_23f",
+      "project": "Cli",
+      "bug_id": 23,
+      "version": "f"
+    },
+    {
+      "id": "Closure_77f",
+      "project": "Closure",
+      "bug_id": 77,
+      "version": "f"
+    },
+    {
+      "id": "Codec_15f",
+      "project": "Codec",
+      "bug_id": 15,
+      "version": "f"
+    },
+    {
+      "id": "Collections_18f",
+      "project": "Collections",
+      "bug_id": 18,
+      "version": "f"
+    },
+    {
+      "id": "Compress_13f",
+      "project": "Compress",
+      "bug_id": 13,
+      "version": "f"
+    },
+    {
+      "id": "Csv_4f",
+      "project": "Csv",
+      "bug_id": 4,
+      "version": "f"
+    },
+    {
+      "id": "Gson_17f",
+      "project": "Gson",
+      "bug_id": 17,
+      "version": "f"
+    },
+    {
+      "id": "JacksonCore_13f",
+      "project": "JacksonCore",
+      "bug_id": 13,
+      "version": "f"
+    },
+    {
+      "id": "JacksonDatabind_17f",
+      "project": "JacksonDatabind",
+      "bug_id": 17,
+      "version": "f"
+    },
+    {
+      "id": "JacksonXml_5f",
+      "project": "JacksonXml",
+      "bug_id": 5,
+      "version": "f"
+    },
+    {
+      "id": "Jsoup_91f",
+      "project": "Jsoup",
+      "bug_id": 91,
+      "version": "f"
+    },
+    {
+      "id": "JxPath_22f",
+      "project": "JxPath",
+      "bug_id": 22,
+      "version": "f"
+    },
+    {
+      "id": "Lang_52f",
+      "project": "Lang",
+      "bug_id": 52,
+      "version": "f"
+    },
+    {
+      "id": "Math_9f",
+      "project": "Math",
+      "bug_id": 9,
+      "version": "f"
+    },
+    {
+      "id": "Mockito_19f",
+      "project": "Mockito",
+      "bug_id": 19,
+      "version": "f"
+    },
+    {
+      "id": "Time_24f",
+      "project": "Time",
+      "bug_id": 24,
+      "version": "f"
+    }
+  ],
+  "seed": 123
+}

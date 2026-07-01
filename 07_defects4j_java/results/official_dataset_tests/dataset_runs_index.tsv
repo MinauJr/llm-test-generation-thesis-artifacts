@@ -1,0 +1,18 @@
+sut_id	status	ok	line_pct	branch_pct	mutation_score_pct	total_mutants	killed_mutants	warnings	status_json
+Chart_5f	ok	True	20.9534	16.0915	57.6923	130	75		/home/jpaiva/projetos/d4j_cluster/out/_official_defects4j_dataset_tests_RELEVANT_FINAL_20260611_112409/Chart_5f/run_0001/metrics/status.json
+Cli_23f	ok	True	70.4706	61.0638	83.0645	124	103		/home/jpaiva/projetos/d4j_cluster/out/_official_defects4j_dataset_tests_RELEVANT_FINAL_20260611_112409/Cli_23f/run_0001/metrics/status.json
+Closure_77f	ok	True	72.813	64.8059	82.8685	502	416		/home/jpaiva/projetos/d4j_cluster/out/_official_defects4j_dataset_tests_RELEVANT_FINAL_20260611_112409/Closure_77f/run_0001/metrics/status.json
+Codec_15f	ok	True	5.1748	5.7477	86.4865	37	32		/home/jpaiva/projetos/d4j_cluster/out/_official_defects4j_dataset_tests_RELEVANT_FINAL_20260611_112409/Codec_15f/run_0001/metrics/status.json
+Collections_18f	ok	True	1.0638	0.764	90.0	50	45		/home/jpaiva/projetos/d4j_cluster/out/_official_defects4j_dataset_tests_RELEVANT_FINAL_20260611_112409/Collections_18f/run_0001/metrics/status.json
+Compress_13f	ok	True	44.1933	33.2915	71.5447	123	88		/home/jpaiva/projetos/d4j_cluster/out/_official_defects4j_dataset_tests_RELEVANT_FINAL_20260611_112409/Compress_13f/run_0001/metrics/status.json
+Csv_4f	ok	True	90.4173	84.3348	89.3617	47	42		/home/jpaiva/projetos/d4j_cluster/out/_official_defects4j_dataset_tests_RELEVANT_FINAL_20260611_112409/Csv_4f/run_0001/metrics/status.json
+Gson_17f	ok	True	68.5532	59.5745	81.25	16	13		/home/jpaiva/projetos/d4j_cluster/out/_official_defects4j_dataset_tests_RELEVANT_FINAL_20260611_112409/Gson_17f/run_0001/metrics/status.json
+JacksonCore_13f	ok	True	67.2137	59.8372	47.3684	19	9		/home/jpaiva/projetos/d4j_cluster/out/_official_defects4j_dataset_tests_RELEVANT_FINAL_20260611_112409/JacksonCore_13f/run_0001/metrics/status.json
+JacksonDatabind_17f	ok	True	70.8866	62.2844	70.3333	300	211		/home/jpaiva/projetos/d4j_cluster/out/_official_defects4j_dataset_tests_RELEVANT_FINAL_20260611_112409/JacksonDatabind_17f/run_0001/metrics/status.json
+JacksonXml_5f	ok	True	67.3333	60.8622	71.4286	49	35		/home/jpaiva/projetos/d4j_cluster/out/_official_defects4j_dataset_tests_RELEVANT_FINAL_20260611_112409/JacksonXml_5f/run_0001/metrics/status.json
+Jsoup_91f	ok	True	100.0	100.0	95.6522	276	264		/home/jpaiva/projetos/d4j_cluster/out/_official_defects4j_dataset_tests_RELEVANT_FINAL_20260611_112409/Jsoup_91f/run_0001/metrics/status.json
+JxPath_22f	ok	True	76.3463	66.8764	83.2599	227	189		/home/jpaiva/projetos/d4j_cluster/out/_official_defects4j_dataset_tests_RELEVANT_FINAL_20260611_112409/JxPath_22f/run_0001/metrics/status.json
+Lang_52f	ok	True	10.9642	10.0773	77.5862	116	90		/home/jpaiva/projetos/d4j_cluster/out/_official_defects4j_dataset_tests_RELEVANT_FINAL_20260611_112409/Lang_52f/run_0001/metrics/status.json
+Math_9f	ok	True	4.4707	3.7043	76.9231	39	30		/home/jpaiva/projetos/d4j_cluster/out/_official_defects4j_dataset_tests_RELEVANT_FINAL_20260611_112409/Math_9f/run_0001/metrics/status.json
+Mockito_19f	ok	True	100.0	100.0	100.0	34	34		/home/jpaiva/projetos/d4j_cluster/out/_official_defects4j_dataset_tests_RELEVANT_FINAL_20260611_112409/Mockito_19f/run_0001/metrics/status.json
+Time_24f	ok	True	57.8419	48.585	75.0	72	54		/home/jpaiva/projetos/d4j_cluster/out/_official_defects4j_dataset_tests_RELEVANT_FINAL_20260611_112409/Time_24f/run_0001/metrics/status.json

@@ -1,0 +1,135 @@
+{
+  "sut_id": "Math_9f",
+  "targets": [
+    {
+      "class": "org.apache.commons.math3.geometry.euclidean.threed.Line",
+      "file": "/home/jpaiva/projetos/SUTs/defects4j/Math_9f/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java",
+      "methods": [
+        {
+          "name": "Line",
+          "kind": "method",
+          "line": 54,
+          "extra": "public Line(final Vector3D p1, final Vector3D p2) throws MathIllegalArgumentException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Math_9f/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java"
+        },
+        {
+          "name": "Line",
+          "kind": "method",
+          "line": 63,
+          "extra": "public Line(final Line line) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Math_9f/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java"
+        },
+        {
+          "name": "closestPoint",
+          "kind": "method",
+          "line": 193,
+          "extra": "public Vector3D closestPoint(final Line line) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Math_9f/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java"
+        },
+        {
+          "name": "contains",
+          "kind": "method",
+          "line": 155,
+          "extra": "public boolean contains(final Vector3D p) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Math_9f/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java"
+        },
+        {
+          "name": "distance",
+          "kind": "method",
+          "line": 163,
+          "extra": "public double distance(final Vector3D p) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Math_9f/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java"
+        },
+        {
+          "name": "distance",
+          "kind": "method",
+          "line": 173,
+          "extra": "public double distance(final Line line) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Math_9f/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java"
+        },
+        {
+          "name": "getAbscissa",
+          "kind": "method",
+          "line": 113,
+          "extra": "public double getAbscissa(final Vector3D point) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Math_9f/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java"
+        },
+        {
+          "name": "getDirection",
+          "kind": "method",
+          "line": 95,
+          "extra": "public Vector3D getDirection() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Math_9f/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java"
+        },
+        {
+          "name": "getOrigin",
+          "kind": "method",
+          "line": 102,
+          "extra": "public Vector3D getOrigin() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Math_9f/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java"
+        },
+        {
+          "name": "intersection",
+          "kind": "method",
+          "line": 215,
+          "extra": "public Vector3D intersection(final Line line) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Math_9f/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java"
+        },
+        {
+          "name": "isSimilarTo",
+          "kind": "method",
+          "line": 146,
+          "extra": "public boolean isSimilarTo(final Line line) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Math_9f/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java"
+        },
+        {
+          "name": "pointAt",
+          "kind": "method",
+          "line": 121,
+          "extra": "public Vector3D pointAt(final double abscissa) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Math_9f/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java"
+        },
+        {
+          "name": "reset",
+          "kind": "method",
+          "line": 73,
+          "extra": "public void reset(final Vector3D p1, final Vector3D p2) throws MathIllegalArgumentException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Math_9f/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java"
+        },
+        {
+          "name": "revert",
+          "kind": "method",
+          "line": 86,
+          "extra": "public Line revert() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Math_9f/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java"
+        },
+        {
+          "name": "toSpace",
+          "kind": "method",
+          "line": 135,
+          "extra": "public Vector3D toSpace(final Vector<Euclidean1D> point) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Math_9f/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java"
+        },
+        {
+          "name": "toSubSpace",
+          "kind": "method",
+          "line": 128,
+          "extra": "public Vector1D toSubSpace(final Vector<Euclidean3D> point) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Math_9f/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java"
+        },
+        {
+          "name": "wholeLine",
+          "kind": "method",
+          "line": 223,
+          "extra": "public SubLine wholeLine() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Math_9f/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java"
+        }
+      ],
+      "kind_counts": {
+        "method": 17
+      },
+      "error": ""
+    }
+  ],
+  "total_methods": 17
+}

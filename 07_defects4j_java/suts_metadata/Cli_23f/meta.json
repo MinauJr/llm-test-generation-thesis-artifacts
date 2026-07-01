@@ -1,0 +1,60 @@
+{
+  "id": "Cli_23f",
+  "project": "Cli",
+  "bug": 23,
+  "version": "f",
+  "dir_src_classes": "src/java",
+  "dir_src_tests": "src/test",
+  "dir_bin_classes": "target/classes",
+  "dir_bin_tests": "target/test-classes",
+  "cp_compile": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/target/classes",
+  "cp_test": "/home/jpaiva/datasets/defect4j/defects4j/framework/projects/Cli/lib/junit/junit/3.8.1/junit-3.8.1.jar:/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/target/classes:/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/target/test-classes",
+  "classes_modified": [
+    "org.apache.commons.cli.HelpFormatter"
+  ],
+  "classes_relevant": [
+    "org.apache.commons.cli.AlreadySelectedException",
+    "org.apache.commons.cli.HelpFormatter",
+    "org.apache.commons.cli.Option",
+    "org.apache.commons.cli.OptionGroup",
+    "org.apache.commons.cli.Options",
+    "org.apache.commons.cli.OptionValidator",
+    "org.apache.commons.cli.ParseException"
+  ],
+  "tests_trigger": [
+    "org.apache.commons.cli.bug.BugCLI162Test::testInfiniteLoop",
+    "org.apache.commons.cli.bug.BugCLI162Test::testPrintHelpLongLines"
+  ],
+  "tests_relevant": [
+    "org.apache.commons.cli.ApplicationTest",
+    "org.apache.commons.cli.BugsTest",
+    "org.apache.commons.cli.HelpFormatterTest",
+    "org.apache.commons.cli.bug.BugCLI162Test",
+    "org.apache.commons.cli.bug.BugCLI18Test"
+  ],
+  "tests_all": [
+    "org.apache.commons.cli.ApplicationTest",
+    "org.apache.commons.cli.ArgumentIsOptionTest",
+    "org.apache.commons.cli.BasicParserTest",
+    "org.apache.commons.cli.BugsTest",
+    "org.apache.commons.cli.CommandLineTest",
+    "org.apache.commons.cli.GnuParserTest",
+    "org.apache.commons.cli.HelpFormatterTest",
+    "org.apache.commons.cli.OptionBuilderTest",
+    "org.apache.commons.cli.OptionGroupTest",
+    "org.apache.commons.cli.OptionTest",
+    "org.apache.commons.cli.OptionsTest",
+    "org.apache.commons.cli.ParseRequiredTest",
+    "org.apache.commons.cli.PatternOptionBuilderTest",
+    "org.apache.commons.cli.PosixParserTest",
+    "org.apache.commons.cli.UtilTest",
+    "org.apache.commons.cli.ValueTest",
+    "org.apache.commons.cli.ValuesTest",
+    "org.apache.commons.cli.bug.BugCLI133Test",
+    "org.apache.commons.cli.bug.BugCLI13Test",
+    "org.apache.commons.cli.bug.BugCLI148Test",
+    "org.apache.commons.cli.bug.BugCLI162Test",
+    "org.apache.commons.cli.bug.BugCLI18Test",
+    "org.apache.commons.cli.bug.BugCLI71Test"
+  ]
+}

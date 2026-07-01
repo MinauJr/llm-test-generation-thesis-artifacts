@@ -1,0 +1,86 @@
+{
+  "sut_id": "Gson_17f",
+  "targets": [
+    {
+      "class": "com.google.gson.DefaultDateTypeAdapter",
+      "file": "/home/jpaiva/projetos/SUTs/defects4j/Gson_17f/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java",
+      "methods": [
+        {
+          "name": "DefaultDateTypeAdapter",
+          "kind": "method",
+          "line": 48,
+          "extra": "DefaultDateTypeAdapter(Class<? extends Date> dateType) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Gson_17f/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java"
+        },
+        {
+          "name": "DefaultDateTypeAdapter",
+          "kind": "method",
+          "line": 54,
+          "extra": "DefaultDateTypeAdapter(Class<? extends Date> dateType, String datePattern) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Gson_17f/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java"
+        },
+        {
+          "name": "DefaultDateTypeAdapter",
+          "kind": "method",
+          "line": 58,
+          "extra": "DefaultDateTypeAdapter(Class<? extends Date> dateType, int style) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Gson_17f/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java"
+        },
+        {
+          "name": "DefaultDateTypeAdapter",
+          "kind": "method",
+          "line": 62,
+          "extra": "public DefaultDateTypeAdapter(int dateStyle, int timeStyle) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Gson_17f/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java"
+        },
+        {
+          "name": "DefaultDateTypeAdapter",
+          "kind": "method",
+          "line": 68,
+          "extra": "public DefaultDateTypeAdapter(Class<? extends Date> dateType, int dateStyle, int timeStyle) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Gson_17f/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java"
+        },
+        {
+          "name": "DefaultDateTypeAdapter",
+          "kind": "method",
+          "line": 74,
+          "extra": "DefaultDateTypeAdapter(final Class<? extends Date> dateType, DateFormat enUsFormat, DateFormat localFormat) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Gson_17f/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java"
+        },
+        {
+          "name": "deserializeToDate",
+          "kind": "method",
+          "line": 116,
+          "extra": "private Date deserializeToDate(String s) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Gson_17f/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java"
+        },
+        {
+          "name": "read",
+          "kind": "method",
+          "line": 98,
+          "extra": "public Date read(JsonReader in) throws IOException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Gson_17f/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java"
+        },
+        {
+          "name": "toString",
+          "kind": "method",
+          "line": 133,
+          "extra": "public String toString() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Gson_17f/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java"
+        },
+        {
+          "name": "write",
+          "kind": "method",
+          "line": 86,
+          "extra": "public void write(JsonWriter out, Date value) throws IOException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Gson_17f/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java"
+        }
+      ],
+      "kind_counts": {
+        "method": 10
+      },
+      "error": ""
+    }
+  ],
+  "total_methods": 10
+}

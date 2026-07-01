@@ -1,0 +1,4 @@
+source_root=/second_disk/defects4j_gpt4o/out/_final_claude47_defects4j_java_retryempty15
+source_size=652M
+file_count=64820
+status_json_count=85

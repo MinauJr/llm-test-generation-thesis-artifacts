@@ -1,0 +1,205 @@
+{
+  "sut_id": "Collections_18f",
+  "targets": [
+    {
+      "class": "org.apache.commons.collections.set.ListOrderedSet",
+      "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java",
+      "methods": [
+        {
+          "name": "ListOrderedSet",
+          "kind": "method",
+          "line": 135,
+          "extra": "public ListOrderedSet() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "ListOrderedSet",
+          "kind": "method",
+          "line": 146,
+          "extra": "protected ListOrderedSet(Set<E> set) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "ListOrderedSet",
+          "kind": "method",
+          "line": 161,
+          "extra": "protected ListOrderedSet(Set<E> set, List<E> list) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "OrderedSetIterator",
+          "kind": "method",
+          "line": 377,
+          "extra": "private OrderedSetIterator(ListIterator<E> iterator, Collection<E> set) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "add",
+          "kind": "method",
+          "line": 192,
+          "extra": "public boolean add(E object) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "add",
+          "kind": "method",
+          "line": 298,
+          "extra": "public void add(int index, E object) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "addAll",
+          "kind": "method",
+          "line": 201,
+          "extra": "public boolean addAll(Collection<? extends E> coll) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "addAll",
+          "kind": "method",
+          "line": 316,
+          "extra": "public boolean addAll(int index, Collection<? extends E> coll) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "asList",
+          "kind": "method",
+          "line": 175,
+          "extra": "public List<E> asList() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "clear",
+          "kind": "method",
+          "line": 181,
+          "extra": "public void clear() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "get",
+          "kind": "method",
+          "line": 272,
+          "extra": "public E get(int index) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "hasPrevious",
+          "kind": "method",
+          "line": 395,
+          "extra": "public boolean hasPrevious() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "indexOf",
+          "kind": "method",
+          "line": 285,
+          "extra": "public int indexOf(Object object) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "iterator",
+          "kind": "method",
+          "line": 187,
+          "extra": "public OrderedIterator<E> iterator() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "listOrderedSet",
+          "kind": "method",
+          "line": 77,
+          "extra": "public static <E> ListOrderedSet<E> listOrderedSet(Set<E> set, List<E> list) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "listOrderedSet",
+          "kind": "method",
+          "line": 100,
+          "extra": "public static <E> ListOrderedSet<E> listOrderedSet(Set<E> set) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "listOrderedSet",
+          "kind": "method",
+          "line": 118,
+          "extra": "public static <E> ListOrderedSet<E> listOrderedSet(List<E> list) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "next",
+          "kind": "method",
+          "line": 383,
+          "extra": "public E next() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "previous",
+          "kind": "method",
+          "line": 399,
+          "extra": "public E previous() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "remove",
+          "kind": "method",
+          "line": 210,
+          "extra": "public boolean remove(Object object) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "remove",
+          "kind": "method",
+          "line": 344,
+          "extra": "public Object remove(int index) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "remove",
+          "kind": "method",
+          "line": 389,
+          "extra": "public void remove() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "removeAll",
+          "kind": "method",
+          "line": 219,
+          "extra": "public boolean removeAll(Collection<?> coll) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "retainAll",
+          "kind": "method",
+          "line": 228,
+          "extra": "public boolean retainAll(Collection<?> coll) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "toArray",
+          "kind": "method",
+          "line": 252,
+          "extra": "public Object[] toArray() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "toArray",
+          "kind": "method",
+          "line": 257,
+          "extra": "public <T> T[] toArray(T a[]) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        },
+        {
+          "name": "toString",
+          "kind": "method",
+          "line": 359,
+          "extra": "public String toString() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Collections_18f/src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+        }
+      ],
+      "kind_counts": {
+        "method": 27
+      },
+      "error": ""
+    }
+  ],
+  "total_methods": 27
+}

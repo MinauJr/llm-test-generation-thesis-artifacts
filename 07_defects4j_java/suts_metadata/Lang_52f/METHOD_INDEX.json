@@ -1,0 +1,163 @@
+{
+  "sut_id": "Lang_52f",
+  "targets": [
+    {
+      "class": "org.apache.commons.lang.StringEscapeUtils",
+      "file": "/home/jpaiva/projetos/SUTs/defects4j/Lang_52f/src/java/org/apache/commons/lang/StringEscapeUtils.java",
+      "methods": [
+        {
+          "name": "StringEscapeUtils",
+          "kind": "method",
+          "line": 53,
+          "extra": "public StringEscapeUtils() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Lang_52f/src/java/org/apache/commons/lang/StringEscapeUtils.java"
+        },
+        {
+          "name": "escapeHtml",
+          "kind": "method",
+          "line": 445,
+          "extra": "public static String escapeHtml(String str) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Lang_52f/src/java/org/apache/commons/lang/StringEscapeUtils.java"
+        },
+        {
+          "name": "escapeHtml",
+          "kind": "method",
+          "line": 490,
+          "extra": "public static void escapeHtml(Writer writer, String string) throws IOException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Lang_52f/src/java/org/apache/commons/lang/StringEscapeUtils.java"
+        },
+        {
+          "name": "escapeJava",
+          "kind": "method",
+          "line": 80,
+          "extra": "public static String escapeJava(String str) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Lang_52f/src/java/org/apache/commons/lang/StringEscapeUtils.java"
+        },
+        {
+          "name": "escapeJava",
+          "kind": "method",
+          "line": 96,
+          "extra": "public static void escapeJava(Writer out, String str) throws IOException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Lang_52f/src/java/org/apache/commons/lang/StringEscapeUtils.java"
+        },
+        {
+          "name": "escapeJavaScript",
+          "kind": "method",
+          "line": 121,
+          "extra": "public static String escapeJavaScript(String str) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Lang_52f/src/java/org/apache/commons/lang/StringEscapeUtils.java"
+        },
+        {
+          "name": "escapeJavaScript",
+          "kind": "method",
+          "line": 137,
+          "extra": "public static void escapeJavaScript(Writer out, String str) throws IOException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Lang_52f/src/java/org/apache/commons/lang/StringEscapeUtils.java"
+        },
+        {
+          "name": "escapeJavaStyleString",
+          "kind": "method",
+          "line": 148,
+          "extra": "private static String escapeJavaStyleString(String str, boolean escapeSingleQuotes) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Lang_52f/src/java/org/apache/commons/lang/StringEscapeUtils.java"
+        },
+        {
+          "name": "escapeJavaStyleString",
+          "kind": "method",
+          "line": 171,
+          "extra": "private static void escapeJavaStyleString(Writer out, String str, boolean escapeSingleQuote) throws IOException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Lang_52f/src/java/org/apache/commons/lang/StringEscapeUtils.java"
+        },
+        {
+          "name": "escapeSql",
+          "kind": "method",
+          "line": 684,
+          "extra": "public static String escapeSql(String str) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Lang_52f/src/java/org/apache/commons/lang/StringEscapeUtils.java"
+        },
+        {
+          "name": "escapeXml",
+          "kind": "method",
+          "line": 581,
+          "extra": "public static void escapeXml(Writer writer, String str) throws IOException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Lang_52f/src/java/org/apache/commons/lang/StringEscapeUtils.java"
+        },
+        {
+          "name": "escapeXml",
+          "kind": "method",
+          "line": 608,
+          "extra": "public static String escapeXml(String str) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Lang_52f/src/java/org/apache/commons/lang/StringEscapeUtils.java"
+        },
+        {
+          "name": "hex",
+          "kind": "method",
+          "line": 255,
+          "extra": "private static String hex(char ch) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Lang_52f/src/java/org/apache/commons/lang/StringEscapeUtils.java"
+        },
+        {
+          "name": "unescapeHtml",
+          "kind": "method",
+          "line": 517,
+          "extra": "public static String unescapeHtml(String str) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Lang_52f/src/java/org/apache/commons/lang/StringEscapeUtils.java"
+        },
+        {
+          "name": "unescapeHtml",
+          "kind": "method",
+          "line": 551,
+          "extra": "public static void unescapeHtml(Writer writer, String string) throws IOException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Lang_52f/src/java/org/apache/commons/lang/StringEscapeUtils.java"
+        },
+        {
+          "name": "unescapeJava",
+          "kind": "method",
+          "line": 268,
+          "extra": "public static String unescapeJava(String str) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Lang_52f/src/java/org/apache/commons/lang/StringEscapeUtils.java"
+        },
+        {
+          "name": "unescapeJava",
+          "kind": "method",
+          "line": 298,
+          "extra": "public static void unescapeJava(Writer out, String str) throws IOException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Lang_52f/src/java/org/apache/commons/lang/StringEscapeUtils.java"
+        },
+        {
+          "name": "unescapeJavaScript",
+          "kind": "method",
+          "line": 393,
+          "extra": "public static String unescapeJavaScript(String str) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Lang_52f/src/java/org/apache/commons/lang/StringEscapeUtils.java"
+        },
+        {
+          "name": "unescapeJavaScript",
+          "kind": "method",
+          "line": 413,
+          "extra": "public static void unescapeJavaScript(Writer out, String str) throws IOException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Lang_52f/src/java/org/apache/commons/lang/StringEscapeUtils.java"
+        },
+        {
+          "name": "unescapeXml",
+          "kind": "method",
+          "line": 633,
+          "extra": "public static void unescapeXml(Writer writer, String str) throws IOException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Lang_52f/src/java/org/apache/commons/lang/StringEscapeUtils.java"
+        },
+        {
+          "name": "unescapeXml",
+          "kind": "method",
+          "line": 658,
+          "extra": "public static String unescapeXml(String str) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Lang_52f/src/java/org/apache/commons/lang/StringEscapeUtils.java"
+        }
+      ],
+      "kind_counts": {
+        "method": 21
+      },
+      "error": ""
+    }
+  ],
+  "total_methods": 21
+}

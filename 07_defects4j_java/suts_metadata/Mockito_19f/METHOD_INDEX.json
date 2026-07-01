@@ -1,0 +1,133 @@
+{
+  "sut_id": "Mockito_19f",
+  "targets": [
+    {
+      "class": "org.mockito.internal.configuration.injection.filter.FinalMockCandidateFilter",
+      "file": "/home/jpaiva/projetos/SUTs/defects4j/Mockito_19f/src/org/mockito/internal/configuration/injection/filter/FinalMockCandidateFilter.java",
+      "methods": [
+        {
+          "name": "filterCandidate",
+          "kind": "method",
+          "line": 24,
+          "extra": "public OngoingInjecter filterCandidate(final Collection<Object> mocks, final Field field, List<Field> fields, final Object fieldInstance) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Mockito_19f/src/org/mockito/internal/configuration/injection/filter/FinalMockCandidateFilter.java"
+        }
+      ],
+      "kind_counts": {
+        "method": 1
+      },
+      "error": ""
+    },
+    {
+      "class": "org.mockito.internal.configuration.injection.filter.MockCandidateFilter",
+      "file": "/home/jpaiva/projetos/SUTs/defects4j/Mockito_19f/src/org/mockito/internal/configuration/injection/filter/MockCandidateFilter.java",
+      "methods": [
+        {
+          "name": "filterCandidate",
+          "kind": "method",
+          "line": 13,
+          "extra": "OngoingInjecter filterCandidate(",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Mockito_19f/src/org/mockito/internal/configuration/injection/filter/MockCandidateFilter.java"
+        }
+      ],
+      "kind_counts": {
+        "method": 1
+      },
+      "error": ""
+    },
+    {
+      "class": "org.mockito.internal.configuration.injection.filter.NameBasedCandidateFilter",
+      "file": "/home/jpaiva/projetos/SUTs/defects4j/Mockito_19f/src/org/mockito/internal/configuration/injection/filter/NameBasedCandidateFilter.java",
+      "methods": [
+        {
+          "name": "NameBasedCandidateFilter",
+          "kind": "method",
+          "line": 18,
+          "extra": "public NameBasedCandidateFilter(MockCandidateFilter next) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Mockito_19f/src/org/mockito/internal/configuration/injection/filter/NameBasedCandidateFilter.java"
+        },
+        {
+          "name": "filterCandidate",
+          "kind": "method",
+          "line": 22,
+          "extra": "public OngoingInjecter filterCandidate(Collection<Object> mocks,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Mockito_19f/src/org/mockito/internal/configuration/injection/filter/NameBasedCandidateFilter.java"
+        }
+      ],
+      "kind_counts": {
+        "method": 2
+      },
+      "error": ""
+    },
+    {
+      "class": "org.mockito.internal.configuration.injection.filter.TypeBasedCandidateFilter",
+      "file": "/home/jpaiva/projetos/SUTs/defects4j/Mockito_19f/src/org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java",
+      "methods": [
+        {
+          "name": "TypeBasedCandidateFilter",
+          "kind": "method",
+          "line": 16,
+          "extra": "public TypeBasedCandidateFilter(MockCandidateFilter next) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Mockito_19f/src/org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java"
+        },
+        {
+          "name": "filterCandidate",
+          "kind": "method",
+          "line": 20,
+          "extra": "public OngoingInjecter filterCandidate(Collection<Object> mocks, Field field, List<Field> fields, Object fieldInstance) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Mockito_19f/src/org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java"
+        }
+      ],
+      "kind_counts": {
+        "method": 2
+      },
+      "error": ""
+    },
+    {
+      "class": "org.mockito.internal.configuration.injection.PropertyAndSetterInjection",
+      "file": "/home/jpaiva/projetos/SUTs/defects4j/Mockito_19f/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java",
+      "methods": [
+        {
+          "name": "initializeInjectMocksField",
+          "kind": "method",
+          "line": 86,
+          "extra": "private FieldInitializationReport initializeInjectMocksField(Field field, Object fieldOwner) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Mockito_19f/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java"
+        },
+        {
+          "name": "injectMockCandidates",
+          "kind": "method",
+          "line": 101,
+          "extra": "private boolean injectMockCandidates(Class<?> awaitingInjectionClazz, Set<Object> mocks, Object instance) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Mockito_19f/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java"
+        },
+        {
+          "name": "injectMockCandidatesOnFields",
+          "kind": "method",
+          "line": 111,
+          "extra": "private boolean injectMockCandidatesOnFields(Set<Object> mocks, Object instance, boolean injectionOccurred, List<Field> orderedInstanceFields) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Mockito_19f/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java"
+        },
+        {
+          "name": "orderedInstanceFieldsFrom",
+          "kind": "method",
+          "line": 124,
+          "extra": "private List<Field> orderedInstanceFieldsFrom(Class<?> awaitingInjectionClazz) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Mockito_19f/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java"
+        },
+        {
+          "name": "processInjection",
+          "kind": "method",
+          "line": 71,
+          "extra": "public boolean processInjection(Field injectMocksField, Object injectMocksFieldOwner, Set<Object> mockCandidates) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Mockito_19f/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java"
+        }
+      ],
+      "kind_counts": {
+        "method": 5
+      },
+      "error": ""
+    }
+  ],
+  "total_methods": 11
+}

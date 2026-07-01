@@ -1,0 +1,4 @@
+source_root=/home/jpaiva/projetos/d4j_cluster/d4j_cluster/d4j_codellama/out/defects4j_java_zero_shot_cluster_v1
+source_size=5.4M
+file_count=767
+status_json_count=85

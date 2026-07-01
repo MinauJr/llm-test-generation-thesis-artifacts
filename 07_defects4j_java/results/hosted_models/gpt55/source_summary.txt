@@ -1,0 +1,4 @@
+source_root=/second_disk/defects4j_gpt4o/out/_final_gpt55_defects4j_java_retryempty15
+source_size=645M
+file_count=64019
+status_json_count=85

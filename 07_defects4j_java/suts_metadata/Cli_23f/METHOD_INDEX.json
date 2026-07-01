@@ -1,0 +1,289 @@
+{
+  "sut_id": "Cli_23f",
+  "targets": [
+    {
+      "class": "org.apache.commons.cli.HelpFormatter",
+      "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java",
+      "methods": [
+        {
+          "name": "appendOption",
+          "kind": "method",
+          "line": 601,
+          "extra": "private static void appendOption(final StringBuffer buff, final Option option, final boolean required)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "appendOptionGroup",
+          "kind": "method",
+          "line": 567,
+          "extra": "private void appendOptionGroup(final StringBuffer buff, final OptionGroup group)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "compare",
+          "kind": "method",
+          "line": 967,
+          "extra": "public int compare(Object o1, Object o2)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "createPadding",
+          "kind": "method",
+          "line": 910,
+          "extra": "protected String createPadding(int len)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "findWrapPos",
+          "kind": "method",
+          "line": 857,
+          "extra": "protected int findWrapPos(String text, int width, int startPos)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "getArgName",
+          "kind": "method",
+          "line": 292,
+          "extra": "public String getArgName()",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "getDescPadding",
+          "kind": "method",
+          "line": 192,
+          "extra": "public int getDescPadding()",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "getLeftPadding",
+          "kind": "method",
+          "line": 172,
+          "extra": "public int getLeftPadding()",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "getLongOptPrefix",
+          "kind": "method",
+          "line": 272,
+          "extra": "public String getLongOptPrefix()",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "getNewLine",
+          "kind": "method",
+          "line": 232,
+          "extra": "public String getNewLine()",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "getOptPrefix",
+          "kind": "method",
+          "line": 252,
+          "extra": "public String getOptPrefix()",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "getOptionComparator",
+          "kind": "method",
+          "line": 302,
+          "extra": "public Comparator getOptionComparator()",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "getSyntaxPrefix",
+          "kind": "method",
+          "line": 212,
+          "extra": "public String getSyntaxPrefix()",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "getWidth",
+          "kind": "method",
+          "line": 152,
+          "extra": "public int getWidth()",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "printHelp",
+          "kind": "method",
+          "line": 332,
+          "extra": "public void printHelp(String cmdLineSyntax, Options options)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "printHelp",
+          "kind": "method",
+          "line": 347,
+          "extra": "public void printHelp(String cmdLineSyntax, Options options, boolean autoUsage)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "printHelp",
+          "kind": "method",
+          "line": 362,
+          "extra": "public void printHelp(String cmdLineSyntax, String header, Options options, String footer)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "printHelp",
+          "kind": "method",
+          "line": 379,
+          "extra": "public void printHelp(String cmdLineSyntax, String header, Options options, String footer, boolean autoUsage)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "printHelp",
+          "kind": "method",
+          "line": 395,
+          "extra": "public void printHelp(int width, String cmdLineSyntax, String header, Options options, String footer)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "printHelp",
+          "kind": "method",
+          "line": 413,
+          "extra": "public void printHelp(int width, String cmdLineSyntax, String header,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "printHelp",
+          "kind": "method",
+          "line": 437,
+          "extra": "public void printHelp(PrintWriter pw, int width, String cmdLineSyntax,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "printHelp",
+          "kind": "method",
+          "line": 462,
+          "extra": "public void printHelp(PrintWriter pw, int width, String cmdLineSyntax,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "printOptions",
+          "kind": "method",
+          "line": 657,
+          "extra": "public void printOptions(PrintWriter pw, int width, Options options,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "printUsage",
+          "kind": "method",
+          "line": 502,
+          "extra": "public void printUsage(PrintWriter pw, int width, String app, Options options)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "printUsage",
+          "kind": "method",
+          "line": 638,
+          "extra": "public void printUsage(PrintWriter pw, int width, String cmdLineSyntax)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "printWrapped",
+          "kind": "method",
+          "line": 673,
+          "extra": "public void printWrapped(PrintWriter pw, int width, String text)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "printWrapped",
+          "kind": "method",
+          "line": 686,
+          "extra": "public void printWrapped(PrintWriter pw, int width, int nextLineTabStop, String text)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "renderOptions",
+          "kind": "method",
+          "line": 710,
+          "extra": "protected StringBuffer renderOptions(StringBuffer sb, int width, Options options, int leftPad, int descPad)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "renderWrappedText",
+          "kind": "method",
+          "line": 805,
+          "extra": "protected StringBuffer renderWrappedText(StringBuffer sb, int width,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "rtrim",
+          "kind": "method",
+          "line": 929,
+          "extra": "protected String rtrim(String s)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "setArgName",
+          "kind": "method",
+          "line": 282,
+          "extra": "public void setArgName(String name)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "setDescPadding",
+          "kind": "method",
+          "line": 182,
+          "extra": "public void setDescPadding(int padding)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "setLeftPadding",
+          "kind": "method",
+          "line": 162,
+          "extra": "public void setLeftPadding(int padding)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "setLongOptPrefix",
+          "kind": "method",
+          "line": 262,
+          "extra": "public void setLongOptPrefix(String prefix)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "setNewLine",
+          "kind": "method",
+          "line": 222,
+          "extra": "public void setNewLine(String newline)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "setOptPrefix",
+          "kind": "method",
+          "line": 242,
+          "extra": "public void setOptPrefix(String prefix)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "setOptionComparator",
+          "kind": "method",
+          "line": 312,
+          "extra": "public void setOptionComparator(Comparator comparator)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "setSyntaxPrefix",
+          "kind": "method",
+          "line": 202,
+          "extra": "public void setSyntaxPrefix(String prefix)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        },
+        {
+          "name": "setWidth",
+          "kind": "method",
+          "line": 142,
+          "extra": "public void setWidth(int width)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Cli_23f/src/java/org/apache/commons/cli/HelpFormatter.java"
+        }
+      ],
+      "kind_counts": {
+        "method": 39
+      },
+      "error": ""
+    }
+  ],
+  "total_methods": 39
+}

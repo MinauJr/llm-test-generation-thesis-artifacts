@@ -1,0 +1,1318 @@
+{
+  "sut_id": "JacksonDatabind_17f",
+  "targets": [
+    {
+      "class": "com.fasterxml.jackson.databind.ObjectMapper",
+      "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java",
+      "methods": [
+        {
+          "name": "DefaultTypeResolverBuilder",
+          "kind": "method",
+          "line": 141,
+          "extra": "public DefaultTypeResolverBuilder(DefaultTyping t) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "ObjectMapper",
+          "kind": "method",
+          "line": 381,
+          "extra": "public ObjectMapper()",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "ObjectMapper",
+          "kind": "method",
+          "line": 391,
+          "extra": "public ObjectMapper(JsonFactory jf)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "ObjectMapper",
+          "kind": "method",
+          "line": 401,
+          "extra": "protected ObjectMapper(ObjectMapper src)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "ObjectMapper",
+          "kind": "method",
+          "line": 431,
+          "extra": "public ObjectMapper(JsonFactory jf,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "_checkInvalidCopy",
+          "kind": "method",
+          "line": 499,
+          "extra": "protected void _checkInvalidCopy(Class<?> exp)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "_configAndWriteCloseable",
+          "kind": "method",
+          "line": 2942,
+          "extra": "private final void _configAndWriteCloseable(JsonGenerator jgen, Object value, SerializationConfig cfg)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "_configAndWriteValue",
+          "kind": "method",
+          "line": 2866,
+          "extra": "protected final void _configAndWriteValue(JsonGenerator jgen, Object value)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "_configAndWriteValue",
+          "kind": "method",
+          "line": 2904,
+          "extra": "protected final void _configAndWriteValue(JsonGenerator jgen, Object value, Class<?> viewClass)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "_convert",
+          "kind": "method",
+          "line": 2732,
+          "extra": "protected Object _convert(Object fromValue, JavaType toValueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "_defaultPrettyPrinter",
+          "kind": "method",
+          "line": 2858,
+          "extra": "protected PrettyPrinter _defaultPrettyPrinter() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "_findRootDeserializer",
+          "kind": "method",
+          "line": 3163,
+          "extra": "protected JsonDeserializer<Object> _findRootDeserializer(DeserializationContext ctxt,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "_initForReading",
+          "kind": "method",
+          "line": 3099,
+          "extra": "protected JsonToken _initForReading(JsonParser jp)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "_readMapAndClose",
+          "kind": "method",
+          "line": 3050,
+          "extra": "protected Object _readMapAndClose(JsonParser jp, JavaType valueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "_readValue",
+          "kind": "method",
+          "line": 3020,
+          "extra": "protected Object _readValue(DeserializationConfig cfg, JsonParser jp, JavaType valueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "_serializerProvider",
+          "kind": "method",
+          "line": 2849,
+          "extra": "protected DefaultSerializerProvider _serializerProvider(SerializationConfig config) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "_unwrapAndDeserialize",
+          "kind": "method",
+          "line": 3120,
+          "extra": "protected Object _unwrapAndDeserialize(JsonParser jp, DeserializationContext ctxt,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "_verifySchemaType",
+          "kind": "method",
+          "line": 3184,
+          "extra": "protected void _verifySchemaType(FormatSchema schema)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "_writeCloseableValue",
+          "kind": "method",
+          "line": 2978,
+          "extra": "private final void _writeCloseableValue(JsonGenerator jgen, Object value, SerializationConfig cfg)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "acceptJsonFormatVisitor",
+          "kind": "method",
+          "line": 2812,
+          "extra": "public void acceptJsonFormatVisitor(Class<?> type, JsonFormatVisitorWrapper visitor)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "acceptJsonFormatVisitor",
+          "kind": "method",
+          "line": 2830,
+          "extra": "public void acceptJsonFormatVisitor(JavaType type, JsonFormatVisitorWrapper visitor)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "addHandler",
+          "kind": "method",
+          "line": 1229,
+          "extra": "public ObjectMapper addHandler(DeserializationProblemHandler h) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "addMixIn",
+          "kind": "method",
+          "line": 929,
+          "extra": "public final ObjectMapper addMixIn(Class<?> target, Class<?> mixinSource)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "addMixInAnnotations",
+          "kind": "method",
+          "line": 914,
+          "extra": "public final void addMixInAnnotations(Class<?> target, Class<?> mixinSource)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "buildTypeDeserializer",
+          "kind": "method",
+          "line": 146,
+          "extra": "public TypeDeserializer buildTypeDeserializer(DeserializationConfig config,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "buildTypeSerializer",
+          "kind": "method",
+          "line": 153,
+          "extra": "public TypeSerializer buildTypeSerializer(SerializationConfig config,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "canDeserialize",
+          "kind": "method",
+          "line": 2089,
+          "extra": "public boolean canDeserialize(JavaType type)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "canDeserialize",
+          "kind": "method",
+          "line": 2102,
+          "extra": "public boolean canDeserialize(JavaType type, AtomicReference<Throwable> cause)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "canSerialize",
+          "kind": "method",
+          "line": 2064,
+          "extra": "public boolean canSerialize(Class<?> type) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "canSerialize",
+          "kind": "method",
+          "line": 2075,
+          "extra": "public boolean canSerialize(Class<?> type, AtomicReference<Throwable> cause) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "clearProblemHandlers",
+          "kind": "method",
+          "line": 1238,
+          "extra": "public ObjectMapper clearProblemHandlers() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "configure",
+          "kind": "method",
+          "line": 1412,
+          "extra": "public ObjectMapper configure(MapperFeature f, boolean state) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "configure",
+          "kind": "method",
+          "line": 1424,
+          "extra": "public ObjectMapper configure(SerializationFeature f, boolean state) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "configure",
+          "kind": "method",
+          "line": 1434,
+          "extra": "public ObjectMapper configure(DeserializationFeature f, boolean state) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "configure",
+          "kind": "method",
+          "line": 1449,
+          "extra": "public ObjectMapper configure(JsonParser.Feature f, boolean state) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "configure",
+          "kind": "method",
+          "line": 1463,
+          "extra": "public ObjectMapper configure(JsonGenerator.Feature f, boolean state) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "constructType",
+          "kind": "method",
+          "line": 1205,
+          "extra": "public JavaType constructType(Type t) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "convertValue",
+          "kind": "method",
+          "line": 2699,
+          "extra": "public <T> T convertValue(Object fromValue, Class<T> toValueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "convertValue",
+          "kind": "method",
+          "line": 2708,
+          "extra": "public <T> T convertValue(Object fromValue, TypeReference<?> toValueTypeRef)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "convertValue",
+          "kind": "method",
+          "line": 2715,
+          "extra": "public <T> T convertValue(Object fromValue, JavaType toValueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "copy",
+          "kind": "method",
+          "line": 489,
+          "extra": "public ObjectMapper copy()",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "createArrayNode",
+          "kind": "method",
+          "line": 1964,
+          "extra": "public ArrayNode createArrayNode() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "createDeserializationContext",
+          "kind": "method",
+          "line": 3010,
+          "extra": "protected DefaultDeserializationContext createDeserializationContext(JsonParser jp,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "createObjectNode",
+          "kind": "method",
+          "line": 1952,
+          "extra": "public ObjectNode createObjectNode() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "disable",
+          "kind": "method",
+          "line": 1482,
+          "extra": "public ObjectMapper disable(MapperFeature... f) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "disable",
+          "kind": "method",
+          "line": 1511,
+          "extra": "public ObjectMapper disable(DeserializationFeature feature) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "disable",
+          "kind": "method",
+          "line": 1520,
+          "extra": "public ObjectMapper disable(DeserializationFeature first,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "disable",
+          "kind": "method",
+          "line": 1549,
+          "extra": "public ObjectMapper disable(SerializationFeature f) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "disable",
+          "kind": "method",
+          "line": 1558,
+          "extra": "public ObjectMapper disable(SerializationFeature first,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "disableDefaultTyping",
+          "kind": "method",
+          "line": 1132,
+          "extra": "public ObjectMapper disableDefaultTyping() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "enable",
+          "kind": "method",
+          "line": 1472,
+          "extra": "public ObjectMapper enable(MapperFeature... f) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "enable",
+          "kind": "method",
+          "line": 1492,
+          "extra": "public ObjectMapper enable(DeserializationFeature feature) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "enable",
+          "kind": "method",
+          "line": 1501,
+          "extra": "public ObjectMapper enable(DeserializationFeature first,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "enable",
+          "kind": "method",
+          "line": 1530,
+          "extra": "public ObjectMapper enable(SerializationFeature f) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "enable",
+          "kind": "method",
+          "line": 1539,
+          "extra": "public ObjectMapper enable(SerializationFeature first,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "enableDefaultTyping",
+          "kind": "method",
+          "line": 1077,
+          "extra": "public ObjectMapper enableDefaultTyping() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "enableDefaultTyping",
+          "kind": "method",
+          "line": 1087,
+          "extra": "public ObjectMapper enableDefaultTyping(DefaultTyping dti) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "enableDefaultTyping",
+          "kind": "method",
+          "line": 1099,
+          "extra": "public ObjectMapper enableDefaultTyping(DefaultTyping applicability, JsonTypeInfo.As includeAs)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "enableDefaultTypingAsProperty",
+          "kind": "method",
+          "line": 1116,
+          "extra": "public ObjectMapper enableDefaultTypingAsProperty(DefaultTyping applicability, String propertyName)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "findAndRegisterModules",
+          "kind": "method",
+          "line": 791,
+          "extra": "public ObjectMapper findAndRegisterModules() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "findMixInClassFor",
+          "kind": "method",
+          "line": 935,
+          "extra": "public final Class<?> findMixInClassFor(Class<?> cls) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "findModules",
+          "kind": "method",
+          "line": 755,
+          "extra": "public static List<com.fasterxml.jackson.databind.Module> findModules() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "findModules",
+          "kind": "method",
+          "line": 768,
+          "extra": "public static List<com.fasterxml.jackson.databind.Module> findModules(ClassLoader classLoader)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "generateJsonSchema",
+          "kind": "method",
+          "line": 2796,
+          "extra": "public com.fasterxml.jackson.databind.jsonschema.JsonSchema generateJsonSchema(Class<?> t)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "getDeserializationConfig",
+          "kind": "method",
+          "line": 822,
+          "extra": "public DeserializationConfig getDeserializationConfig() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "getDeserializationContext",
+          "kind": "method",
+          "line": 833,
+          "extra": "public DeserializationContext getDeserializationContext() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "getFactory",
+          "kind": "method",
+          "line": 1333,
+          "extra": "public JsonFactory getFactory() { return _jsonFactory; }",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "getJsonFactory",
+          "kind": "method",
+          "line": 1340,
+          "extra": "public JsonFactory getJsonFactory() { return getFactory(); }",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "getNodeFactory",
+          "kind": "method",
+          "line": 1629,
+          "extra": "public JsonNodeFactory getNodeFactory() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "getSerializationConfig",
+          "kind": "method",
+          "line": 809,
+          "extra": "public SerializationConfig getSerializationConfig() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "getSerializerFactory",
+          "kind": "method",
+          "line": 859,
+          "extra": "public SerializerFactory getSerializerFactory() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "getSerializerProvider",
+          "kind": "method",
+          "line": 872,
+          "extra": "public SerializerProvider getSerializerProvider() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "getSubtypeResolver",
+          "kind": "method",
+          "line": 1004,
+          "extra": "public SubtypeResolver getSubtypeResolver() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "getTypeFactory",
+          "kind": "method",
+          "line": 1181,
+          "extra": "public TypeFactory getTypeFactory() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "getVisibilityChecker",
+          "kind": "method",
+          "line": 954,
+          "extra": "public VisibilityChecker<?> getVisibilityChecker() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "isEnabled",
+          "kind": "method",
+          "line": 1568,
+          "extra": "public boolean isEnabled(MapperFeature f) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "isEnabled",
+          "kind": "method",
+          "line": 1577,
+          "extra": "public boolean isEnabled(SerializationFeature f) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "isEnabled",
+          "kind": "method",
+          "line": 1585,
+          "extra": "public boolean isEnabled(DeserializationFeature f) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "isEnabled",
+          "kind": "method",
+          "line": 1595,
+          "extra": "public boolean isEnabled(JsonFactory.Feature f) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "isEnabled",
+          "kind": "method",
+          "line": 1605,
+          "extra": "public boolean isEnabled(JsonParser.Feature f) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "isEnabled",
+          "kind": "method",
+          "line": 1615,
+          "extra": "public boolean isEnabled(JsonGenerator.Feature f) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "mixInCount",
+          "kind": "method",
+          "line": 939,
+          "extra": "public final int mixInCount() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readTree",
+          "kind": "method",
+          "line": 1706,
+          "extra": "public <T extends TreeNode> T readTree(JsonParser jp)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readTree",
+          "kind": "method",
+          "line": 1803,
+          "extra": "public JsonNode readTree(InputStream in)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readTree",
+          "kind": "method",
+          "line": 1820,
+          "extra": "public JsonNode readTree(Reader r)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readTree",
+          "kind": "method",
+          "line": 1834,
+          "extra": "public JsonNode readTree(String content)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readTree",
+          "kind": "method",
+          "line": 1848,
+          "extra": "public JsonNode readTree(byte[] content)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readTree",
+          "kind": "method",
+          "line": 1862,
+          "extra": "public JsonNode readTree(File file)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readTree",
+          "kind": "method",
+          "line": 1876,
+          "extra": "public JsonNode readTree(URL source)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 1653,
+          "extra": "public <T> T readValue(JsonParser jp, Class<T> valueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 1668,
+          "extra": "public <T> T readValue(JsonParser jp, TypeReference<?> valueTypeRef)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 1682,
+          "extra": "public final <T> T readValue(JsonParser jp, ResolvedType valueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 1692,
+          "extra": "public <T> T readValue(JsonParser jp, JavaType valueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 2116,
+          "extra": "public <T> T readValue(File src, Class<T> valueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 2123,
+          "extra": "public <T> T readValue(File src, TypeReference valueTypeRef)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 2130,
+          "extra": "public <T> T readValue(File src, JavaType valueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 2137,
+          "extra": "public <T> T readValue(URL src, Class<T> valueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 2146,
+          "extra": "public <T> T readValue(URL src, TypeReference valueTypeRef)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 2153,
+          "extra": "public <T> T readValue(URL src, JavaType valueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 2160,
+          "extra": "public <T> T readValue(String content, Class<T> valueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 2169,
+          "extra": "public <T> T readValue(String content, TypeReference valueTypeRef)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 2176,
+          "extra": "public <T> T readValue(String content, JavaType valueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 2183,
+          "extra": "public <T> T readValue(Reader src, Class<T> valueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 2192,
+          "extra": "public <T> T readValue(Reader src, TypeReference valueTypeRef)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 2199,
+          "extra": "public <T> T readValue(Reader src, JavaType valueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 2206,
+          "extra": "public <T> T readValue(InputStream src, Class<T> valueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 2215,
+          "extra": "public <T> T readValue(InputStream src, TypeReference valueTypeRef)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 2222,
+          "extra": "public <T> T readValue(InputStream src, JavaType valueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 2229,
+          "extra": "public <T> T readValue(byte[] src, Class<T> valueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 2238,
+          "extra": "public <T> T readValue(byte[] src, int offset, int len,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 2248,
+          "extra": "public <T> T readValue(byte[] src, TypeReference valueTypeRef)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 2255,
+          "extra": "public <T> T readValue(byte[] src, int offset, int len,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 2263,
+          "extra": "public <T> T readValue(byte[] src, JavaType valueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValue",
+          "kind": "method",
+          "line": 2270,
+          "extra": "public <T> T readValue(byte[] src, int offset, int len,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValues",
+          "kind": "method",
+          "line": 1746,
+          "extra": "public <T> MappingIterator<T> readValues(JsonParser jp, ResolvedType valueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValues",
+          "kind": "method",
+          "line": 1755,
+          "extra": "public <T> MappingIterator<T> readValues(JsonParser jp, JavaType valueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValues",
+          "kind": "method",
+          "line": 1770,
+          "extra": "public <T> MappingIterator<T> readValues(JsonParser jp, Class<T> valueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readValues",
+          "kind": "method",
+          "line": 1780,
+          "extra": "public <T> MappingIterator<T> readValues(JsonParser jp, TypeReference<?> valueTypeRef)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "reader",
+          "kind": "method",
+          "line": 2546,
+          "extra": "public ObjectReader reader() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "reader",
+          "kind": "method",
+          "line": 2558,
+          "extra": "public ObjectReader reader(DeserializationFeature feature) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "reader",
+          "kind": "method",
+          "line": 2569,
+          "extra": "public ObjectReader reader(DeserializationFeature first,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "reader",
+          "kind": "method",
+          "line": 2595,
+          "extra": "public ObjectReader reader(JavaType type)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "reader",
+          "kind": "method",
+          "line": 2605,
+          "extra": "public ObjectReader reader(Class<?> type)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "reader",
+          "kind": "method",
+          "line": 2614,
+          "extra": "public ObjectReader reader(TypeReference<?> type)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "reader",
+          "kind": "method",
+          "line": 2623,
+          "extra": "public ObjectReader reader(JsonNodeFactory f)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "reader",
+          "kind": "method",
+          "line": 2635,
+          "extra": "public ObjectReader reader(FormatSchema schema) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "reader",
+          "kind": "method",
+          "line": 2647,
+          "extra": "public ObjectReader reader(InjectableValues injectableValues) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "reader",
+          "kind": "method",
+          "line": 2666,
+          "extra": "public ObjectReader reader(Base64Variant defaultBase64) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "reader",
+          "kind": "method",
+          "line": 2676,
+          "extra": "public ObjectReader reader(ContextAttributes attrs) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readerForUpdating",
+          "kind": "method",
+          "line": 2584,
+          "extra": "public ObjectReader readerForUpdating(Object valueToUpdate)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "readerWithView",
+          "kind": "method",
+          "line": 2656,
+          "extra": "public ObjectReader readerWithView(Class<?> view) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "registerModule",
+          "kind": "method",
+          "line": 535,
+          "extra": "public ObjectMapper registerModule(Module module)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "registerModules",
+          "kind": "method",
+          "line": 719,
+          "extra": "public ObjectMapper registerModules(Module... modules)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "registerModules",
+          "kind": "method",
+          "line": 738,
+          "extra": "public ObjectMapper registerModules(Iterable<com.fasterxml.jackson.databind.Module> modules)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "registerSubtypes",
+          "kind": "method",
+          "line": 1156,
+          "extra": "public void registerSubtypes(Class<?>... classes) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "registerSubtypes",
+          "kind": "method",
+          "line": 1168,
+          "extra": "public void registerSubtypes(NamedType... types) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "setAnnotationIntrospector",
+          "kind": "method",
+          "line": 1022,
+          "extra": "public ObjectMapper setAnnotationIntrospector(AnnotationIntrospector ai) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "setAnnotationIntrospectors",
+          "kind": "method",
+          "line": 1041,
+          "extra": "public ObjectMapper setAnnotationIntrospectors(AnnotationIntrospector serializerAI,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "setBase64Variant",
+          "kind": "method",
+          "line": 1293,
+          "extra": "public ObjectMapper setBase64Variant(Base64Variant v) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "setConfig",
+          "kind": "method",
+          "line": 1257,
+          "extra": "public ObjectMapper setConfig(DeserializationConfig config) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "setConfig",
+          "kind": "method",
+          "line": 1313,
+          "extra": "public ObjectMapper setConfig(SerializationConfig config) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "setDateFormat",
+          "kind": "method",
+          "line": 1352,
+          "extra": "public ObjectMapper setDateFormat(DateFormat dateFormat)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "setDefaultTyping",
+          "kind": "method",
+          "line": 1143,
+          "extra": "public ObjectMapper setDefaultTyping(TypeResolverBuilder<?> typer) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "setFilters",
+          "kind": "method",
+          "line": 1279,
+          "extra": "public void setFilters(FilterProvider filterProvider) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "setHandlerInstantiator",
+          "kind": "method",
+          "line": 1366,
+          "extra": "public Object setHandlerInstantiator(HandlerInstantiator hi)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "setInjectableValues",
+          "kind": "method",
+          "line": 1377,
+          "extra": "public ObjectMapper setInjectableValues(InjectableValues injectableValues) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "setLocale",
+          "kind": "method",
+          "line": 1386,
+          "extra": "public ObjectMapper setLocale(Locale l) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "setMixInAnnotations",
+          "kind": "method",
+          "line": 894,
+          "extra": "public final void setMixInAnnotations(Map<Class<?>, Class<?>> sourceMixins)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "setNodeFactory",
+          "kind": "method",
+          "line": 1220,
+          "extra": "public ObjectMapper setNodeFactory(JsonNodeFactory f) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "setPropertyNamingStrategy",
+          "kind": "method",
+          "line": 1051,
+          "extra": "public ObjectMapper setPropertyNamingStrategy(PropertyNamingStrategy s) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "setSerializationInclusion",
+          "kind": "method",
+          "line": 1060,
+          "extra": "public ObjectMapper setSerializationInclusion(JsonInclude.Include incl) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "setSerializerFactory",
+          "kind": "method",
+          "line": 847,
+          "extra": "public ObjectMapper setSerializerFactory(SerializerFactory f) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "setSerializerProvider",
+          "kind": "method",
+          "line": 867,
+          "extra": "public ObjectMapper setSerializerProvider(DefaultSerializerProvider p) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "setSubtypeResolver",
+          "kind": "method",
+          "line": 1011,
+          "extra": "public ObjectMapper setSubtypeResolver(SubtypeResolver str) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "setTimeZone",
+          "kind": "method",
+          "line": 1396,
+          "extra": "public ObjectMapper setTimeZone(TimeZone tz) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "setTypeFactory",
+          "kind": "method",
+          "line": 1192,
+          "extra": "public ObjectMapper setTypeFactory(TypeFactory f)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "setVisibility",
+          "kind": "method",
+          "line": 994,
+          "extra": "public ObjectMapper setVisibility(PropertyAccessor forMethod, JsonAutoDetect.Visibility visibility)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "setVisibilityChecker",
+          "kind": "method",
+          "line": 965,
+          "extra": "public void setVisibilityChecker(VisibilityChecker<?> vc) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "treeAsTokens",
+          "kind": "method",
+          "line": 1975,
+          "extra": "public JsonParser treeAsTokens(TreeNode n)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "treeToValue",
+          "kind": "method",
+          "line": 1991,
+          "extra": "public <T> T treeToValue(TreeNode n, Class<T> valueType)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "useForType",
+          "kind": "method",
+          "line": 167,
+          "extra": "public boolean useForType(JavaType t)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "valueToTree",
+          "kind": "method",
+          "line": 2027,
+          "extra": "public <T extends JsonNode> T valueToTree(Object fromValue)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "version",
+          "kind": "method",
+          "line": 518,
+          "extra": "public Version version() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "writeTree",
+          "kind": "method",
+          "line": 1920,
+          "extra": "public void writeTree(JsonGenerator jgen, TreeNode rootNode)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "writeTree",
+          "kind": "method",
+          "line": 1934,
+          "extra": "public void writeTree(JsonGenerator jgen, JsonNode rootNode)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "writeValue",
+          "kind": "method",
+          "line": 1895,
+          "extra": "public void writeValue(JsonGenerator jgen, Object value)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "writeValue",
+          "kind": "method",
+          "line": 2288,
+          "extra": "public void writeValue(File resultFile, Object value)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "writeValue",
+          "kind": "method",
+          "line": 2305,
+          "extra": "public void writeValue(OutputStream out, Object value)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "writeValue",
+          "kind": "method",
+          "line": 2321,
+          "extra": "public void writeValue(Writer w, Object value)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "writeValueAsBytes",
+          "kind": "method",
+          "line": 2361,
+          "extra": "public byte[] writeValueAsBytes(Object value)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "writeValueAsString",
+          "kind": "method",
+          "line": 2336,
+          "extra": "public String writeValueAsString(Object value)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "writer",
+          "kind": "method",
+          "line": 2388,
+          "extra": "public ObjectWriter writer() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "writer",
+          "kind": "method",
+          "line": 2397,
+          "extra": "public ObjectWriter writer(SerializationFeature feature) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "writer",
+          "kind": "method",
+          "line": 2406,
+          "extra": "public ObjectWriter writer(SerializationFeature first,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "writer",
+          "kind": "method",
+          "line": 2416,
+          "extra": "public ObjectWriter writer(DateFormat df) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "writer",
+          "kind": "method",
+          "line": 2467,
+          "extra": "public ObjectWriter writer(PrettyPrinter pp) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "writer",
+          "kind": "method",
+          "line": 2487,
+          "extra": "public ObjectWriter writer(FilterProvider filterProvider) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "writer",
+          "kind": "method",
+          "line": 2499,
+          "extra": "public ObjectWriter writer(FormatSchema schema) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "writer",
+          "kind": "method",
+          "line": 2510,
+          "extra": "public ObjectWriter writer(Base64Variant defaultBase64) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "writer",
+          "kind": "method",
+          "line": 2520,
+          "extra": "public ObjectWriter writer(CharacterEscapes escapes) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "writer",
+          "kind": "method",
+          "line": 2530,
+          "extra": "public ObjectWriter writer(ContextAttributes attrs) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "writerWithDefaultPrettyPrinter",
+          "kind": "method",
+          "line": 2478,
+          "extra": "public ObjectWriter writerWithDefaultPrettyPrinter() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "writerWithType",
+          "kind": "method",
+          "line": 2434,
+          "extra": "public ObjectWriter writerWithType(Class<?> rootType) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "writerWithType",
+          "kind": "method",
+          "line": 2446,
+          "extra": "public ObjectWriter writerWithType(TypeReference<?> rootType) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "writerWithType",
+          "kind": "method",
+          "line": 2458,
+          "extra": "public ObjectWriter writerWithType(JavaType rootType) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        },
+        {
+          "name": "writerWithView",
+          "kind": "method",
+          "line": 2424,
+          "extra": "public ObjectWriter writerWithView(Class<?> serializationView) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JacksonDatabind_17f/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java"
+        }
+      ],
+      "kind_counts": {
+        "method": 186
+      },
+      "error": ""
+    }
+  ],
+  "total_methods": 186
+}

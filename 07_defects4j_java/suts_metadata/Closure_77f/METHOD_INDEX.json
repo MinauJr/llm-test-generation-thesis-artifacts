@@ -1,0 +1,240 @@
+{
+  "sut_id": "Closure_77f",
+  "targets": [
+    {
+      "class": "com.google.javascript.jscomp.CodeGenerator",
+      "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java",
+      "methods": [
+        {
+          "name": "CodeGenerator",
+          "kind": "method",
+          "line": 45,
+          "extra": "CodeGenerator(",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "CodeGenerator",
+          "kind": "method",
+          "line": 59,
+          "extra": "CodeGenerator(CodeConsumer consumer) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "add",
+          "kind": "method",
+          "line": 70,
+          "extra": "void add(String str) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "add",
+          "kind": "method",
+          "line": 78,
+          "extra": "void add(Node n) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "add",
+          "kind": "method",
+          "line": 82,
+          "extra": "void add(Node n, Context context) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "addAllSiblings",
+          "kind": "method",
+          "line": 900,
+          "extra": "void addAllSiblings(Node n) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "addArrayList",
+          "kind": "method",
+          "line": 879,
+          "extra": "void addArrayList(Node firstInList) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "addCaseBody",
+          "kind": "method",
+          "line": 894,
+          "extra": "void addCaseBody(Node caseBody) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "addExpr",
+          "kind": "method",
+          "line": 834,
+          "extra": "void addExpr(Node n, int minPrecedence) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "addExpr",
+          "kind": "method",
+          "line": 838,
+          "extra": "private void addExpr(Node n, int minPrecedence, Context context) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "addIdentifier",
+          "kind": "method",
+          "line": 74,
+          "extra": "private void addIdentifier(String identifier) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "addLeftExpr",
+          "kind": "method",
+          "line": 830,
+          "extra": "void addLeftExpr(Node n, int minPrecedence, Context context) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "addList",
+          "kind": "method",
+          "line": 850,
+          "extra": "void addList(Node firstInList) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "addList",
+          "kind": "method",
+          "line": 854,
+          "extra": "void addList(Node firstInList, boolean isArrayOrFunctionArgument) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "addList",
+          "kind": "method",
+          "line": 858,
+          "extra": "void addList(Node firstInList, boolean isArrayOrFunctionArgument,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "addNonEmptyStatement",
+          "kind": "method",
+          "line": 737,
+          "extra": "private void addNonEmptyStatement(",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "appendHexJavaScriptRepresentation",
+          "kind": "method",
+          "line": 1125,
+          "extra": "private static void appendHexJavaScriptRepresentation(",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "appendHexJavaScriptRepresentation",
+          "kind": "method",
+          "line": 1142,
+          "extra": "private static void appendHexJavaScriptRepresentation(",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "clearContextForNoInOperator",
+          "kind": "method",
+          "line": 1117,
+          "extra": "private Context clearContextForNoInOperator(Context context) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "escapeToDoubleQuotedJsString",
+          "kind": "method",
+          "line": 944,
+          "extra": "static String escapeToDoubleQuotedJsString(String s) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "getContextForNoInOperator",
+          "kind": "method",
+          "line": 1106,
+          "extra": "private Context getContextForNoInOperator(Context context) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "getContextForNonEmptyExpression",
+          "kind": "method",
+          "line": 1097,
+          "extra": "private Context getContextForNonEmptyExpression(Context currentContext) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "getFirstNonEmptyChild",
+          "kind": "method",
+          "line": 1068,
+          "extra": "private static Node getFirstNonEmptyChild(Node n) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "getNonEmptyChildCount",
+          "kind": "method",
+          "line": 1054,
+          "extra": "private static int getNonEmptyChildCount(Node n, int maxCount) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "identifierEscape",
+          "kind": "method",
+          "line": 1028,
+          "extra": "static String identifierEscape(String s) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "isIndirectEval",
+          "kind": "method",
+          "line": 725,
+          "extra": "private boolean isIndirectEval(Node n) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "isOneExactlyFunctionOrDo",
+          "kind": "method",
+          "line": 799,
+          "extra": "private boolean isOneExactlyFunctionOrDo(Node n) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "jsString",
+          "kind": "method",
+          "line": 907,
+          "extra": "static String jsString(String s, CharsetEncoder outputCharsetEncoder) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "regexpEscape",
+          "kind": "method",
+          "line": 937,
+          "extra": "static String regexpEscape(String s, CharsetEncoder outputCharsetEncoder) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "regexpEscape",
+          "kind": "method",
+          "line": 951,
+          "extra": "static String regexpEscape(String s) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "strEscape",
+          "kind": "method",
+          "line": 956,
+          "extra": "static String strEscape(String s, char quote,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        },
+        {
+          "name": "tagAsStrict",
+          "kind": "method",
+          "line": 66,
+          "extra": "public void tagAsStrict() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Closure_77f/src/com/google/javascript/jscomp/CodeGenerator.java"
+        }
+      ],
+      "kind_counts": {
+        "method": 32
+      },
+      "error": ""
+    }
+  ],
+  "total_methods": 32
+}

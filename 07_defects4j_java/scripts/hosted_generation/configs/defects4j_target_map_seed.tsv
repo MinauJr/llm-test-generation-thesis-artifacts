@@ -1,0 +1,18 @@
+sut_id	seed_slot	chosen_target_class	origin	notes
+Chart_5f	1	org.jfree.data.xy.AbstractXYDataset	evosuite_final	class-targeted seed map for GPT-4o baseline
+Cli_23f	2	org.apache.commons.cli.MissingOptionException	evosuite_final	class-targeted seed map for GPT-4o baseline
+Closure_77f	3	com.google.javascript.jscomp.CheckLevel	evosuite_final	avoid blindly using natural modified target; keep target traceable
+Codec_15f	4	org.apache.commons.codec.binary.StringUtils	evosuite_final	stable class-targeted baseline
+Collections_18f	5	org.apache.commons.collections.ArrayStack	evosuite_final	stable class-targeted baseline
+Compress_13f	6	org.apache.commons.compress.compressors.FileNameUtil	evosuite_final	stable class-targeted baseline
+Csv_4f	7	org.apache.commons.csv.CSVRecord	evosuite_final	stable class-targeted baseline
+Gson_17f	8	com.google.gson.JsonNull	evosuite_final	stable class-targeted baseline
+JacksonCore_13f	9	com.fasterxml.jackson.core.JsonToken	evosuite_final	recovered final target in non-AI EvoSuite
+JacksonDatabind_17f	10	com.fasterxml.jackson.databind.DeserializationFeature	evosuite_final	stable class-targeted baseline
+JacksonXml_5f	11	com.fasterxml.jackson.dataformat.xml.deser.ElementWrapper	evosuite_final	recovered final target in non-AI EvoSuite
+Jsoup_91f	12	org.jsoup.UnsupportedMimeTypeException	evosuite_final	recovered final target in non-AI EvoSuite
+JxPath_22f	13	org.apache.commons.jxpath.ri.QName	evosuite_final	stable class-targeted baseline
+Lang_52f	14	org.apache.commons.lang.IllegalClassException	evosuite_final	stable class-targeted baseline
+Math_9f	15	org.apache.commons.math3.analysis.function.Abs	evosuite_final	stable class-targeted baseline
+Mockito_19f	16	org.mockito.AdditionalAnswers	evosuite_final	keep as baseline but watch PIT-stage incompatibility
+Time_24f	17	org.joda.time.IllegalFieldValueException	evosuite_final	better mutation-capable final target than original attempt

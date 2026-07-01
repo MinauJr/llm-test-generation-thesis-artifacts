@@ -1,0 +1,324 @@
+{
+  "sut_id": "JxPath_22f",
+  "targets": [
+    {
+      "class": "org.apache.commons.jxpath.ri.model.dom.DOMNodePointer",
+      "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java",
+      "methods": [
+        {
+          "name": "DOMNodePointer",
+          "kind": "method",
+          "line": 77,
+          "extra": "public DOMNodePointer(Node node, Locale locale) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "DOMNodePointer",
+          "kind": "method",
+          "line": 88,
+          "extra": "public DOMNodePointer(Node node, Locale locale, String id) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "DOMNodePointer",
+          "kind": "method",
+          "line": 99,
+          "extra": "public DOMNodePointer(NodePointer parent, Node node) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "asPath",
+          "kind": "method",
+          "line": 486,
+          "extra": "public String asPath() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "attributeIterator",
+          "kind": "method",
+          "line": 203,
+          "extra": "public NodeIterator attributeIterator(QName name) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "childIterator",
+          "kind": "method",
+          "line": 198,
+          "extra": "public NodeIterator childIterator(NodeTest test, boolean reverse,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "compareChildNodePointers",
+          "kind": "method",
+          "line": 749,
+          "extra": "public int compareChildNodePointers(NodePointer pointer1,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "createAttribute",
+          "kind": "method",
+          "line": 450,
+          "extra": "public NodePointer createAttribute(JXPathContext context, QName name) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "createChild",
+          "kind": "method",
+          "line": 415,
+          "extra": "public NodePointer createChild(JXPathContext context, QName name, int index) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "createChild",
+          "kind": "method",
+          "line": 443,
+          "extra": "public NodePointer createChild(JXPathContext context, QName name,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "equalStrings",
+          "kind": "method",
+          "line": 171,
+          "extra": "private static boolean equalStrings(String s1, String s2) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "equals",
+          "kind": "method",
+          "line": 631,
+          "extra": "public boolean equals(Object object) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "findEnclosingAttribute",
+          "kind": "method",
+          "line": 342,
+          "extra": "protected static String findEnclosingAttribute(Node n, String attrName) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "getBaseValue",
+          "kind": "method",
+          "line": 298,
+          "extra": "public Object getBaseValue() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "getDefaultNamespaceURI",
+          "kind": "method",
+          "line": 274,
+          "extra": "public String getDefaultNamespaceURI() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "getImmediateNode",
+          "kind": "method",
+          "line": 302,
+          "extra": "public Object getImmediateNode() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "getLanguage",
+          "kind": "method",
+          "line": 360,
+          "extra": "protected String getLanguage() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "getLength",
+          "kind": "method",
+          "line": 314,
+          "extra": "public int getLength() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "getLocalName",
+          "kind": "method",
+          "line": 656,
+          "extra": "public static String getLocalName(Node node) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "getName",
+          "kind": "method",
+          "line": 180,
+          "extra": "public QName getName() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "getNamespaceResolver",
+          "kind": "method",
+          "line": 215,
+          "extra": "public synchronized NamespaceResolver getNamespaceResolver() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "getNamespaceURI",
+          "kind": "method",
+          "line": 194,
+          "extra": "public String getNamespaceURI() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "getNamespaceURI",
+          "kind": "method",
+          "line": 223,
+          "extra": "public String getNamespaceURI(String prefix) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "getNamespaceURI",
+          "kind": "method",
+          "line": 672,
+          "extra": "public static String getNamespaceURI(Node node) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "getPointerByID",
+          "kind": "method",
+          "line": 741,
+          "extra": "public Pointer getPointerByID(JXPathContext context, String id) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "getPrefix",
+          "kind": "method",
+          "line": 640,
+          "extra": "public static String getPrefix(Node node) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "getRelativePositionByQName",
+          "kind": "method",
+          "line": 556,
+          "extra": "private int getRelativePositionByQName() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "getRelativePositionOfElement",
+          "kind": "method",
+          "line": 580,
+          "extra": "private int getRelativePositionOfElement() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "getRelativePositionOfPI",
+          "kind": "method",
+          "line": 613,
+          "extra": "private int getRelativePositionOfPI() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "getRelativePositionOfTextNode",
+          "kind": "method",
+          "line": 596,
+          "extra": "private int getRelativePositionOfTextNode() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "getValue",
+          "kind": "method",
+          "line": 699,
+          "extra": "public Object getValue() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "hashCode",
+          "kind": "method",
+          "line": 627,
+          "extra": "public int hashCode() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "isActual",
+          "kind": "method",
+          "line": 306,
+          "extra": "public boolean isActual() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "isCollection",
+          "kind": "method",
+          "line": 310,
+          "extra": "public boolean isCollection() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "isLanguage",
+          "kind": "method",
+          "line": 329,
+          "extra": "public boolean isLanguage(String lang) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "isLeaf",
+          "kind": "method",
+          "line": 318,
+          "extra": "public boolean isLeaf() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "matchesQName",
+          "kind": "method",
+          "line": 568,
+          "extra": "private boolean matchesQName(Node n) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "namespaceIterator",
+          "kind": "method",
+          "line": 211,
+          "extra": "public NodeIterator namespaceIterator() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "namespacePointer",
+          "kind": "method",
+          "line": 207,
+          "extra": "public NodePointer namespacePointer(String prefix) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "remove",
+          "kind": "method",
+          "line": 478,
+          "extra": "public void remove() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "setValue",
+          "kind": "method",
+          "line": 371,
+          "extra": "public void setValue(Object value) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "stringValue",
+          "kind": "method",
+          "line": 712,
+          "extra": "private String stringValue(Node node) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "testNode",
+          "kind": "method",
+          "line": 104,
+          "extra": "public boolean testNode(NodeTest test) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        },
+        {
+          "name": "testNode",
+          "kind": "method",
+          "line": 114,
+          "extra": "public static boolean testNode(Node node, NodeTest test) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/JxPath_22f/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java"
+        }
+      ],
+      "kind_counts": {
+        "method": 44
+      },
+      "error": ""
+    }
+  ],
+  "total_methods": 44
+}

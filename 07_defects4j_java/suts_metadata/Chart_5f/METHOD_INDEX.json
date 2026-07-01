@@ -1,0 +1,254 @@
+{
+  "sut_id": "Chart_5f",
+  "targets": [
+    {
+      "class": "org.jfree.data.xy.XYSeries",
+      "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java",
+      "methods": [
+        {
+          "name": "XYSeries",
+          "kind": "method",
+          "line": 124,
+          "extra": "public XYSeries(Comparable key) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "XYSeries",
+          "kind": "method",
+          "line": 136,
+          "extra": "public XYSeries(Comparable key, boolean autoSort) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "XYSeries",
+          "kind": "method",
+          "line": 150,
+          "extra": "public XYSeries(Comparable key,",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "add",
+          "kind": "method",
+          "line": 242,
+          "extra": "public void add(XYDataItem item) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "add",
+          "kind": "method",
+          "line": 254,
+          "extra": "public void add(double x, double y) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "add",
+          "kind": "method",
+          "line": 268,
+          "extra": "public void add(double x, double y, boolean notify) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "add",
+          "kind": "method",
+          "line": 280,
+          "extra": "public void add(double x, Number y) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "add",
+          "kind": "method",
+          "line": 295,
+          "extra": "public void add(double x, Number y, boolean notify) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "add",
+          "kind": "method",
+          "line": 313,
+          "extra": "public void add(Number x, Number y) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "add",
+          "kind": "method",
+          "line": 331,
+          "extra": "public void add(Number x, Number y, boolean notify) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "add",
+          "kind": "method",
+          "line": 346,
+          "extra": "public void add(XYDataItem item, boolean notify) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "addOrUpdate",
+          "kind": "method",
+          "line": 526,
+          "extra": "public XYDataItem addOrUpdate(double x, double y) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "addOrUpdate",
+          "kind": "method",
+          "line": 540,
+          "extra": "public XYDataItem addOrUpdate(Number x, Number y) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "clear",
+          "kind": "method",
+          "line": 439,
+          "extra": "public void clear() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "clone",
+          "kind": "method",
+          "line": 637,
+          "extra": "public Object clone() throws CloneNotSupportedException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "createCopy",
+          "kind": "method",
+          "line": 653,
+          "extra": "public XYSeries createCopy(int start, int end)",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "delete",
+          "kind": "method",
+          "line": 403,
+          "extra": "public void delete(int start, int end) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "equals",
+          "kind": "method",
+          "line": 682,
+          "extra": "public boolean equals(Object obj) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "getAllowDuplicateXValues",
+          "kind": "method",
+          "line": 176,
+          "extra": "public boolean getAllowDuplicateXValues() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "getAutoSort",
+          "kind": "method",
+          "line": 166,
+          "extra": "public boolean getAutoSort() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "getDataItem",
+          "kind": "method",
+          "line": 453,
+          "extra": "public XYDataItem getDataItem(int index) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "getItemCount",
+          "kind": "method",
+          "line": 185,
+          "extra": "public int getItemCount() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "getItems",
+          "kind": "method",
+          "line": 195,
+          "extra": "public List getItems() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "getMaximumItemCount",
+          "kind": "method",
+          "line": 206,
+          "extra": "public int getMaximumItemCount() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "getX",
+          "kind": "method",
+          "line": 464,
+          "extra": "public Number getX(int index) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "getY",
+          "kind": "method",
+          "line": 475,
+          "extra": "public Number getY(int index) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "hashCode",
+          "kind": "method",
+          "line": 713,
+          "extra": "public int hashCode() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "indexOf",
+          "kind": "method",
+          "line": 592,
+          "extra": "public int indexOf(Number x) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "remove",
+          "kind": "method",
+          "line": 418,
+          "extra": "public XYDataItem remove(int index) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "remove",
+          "kind": "method",
+          "line": 432,
+          "extra": "public XYDataItem remove(Number x) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "setMaximumItemCount",
+          "kind": "method",
+          "line": 224,
+          "extra": "public void setMaximumItemCount(int maximum) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "toArray",
+          "kind": "method",
+          "line": 614,
+          "extra": "public double[][] toArray() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "update",
+          "kind": "method",
+          "line": 503,
+          "extra": "public void update(Number x, Number y) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        },
+        {
+          "name": "updateByIndex",
+          "kind": "method",
+          "line": 488,
+          "extra": "public void updateByIndex(int index, Number y) {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Chart_5f/source/org/jfree/data/xy/XYSeries.java"
+        }
+      ],
+      "kind_counts": {
+        "method": 34
+      },
+      "error": ""
+    }
+  ],
+  "total_methods": 34
+}

@@ -1,0 +1,35 @@
+You are generating a single Java JUnit 4 test class for a real Defects4J project.
+
+STRICT OUTPUT RULES
+- Output ONLY raw Java source code.
+- Do NOT use markdown fences.
+- Do NOT include explanations.
+- Do NOT include prose before or after the Java file.
+- Produce exactly one public test class.
+- Use package {{TEST_PACKAGE}};
+- The class name must be {{TEST_CLASS_NAME}}.
+- Use JUnit 4 style imports and annotations.
+- Do not use JUnit 5.
+- Do not invent helper classes, extra files, or external resources.
+- Do not use mocking libraries unless they are already clearly available in the provided project context.
+- Do not assume APIs, constructors, methods, fields, or constants that are not visible in the supplied context.
+- Prefer a small number of safe, compilable tests over many fragile tests.
+- Avoid filesystem, network, time-sensitive, locale-sensitive, environment-sensitive, or random-dependent behaviour unless clearly required and safely controllable.
+- Avoid infinite loops, heavy workloads, or large generated fixtures.
+- If a method/constructor visibility is unclear, do not rely on it.
+- Keep imports minimal and plausible.
+- Do not add comments unless essential.
+
+GOAL
+Generate tests that are as likely as possible to compile and run inside the real project classpath.
+The target class is:
+{{TARGET_CLASS}}
+
+PROJECT/SUT ID
+{{SUT_ID}}
+
+TARGET CLASS SOURCE
+{{TARGET_CLASS_SOURCE}}
+
+OPTIONAL RELATED CONTEXT
+{{RELATED_CONTEXT}}

@@ -1,0 +1,114 @@
+{
+  "sut_id": "Csv_4f",
+  "targets": [
+    {
+      "class": "org.apache.commons.csv.CSVParser",
+      "file": "/home/jpaiva/projetos/SUTs/defects4j/Csv_4f/src/main/java/org/apache/commons/csv/CSVParser.java",
+      "methods": [
+        {
+          "name": "CSVParser",
+          "kind": "method",
+          "line": 237,
+          "extra": "public CSVParser(final Reader reader, final CSVFormat format) throws IOException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Csv_4f/src/main/java/org/apache/commons/csv/CSVParser.java"
+        },
+        {
+          "name": "addRecordValue",
+          "kind": "method",
+          "line": 247,
+          "extra": "private void addRecordValue() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Csv_4f/src/main/java/org/apache/commons/csv/CSVParser.java"
+        },
+        {
+          "name": "close",
+          "kind": "method",
+          "line": 263,
+          "extra": "public void close() throws IOException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Csv_4f/src/main/java/org/apache/commons/csv/CSVParser.java"
+        },
+        {
+          "name": "getCurrentLineNumber",
+          "kind": "method",
+          "line": 276,
+          "extra": "public long getCurrentLineNumber() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Csv_4f/src/main/java/org/apache/commons/csv/CSVParser.java"
+        },
+        {
+          "name": "getHeaderMap",
+          "kind": "method",
+          "line": 287,
+          "extra": "public Map<String, Integer> getHeaderMap() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Csv_4f/src/main/java/org/apache/commons/csv/CSVParser.java"
+        },
+        {
+          "name": "getRecordNumber",
+          "kind": "method",
+          "line": 298,
+          "extra": "public long getRecordNumber() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Csv_4f/src/main/java/org/apache/commons/csv/CSVParser.java"
+        },
+        {
+          "name": "getRecords",
+          "kind": "method",
+          "line": 312,
+          "extra": "public List<CSVRecord> getRecords() throws IOException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Csv_4f/src/main/java/org/apache/commons/csv/CSVParser.java"
+        },
+        {
+          "name": "initializeHeader",
+          "kind": "method",
+          "line": 324,
+          "extra": "private Map<String, Integer> initializeHeader() throws IOException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Csv_4f/src/main/java/org/apache/commons/csv/CSVParser.java"
+        },
+        {
+          "name": "isClosed",
+          "kind": "method",
+          "line": 354,
+          "extra": "public boolean isClosed() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Csv_4f/src/main/java/org/apache/commons/csv/CSVParser.java"
+        },
+        {
+          "name": "iterator",
+          "kind": "method",
+          "line": 366,
+          "extra": "public Iterator<CSVRecord> iterator() {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Csv_4f/src/main/java/org/apache/commons/csv/CSVParser.java"
+        },
+        {
+          "name": "nextRecord",
+          "kind": "method",
+          "line": 421,
+          "extra": "CSVRecord nextRecord() throws IOException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Csv_4f/src/main/java/org/apache/commons/csv/CSVParser.java"
+        },
+        {
+          "name": "parse",
+          "kind": "method",
+          "line": 148,
+          "extra": "public static CSVParser parse(File file, final CSVFormat format) throws IOException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Csv_4f/src/main/java/org/apache/commons/csv/CSVParser.java"
+        },
+        {
+          "name": "parse",
+          "kind": "method",
+          "line": 168,
+          "extra": "public static CSVParser parse(String string, final CSVFormat format) throws IOException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Csv_4f/src/main/java/org/apache/commons/csv/CSVParser.java"
+        },
+        {
+          "name": "parse",
+          "kind": "method",
+          "line": 195,
+          "extra": "public static CSVParser parse(URL url, Charset charset, final CSVFormat format) throws IOException {",
+          "file": "/home/jpaiva/projetos/SUTs/defects4j/Csv_4f/src/main/java/org/apache/commons/csv/CSVParser.java"
+        }
+      ],
+      "kind_counts": {
+        "method": 14
+      },
+      "error": ""
+    }
+  ],
+  "total_methods": 14
+}
