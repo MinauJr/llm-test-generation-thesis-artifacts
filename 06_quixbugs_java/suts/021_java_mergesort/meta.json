@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "mergesort",
+  "pair_id": 21,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/MERGESORT.java",
+  "entry_file": "MERGESORT.java",
+  "target_class": "mypkg.MERGESORT",
+  "files": {
+    "llm_source": "MERGESORT.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/MERGESORT.java"
+  }
+}

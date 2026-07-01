@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "possible_change",
+  "pair_id": 26,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/POSSIBLE_CHANGE.java",
+  "entry_file": "POSSIBLE_CHANGE.java",
+  "target_class": "mypkg.POSSIBLE_CHANGE",
+  "files": {
+    "llm_source": "POSSIBLE_CHANGE.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/POSSIBLE_CHANGE.java"
+  }
+}

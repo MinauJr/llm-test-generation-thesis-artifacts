@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "to_base",
+  "pair_id": 38,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/TO_BASE.java",
+  "entry_file": "TO_BASE.java",
+  "target_class": "mypkg.TO_BASE",
+  "files": {
+    "llm_source": "TO_BASE.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/TO_BASE.java"
+  }
+}

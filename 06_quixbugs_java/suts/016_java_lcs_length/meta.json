@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "lcs_length",
+  "pair_id": 16,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/LCS_LENGTH.java",
+  "entry_file": "LCS_LENGTH.java",
+  "target_class": "mypkg.LCS_LENGTH",
+  "files": {
+    "llm_source": "LCS_LENGTH.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/LCS_LENGTH.java"
+  }
+}

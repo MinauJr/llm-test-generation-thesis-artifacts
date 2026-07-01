@@ -1,0 +1,13 @@
+003_java_bucketsort
+006_java_find_first_in_sorted
+009_java_gcd
+012_java_is_valid_parenthesization
+015_java_kth
+018_java_lis
+021_java_mergesort
+024_java_next_permutation
+027_java_powerset
+030_java_rpn_eval
+033_java_shortest_paths
+036_java_sqrt
+039_java_topological_ordering

@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "levenshtein",
+  "pair_id": 17,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/LEVENSHTEIN.java",
+  "entry_file": "LEVENSHTEIN.java",
+  "target_class": "mypkg.LEVENSHTEIN",
+  "files": {
+    "llm_source": "LEVENSHTEIN.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/LEVENSHTEIN.java"
+  }
+}

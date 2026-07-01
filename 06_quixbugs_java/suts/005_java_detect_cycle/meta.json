@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "detect_cycle",
+  "pair_id": 5,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/DETECT_CYCLE.java",
+  "entry_file": "DETECT_CYCLE.java",
+  "target_class": "mypkg.DETECT_CYCLE",
+  "files": {
+    "llm_source": "DETECT_CYCLE.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/DETECT_CYCLE.java"
+  }
+}

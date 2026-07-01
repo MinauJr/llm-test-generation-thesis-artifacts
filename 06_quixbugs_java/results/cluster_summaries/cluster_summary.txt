@@ -1,0 +1,5 @@
+cluster_root=/home/jpaiva/projetos/quixbugs_java_cluster/out/quixbugs_java_zero_shot_cluster_v1
+cluster_size=136M
+status_json_count=1400
+validation_json_count=1400
+summary_file_count=4

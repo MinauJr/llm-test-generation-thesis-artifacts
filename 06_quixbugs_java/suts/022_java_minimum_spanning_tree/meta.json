@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "minimum_spanning_tree",
+  "pair_id": 22,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/MINIMUM_SPANNING_TREE.java",
+  "entry_file": "MINIMUM_SPANNING_TREE.java",
+  "target_class": "mypkg.MINIMUM_SPANNING_TREE",
+  "files": {
+    "llm_source": "MINIMUM_SPANNING_TREE.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/MINIMUM_SPANNING_TREE.java"
+  }
+}

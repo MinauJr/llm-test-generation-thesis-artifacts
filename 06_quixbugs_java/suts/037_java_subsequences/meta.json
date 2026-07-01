@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "subsequences",
+  "pair_id": 37,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/SUBSEQUENCES.java",
+  "entry_file": "SUBSEQUENCES.java",
+  "target_class": "mypkg.SUBSEQUENCES",
+  "files": {
+    "llm_source": "SUBSEQUENCES.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/SUBSEQUENCES.java"
+  }
+}

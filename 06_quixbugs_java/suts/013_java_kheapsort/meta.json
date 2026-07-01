@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "kheapsort",
+  "pair_id": 13,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/KHEAPSORT.java",
+  "entry_file": "KHEAPSORT.java",
+  "target_class": "mypkg.KHEAPSORT",
+  "files": {
+    "llm_source": "KHEAPSORT.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/KHEAPSORT.java"
+  }
+}

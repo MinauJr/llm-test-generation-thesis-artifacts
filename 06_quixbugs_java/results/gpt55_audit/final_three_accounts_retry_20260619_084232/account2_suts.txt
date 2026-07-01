@@ -1,0 +1,13 @@
+002_java_breadth_first_search
+005_java_detect_cycle
+008_java_flatten
+011_java_hanoi
+014_java_knapsack
+017_java_levenshtein
+020_java_max_sublist_sum
+023_java_next_palindrome
+026_java_possible_change
+029_java_reverse_linked_list
+032_java_shortest_path_lengths
+035_java_sieve
+038_java_to_base

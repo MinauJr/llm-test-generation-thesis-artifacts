@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "gcd",
+  "pair_id": 9,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/GCD.java",
+  "entry_file": "GCD.java",
+  "target_class": "mypkg.GCD",
+  "files": {
+    "llm_source": "GCD.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/GCD.java"
+  }
+}

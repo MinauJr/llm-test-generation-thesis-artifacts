@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "next_palindrome",
+  "pair_id": 23,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/NEXT_PALINDROME.java",
+  "entry_file": "NEXT_PALINDROME.java",
+  "target_class": "mypkg.NEXT_PALINDROME",
+  "files": {
+    "llm_source": "NEXT_PALINDROME.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/NEXT_PALINDROME.java"
+  }
+}

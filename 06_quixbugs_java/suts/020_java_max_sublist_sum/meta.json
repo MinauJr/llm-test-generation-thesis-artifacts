@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "max_sublist_sum",
+  "pair_id": 20,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/MAX_SUBLIST_SUM.java",
+  "entry_file": "MAX_SUBLIST_SUM.java",
+  "target_class": "mypkg.MAX_SUBLIST_SUM",
+  "files": {
+    "llm_source": "MAX_SUBLIST_SUM.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/MAX_SUBLIST_SUM.java"
+  }
+}

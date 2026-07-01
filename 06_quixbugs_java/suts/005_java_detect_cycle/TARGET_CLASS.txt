@@ -1,0 +1,1 @@
+mypkg.DETECT_CYCLE

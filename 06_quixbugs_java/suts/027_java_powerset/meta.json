@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "powerset",
+  "pair_id": 27,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/POWERSET.java",
+  "entry_file": "POWERSET.java",
+  "target_class": "mypkg.POWERSET",
+  "files": {
+    "llm_source": "POWERSET.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/POWERSET.java"
+  }
+}

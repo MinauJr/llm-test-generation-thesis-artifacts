@@ -1,0 +1,12 @@
+{
+  "gpt4o_branch_values": [],
+  "gpt4o_records": 5,
+  "gpt4o_usable_repairs": 0,
+  "gpt55_branch_values": [],
+  "gpt55_records": 10,
+  "gpt55_usable_repairs": 0,
+  "method": "JaCoCo sourcefile-level BRANCH counter for DEPTH_FIRST_SEARCH.java",
+  "repair_supported": false,
+  "target_sourcefile": "DEPTH_FIRST_SEARCH.java",
+  "target_sut": "004_java_depth_first_search"
+}

@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "hanoi",
+  "pair_id": 11,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/HANOI.java",
+  "entry_file": "HANOI.java",
+  "target_class": "mypkg.HANOI",
+  "files": {
+    "llm_source": "HANOI.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/HANOI.java"
+  }
+}

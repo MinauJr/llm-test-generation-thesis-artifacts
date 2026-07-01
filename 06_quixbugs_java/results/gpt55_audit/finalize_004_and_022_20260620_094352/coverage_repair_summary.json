@@ -1,0 +1,35 @@
+{
+  "gpt4o_records": 5,
+  "gpt4o_repaired_branch_values": [
+    87.5,
+    100.0
+  ],
+  "gpt4o_repaired_instruction_values": [
+    92.1875,
+    95.3125
+  ],
+  "gpt4o_repaired_line_values": [
+    85.714286,
+    92.857143
+  ],
+  "gpt4o_usable_repairs": 5,
+  "gpt55_records": 10,
+  "gpt55_repaired_branch_values": [
+    87.5,
+    100.0
+  ],
+  "gpt55_repaired_instruction_values": [
+    92.1875,
+    95.3125
+  ],
+  "gpt55_repaired_line_values": [
+    85.714286,
+    92.857143
+  ],
+  "gpt55_usable_repairs": 10,
+  "included_class_prefix": "mypkg/DEPTH_FIRST_SEARCH",
+  "method": "Aggregate JaCoCo counters for the exact target class mypkg/DEPTH_FIRST_SEARCH and all nested classes whose names start with mypkg/DEPTH_FIRST_SEARCH$.",
+  "repair_supported": true,
+  "target_fqcn": "mypkg.DEPTH_FIRST_SEARCH",
+  "target_sut": "004_java_depth_first_search"
+}

@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "knapsack",
+  "pair_id": 14,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/KNAPSACK.java",
+  "entry_file": "KNAPSACK.java",
+  "target_class": "mypkg.KNAPSACK",
+  "files": {
+    "llm_source": "KNAPSACK.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/KNAPSACK.java"
+  }
+}

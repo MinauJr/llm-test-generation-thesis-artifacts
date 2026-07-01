@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "lis",
+  "pair_id": 18,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/LIS.java",
+  "entry_file": "LIS.java",
+  "target_class": "mypkg.LIS",
+  "files": {
+    "llm_source": "LIS.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/LIS.java"
+  }
+}

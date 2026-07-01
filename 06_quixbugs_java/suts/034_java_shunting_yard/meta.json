@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "shunting_yard",
+  "pair_id": 34,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/SHUNTING_YARD.java",
+  "entry_file": "SHUNTING_YARD.java",
+  "target_class": "mypkg.SHUNTING_YARD",
+  "files": {
+    "llm_source": "SHUNTING_YARD.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/SHUNTING_YARD.java"
+  }
+}

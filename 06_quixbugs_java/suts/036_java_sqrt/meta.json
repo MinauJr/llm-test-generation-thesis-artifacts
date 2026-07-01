@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "sqrt",
+  "pair_id": 36,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/SQRT.java",
+  "entry_file": "SQRT.java",
+  "target_class": "mypkg.SQRT",
+  "files": {
+    "llm_source": "SQRT.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/SQRT.java"
+  }
+}

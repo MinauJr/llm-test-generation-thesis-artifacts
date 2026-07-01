@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "bitcount",
+  "pair_id": 1,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/BITCOUNT.java",
+  "entry_file": "BITCOUNT.java",
+  "target_class": "mypkg.BITCOUNT",
+  "files": {
+    "llm_source": "BITCOUNT.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/BITCOUNT.java"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "dfs_runs_with_nonzero_branch_counter": 10,
+  "dfs_runs_with_zero_branch_counter": 0,
+  "dfs_runs_without_counter_evidence": 0,
+  "dfs_structural_branch_na_supported": false,
+  "dfs_valid_ok_runs": 10,
+  "missing_suts": {
+    "004_java_depth_first_search": {
+      "fully_valid_available": 0,
+      "missing": 5,
+      "selected": 0
+    },
+    "022_java_minimum_spanning_tree": {
+      "fully_valid_available": 3,
+      "missing": 2,
+      "selected": 3
+    }
+  }
+}

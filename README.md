@@ -47,3 +47,14 @@ Cleaned artefacts for the HumanEval-X Java dataset, organised into:
 - `results/`
 
 Raw cluster generations, logs, figures and build artefacts are intentionally omitted.
+
+## 06_quixbugs_java
+
+Cleaned artefacts for the QuixBugs Java dataset, organised into:
+
+- `suts/`
+- `suts_patched_evosuite/`
+- `scripts/`
+- `results/`
+
+Raw generated tests, repeated model outputs, logs, figures, backups, Python SUTs and build artefacts are intentionally omitted.

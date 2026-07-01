@@ -1,0 +1,60 @@
+{
+  "account1": {
+    "expected_repetitions": 70,
+    "sut_count": 14,
+    "suts": [
+      "001_java_bitcount",
+      "004_java_depth_first_search",
+      "007_java_find_in_sorted",
+      "010_java_get_factors",
+      "013_java_kheapsort",
+      "016_java_lcs_length",
+      "019_java_longest_common_subsequence",
+      "022_java_minimum_spanning_tree",
+      "025_java_pascal",
+      "028_java_quicksort",
+      "031_java_shortest_path_length",
+      "034_java_shunting_yard",
+      "037_java_subsequences",
+      "040_java_wrap"
+    ]
+  },
+  "account2": {
+    "expected_repetitions": 65,
+    "sut_count": 13,
+    "suts": [
+      "002_java_breadth_first_search",
+      "005_java_detect_cycle",
+      "008_java_flatten",
+      "011_java_hanoi",
+      "014_java_knapsack",
+      "017_java_levenshtein",
+      "020_java_max_sublist_sum",
+      "023_java_next_palindrome",
+      "026_java_possible_change",
+      "029_java_reverse_linked_list",
+      "032_java_shortest_path_lengths",
+      "035_java_sieve",
+      "038_java_to_base"
+    ]
+  },
+  "account3": {
+    "expected_repetitions": 65,
+    "sut_count": 13,
+    "suts": [
+      "003_java_bucketsort",
+      "006_java_find_first_in_sorted",
+      "009_java_gcd",
+      "012_java_is_valid_parenthesization",
+      "015_java_kth",
+      "018_java_lis",
+      "021_java_mergesort",
+      "024_java_next_permutation",
+      "027_java_powerset",
+      "030_java_rpn_eval",
+      "033_java_shortest_paths",
+      "036_java_sqrt",
+      "039_java_topological_ordering"
+    ]
+  }
+}

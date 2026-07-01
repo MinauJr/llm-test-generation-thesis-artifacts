@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "depth_first_search",
+  "pair_id": 4,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/DEPTH_FIRST_SEARCH.java",
+  "entry_file": "DEPTH_FIRST_SEARCH.java",
+  "target_class": "mypkg.DEPTH_FIRST_SEARCH",
+  "files": {
+    "llm_source": "DEPTH_FIRST_SEARCH.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/DEPTH_FIRST_SEARCH.java"
+  }
+}

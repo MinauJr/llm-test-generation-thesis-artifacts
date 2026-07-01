@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "next_permutation",
+  "pair_id": 24,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/NEXT_PERMUTATION.java",
+  "entry_file": "NEXT_PERMUTATION.java",
+  "target_class": "mypkg.NEXT_PERMUTATION",
+  "files": {
+    "llm_source": "NEXT_PERMUTATION.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/NEXT_PERMUTATION.java"
+  }
+}

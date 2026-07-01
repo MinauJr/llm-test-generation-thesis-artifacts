@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "bucketsort",
+  "pair_id": 3,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/BUCKETSORT.java",
+  "entry_file": "BUCKETSORT.java",
+  "target_class": "mypkg.BUCKETSORT",
+  "files": {
+    "llm_source": "BUCKETSORT.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/BUCKETSORT.java"
+  }
+}

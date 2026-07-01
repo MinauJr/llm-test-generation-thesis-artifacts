@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "kth",
+  "pair_id": 15,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/KTH.java",
+  "entry_file": "KTH.java",
+  "target_class": "mypkg.KTH",
+  "files": {
+    "llm_source": "KTH.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/KTH.java"
+  }
+}

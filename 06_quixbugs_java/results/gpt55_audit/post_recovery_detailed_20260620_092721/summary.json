@@ -1,0 +1,14 @@
+{
+  "fully_valid_repetitions_available": 193,
+  "issue_rows": 26,
+  "missing_from_200_under_full_metrics": 7,
+  "observed_status_files": 219,
+  "ok_with_branch_missing": 10,
+  "status_counts": {
+    "generation_failed": 11,
+    "ok": 203,
+    "test_fail": 5
+  },
+  "suts_below_five_fully_valid": 2,
+  "suts_with_five_fully_valid": 38
+}

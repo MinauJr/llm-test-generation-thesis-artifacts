@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "get_factors",
+  "pair_id": 10,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/GET_FACTORS.java",
+  "entry_file": "GET_FACTORS.java",
+  "target_class": "mypkg.GET_FACTORS",
+  "files": {
+    "llm_source": "GET_FACTORS.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/GET_FACTORS.java"
+  }
+}

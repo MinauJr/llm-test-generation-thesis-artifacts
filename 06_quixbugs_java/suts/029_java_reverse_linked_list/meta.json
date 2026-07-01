@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "reverse_linked_list",
+  "pair_id": 29,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/REVERSE_LINKED_LIST.java",
+  "entry_file": "REVERSE_LINKED_LIST.java",
+  "target_class": "mypkg.REVERSE_LINKED_LIST",
+  "files": {
+    "llm_source": "REVERSE_LINKED_LIST.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/REVERSE_LINKED_LIST.java"
+  }
+}

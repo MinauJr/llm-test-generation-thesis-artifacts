@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "pascal",
+  "pair_id": 25,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/PASCAL.java",
+  "entry_file": "PASCAL.java",
+  "target_class": "mypkg.PASCAL",
+  "files": {
+    "llm_source": "PASCAL.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/PASCAL.java"
+  }
+}

@@ -1,0 +1,13 @@
+model	status	count
+cluster-max-codellama-7b-instruct-ctx16k	invalid_test_structure	173
+cluster-max-codellama-7b-instruct-ctx16k	ok	27
+cluster-safe-codestral-22b-ctx16k	invalid_test_structure	156
+cluster-safe-codestral-22b-ctx16k	ok	44
+cluster-safe-deepseek-coder-v2-16b-ctx16k	ok	200
+cluster-safe-deepseek-v2-16b-ctx32k	invalid_test_structure	13
+cluster-safe-deepseek-v2-16b-ctx32k	ok	187
+cluster-safe-qwen2.5-coder-14b-ctx32k	ok	200
+cluster-safe-qwen3-coder-30b-official-ctx32k	ok	200
+cluster-safe-qwen3.5-9b-ctx32k	invalid_test_structure	129
+cluster-safe-qwen3.5-9b-ctx32k	ok	29
+cluster-safe-qwen3.5-9b-ctx32k	timeout	42

@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "longest_common_subsequence",
+  "pair_id": 19,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/LONGEST_COMMON_SUBSEQUENCE.java",
+  "entry_file": "LONGEST_COMMON_SUBSEQUENCE.java",
+  "target_class": "mypkg.LONGEST_COMMON_SUBSEQUENCE",
+  "files": {
+    "llm_source": "LONGEST_COMMON_SUBSEQUENCE.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/LONGEST_COMMON_SUBSEQUENCE.java"
+  }
+}

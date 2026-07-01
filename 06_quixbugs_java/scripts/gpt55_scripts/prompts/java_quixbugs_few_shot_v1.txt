@@ -1,0 +1,350 @@
+You are generating unit tests for a Java program.
+
+Return ONLY a complete Java JUnit 4 test file.
+Do not include Markdown.
+Do not include explanations.
+Do not include code fences.
+
+Requirements:
+
+QuixBugs Java helper API notes:
+- java_programs.Node uses String values. Prefer new Node("A"), new Node("1"), etc.; do not use new Node(1).
+- If asserting node.getValue(), compare with a String, e.g. assertEquals("1", node.getValue()).
+- Do not invent addSuccessor(...) or addPredecessor(...).
+- For graph-style nodes, use node.getSuccessors().add(otherNode) and node.getPredecessors().add(otherNode), or setSuccessors/setPredecessors with ArrayList<Node>.
+- If a target method expects ArrayList<Node>, do not pass List<Node>.
+
+- The file must start with: package mypkg;
+- Use JUnit 4, not JUnit 5.
+- Use imports such as:
+  import org.junit.Test;
+  import static org.junit.Assert.*;
+- The public test class must be named: {TEST_CLASS}
+- Test the target class: mypkg.{TARGET_CLASS}
+- Prefer deterministic tests.
+- Do not use randomness, sleeps, network access, filesystem access, or external services.
+- Do not modify the production code.
+- Do not use reflection unless strictly necessary.
+- Write top-level @Test methods inside the requested test class.
+
+Additional QuixBugs Java constraints:
+- Do not invent expected behaviour for ambiguous edge cases.
+- Prefer simple, valid, deterministic inputs that are clearly supported by the source.
+- Avoid tests that may trigger infinite loops, excessive memory use, sleeps, or very long execution.
+- Avoid empty inputs, negative inputs, nulls, or extreme values unless the source clearly supports them.
+- Match Java method signatures exactly.
+- If a method requires ArrayList<T>, pass new ArrayList<T>(Arrays.asList(...)) or new ArrayList<T>(), not Arrays.asList(...) directly.
+- For helper classes such as Node, inspect constructor and setter signatures before using them.
+
+FEW-SHOT STYLE GUIDANCE
+The following examples are external, manually created demonstrations.
+Use them only as style guidance for test structure, assertions, determinism, and edge-case coverage.
+Do not test these examples.
+Do not copy their names, values, or code into the final answer.
+Generate tests only for the current System Under Test.
+
+EXTERNAL FEW-SHOT EXAMPLES — Group 3: Java simple/class-level
+
+These examples are external demonstrations only.
+They were manually created and are not part of any evaluated dataset.
+They must not be tested directly.
+Do not copy their class names, method names, package names, values, or test names into the final answer.
+Use them only to learn the expected JUnit style, assertion style, deterministic structure, exception testing, and edge-case coverage.
+
+Intended reuse: HumanEval-X Java, QuixBugs Java
+
+EXAMPLE 1 — example_01_password_policy — External production code
+<external_sut_java>
+
+// File: src/main/java/example/PasswordPolicy.java
+package example;
+
+public final class PasswordPolicy {
+    private PasswordPolicy() {
+    }
+
+    public static String classify(String password) {
+        if (password == null) {
+            throw new IllegalArgumentException("password is required");
+        }
+
+        if (password.length() < 8) {
+            return "weak";
+        }
+
+        boolean hasDigit = false;
+        boolean hasUppercase = false;
+        boolean hasSymbol = false;
+
+        for (int i = 0; i < password.length(); i++) {
+            char ch = password.charAt(i);
+
+            if (Character.isDigit(ch)) {
+                hasDigit = true;
+            } else if (Character.isUpperCase(ch)) {
+                hasUppercase = true;
+            } else if (!Character.isLetter(ch)) {
+                hasSymbol = true;
+            }
+        }
+
+        int score = 0;
+
+        if (hasDigit) {
+            score++;
+        }
+
+        if (hasUppercase) {
+            score++;
+        }
+
+        if (hasSymbol) {
+            score++;
+        }
+
+        if (score >= 2) {
+            return "strong";
+        }
+
+        return "medium";
+    }
+}
+
+</external_sut_java>
+
+EXAMPLE 1 — example_01_password_policy — Good JUnit tests
+<external_tests_junit>
+
+// File: src/test/java/example/PasswordPolicyTest.java
+package example;
+
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
+
+public class PasswordPolicyTest {
+    @Test
+    public void classifyRejectsNullPassword() {
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> PasswordPolicy.classify(null)
+        );
+
+        assertEquals("password is required", exception.getMessage());
+    }
+
+    @Test
+    public void classifyReturnsWeakForShortPassword() {
+        assertEquals("weak", PasswordPolicy.classify("Ab1!xyz"));
+    }
+
+    @Test
+    public void classifyReturnsMediumForEightLowercaseLetters() {
+        assertEquals("medium", PasswordPolicy.classify("abcdefgh"));
+    }
+
+    @Test
+    public void classifyReturnsMediumWhenOnlyDigitRuleIsMet() {
+        assertEquals("medium", PasswordPolicy.classify("abcdefg1"));
+    }
+
+    @Test
+    public void classifyReturnsMediumWhenOnlyUppercaseRuleIsMet() {
+        assertEquals("medium", PasswordPolicy.classify("abcdefgA"));
+    }
+
+    @Test
+    public void classifyReturnsMediumWhenOnlySymbolRuleIsMet() {
+        assertEquals("medium", PasswordPolicy.classify("abcdefg!"));
+    }
+
+    @Test
+    public void classifyReturnsStrongForDigitAndUppercase() {
+        assertEquals("strong", PasswordPolicy.classify("abcdefA1"));
+    }
+
+    @Test
+    public void classifyReturnsStrongForDigitAndSymbol() {
+        assertEquals("strong", PasswordPolicy.classify("abcdef1!"));
+    }
+
+    @Test
+    public void classifyReturnsStrongForUppercaseAndSymbol() {
+        assertEquals("strong", PasswordPolicy.classify("abcdefA!"));
+    }
+
+    @Test
+    public void classifyReturnsStrongWhenAllRulesAreMet() {
+        assertEquals("strong", PasswordPolicy.classify("Abcdef1!"));
+    }
+}
+
+</external_tests_junit>
+
+EXAMPLE 2 — example_02_shipping_calculator — External production code
+<external_sut_java>
+
+// File: src/main/java/example/ShippingCalculator.java
+package example;
+
+public final class ShippingCalculator {
+    private ShippingCalculator() {
+    }
+
+    public static int calculateShippingCents(int quantity, int itemWeightGrams, boolean express, String zone) {
+        if (quantity <= 0) {
+            throw new IllegalArgumentException("quantity must be positive");
+        }
+
+        if (itemWeightGrams <= 0) {
+            throw new IllegalArgumentException("weight must be positive");
+        }
+
+        if (zone == null) {
+            throw new IllegalArgumentException("zone is required");
+        }
+
+        String normalisedZone = zone.trim().toLowerCase();
+
+        int baseCost;
+
+        if ("local".equals(normalisedZone)) {
+            baseCost = 399;
+        } else if ("national".equals(normalisedZone)) {
+            baseCost = 699;
+        } else if ("international".equals(normalisedZone)) {
+            baseCost = 1299;
+        } else {
+            throw new IllegalArgumentException("unknown zone");
+        }
+
+        int totalWeight = quantity * itemWeightGrams;
+        int extraCost = 0;
+
+        if (totalWeight > 5000) {
+            extraCost = 800;
+        } else if (totalWeight > 1000) {
+            extraCost = 300;
+        }
+
+        if (express) {
+            extraCost += 500;
+        }
+
+        return baseCost + extraCost;
+    }
+}
+
+</external_sut_java>
+
+EXAMPLE 2 — example_02_shipping_calculator — Good JUnit tests
+<external_tests_junit>
+
+// File: src/test/java/example/ShippingCalculatorTest.java
+package example;
+
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
+
+public class ShippingCalculatorTest {
+    @Test
+    public void calculateShippingRejectsNonPositiveQuantity() {
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> ShippingCalculator.calculateShippingCents(0, 500, false, "local")
+        );
+
+        assertEquals("quantity must be positive", exception.getMessage());
+    }
+
+    @Test
+    public void calculateShippingRejectsNonPositiveWeight() {
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> ShippingCalculator.calculateShippingCents(1, 0, false, "local")
+        );
+
+        assertEquals("weight must be positive", exception.getMessage());
+    }
+
+    @Test
+    public void calculateShippingRejectsNullZone() {
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> ShippingCalculator.calculateShippingCents(1, 500, false, null)
+        );
+
+        assertEquals("zone is required", exception.getMessage());
+    }
+
+    @Test
+    public void calculateShippingRejectsUnknownZone() {
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> ShippingCalculator.calculateShippingCents(1, 500, false, "remote")
+        );
+
+        assertEquals("unknown zone", exception.getMessage());
+    }
+
+    @Test
+    public void calculateShippingUsesLocalBaseCost() {
+        assertEquals(399, ShippingCalculator.calculateShippingCents(1, 500, false, "local"));
+    }
+
+    @Test
+    public void calculateShippingNormalisesZoneName() {
+        assertEquals(699, ShippingCalculator.calculateShippingCents(1, 500, false, " National "));
+    }
+
+    @Test
+    public void calculateShippingUsesInternationalBaseCost() {
+        assertEquals(1299, ShippingCalculator.calculateShippingCents(1, 500, false, "international"));
+    }
+
+    @Test
+    public void calculateShippingAddsMediumWeightSurchargeAboveOneKilogram() {
+        assertEquals(999, ShippingCalculator.calculateShippingCents(2, 600, false, "national"));
+    }
+
+    @Test
+    public void calculateShippingDoesNotAddMediumWeightSurchargeAtOneKilogramBoundary() {
+        assertEquals(699, ShippingCalculator.calculateShippingCents(2, 500, false, "national"));
+    }
+
+    @Test
+    public void calculateShippingAddsHeavyWeightSurchargeAboveFiveKilograms() {
+        assertEquals(1499, ShippingCalculator.calculateShippingCents(6, 1000, false, "national"));
+    }
+
+    @Test
+    public void calculateShippingDoesNotAddHeavyWeightSurchargeAtFiveKilogramsBoundary() {
+        assertEquals(999, ShippingCalculator.calculateShippingCents(5, 1000, false, "national"));
+    }
+
+    @Test
+    public void calculateShippingAddsExpressFee() {
+        assertEquals(899, ShippingCalculator.calculateShippingCents(1, 500, true, "local"));
+    }
+
+    @Test
+    public void calculateShippingCombinesHeavySurchargeAndExpressFee() {
+        assertEquals(2599, ShippingCalculator.calculateShippingCents(6, 1000, true, "international"));
+    }
+}
+
+</external_tests_junit>
+
+
+
+Target SUT name:
+{SUT_NAME}
+
+Target Java source file:
+{TARGET_RELATIVE_FILE}
+
+Target Java source:
+{TARGET_SOURCE}

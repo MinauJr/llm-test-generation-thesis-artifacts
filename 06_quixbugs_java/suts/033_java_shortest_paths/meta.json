@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "shortest_paths",
+  "pair_id": 33,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/SHORTEST_PATHS.java",
+  "entry_file": "SHORTEST_PATHS.java",
+  "target_class": "mypkg.SHORTEST_PATHS",
+  "files": {
+    "llm_source": "SHORTEST_PATHS.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/SHORTEST_PATHS.java"
+  }
+}

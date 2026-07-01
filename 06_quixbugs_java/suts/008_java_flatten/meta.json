@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "flatten",
+  "pair_id": 8,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/FLATTEN.java",
+  "entry_file": "FLATTEN.java",
+  "target_class": "mypkg.FLATTEN",
+  "files": {
+    "llm_source": "FLATTEN.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/FLATTEN.java"
+  }
+}

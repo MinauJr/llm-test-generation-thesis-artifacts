@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "sieve",
+  "pair_id": 35,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/SIEVE.java",
+  "entry_file": "SIEVE.java",
+  "target_class": "mypkg.SIEVE",
+  "files": {
+    "llm_source": "SIEVE.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/SIEVE.java"
+  }
+}

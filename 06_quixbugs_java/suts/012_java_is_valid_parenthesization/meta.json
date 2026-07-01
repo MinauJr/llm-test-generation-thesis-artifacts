@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "is_valid_parenthesization",
+  "pair_id": 12,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/IS_VALID_PARENTHESIZATION.java",
+  "entry_file": "IS_VALID_PARENTHESIZATION.java",
+  "target_class": "mypkg.IS_VALID_PARENTHESIZATION",
+  "files": {
+    "llm_source": "IS_VALID_PARENTHESIZATION.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/IS_VALID_PARENTHESIZATION.java"
+  }
+}

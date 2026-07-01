@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "wrap",
+  "pair_id": 40,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/WRAP.java",
+  "entry_file": "WRAP.java",
+  "target_class": "mypkg.WRAP",
+  "files": {
+    "llm_source": "WRAP.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/WRAP.java"
+  }
+}

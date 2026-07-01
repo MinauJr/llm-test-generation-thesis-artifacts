@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "topological_ordering",
+  "pair_id": 39,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/TOPOLOGICAL_ORDERING.java",
+  "entry_file": "TOPOLOGICAL_ORDERING.java",
+  "target_class": "mypkg.TOPOLOGICAL_ORDERING",
+  "files": {
+    "llm_source": "TOPOLOGICAL_ORDERING.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/TOPOLOGICAL_ORDERING.java"
+  }
+}

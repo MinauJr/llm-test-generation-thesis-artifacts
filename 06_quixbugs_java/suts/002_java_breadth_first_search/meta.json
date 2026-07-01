@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "breadth_first_search",
+  "pair_id": 2,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/BREADTH_FIRST_SEARCH.java",
+  "entry_file": "BREADTH_FIRST_SEARCH.java",
+  "target_class": "mypkg.BREADTH_FIRST_SEARCH",
+  "files": {
+    "llm_source": "BREADTH_FIRST_SEARCH.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/BREADTH_FIRST_SEARCH.java"
+  }
+}

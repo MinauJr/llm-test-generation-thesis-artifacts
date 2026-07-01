@@ -1,0 +1,23 @@
+{
+  "out_root": "/home/ruioliveira/llms/quixbugs_java_cluster_generation_job_v1_20260602_103705/out/quixbugs_java_zero_shot_cluster_v1",
+  "status_json_count": 1400,
+  "counts_by_status": {
+    "ok": 887,
+    "invalid_test_structure": 471,
+    "timeout": 42
+  },
+  "counts_by_model_status": {
+    "cluster-max-codellama-7b-instruct-ctx16k::ok": 27,
+    "cluster-max-codellama-7b-instruct-ctx16k::invalid_test_structure": 173,
+    "cluster-safe-codestral-22b-ctx16k::ok": 44,
+    "cluster-safe-codestral-22b-ctx16k::invalid_test_structure": 156,
+    "cluster-safe-deepseek-coder-v2-16b-ctx16k::ok": 200,
+    "cluster-safe-deepseek-v2-16b-ctx32k::invalid_test_structure": 13,
+    "cluster-safe-deepseek-v2-16b-ctx32k::ok": 187,
+    "cluster-safe-qwen2.5-coder-14b-ctx32k::ok": 200,
+    "cluster-safe-qwen3-coder-30b-official-ctx32k::ok": 200,
+    "cluster-safe-qwen3.5-9b-ctx32k::invalid_test_structure": 129,
+    "cluster-safe-qwen3.5-9b-ctx32k::ok": 29,
+    "cluster-safe-qwen3.5-9b-ctx32k::timeout": 42
+  }
+}

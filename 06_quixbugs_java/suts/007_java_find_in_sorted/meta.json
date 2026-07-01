@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "find_in_sorted",
+  "pair_id": 7,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/FIND_IN_SORTED.java",
+  "entry_file": "FIND_IN_SORTED.java",
+  "target_class": "mypkg.FIND_IN_SORTED",
+  "files": {
+    "llm_source": "FIND_IN_SORTED.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/FIND_IN_SORTED.java"
+  }
+}

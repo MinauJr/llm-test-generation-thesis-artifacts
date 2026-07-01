@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "quicksort",
+  "pair_id": 28,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/QUICKSORT.java",
+  "entry_file": "QUICKSORT.java",
+  "target_class": "mypkg.QUICKSORT",
+  "files": {
+    "llm_source": "QUICKSORT.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/QUICKSORT.java"
+  }
+}

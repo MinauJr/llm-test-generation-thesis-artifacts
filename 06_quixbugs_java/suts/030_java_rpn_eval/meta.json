@@ -1,0 +1,14 @@
+{
+  "dataset": "quixbugs",
+  "lang": "java",
+  "task_key": "rpn_eval",
+  "pair_id": 30,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_java_programs/RPN_EVAL.java",
+  "entry_file": "RPN_EVAL.java",
+  "target_class": "mypkg.RPN_EVAL",
+  "files": {
+    "llm_source": "RPN_EVAL.java",
+    "pom": "pom.xml",
+    "maven_entry": "src/main/java/mypkg/RPN_EVAL.java"
+  }
+}
