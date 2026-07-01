@@ -1,0 +1,26 @@
+{
+  "branch_penalized_mean": 93.2905,
+  "effective_test_functions_mean": 5.18,
+  "failed_reps": 4,
+  "generation_attempt_histogram": {
+    "1": 198,
+    "2": 2
+  },
+  "generation_empty_attempt_histogram": {
+    "0": 198,
+    "1": 2
+  },
+  "line_penalized_mean": 96.3117,
+  "mutation_penalized_mean": 84.6071,
+  "ok_reps": 196,
+  "out_root": "/home/jpaiva/projetos/llm_test_generation_gpt4o/quixbugs_python_gpt4o/out/quixbugs_python_gpt4o_final_20260504_103110",
+  "status_counts": {
+    "generation_api_error": 1,
+    "no_effective_tests_after_sanitization": 3,
+    "ok": 196
+  },
+  "suts_0of5_ok": 0,
+  "suts_5of5_ok": 39,
+  "total_status_files": 200,
+  "total_suts": 40
+}

@@ -1,0 +1,7 @@
+---- ls NONAI_ROOT ----
+
+---- important scripts ----
+
+---- final quixbugs outputs ----
+
+---- summaries/indexes/status logs ----

@@ -1,0 +1,8 @@
+{
+  "dataset": "quixbugs",
+  "lang": "python",
+  "task_key": "find_first_in_sorted",
+  "pair_id": 6,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_python_programs/find_first_in_sorted.py",
+  "entry_file": "sut.py"
+}

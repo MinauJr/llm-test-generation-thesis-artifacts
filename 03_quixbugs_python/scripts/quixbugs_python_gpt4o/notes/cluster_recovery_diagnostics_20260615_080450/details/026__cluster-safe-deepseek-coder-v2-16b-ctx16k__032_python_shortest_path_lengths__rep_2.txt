@@ -1,0 +1,315 @@
+MODEL=cluster-safe-deepseek-coder-v2-16b-ctx16k
+SUT=032_python_shortest_path_lengths
+REPEAT=2
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_name_error
+FINGERPRINT=name:inf
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-coder-v2-16b-ctx16k/032_python_shortest_path_lengths/run_0001/1-2
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-coder-v2-16b-ctx16k/032_python_shortest_path_lengths/rep_02/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/032_python_shortest_path_lengths/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "inf"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "inf"
+]
+
+===== SUT SYMBOLS =====
+[
+  "shortest_path_lengths"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "defaultdict",
+  "expected",
+  "length_by_edge",
+  "n",
+  "pytest",
+  "result",
+  "sut",
+  "test_shortest_path_lengths_large_graph",
+  "test_shortest_path_lengths_negative_cycle",
+  "test_shortest_path_lengths_no_edges",
+  "test_shortest_path_lengths_self_loop",
+  "test_shortest_path_lengths_valid_input"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-coder-v2-16b-ctx16k/032_python_shortest_path_lengths/run_0001/1-2/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-coder-v2-16b-ctx16k/032_python_shortest_path_lengths/run_0001/1-2/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+import sut
+from collections import defaultdict
+
+def test_shortest_path_lengths_valid_input():
+    n = 3
+    length_by_edge = {(0, 1): 1, (1, 2): 1}
+    result = sut.shortest_path_lengths(n, length_by_edge)
+    expected = defaultdict(lambda: float("inf"), {
+        (0, 0): 0, (0, 1): 1, (0, 2): inf,
+        (1, 0): inf, (1, 1): 0, (1, 2): 1,
+        (2, 0): inf, (2, 1): inf, (2, 2): 0
+    })
+    assert result == expected
+
+def test_shortest_path_lengths_self_loop():
+    n = 3
+    length_by_edge = {(0, 0): 0, (1, 1): 0, (2, 2): 0}
+    result = sut.shortest_path_lengths(n, length_by_edge)
+    expected = defaultdict(lambda: float("inf"), {
+        (0, 0): 0, (0, 1): inf, (0, 2): inf,
+        (1, 0): inf, (1, 1): 0, (1, 2): inf,
+        (2, 0): inf, (2, 1): inf, (2, 2): 0
+    })
+    assert result == expected
+
+def test_shortest_path_lengths_no_edges():
+    n = 3
+    length_by_edge = {}
+    result = sut.shortest_path_lengths(n, length_by_edge)
+    expected = defaultdict(lambda: float("inf"), {
+        (0, 0): 0, (0, 1): inf, (0, 2): inf,
+        (1, 0): inf, (1, 1): 0, (1, 2): inf,
+        (2, 0): inf, (2, 1): inf, (2, 2): 0
+    })
+    assert result == expected
+
+def test_shortest_path_lengths_negative_cycle():
+    n = 3
+    length_by_edge = {(0, 1): -1, (1, 2): -1, (2, 0): -1}
+    with pytest.raises(ValueError):
+        sut.shortest_path_lengths(n, length_by_edge)
+
+def test_shortest_path_lengths_large_graph():
+    n = 4
+    length_by_edge = {
+        (0, 1): 2, (0, 2): 3, (1, 2): -1, (1, 3): 1, (2, 3): 1
+    }
+    result = sut.shortest_path_lengths(n, length_by_edge)
+    expected = defaultdict(lambda: float("inf"), {
+        (0, 0): 0, (0, 1): 2, (0, 2): 3, (0, 3): 4,
+        (1, 0): inf, (1, 1): 0, (1, 2): -1, (1, 3): 1,
+        (2, 0): inf, (2, 1): inf, (2, 2): 0, (2, 3): 1,
+        (3, 0): inf, (3, 1): inf, (3, 2): inf, (3, 3): 0
+    })
+    assert result == expected
+
+
+===== SUT =====
+from collections import defaultdict
+
+
+def shortest_path_lengths(n, length_by_edge):
+    if type(n) is not int or n < 0:
+        raise TypeError("n must be a non-negative int")
+    if not isinstance(length_by_edge, dict):
+        raise TypeError("length_by_edge must be a dict")
+
+    length_by_path = defaultdict(lambda: float("inf"))
+    length_by_path.update({(i, i): 0 for i in range(n)})
+    length_by_path.update(length_by_edge)
+
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                length_by_path[i, j] = min(
+                    length_by_path[i, j],
+                    length_by_path[i, k] + length_by_path[k, j]
+                )
+
+    return length_by_path
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_shortest_path_lengths_valid_input
+test_generated.py::test_shortest_path_lengths_self_loop
+test_generated.py::test_shortest_path_lengths_no_edges
+test_generated.py::test_shortest_path_lengths_negative_cycle
+test_generated.py::test_shortest_path_lengths_large_graph
+
+5 tests collected in 0.01s
+
+
+===== nodeid_sanitizer.node_42cf50461c3576449ed1552e2f8043d9d3d5f79c469012f2f4b25181497ac4ad.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________________ test_shortest_path_lengths_no_edges ______________________
+
+    def test_shortest_path_lengths_no_edges():
+        n = 3
+        length_by_edge = {}
+        result = sut.shortest_path_lengths(n, length_by_edge)
+        expected = defaultdict(lambda: float("inf"), {
+>           (0, 0): 0, (0, 1): inf, (0, 2): inf,
+            (1, 0): inf, (1, 1): 0, (1, 2): inf,
+            (2, 0): inf, (2, 1): inf, (2, 2): 0
+        })
+E       NameError: name 'inf' is not defined
+
+test_generated.py:32: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_shortest_path_lengths_no_edges - NameError: na...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_45e0b3c2a10ff697263852dc7eec9e4931d58e8ca2f44aef27ee5981eee6283e.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________ test_shortest_path_lengths_negative_cycle ___________________
+
+    def test_shortest_path_lengths_negative_cycle():
+        n = 3
+        length_by_edge = {(0, 1): -1, (1, 2): -1, (2, 0): -1}
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+test_generated.py:41: Failed
+=========================== short test summary info ============================
+FAILED test_generated.py::test_shortest_path_lengths_negative_cycle - Failed:...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_67a2bd76eb5733682aac7e6221247ab623f42aaf7345763bb92e77bd5913baeb.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________________ test_shortest_path_lengths_large_graph ____________________
+
+    def test_shortest_path_lengths_large_graph():
+        n = 4
+        length_by_edge = {
+            (0, 1): 2, (0, 2): 3, (1, 2): -1, (1, 3): 1, (2, 3): 1
+        }
+        result = sut.shortest_path_lengths(n, length_by_edge)
+        expected = defaultdict(lambda: float("inf"), {
+            (0, 0): 0, (0, 1): 2, (0, 2): 3, (0, 3): 4,
+>           (1, 0): inf, (1, 1): 0, (1, 2): -1, (1, 3): 1,
+            (2, 0): inf, (2, 1): inf, (2, 2): 0, (2, 3): 1,
+            (3, 0): inf, (3, 1): inf, (3, 2): inf, (3, 3): 0
+        })
+E       NameError: name 'inf' is not defined
+
+test_generated.py:52: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_shortest_path_lengths_large_graph - NameError:...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_9856dd1968ccf4137bd96725806043bfb4cf765ee6ac6ede4c04472d97ec1d97.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________________ test_shortest_path_lengths_self_loop _____________________
+
+    def test_shortest_path_lengths_self_loop():
+        n = 3
+        length_by_edge = {(0, 0): 0, (1, 1): 0, (2, 2): 0}
+        result = sut.shortest_path_lengths(n, length_by_edge)
+        expected = defaultdict(lambda: float("inf"), {
+>           (0, 0): 0, (0, 1): inf, (0, 2): inf,
+            (1, 0): inf, (1, 1): 0, (1, 2): inf,
+            (2, 0): inf, (2, 1): inf, (2, 2): 0
+        })
+E       NameError: name 'inf' is not defined
+
+test_generated.py:21: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_shortest_path_lengths_self_loop - NameError: n...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_cee45fec342bd056a34f3ee33a59f31a5dc52ac77dc771c75304a7afa2e38192.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________________ test_shortest_path_lengths_valid_input ____________________
+
+    def test_shortest_path_lengths_valid_input():
+        n = 3
+        length_by_edge = {(0, 1): 1, (1, 2): 1}
+        result = sut.shortest_path_lengths(n, length_by_edge)
+        expected = defaultdict(lambda: float("inf"), {
+>           (0, 0): 0, (0, 1): 1, (0, 2): inf,
+            (1, 0): inf, (1, 1): 0, (1, 2): 1,
+            (2, 0): inf, (2, 1): inf, (2, 2): 0
+        })
+E       NameError: name 'inf' is not defined
+
+test_generated.py:10: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_shortest_path_lengths_valid_input - NameError:...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=5
+individual_pass_nodeids=0
+individual_fail_nodeids=5
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+FFFFF                                                                    [100%]
+=================================== FAILURES ===================================
+____________________ test_shortest_path_lengths_valid_input ____________________
+test_generated_raw.py:10: in test_shortest_path_lengths_valid_input
+    (0, 0): 0, (0, 1): 1, (0, 2): inf,
+E   NameError: name 'inf' is not defined
+_____________________ test_shortest_path_lengths_self_loop _____________________
+test_generated_raw.py:21: in test_shortest_path_lengths_self_loop
+    (0, 0): 0, (0, 1): inf, (0, 2): inf,
+E   NameError: name 'inf' is not defined
+_____________________ test_shortest_path_lengths_no_edges ______________________
+test_generated_raw.py:32: in test_shortest_path_lengths_no_edges
+    (0, 0): 0, (0, 1): inf, (0, 2): inf,
+E   NameError: name 'inf' is not defined
+__________________ test_shortest_path_lengths_negative_cycle ___________________
+test_generated_raw.py:41: in test_shortest_path_lengths_negative_cycle
+    with pytest.raises(ValueError):
+E   Failed: DID NOT RAISE <class 'ValueError'>
+____________________ test_shortest_path_lengths_large_graph ____________________
+test_generated_raw.py:52: in test_shortest_path_lengths_large_graph
+    (1, 0): inf, (1, 1): 0, (1, 2): -1, (1, 3): 1,
+E   NameError: name 'inf' is not defined
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test_shortest_path_lengths_valid_input - NameEr...
+FAILED test_generated_raw.py::test_shortest_path_lengths_self_loop - NameErro...
+FAILED test_generated_raw.py::test_shortest_path_lengths_no_edges - NameError...
+FAILED test_generated_raw.py::test_shortest_path_lengths_negative_cycle - Fai...
+FAILED test_generated_raw.py::test_shortest_path_lengths_large_graph - NameEr...
+5 failed in 0.04s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-coder-v2-16b-ctx16k/032_python_shortest_path_lengths/run_0001/1-2/generation/final_prompt.txt

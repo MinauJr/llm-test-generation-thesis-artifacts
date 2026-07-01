@@ -1,0 +1,5 @@
+candidate_count=66
+fingerprint_count=38
+distinct_missing_names=24
+distinct_fixtures=3
+distinct_import_errors=2

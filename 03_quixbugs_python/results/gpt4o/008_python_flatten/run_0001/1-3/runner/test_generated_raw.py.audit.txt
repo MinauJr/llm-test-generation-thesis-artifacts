@@ -1,0 +1,21 @@
+import sut
+
+def test_flatten_empty_list():
+    result = list(sut.flatten([]))
+    assert result == []
+
+def test_flatten_single_element():
+    result = list(sut.flatten([1]))
+    assert result == [1]
+
+def test_flatten_nested_list():
+    result = list(sut.flatten([1, [2, 3], [4, [5, 6]]]))
+    assert result == [1, 2, 3, 4, 5, 6]
+
+def test_flatten_deeply_nested_list():
+    result = list(sut.flatten([[[[[1]]]], 2, [3, [4]]]))
+    assert result == [1, 2, 3, 4]
+
+def test_flatten_mixed_types():
+    result = list(sut.flatten([1, "a", [2, "b", [3, "c"]]]))
+    assert result == [1, "a", 2, "b", 3, "c"]

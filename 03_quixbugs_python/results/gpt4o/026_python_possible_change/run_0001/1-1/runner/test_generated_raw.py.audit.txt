@@ -1,0 +1,16 @@
+import sut
+
+def test_possible_change_no_coins_zero_total():
+    assert sut.possible_change([], 0) == 1
+
+def test_possible_change_no_coins_positive_total():
+    assert sut.possible_change([], 5) == 0
+
+def test_possible_change_single_coin_exact_match():
+    assert sut.possible_change([5], 5) == 1
+
+def test_possible_change_multiple_coins_exact_match():
+    assert sut.possible_change([1, 2, 3], 6) == 7
+
+def test_possible_change_multiple_coins_no_match():
+    assert sut.possible_change([2, 4], 3) == 0

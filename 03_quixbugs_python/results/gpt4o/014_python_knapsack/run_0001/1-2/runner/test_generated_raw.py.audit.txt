@@ -1,0 +1,31 @@
+import sut
+
+def test_knapsack_empty_items():
+    assert sut.knapsack(10, []) == 0
+
+def test_knapsack_no_capacity():
+    assert sut.knapsack(0, [(1, 10), (2, 20), (3, 30)]) == 0
+
+def test_knapsack_single_item_fits():
+    assert sut.knapsack(5, [(3, 50)]) == 50
+
+def test_knapsack_single_item_does_not_fit():
+    assert sut.knapsack(2, [(3, 50)]) == 0
+
+def test_knapsack_multiple_items():
+    assert sut.knapsack(5, [(1, 10), (2, 20), (3, 30)]) == 50
+
+def test_knapsack_exact_fit():
+    assert sut.knapsack(6, [(1, 10), (2, 20), (3, 30)]) == 60
+
+def test_knapsack_partial_fit():
+    assert sut.knapsack(4, [(1, 10), (2, 20), (3, 30)]) == 40
+
+def test_knapsack_duplicate_items():
+    assert sut.knapsack(4, [(2, 20), (2, 20)]) == 40
+
+def test_knapsack_large_capacity():
+    assert sut.knapsack(100, [(1, 1), (2, 2), (3, 3)]) == 100
+
+def test_knapsack_large_values():
+    assert sut.knapsack(50, [(10, 1000), (20, 2000), (30, 3000)]) == 5000

@@ -1,0 +1,258 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=039_python_topological_ordering
+REPEAT=1
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_name_error
+FINGERPRINT=name:_MAX_NODES
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/039_python_topological_ordering/run_0001/1-1
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/039_python_topological_ordering/rep_01/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/039_python_topological_ordering/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "_MAX_NODES"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "_MAX_NODES"
+]
+
+===== SUT SYMBOLS =====
+[
+  "Node",
+  "_MAX_NODES",
+  "_normalise_nodes",
+  "topological_ordering"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "Node",
+  "_",
+  "_normalise_nodes",
+  "a",
+  "b",
+  "c",
+  "d",
+  "i",
+  "incoming",
+  "j",
+  "n",
+  "node",
+  "nodes",
+  "o",
+  "ordered",
+  "outgoing",
+  "pytest",
+  "test_Node",
+  "test__normalise_nodes",
+  "test_topological_ordering",
+  "topological_ordering"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/039_python_topological_ordering/run_0001/1-1/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/039_python_topological_ordering/run_0001/1-1/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+from sut import _normalise_nodes, Node, topological_ordering
+
+def test__normalise_nodes():
+    assert len(_normalise_nodes([])) == 0
+    assert len(_normalise_nodes([1])) == 1
+    assert len(_normalise_nodes(["a"])) == 1
+    with pytest.raises(TypeError):
+        _normalise_nodes("string")
+
+def test_Node():
+    a = Node()
+    b = Node()
+    c = Node([b])
+    d = Node([], outgoing_nodes=c)
+    assert len(d.incoming_nodes) == 0
+    assert len(d.outgoing_nodes) == 1
+
+def test_topological_ordering():
+    nodes = [Node() for _ in range(_MAX_NODES)] + [Node(incoming_nodes=b, outgoing_nodes=a) for a, b in [(c, d) for _ in range(_MAX_NODES)]]
+    ordered = topological_ordering([id(node) for node in nodes])
+    assert len(ordered) == sum(_MAX_NODES + 1, [])
+    for i, node in enumerate(nodes):
+        incoming = [nodes[j] for j in node.incoming_nodes if id(j) in {id(n) for n in ordered}]
+        outgoing = sorted([o for o in node.outgoing_nodes if id(o) in {id(n) for n in ordered}])
+        assert len(incoming) == sum(len(node.incoming_nodes) - 1, [])
+        assert len(outgoing) == sum(len(node.outgoing_nodes), [])
+
+
+===== SUT =====
+_MAX_NODES = 1000
+
+
+def _normalise_nodes(value):
+    if isinstance(value, (list, tuple, set)):
+        return list(value)[:_MAX_NODES]
+    return []
+
+
+class Node:
+    def __init__(self, incoming_nodes=None, outgoing_nodes=None):
+        self.incoming_nodes = _normalise_nodes(incoming_nodes)
+        self.outgoing_nodes = _normalise_nodes(outgoing_nodes)
+
+    def __lt__(self, other):
+        return id(self) < id(other)
+
+
+def topological_ordering(nodes):
+    if not isinstance(nodes, (list, tuple, set)):
+        return []
+
+    remaining = list(nodes)[:_MAX_NODES]
+    ordered = []
+    ordered_ids = set()
+    guard = 0
+
+    while remaining and guard < _MAX_NODES:
+        progress = False
+        remaining_ids = {id(node) for node in remaining}
+
+        for node in list(remaining):
+            incoming = _normalise_nodes(getattr(node, "incoming_nodes", []))
+            if all(id(pred) in ordered_ids or id(pred) not in remaining_ids for pred in incoming):
+                ordered.append(node)
+                ordered_ids.add(id(node))
+                remaining.remove(node)
+                progress = True
+
+        if not progress:
+            break
+
+        guard += 1
+
+    return ordered
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test__normalise_nodes
+test_generated.py::test_Node
+test_generated.py::test_topological_ordering
+
+3 tests collected in 0.01s
+
+
+===== nodeid_sanitizer.node_1c33ef7a932b5da56c413e04d541672d7ebe86af598924f10b1485afe9800cfd.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________ test_topological_ordering ___________________________
+
+    def test_topological_ordering():
+>       nodes = [Node() for _ in range(_MAX_NODES)] + [Node(incoming_nodes=b, outgoing_nodes=a) for a, b in [(c, d) for _ in range(_MAX_NODES)]]
+E       NameError: name '_MAX_NODES' is not defined
+
+test_generated.py:20: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_topological_ordering - NameError: name '_MAX_N...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_79931dd91423444bc917743c4e4dce0c7193370afc48bd7b0c4d8ba2ae0986d1.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________________ test_Node ___________________________________
+
+    def test_Node():
+        a = Node()
+        b = Node()
+        c = Node([b])
+        d = Node([], outgoing_nodes=c)
+        assert len(d.incoming_nodes) == 0
+>       assert len(d.outgoing_nodes) == 1
+E       assert 0 == 1
+E        +  where 0 = len([])
+E        +    where [] = <sut.Node object at 0x7ff2c23b77c0>.outgoing_nodes
+
+test_generated.py:17: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_Node - assert 0 == 1
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_8d3b0c59e707678c2d6d4f91ad400d5d14bf3381f6405349604663cd45699d47.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________________________ test__normalise_nodes _____________________________
+
+    def test__normalise_nodes():
+        assert len(_normalise_nodes([])) == 0
+        assert len(_normalise_nodes([1])) == 1
+        assert len(_normalise_nodes(["a"])) == 1
+>       with pytest.raises(TypeError):
+E       Failed: DID NOT RAISE <class 'TypeError'>
+
+test_generated.py:8: Failed
+=========================== short test summary info ============================
+FAILED test_generated.py::test__normalise_nodes - Failed: DID NOT RAISE <clas...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=3
+individual_pass_nodeids=0
+individual_fail_nodeids=3
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+____________________________ test__normalise_nodes _____________________________
+test_generated_raw.py:8: in test__normalise_nodes
+    with pytest.raises(TypeError):
+E   Failed: DID NOT RAISE <class 'TypeError'>
+__________________________________ test_Node ___________________________________
+test_generated_raw.py:17: in test_Node
+    assert len(d.outgoing_nodes) == 1
+E   assert 0 == 1
+E    +  where 0 = len([])
+E    +    where [] = <sut.Node object at 0x7fc3c7433c10>.outgoing_nodes
+__________________________ test_topological_ordering ___________________________
+test_generated_raw.py:20: in test_topological_ordering
+    nodes = [Node() for _ in range(_MAX_NODES)] + [Node(incoming_nodes=b, outgoing_nodes=a) for a, b in [(c, d) for _ in range(_MAX_NODES)]]
+E   NameError: name '_MAX_NODES' is not defined
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test__normalise_nodes - Failed: DID NOT RAISE <...
+FAILED test_generated_raw.py::test_Node - assert 0 == 1
+FAILED test_generated_raw.py::test_topological_ordering - NameError: name '_M...
+3 failed in 0.03s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/039_python_topological_ordering/run_0001/1-1/generation/final_prompt.txt

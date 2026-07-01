@@ -1,0 +1,124 @@
+--- python ---
+Python 3.10.12
+/usr/bin/python3
+
+--- pytest ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/pytest/__main__.py", line 9, in <module>
+    raise SystemExit(pytest.console_main())
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/_pytest/config/__init__.py", line 201, in console_main
+    code = main()
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/_pytest/config/__init__.py", line 156, in main
+    config = _prepareconfig(args, plugins)
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/_pytest/config/__init__.py", line 342, in _prepareconfig
+    config = pluginmanager.hook.pytest_cmdline_parse(
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/_pytest/helpconfig.py", line 112, in pytest_cmdline_parse
+    config = yield
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/_pytest/config/__init__.py", line 1146, in pytest_cmdline_parse
+    self.parse(args)
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/_pytest/config/__init__.py", line 1527, in parse
+    self._preparse(args, addopts=addopts)
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/_pytest/config/__init__.py", line 1412, in _preparse
+    self.pluginmanager.load_setuptools_entrypoints("pytest11")
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/pluggy/_manager.py", line 416, in load_setuptools_entrypoints
+    plugin = ep.load()
+  File "/usr/lib/python3.10/importlib/metadata/__init__.py", line 171, in load
+    module = import_module(match.group('module'))
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/_pytest/assertion/rewrite.py", line 186, in exec_module
+    exec(co, module.__dict__)
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/pytest_httpbin/plugin.py", line 3, in <module>
+    from httpbin import app as httpbin_app
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/httpbin/__init__.py", line 3, in <module>
+    from .core import *
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/httpbin/core.py", line 18, in <module>
+    from flask import Flask, Response, request, render_template, redirect, jsonify as flask_jsonify, make_response, url_for, abort
+  File "/home/jpaiva/.local/lib/python3.10/site-packages/flask/__init__.py", line 14, in <module>
+    from jinja2 import escape
+ImportError: cannot import name 'escape' from 'jinja2' (/home/jpaiva/.local/lib/python3.10/site-packages/jinja2/__init__.py)
+/home/jpaiva/.local/bin/pytest
+
+--- coverage ---
+Coverage.py, version 7.13.4 with C extension
+Full documentation is at https://coverage.readthedocs.io/en/7.13.4
+/usr/local/bin/coverage
+
+--- pytest-cov ---
+pytest_cov 7.1.0
+
+--- mutmut ---
+python -m mutmut, version 3.4.0
+/usr/local/bin/mutmut
+
+--- installed package versions ---
+Name: pytest
+Version: 8.4.2
+Summary: pytest: simple powerful testing with Python
+Home-page: 
+Author: Holger Krekel, Bruno Oliveira, Ronny Pfannschmidt, Floris Bruynooghe, Brianna Laugher, Florian Bruhin, Others (See AUTHORS)
+Author-email: 
+License: MIT
+Location: /home/jpaiva/.local/lib/python3.10/site-packages
+Requires: exceptiongroup, iniconfig, packaging, pluggy, pygments, tomli
+Required-by: mutmut, pynguin, pytest-cov
+---
+Name: pytest-cov
+Version: 7.1.0
+Summary: Pytest plugin for measuring coverage.
+Home-page: 
+Author: 
+Author-email: Marc Schlaich <marc.schlaich@gmail.com>
+License: 
+Location: /home/jpaiva/.local/lib/python3.10/site-packages
+Requires: coverage, pluggy, pytest
+Required-by: 
+---
+Name: coverage
+Version: 7.13.4
+Summary: Code coverage measurement for Python
+Home-page: https://github.com/coveragepy/coveragepy
+Author: Ned Batchelder and 252 others
+Author-email: ned@nedbatchelder.com
+License: Apache-2.0
+Location: /usr/local/lib/python3.10/dist-packages
+Requires: 
+Required-by: mutmut, pytest-cov
+---
+Name: mutmut
+Version: 3.4.0
+Summary: mutation testing for Python 3
+Home-page: 
+Author: Anders Hovmöller
+Author-email: Anders Hovmöller <boxed@killingar.net>
+License: 
+Location: /usr/local/lib/python3.10/dist-packages
+Requires: click, coverage, libcst, pytest, setproctitle, textual, toml
+Required-by: 
+
+--- timeout ---
+/usr/bin/timeout
+
+--- disk ---
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2       226G   50G  167G  23% /
+Filesystem     Inodes IUsed IFree IUse% Mounted on
+/dev/sda2         15M  573K   14M    4% /

@@ -1,0 +1,47 @@
+import sut
+
+def test_single_node_no_edges():
+    result = sut.shortest_path_lengths(1, {})
+    assert result[(0, 0)] == 0
+
+def test_two_nodes_one_edge():
+    result = sut.shortest_path_lengths(2, {(0, 1): 5})
+    assert result[(0, 0)] == 0
+    assert result[(1, 1)] == 0
+    assert result[(0, 1)] == 5
+    assert result[(1, 0)] == float('inf')
+
+def test_three_nodes_with_cycle():
+    result = sut.shortest_path_lengths(3, {(0, 1): 2, (1, 2): 3, (2, 0): 1})
+    assert result[(0, 0)] == 0
+    assert result[(1, 1)] == 0
+    assert result[(2, 2)] == 0
+    assert result[(0, 1)] == 2
+    assert result[(1, 2)] == 3
+    assert result[(2, 0)] == 1
+    assert result[(0, 2)] == 5
+    assert result[(1, 0)] == 4
+    assert result[(2, 1)] == 3
+
+def test_disconnected_graph():
+    result = sut.shortest_path_lengths(4, {(0, 1): 1, (2, 3): 1})
+    assert result[(0, 0)] == 0
+    assert result[(1, 1)] == 0
+    assert result[(2, 2)] == 0
+    assert result[(3, 3)] == 0
+    assert result[(0, 1)] == 1
+    assert result[(1, 0)] == float('inf')
+    assert result[(2, 3)] == 1
+    assert result[(3, 2)] == float('inf')
+    assert result[(0, 2)] == float('inf')
+    assert result[(1, 3)] == float('inf')
+
+def test_invalid_inputs():
+    try:
+        sut.shortest_path_lengths(-1, {})
+    except TypeError as e:
+        assert str(e) == "n must be a non-negative int"
+    try:
+        sut.shortest_path_lengths(3, [])
+    except TypeError as e:
+        assert str(e) == "length_by_edge must be a dict"

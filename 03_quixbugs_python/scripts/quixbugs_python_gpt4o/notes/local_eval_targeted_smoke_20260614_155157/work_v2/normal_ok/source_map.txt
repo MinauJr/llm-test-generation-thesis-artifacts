@@ -1,0 +1,7 @@
+label=normal_ok
+model=cluster-max-codellama-7b-instruct-ctx16k
+sut_name=001_python_bitcount
+rep_name=rep_02
+cluster_status=ok
+source_generated_tests=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/001_python_bitcount/rep_02/generated_tests.py
+source_sut_py=/home/jpaiva/projetos/SUTs/quixbugs/001_python_bitcount/sut.py

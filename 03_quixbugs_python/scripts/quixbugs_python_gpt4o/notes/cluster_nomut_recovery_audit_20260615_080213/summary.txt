@@ -1,0 +1,6 @@
+total_runs=1400
+ok_complete=1189
+recovery_candidates=211
+high_priority_recovery=66
+category_counts={"coverage_fail": 1, "generation_failed": 37, "no_effective_tests_after_sanitization": 160, "ok_complete": 1189, "ok_missing_metric": 12, "pytest_no_tests_raw": 1}
+evaluator_reason_counts={"all_nodeids_fail": 104, "all_nodeids_fail_or_timeout": 4, "collection_or_harness_problem_collection_error": 3, "collection_or_harness_problem_import_error": 4, "collection_or_harness_problem_name_error": 15, "coverage_xml_exists_despite_fail": 1, "harness_problem_fixture_error": 3, "harness_problem_name_error": 27, "metrics_exist_but_status_missing": 12, "module_level_test_like_code": 1, "no_test_content_found": 37, "none": 1189}

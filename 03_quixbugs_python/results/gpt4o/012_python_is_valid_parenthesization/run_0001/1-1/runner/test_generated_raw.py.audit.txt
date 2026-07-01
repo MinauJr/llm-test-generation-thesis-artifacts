@@ -1,0 +1,31 @@
+import sut
+
+def test_valid_balanced_parentheses():
+    assert sut.is_valid_parenthesization("()") == True
+
+def test_valid_nested_parentheses():
+    assert sut.is_valid_parenthesization("(())") == True
+
+def test_invalid_unbalanced_open_parentheses():
+    assert sut.is_valid_parenthesization("(()") == False
+
+def test_invalid_unbalanced_close_parentheses():
+    assert sut.is_valid_parenthesization("())") == False
+
+def test_empty_string():
+    assert sut.is_valid_parenthesization("") == True
+
+def test_invalid_mismatched_parentheses():
+    assert sut.is_valid_parenthesization(")(") == False
+
+def test_valid_complex_balanced_parentheses():
+    assert sut.is_valid_parenthesization("(()(()))") == True
+
+def test_invalid_complex_unbalanced_parentheses():
+    assert sut.is_valid_parenthesization("(()(()))(") == False
+
+def test_invalid_only_closing_parentheses():
+    assert sut.is_valid_parenthesization("))") == False
+
+def test_invalid_only_opening_parentheses():
+    assert sut.is_valid_parenthesization("((") == False

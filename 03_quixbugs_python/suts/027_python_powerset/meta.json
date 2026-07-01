@@ -1,0 +1,8 @@
+{
+  "dataset": "quixbugs",
+  "lang": "python",
+  "task_key": "powerset",
+  "pair_id": 27,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_python_programs/powerset.py",
+  "entry_file": "sut.py"
+}

@@ -1,0 +1,190 @@
+MODEL=cluster-safe-codestral-22b-ctx16k
+SUT=026_python_possible_change
+REPEAT=1
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_name_error
+FINGERPRINT=name:sut
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/026_python_possible_change/run_0001/1-1
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-codestral-22b-ctx16k/026_python_possible_change/rep_01/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/026_python_possible_change/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "sut"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "sut"
+]
+
+===== SUT SYMBOLS =====
+[
+  "possible_change"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "test_possible_change"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/026_python_possible_change/run_0001/1-1/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/026_python_possible_change/run_0001/1-1/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+def test_possible_change():
+    assert sut.possible_change([1, 2], 5) == 3
+    assert sut.possible_change([1, 2], 0) == 1
+    assert sut.possible_change([1, 2], -1) == 0
+    assert sut.possible_change([], 5) == 0
+    assert sut.possible_change(None, 5) == 0
+    assert sut.possible_change([1, 2], None) == 1
+
+
+===== SUT =====
+
+def possible_change(coins, total):
+    if total == 0:
+        return 1
+    if total < 0 or not coins:
+        return 0
+
+    first, *rest = coins
+    return possible_change(coins, total - first) + possible_change(rest, total)
+
+"""
+def possible_change(coins, total):
+    if total == 0:
+        return 1
+    if not coins or total < 0:
+        return 0
+
+    first, *rest = coins
+    return possible_change(coins, total - first) + possible_change(rest, total)
+
+def possible_change(coins, total):
+    if total == 0:
+        return 1
+    if total < 0 or len(coins) == 0:
+        return 0
+
+    first, *rest = coins
+    return possible_change(coins, total - first) + possible_change(rest, total)
+
+def possible_change(coins, total):
+    if total == 0:
+        return 1
+    if len(coins) == 0 or total < 0:
+        return 0
+
+    first, *rest = coins
+    return possible_change(coins, total - first) + possible_change(rest, total)
+
+def possible_change(coins, total):
+    if total == 0:
+        return 1
+    if not coins: return 0
+    if total < 0:
+        return 0
+
+    first, *rest = coins
+    return possible_change(coins, total - first) + possible_change(rest, total)
+
+def possible_change(coins, total):
+    if total == 0:
+        return 1
+    if len(coins) == 0: return 0
+    if total < 0:
+        return 0
+
+    first, *rest = coins
+    return possible_change(coins, total - first) + possible_change(rest, total)
+
+"""
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_possible_change
+
+1 test collected in 0.01s
+
+
+===== nodeid_sanitizer.node_ac08f2ac9dbf48b1306cc87f26458a17f9de8014de61e5dfd7d7a1401cac703e.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________________________ test_possible_change _____________________________
+
+    def test_possible_change():
+        assert sut.possible_change([1, 2], 5) == 3
+        assert sut.possible_change([1, 2], 0) == 1
+        assert sut.possible_change([1, 2], -1) == 0
+        assert sut.possible_change([], 5) == 0
+        assert sut.possible_change(None, 5) == 0
+>       assert sut.possible_change([1, 2], None) == 1
+
+test_generated.py:7: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+coins = [1, 2], total = None
+
+    def possible_change(coins, total):
+        if total == 0:
+            return 1
+>       if total < 0 or not coins:
+E       TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+sut.py:5: TypeError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_possible_change - TypeError: '<' not supported...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=1
+individual_pass_nodeids=0
+individual_fail_nodeids=1
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________________________ test_possible_change _____________________________
+test_generated_raw.py:2: in test_possible_change
+    assert sut.possible_change([1, 2], 5) == 3
+E   NameError: name 'sut' is not defined
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test_possible_change - NameError: name 'sut' is...
+1 failed in 0.02s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/026_python_possible_change/run_0001/1-1/generation/final_prompt.txt

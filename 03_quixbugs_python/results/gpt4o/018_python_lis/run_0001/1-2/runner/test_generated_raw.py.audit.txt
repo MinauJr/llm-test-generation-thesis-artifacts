@@ -1,0 +1,16 @@
+import sut
+
+def test_lis_empty():
+    assert sut.lis([]) == 0
+
+def test_lis_single_element():
+    assert sut.lis([10]) == 1
+
+def test_lis_increasing_sequence():
+    assert sut.lis([1, 2, 3, 4, 5]) == 5
+
+def test_lis_decreasing_sequence():
+    assert sut.lis([5, 4, 3, 2, 1]) == 1
+
+def test_lis_mixed_sequence():
+    assert sut.lis([10, 22, 9, 33, 21, 50, 41, 60, 80]) == 6

@@ -1,0 +1,186 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=002_python_breadth_first_search
+REPEAT=3
+EVAL_STATUS=ok
+REASON=metrics_exist_but_status_missing
+FINGERPRINT=metrics_overlay
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/002_python_breadth_first_search/run_0001/1-3
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/002_python_breadth_first_search/rep_03/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/002_python_breadth_first_search/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[]
+
+===== SUT SYMBOLS =====
+[
+  "Node",
+  "_MAX_SUCCESSORS",
+  "_MAX_VISITS",
+  "_normalise_nodes",
+  "breadth_first_search"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "Node",
+  "_",
+  "breadth_first_search",
+  "endnode",
+  "goalnode",
+  "node",
+  "pytest",
+  "pytestmark",
+  "startnode",
+  "test_bfs",
+  "test_max_successors_reached",
+  "test_max_visits_reached",
+  "test_no_successors",
+  "test_not_goal",
+  "test_start_node_is_goal"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {
+    "branch_coverage_pct": 0.0,
+    "error": null,
+    "line_coverage_pct": 24.14
+  },
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/002_python_breadth_first_search/run_0001/1-3/metrics/coverage_metrics.json",
+  "coverage_xml_branch_rate": 0.0,
+  "coverage_xml_error": "",
+  "coverage_xml_exists": true,
+  "coverage_xml_line_rate": 24.14,
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/002_python_breadth_first_search/run_0001/1-3/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+pytestmark = pytest.mark.skip('not ready yet')
+from sut import Node, breadth_first_search
+
+def test_bfs():
+    assert breadth_first_search(Node(), Node()) is True
+
+def test_start_node_is_goal():
+    startnode=Node()
+    goalnode = Node()
+    assert breadth_first_search(startnode, goalnode) == False
+
+def test_no_successors():
+    node = Node()
+    with pytest.raises(AttributeError):
+        breadth_first_search(node, Node())
+
+def test_max_visits_reached():
+    startnode=Node()
+    goalnode = Node()
+
+    for _ in range(_MAX_VISITS+1):  # run until exceed maximum visits limit
+        assert not breadth_first_search(startnode, goalnode)
+
+def test_max_successors_reached():
+    startnode=Node()
+    for _ in range(_MAX_SUCCESSORS+2):
+        endnode = Node(list(range(10))) # add more successors than allowed 
+        assert not breadth_first_search(startnode, endnode)
+
+def test_not_goal():
+    startnode=Node()
+    goalnode = Node(list(range(_MAX_SUCCESSORS+2))) # avoid creating a successor of the goal node to disqualify as goal state 
+    assert not breadth_first_search(startnode, goalnode)
+
+
+===== SUT =====
+from collections import deque
+
+_MAX_VISITS = 1000
+_MAX_SUCCESSORS = 100
+
+
+def _normalise_nodes(value):
+    if isinstance(value, (list, tuple, set)):
+        return list(value)[:_MAX_SUCCESSORS]
+    return []
+
+
+class Node:
+    def __init__(self, successors=None):
+        self.successors = _normalise_nodes(successors)
+
+
+def breadth_first_search(startnode, goalnode):
+    if startnode is goalnode:
+        return True
+
+    if not hasattr(startnode, "successors"):
+        return False
+
+    queue = deque([startnode])
+    seen = {id(startnode)}
+    visits = 0
+
+    while queue and visits < _MAX_VISITS:
+        node = queue.popleft()
+        visits += 1
+
+        if node is goalnode:
+            return True
+
+        for successor in _normalise_nodes(getattr(node, "successors", [])):
+            sid = id(successor)
+            if sid not in seen:
+                seen.add(sid)
+                queue.append(successor)
+
+    return False
+
+
+===== LOGS =====
+
+
+===== analyze_effective_tests.log =====
+{"all_top_level_tests_skipped": false, "effective_test_functions": 6, "error": null, "test_file": "/home/jpaiva/projetos/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/002_python_breadth_first_search/run_0001/1-3/runner/test_generated.py", "top_level_skipped_test_functions": 0, "top_level_test_functions": 6}
+
+
+===== coverage.log =====
+ssssss                                                                   [100%]
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.10.12-final-0 _______________
+
+Name     Stmts   Miss Branch BrPart  Cover   Missing
+----------------------------------------------------
+sut.py      29     22     14      0    16%   8-10, 15, 19-42
+----------------------------------------------------
+TOTAL       29     22     14      0    16%
+Coverage XML written to file coverage.xml
+6 skipped in 0.04s
+
+
+===== parse_coverage.log =====
+{"branch_coverage_pct": 0.0, "error": null, "line_coverage_pct": 24.14}
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+ssssss                                                                   [100%]
+6 skipped in 0.01s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/002_python_breadth_first_search/run_0001/1-3/generation/final_prompt.txt

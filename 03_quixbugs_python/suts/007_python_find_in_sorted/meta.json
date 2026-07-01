@@ -1,0 +1,8 @@
+{
+  "dataset": "quixbugs",
+  "lang": "python",
+  "task_key": "find_in_sorted",
+  "pair_id": 7,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_python_programs/find_in_sorted.py",
+  "entry_file": "sut.py"
+}

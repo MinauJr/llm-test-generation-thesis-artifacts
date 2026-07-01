@@ -1,0 +1,35 @@
+import sut
+
+def test_shortest_path_length_direct_connection():
+    node_a = sut.Node(label="A")
+    node_b = sut.Node(label="B")
+    node_a.successors = [node_b]
+    length_by_edge = {("A", "B"): 5.0}
+    assert sut.shortest_path_length(length_by_edge, node_a, node_b) == 5.0
+
+def test_shortest_path_length_no_connection():
+    node_a = sut.Node(label="A")
+    node_b = sut.Node(label="B")
+    length_by_edge = {}
+    assert sut.shortest_path_length(length_by_edge, node_a, node_b) == float("inf")
+
+def test_shortest_path_length_same_node():
+    node_a = sut.Node(label="A")
+    length_by_edge = {}
+    assert sut.shortest_path_length(length_by_edge, node_a, node_a) == 0.0
+
+def test_shortest_path_length_indirect_connection():
+    node_a = sut.Node(label="A")
+    node_b = sut.Node(label="B")
+    node_c = sut.Node(label="C")
+    node_a.successors = [node_b]
+    node_b.successors = [node_c]
+    length_by_edge = {("A", "B"): 3.0, ("B", "C"): 4.0}
+    assert sut.shortest_path_length(length_by_edge, node_a, node_c) == 7.0
+
+def test_shortest_path_length_invalid_edge_length():
+    node_a = sut.Node(label="A")
+    node_b = sut.Node(label="B")
+    node_a.successors = [node_b]
+    length_by_edge = {("A", "B"): -5.0}
+    assert sut.shortest_path_length(length_by_edge, node_a, node_b) == float("inf")

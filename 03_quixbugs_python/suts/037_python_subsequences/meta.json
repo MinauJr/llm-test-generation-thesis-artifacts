@@ -1,0 +1,8 @@
+{
+  "dataset": "quixbugs",
+  "lang": "python",
+  "task_key": "subsequences",
+  "pair_id": 37,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_python_programs/subsequences.py",
+  "entry_file": "sut.py"
+}

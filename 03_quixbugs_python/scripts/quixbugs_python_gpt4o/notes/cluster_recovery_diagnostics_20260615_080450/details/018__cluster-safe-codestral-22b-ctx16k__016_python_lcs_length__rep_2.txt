@@ -1,0 +1,131 @@
+MODEL=cluster-safe-codestral-22b-ctx16k
+SUT=016_python_lcs_length
+REPEAT=2
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_name_error
+FINGERPRINT=name:sut
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/016_python_lcs_length/run_0001/1-2
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-codestral-22b-ctx16k/016_python_lcs_length/rep_02/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/016_python_lcs_length/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "sut"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "sut"
+]
+
+===== SUT SYMBOLS =====
+[
+  "lcs_length"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "test_lcs_length"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/016_python_lcs_length/run_0001/1-2/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/016_python_lcs_length/run_0001/1-2/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+def test_lcs_length():
+    assert sut.lcs_length("abc", "bc") == 2
+    assert sut.lcs_length("abc", "def") == 0
+    assert sut.lcs_length("abcdef", "abcef") == 4
+    assert sut.lcs_length("", "") == 0
+    assert sut.lcs_length("a", "a") == 1
+
+
+===== SUT =====
+
+def lcs_length(s, t):
+    from collections import Counter
+
+    dp = Counter()
+
+    for i in range(len(s)):
+        for j in range(len(t)):
+            if s[i] == t[j]:
+                dp[i, j] = dp[i - 1, j - 1] + 1
+
+    return max(dp.values()) if dp else 0
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_lcs_length
+
+1 test collected in 0.01s
+
+
+===== nodeid_sanitizer.node_9beff22b9fbd55d3acfdd4b6ee4b4a1f8d9c1e264631d1798225c92e5dd417db.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______________________________ test_lcs_length ________________________________
+
+    def test_lcs_length():
+        assert sut.lcs_length("abc", "bc") == 2
+        assert sut.lcs_length("abc", "def") == 0
+>       assert sut.lcs_length("abcdef", "abcef") == 4
+E       AssertionError: assert 3 == 4
+E        +  where 3 = <function lcs_length at 0x7fc770e357e0>('abcdef', 'abcef')
+E        +    where <function lcs_length at 0x7fc770e357e0> = sut.lcs_length
+
+test_generated.py:4: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_lcs_length - AssertionError: assert 3 == 4
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=1
+individual_pass_nodeids=0
+individual_fail_nodeids=1
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______________________________ test_lcs_length ________________________________
+test_generated_raw.py:2: in test_lcs_length
+    assert sut.lcs_length("abc", "bc") == 2
+E   NameError: name 'sut' is not defined
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test_lcs_length - NameError: name 'sut' is not ...
+1 failed in 0.02s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/016_python_lcs_length/run_0001/1-2/generation/final_prompt.txt

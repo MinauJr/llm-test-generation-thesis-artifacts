@@ -1,0 +1,335 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=017_python_levenshtein
+REPEAT=2
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_name_error
+FINGERPRINT=name:levenshtein,pytest
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/017_python_levenshtein/run_0001/1-2
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/017_python_levenshtein/rep_02/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/017_python_levenshtein/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "levenshtein",
+    "pytest"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "levenshtein",
+  "pytest"
+]
+
+===== SUT SYMBOLS =====
+[
+  "levenshtein"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "long_sequence",
+  "long_string",
+  "result",
+  "source",
+  "str1",
+  "str2",
+  "target",
+  "test_identical_strings",
+  "test_large_string",
+  "test_long_sequences",
+  "test_non_empty_source",
+  "test_one_character_difference",
+  "test_one_edit_away",
+  "test_simple_case",
+  "test_two_edits"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/017_python_levenshtein/run_0001/1-2/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/017_python_levenshtein/run_0001/1-2/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+def test_non_empty_source():
+    for source in ('abc', 'abcd'):
+        with pytest.raises(ValueError):
+            result = levenshtein(source, 'def')
+
+def test_identical_strings():
+    assert levenshtein('', '') == len(''), "Levenshtein distance should be 0"
+
+def test_simple_case():
+    assert levenshtein('kitten', 'kitten') == 0, "Should return zero for identical strings."
+
+def test_one_edit_away():
+    # This tests that the function recognizes when a single edit can make target from source
+    assert levenshtein('', '') == len(''), "Levenshtein distance should be 0"
+    assert levenshtein('hare', 'hard') == 1, "Should return one for close strings."
+
+def test_two_edits():
+    # This tests that the function recognizes when two edits are needed to make target from source.
+    assert levenshtein('', '') == len(''), "Levenshtein distance should be 0"
+    assert levenshtein('aardvark', 'paardwerd') == 3, "Should return three for somewhat distant strings."
+
+def test_long_sequences():
+    # Test with longer sequences of characters.
+    long_sequence = 'A' * 50 + 'B' + 'C' * 50
+    target = 'B' + 'A' * 49
+    assert levenshtein(long_sequence, target) > 32, "Should return a number greater than the minimum distance."
+
+def test_one_character_difference():
+    # Test with one character difference between source and target.
+    str1 = 'abcd'
+    str2 = 'abce'
+    assert levenshtein(str1, str2) == 1, "Should recognize that there is a single-character difference."
+
+def test_large_string():
+    # Test with large strings.
+    long_string = 'A' * 1000 + 'B' + 'C' * 500
+    assert levenshtein(long_string, long_string) == len(long_string), "Should return the length of the string for equal strings."
+
+
+===== SUT =====
+
+def levenshtein(source, target):
+    if source == '' or target == '':
+        return len(source) or len(target)
+
+    elif source[0] == target[0]:
+        return levenshtein(source[1:], target[1:])
+
+    else:
+        return 1 + min(
+            levenshtein(source,     target[1:]),
+            levenshtein(source[1:], target[1:]),
+            levenshtein(source[1:], target)
+        )
+
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_non_empty_source
+test_generated.py::test_identical_strings
+test_generated.py::test_simple_case
+test_generated.py::test_one_edit_away
+test_generated.py::test_two_edits
+test_generated.py::test_long_sequences
+test_generated.py::test_one_character_difference
+test_generated.py::test_large_string
+
+8 tests collected in 0.01s
+
+
+===== nodeid_sanitizer.node_2363860efde75deb5f3552e70c0967f3981a865c50a48347b199587b49182a80.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________________________ test_one_edit_away ______________________________
+
+    def test_one_edit_away():
+        # This tests that the function recognizes when a single edit can make target from source
+>       assert levenshtein('', '') == len(''), "Levenshtein distance should be 0"
+E       NameError: name 'levenshtein' is not defined
+
+test_generated.py:14: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_one_edit_away - NameError: name 'levenshtein' ...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_65a41495162bd4bc8d54da5a7721f0fdadbec84397d49974451e1974b0fc535d.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________________________ test_long_sequences ______________________________
+
+    def test_long_sequences():
+        # Test with longer sequences of characters.
+        long_sequence = 'A' * 50 + 'B' + 'C' * 50
+        target = 'B' + 'A' * 49
+>       assert levenshtein(long_sequence, target) > 32, "Should return a number greater than the minimum distance."
+E       NameError: name 'levenshtein' is not defined
+
+test_generated.py:26: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_long_sequences - NameError: name 'levenshtein'...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_91f3bd697d16ac13dcc1d29551c4d211ff3d85de4d7cdd8cc948f60d0a690a2a.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________________________________ test_two_edits ________________________________
+
+    def test_two_edits():
+        # This tests that the function recognizes when two edits are needed to make target from source.
+>       assert levenshtein('', '') == len(''), "Levenshtein distance should be 0"
+E       NameError: name 'levenshtein' is not defined
+
+test_generated.py:19: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_two_edits - NameError: name 'levenshtein' is n...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_95c6df27230470f0e44b28909092d33e99727f63003dee7d7efd8ff336d27622.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______________________________ test_simple_case _______________________________
+
+    def test_simple_case():
+>       assert levenshtein('kitten', 'kitten') == 0, "Should return zero for identical strings."
+E       NameError: name 'levenshtein' is not defined
+
+test_generated.py:10: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_simple_case - NameError: name 'levenshtein' is...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_c3f9cc87cf17118099dbf435c743ca6abfbad17f44dcf5c55623765bbe272ebd.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________________________ test_non_empty_source _____________________________
+
+    def test_non_empty_source():
+        for source in ('abc', 'abcd'):
+>           with pytest.raises(ValueError):
+E           NameError: name 'pytest' is not defined
+
+test_generated.py:3: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_non_empty_source - NameError: name 'pytest' is...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_c5d5f4af2bfaa5f7ea9c3fcfcd11a73df391009d4367206f2bad5d59c3aa27f8.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________________________ test_large_string _______________________________
+
+    def test_large_string():
+        # Test with large strings.
+        long_string = 'A' * 1000 + 'B' + 'C' * 500
+>       assert levenshtein(long_string, long_string) == len(long_string), "Should return the length of the string for equal strings."
+E       NameError: name 'levenshtein' is not defined
+
+test_generated.py:37: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_large_string - NameError: name 'levenshtein' i...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_e73877be84b22ae53d6cd92bbf2fbd1e647a9df24d76781a763c49fa994b16fc.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________________________ test_one_character_difference _________________________
+
+    def test_one_character_difference():
+        # Test with one character difference between source and target.
+        str1 = 'abcd'
+        str2 = 'abce'
+>       assert levenshtein(str1, str2) == 1, "Should recognize that there is a single-character difference."
+E       NameError: name 'levenshtein' is not defined
+
+test_generated.py:32: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_one_character_difference - NameError: name 'le...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_eab778d70e09a6606a8ef66dbdd64122231588035a2f40cdc789ea8f2ea9296d.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________________________ test_identical_strings ____________________________
+
+    def test_identical_strings():
+>       assert levenshtein('', '') == len(''), "Levenshtein distance should be 0"
+E       NameError: name 'levenshtein' is not defined
+
+test_generated.py:7: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_identical_strings - NameError: name 'levenshte...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=8
+individual_pass_nodeids=0
+individual_fail_nodeids=8
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+FFFFFFFF                                                                 [100%]
+=================================== FAILURES ===================================
+____________________________ test_non_empty_source _____________________________
+test_generated_raw.py:3: in test_non_empty_source
+    with pytest.raises(ValueError):
+E   NameError: name 'pytest' is not defined
+____________________________ test_identical_strings ____________________________
+test_generated_raw.py:7: in test_identical_strings
+    assert levenshtein('', '') == len(''), "Levenshtein distance should be 0"
+E   NameError: name 'levenshtein' is not defined
+_______________________________ test_simple_case _______________________________
+test_generated_raw.py:10: in test_simple_case
+    assert levenshtein('kitten', 'kitten') == 0, "Should return zero for identical strings."
+E   NameError: name 'levenshtein' is not defined
+______________________________ test_one_edit_away ______________________________
+test_generated_raw.py:14: in test_one_edit_away
+    assert levenshtein('', '') == len(''), "Levenshtein distance should be 0"
+E   NameError: name 'levenshtein' is not defined
+________________________________ test_two_edits ________________________________
+test_generated_raw.py:19: in test_two_edits
+    assert levenshtein('', '') == len(''), "Levenshtein distance should be 0"
+E   NameError: name 'levenshtein' is not defined
+_____________________________ test_long_sequences ______________________________
+test_generated_raw.py:26: in test_long_sequences
+    assert levenshtein(long_sequence, target) > 32, "Should return a number greater than the minimum distance."
+E   NameError: name 'levenshtein' is not defined
+________________________ test_one_character_difference _________________________
+test_generated_raw.py:32: in test_one_character_difference
+    assert levenshtein(str1, str2) == 1, "Should recognize that there is a single-character difference."
+E   NameError: name 'levenshtein' is not defined
+______________________________ test_large_string _______________________________
+test_generated_raw.py:37: in test_large_string
+    assert levenshtein(long_string, long_string) == len(long_string), "Should return the length of the string for equal strings."
+E   NameError: name 'levenshtein' is not defined
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test_non_empty_source - NameError: name 'pytest...
+FAILED test_generated_raw.py::test_identical_strings - NameError: name 'leven...
+FAILED test_generated_raw.py::test_simple_case - NameError: name 'levenshtein...
+FAILED test_generated_raw.py::test_one_edit_away - NameError: name 'levenshte...
+FAILED test_generated_raw.py::test_two_edits - NameError: name 'levenshtein' ...
+FAILED test_generated_raw.py::test_long_sequences - NameError: name 'levensht...
+FAILED test_generated_raw.py::test_one_character_difference - NameError: name...
+FAILED test_generated_raw.py::test_large_string - NameError: name 'levenshtei...
+8 failed in 0.04s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/017_python_levenshtein/run_0001/1-2/generation/final_prompt.txt

@@ -1,0 +1,156 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=029_python_reverse_linked_list
+REPEAT=5
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_name_error
+FINGERPRINT=name:Node
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/029_python_reverse_linked_list/run_0001/1-5
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/029_python_reverse_linked_list/rep_05/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/029_python_reverse_linked_list/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "Node"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "Node"
+]
+
+===== SUT SYMBOLS =====
+[
+  "Node",
+  "reverse_linked_list"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "pytest",
+  "reverse_linked_list",
+  "test_reverse_linked_list"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/029_python_reverse_linked_list/run_0001/1-5/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/029_python_reverse_linked_list/run_0001/1-5/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+from sut import reverse_linked_list
+
+def test_reverse_linked_list():
+    assert isinstance(reverse_linked_list(None), Node)
+    assert (0 == len(reverse_linked_list(Node())))
+    with pytest.raises(TypeError):
+        reverse_linked_list("string")
+    assert ([Node()] == reverse_linked_list([Node()]))
+    assert [Node(successor=None)] == list(reverse_linked_list([Node(), Node(successor=None)]))
+    assert (1 == len(reverse_linked_list(Node(successor=Node()))))
+    assert ([Node(successor=Node())] == reverse_linked_list([Node(), Node(successor=Node())]))
+
+
+===== SUT =====
+class Node:
+    def __init__(self, successor=None):
+        self.successor = successor
+
+
+def reverse_linked_list(node):
+    prevnode = None
+    while node:
+        nextnode = node.successor
+        node.successor = prevnode
+        prevnode = node
+        node = nextnode
+    return prevnode
+
+"""
+def reverse_linked_list(node):
+    prevnode = None
+    while node:
+        nextnode = node.successor
+        node.successor = prevnode
+        prevnode, node = node, nextnode
+    return prevnode
+
+def reverse_linked_list(node):
+    prevnode = None
+    while node:
+        nextnode = node.successor
+        node.successor = prevnode
+        node, prevnode = nextnode, node
+    return prevnode
+
+"""
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_reverse_linked_list
+
+1 test collected in 0.01s
+
+
+===== nodeid_sanitizer.node_cc0e9fb45a1398950e426904a8584f06d54da280bec91b28c293b4f1150302fe.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________________________ test_reverse_linked_list ___________________________
+
+    def test_reverse_linked_list():
+>       assert isinstance(reverse_linked_list(None), Node)
+E       NameError: name 'Node' is not defined
+
+test_generated.py:5: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_reverse_linked_list - NameError: name 'Node' i...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=1
+individual_pass_nodeids=0
+individual_fail_nodeids=1
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________________________ test_reverse_linked_list ___________________________
+test_generated_raw.py:5: in test_reverse_linked_list
+    assert isinstance(reverse_linked_list(None), Node)
+E   NameError: name 'Node' is not defined
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test_reverse_linked_list - NameError: name 'Nod...
+1 failed in 0.02s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/029_python_reverse_linked_list/run_0001/1-5/generation/final_prompt.txt

@@ -1,0 +1,16 @@
+import sut
+
+def test_sieve_empty():
+    assert sut.sieve(1) == []
+
+def test_sieve_single_prime():
+    assert sut.sieve(2) == [2]
+
+def test_sieve_primes_up_to_10():
+    assert sut.sieve(10) == [2, 3, 5, 7]
+
+def test_sieve_primes_up_to_20():
+    assert sut.sieve(20) == [2, 3, 5, 7, 11, 13, 17, 19]
+
+def test_sieve_primes_up_to_30():
+    assert sut.sieve(30) == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]

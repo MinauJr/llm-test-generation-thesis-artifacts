@@ -1,0 +1,198 @@
+MODEL=cluster-max-codellama-7b-instruct-ctx16k
+SUT=002_python_breadth_first_search
+REPEAT=4
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=collection_or_harness_problem_name_error
+FINGERPRINT=name:TestFile|collection_error
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/002_python_breadth_first_search/run_0001/1-4
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/002_python_breadth_first_search/rep_04/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/002_python_breadth_first_search/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "TestFile"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "TestFile"
+]
+
+===== SUT SYMBOLS =====
+[
+  "Node",
+  "_MAX_SUCCESSORS",
+  "_MAX_VISITS",
+  "_normalise_nodes",
+  "breadth_first_search"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "Node",
+  "_",
+  "breadth_first_search",
+  "goalnode",
+  "node",
+  "pytest",
+  "queue",
+  "seen",
+  "startnode",
+  "test_breadth_first_search",
+  "test_breadth_first_search_with_max_successors",
+  "test_breadth_first_search_with_max_visits",
+  "test_breadth_first_search_with_successors",
+  "test_normalise_nodes",
+  "value",
+  "visits"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/002_python_breadth_first_search/run_0001/1-4/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/002_python_breadth_first_search/run_0001/1-4/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+TestFile
+import pytest
+from sut import breadth_first_search, Node
+
+def test_breadth_first_search():
+    startnode = Node()
+    goalnode = Node()
+    assert breadth_first_search(startnode, goalnode) is False
+
+def test_breadth_first_search_with_successors():
+    startnode = Node([Node()])
+    goalnode = Node()
+    assert breadth_first_search(startnode, goalnode) is True
+
+def test_normalise_nodes():
+    value = [Node(), Node()]
+    assert list(_normalise_nodes(value)) == [value[0], value[1]]
+
+def test_breadth_first_search_with_max_visits():
+    startnode = Node([Node()])
+    goalnode = Node()
+    queue = deque([startnode])
+    seen = {id(startnode)}
+    visits = 0
+    while queue and visits < _MAX_VISITS:
+        node = queue.popleft()
+        visits += 1
+        if node is goalnode:
+            return True
+    assert breadth_first_search(startnode, goalnode) is False
+
+def test_breadth_first_search_with_max_successors():
+    startnode = Node([Node() for _ in range(_MAX_SUCCESSORS)])
+    goalnode = Node()
+    assert breadth_first_search(startnode, goalnode) is True
+
+
+===== SUT =====
+from collections import deque
+
+_MAX_VISITS = 1000
+_MAX_SUCCESSORS = 100
+
+
+def _normalise_nodes(value):
+    if isinstance(value, (list, tuple, set)):
+        return list(value)[:_MAX_SUCCESSORS]
+    return []
+
+
+class Node:
+    def __init__(self, successors=None):
+        self.successors = _normalise_nodes(successors)
+
+
+def breadth_first_search(startnode, goalnode):
+    if startnode is goalnode:
+        return True
+
+    if not hasattr(startnode, "successors"):
+        return False
+
+    queue = deque([startnode])
+    seen = {id(startnode)}
+    visits = 0
+
+    while queue and visits < _MAX_VISITS:
+        node = queue.popleft()
+        visits += 1
+
+        if node is goalnode:
+            return True
+
+        for successor in _normalise_nodes(getattr(node, "successors", [])):
+            sid = id(successor)
+            if sid not in seen:
+                seen.add(sid)
+                queue.append(successor)
+
+    return False
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+
+==================================== ERRORS ====================================
+______________________ ERROR collecting test_generated.py ______________________
+test_generated.py:1: in <module>
+    TestFile
+E   NameError: name 'TestFile' is not defined
+=========================== short test summary info ============================
+ERROR test_generated.py - NameError: name 'TestFile' is not defined
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+no tests collected, 1 error in 0.12s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=0
+individual_pass_nodeids=0
+individual_fail_nodeids=0
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting test_generated_raw.py ____________________
+test_generated_raw.py:1: in <module>
+    TestFile
+E   NameError: name 'TestFile' is not defined
+=========================== short test summary info ============================
+ERROR test_generated_raw.py - NameError: name 'TestFile' is not defined
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.12s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/002_python_breadth_first_search/run_0001/1-4/generation/final_prompt.txt

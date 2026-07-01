@@ -1,0 +1,6 @@
+[OK] /home/jpaiva/projetos/SUTs/quixbugs
+[OK] /home/jpaiva/projetos/llm_test_generation_gpt4o/quixbugs_python_gpt4o
+[MISSING] /home/jpaiva/projetos/nonAI/python_workflow
+[OK] /home/jpaiva/projetos/llm_test_generation_gpt4o
+[OK] /home/jpaiva/projetos/llm_cluster_scripts
+[OK] /home/jpaiva/to_cluster

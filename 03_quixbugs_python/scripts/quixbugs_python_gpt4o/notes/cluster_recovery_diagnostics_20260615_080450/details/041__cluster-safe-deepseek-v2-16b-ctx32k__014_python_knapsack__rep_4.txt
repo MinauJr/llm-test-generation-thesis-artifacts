@@ -1,0 +1,120 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=014_python_knapsack
+REPEAT=4
+EVAL_STATUS=ok
+REASON=metrics_exist_but_status_missing
+FINGERPRINT=metrics_overlay
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/014_python_knapsack/run_0001/1-4
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/014_python_knapsack/rep_04/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/014_python_knapsack/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[]
+
+===== SUT SYMBOLS =====
+[
+  "knapsack"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "items",
+  "knapsack",
+  "pytest",
+  "test_knapsack"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {
+    "branch_coverage_pct": 0.0,
+    "error": null,
+    "line_coverage_pct": 10.0
+  },
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/014_python_knapsack/run_0001/1-4/metrics/coverage_metrics.json",
+  "coverage_xml_branch_rate": 0.0,
+  "coverage_xml_error": "",
+  "coverage_xml_exists": true,
+  "coverage_xml_line_rate": 10.0,
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/014_python_knapsack/run_0001/1-4/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+from sut import knapsack
+
+def test_knapsack():
+    # Test with single item and no capacity limit (should always pick the whole item)
+    items = [(10, 60)]
+
+
+===== SUT =====
+
+def knapsack(capacity, items):
+    from collections import defaultdict
+    memo = defaultdict(int)
+
+    for i in range(1, len(items) + 1):
+        weight, value = items[i - 1]
+
+        for j in range(1, capacity + 1):
+            memo[i, j] = memo[i - 1, j]
+
+            if weight <= j:
+                memo[i, j] = max(
+                    memo[i, j],
+                    value + memo[i - 1, j - weight]
+                )
+
+    return memo[len(items), capacity]
+
+
+
+===== LOGS =====
+
+
+===== analyze_effective_tests.log =====
+{"all_top_level_tests_skipped": false, "effective_test_functions": 1, "error": null, "test_file": "/home/jpaiva/projetos/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/014_python_knapsack/run_0001/1-4/runner/test_generated.py", "top_level_skipped_test_functions": 0, "top_level_test_functions": 1}
+
+
+===== coverage.log =====
+.                                                                        [100%]
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.10.12-final-0 _______________
+
+Name     Stmts   Miss Branch BrPart  Cover   Missing
+----------------------------------------------------
+sut.py      10      9      6      0     6%   3-18
+----------------------------------------------------
+TOTAL       10      9      6      0     6%
+Coverage XML written to file coverage.xml
+1 passed in 0.02s
+
+
+===== parse_coverage.log =====
+{"branch_coverage_pct": 0.0, "error": null, "line_coverage_pct": 10.0}
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+.                                                                        [100%]
+1 passed in 0.00s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/014_python_knapsack/run_0001/1-4/generation/final_prompt.txt

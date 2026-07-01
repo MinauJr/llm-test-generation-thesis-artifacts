@@ -1,0 +1,8 @@
+{
+  "dataset": "quixbugs",
+  "lang": "python",
+  "task_key": "wrap",
+  "pair_id": 40,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_python_programs/wrap.py",
+  "entry_file": "sut.py"
+}

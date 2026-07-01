@@ -1,0 +1,28 @@
+import sut
+
+def test_single_node_is_goal():
+    node = sut.Node()
+    assert sut.depth_first_search(node, node) is True
+
+def test_no_path_to_goal():
+    node1 = sut.Node()
+    node2 = sut.Node()
+    assert sut.depth_first_search(node1, node2) is False
+
+def test_direct_path_to_goal():
+    goal = sut.Node()
+    start = sut.Node(successors=[goal])
+    assert sut.depth_first_search(start, goal) is True
+
+def test_indirect_path_to_goal():
+    goal = sut.Node()
+    middle = sut.Node(successors=[goal])
+    start = sut.Node(successors=[middle])
+    assert sut.depth_first_search(start, goal) is True
+
+def test_no_cycle_no_path():
+    node1 = sut.Node()
+    node2 = sut.Node(successors=[node1])
+    node3 = sut.Node(successors=[node2])
+    assert sut.depth_first_search(node3, node1) is True
+    assert sut.depth_first_search(node1, node3) is False

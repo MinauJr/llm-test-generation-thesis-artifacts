@@ -1,0 +1,369 @@
+MODEL=cluster-max-codellama-7b-instruct-ctx16k
+SUT=012_python_is_valid_parenthesization
+REPEAT=4
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_name_error
+FINGERPRINT=name:sut
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/012_python_is_valid_parenthesization/run_0001/1-4
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/012_python_is_valid_parenthesization/rep_04/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/012_python_is_valid_parenthesization/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "sut"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "sut"
+]
+
+===== SUT SYMBOLS =====
+[
+  "is_valid_parenthesization"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "test_is_valid_parenthesization"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/012_python_is_valid_parenthesization/run_0001/1-4/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/012_python_is_valid_parenthesization/run_0001/1-4/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+def test_is_valid_parenthesization():
+    # Test case 1:
+    assert sut.is_valid_parenthesization("()") == True
+    # Test case 2:
+    assert sut.is_valid_parenthesization("(())") == True
+    # Test case 3:
+    assert sut.is_valid_parenthesization("((()()))") == True
+    # Test case 4:
+    assert sut.is_valid_parenthesization("(((()))") == False
+    # Test case 5:
+    assert sut.is_valid_parenthesization("((())(()") == False
+    # Test case 6:
+    assert sut.is_valid_parenthesization("((())") == False
+    # Test case 7:
+    assert sut.is_valid_parenthesization("()(())") == True
+    # Test case 8:
+    assert sut.is_valid_parenthesization("(()(()))") == True
+    # Test case 9:
+    assert sut.is_valid_parenthesization("((())))") == False
+    # Test case 10:
+    assert sut.is_valid_parenthesization("((())((") == False
+    # Test case 11:
+    assert sut.is_valid_parenthesization("(()()))") == True
+    # Test case 12:
+    assert sut.is_valid_parenthesization("((())))") == False
+    # Test case 13:
+    assert sut.is_valid_parenthesization("((())((") == False
+    # Test case 14:
+    assert sut.is_valid_parenthesization("(()()))") == True
+    # Test case 15:
+    assert sut.is_valid_parenthesization("((())))") == False
+    # Test case 16:
+    assert sut.is_valid_parenthesization("((())((") == False
+    # Test case 17:
+    assert sut.is_valid_parenthesization("(()()))") == True
+    # Test case 18:
+    assert sut.is_valid_parenthesization("((())))") == False
+    # Test case 19:
+    assert sut.is_valid_parenthesization("((())((") == False
+    # Test case 20:
+    assert sut.is_valid_parenthesization("(()()))") == True
+    # Test case 21:
+    assert sut.is_valid_parenthesization("((())))") == False
+    # Test case 22:
+    assert sut.is_valid_parenthesization("((())((") == False
+    # Test case 23:
+    assert sut.is_valid_parenthesization("(()()))") == True
+    # Test case 24:
+    assert sut.is_valid_parenthesization("((())))") == False
+    # Test case 25:
+    assert sut.is_valid_parenthesization("((())((") == False
+    # Test case 26:
+    assert sut.is_valid_parenthesization("(()()))") == True
+    # Test case 27:
+    assert sut.is_valid_parenthesization("((())))") == False
+    # Test case 28:
+    assert sut.is_valid_parenthesization("((())((") == False
+    # Test case 29:
+    assert sut.is_valid_parenthesization("(()()))") == True
+    # Test case 30:
+    assert sut.is_valid_parenthesization("((())))") == False
+
+def test_is_valid_parenthesization():
+    # Test case 1:
+    assert sut.is_valid_parenthesization("()") == True
+    # Test case 2:
+    assert sut.is_valid_parenthesization("(())") == True
+    # Test case 3:
+    assert sut.is_valid_parenthesization("((()()))") == True
+    # Test case 4:
+    assert sut.is_valid_parenthesization("(((()))") == False
+    # Test case 5:
+    assert sut.is_valid_parenthesization("((())(()") == False
+    # Test case 6:
+    assert sut.is_valid_parenthesization("((())") == False
+    # Test case 7:
+    assert sut.is_valid_parenthesization("()(())") == True
+    # Test case 8:
+    assert sut.is_valid_parenthesization("(()(()))") == True
+    # Test case 9:
+    assert sut.is_valid_parenthesization("((())))") == False
+    # Test case 10:
+    assert sut.is_valid_parenthesization("((())((") == False
+    # Test case 11:
+    assert sut.is_valid_parenthesization("(()()))") == True
+    # Test case 12:
+    assert sut.is_valid_parenthesization("((())))") == False
+    # Test case 13:
+    assert sut.is_valid_parenthesization("((())((") == False
+    # Test case 14:
+    assert sut.is_valid_parenthesization("(()()))") == True
+    # Test case 15:
+    assert sut.is_valid_parenthesization("((())))") == False
+    # Test case 16:
+    assert sut.is_valid_parenthesization("((())((") == False
+    # Test case 17:
+    assert sut.is_valid_parenthesization("(()()))") == True
+    # Test case 18:
+    assert sut.is_valid_parenthesization("((())))") == False
+    # Test case 19:
+    assert sut.is_valid_parenthesization("((())((") == False
+    # Test case 20:
+    assert sut.is_valid_parenthesization("(()()))") == True
+    # Test case 21:
+    assert sut.is_valid_parenthesization("((())))") == False
+    # Test case 22:
+    assert sut.is_valid_parenthesization("((())((") == False
+    # Test case 23:
+    assert sut.is_valid_parenthesization("(()()))") == True
+    # Test case 24:
+    assert sut.is_valid_parenthesization("((())))") == False
+    # Test case 25:
+    assert sut.is_valid_parenthesization("((())((") == False
+    # Test case 26:
+    assert sut.is_valid_parenthesization("(()()))") == True
+    # Test case 27:
+    assert sut.is_valid_parenthesization("((())))") == False
+    # Test case 28:
+    assert sut.is_valid_parenthesization("((())((") == False
+    # Test case 29:
+    assert sut.is_valid_parenthesization("(()()))") == True
+    # Test case 30:
+    assert sut.is_valid_parenthesization("((())))") == False
+
+
+===== SUT =====
+
+def is_valid_parenthesization(parens):
+    depth = 0
+    for paren in parens:
+        if paren == '(':
+            depth += 1
+        else:
+            depth -= 1
+            if depth < 0:
+                return False
+
+    return depth == 0
+
+"""
+def is_valid_parenthesization(parens):
+    depth = 0
+    for paren in parens:
+        if paren == '(':
+            depth += 1
+        else:
+            depth -= 1
+            if depth < 0:
+                return False
+
+    return 0 == depth
+
+def is_valid_parenthesization(parens):
+    depth = 0
+    for paren in parens:
+        if paren == '(':
+            depth += 1
+        else:
+            depth -= 1
+            if depth < 0:
+                return False
+
+    return True if depth == 0 else False
+
+def is_valid_parenthesization(parens):
+    depth = 0
+    for paren in parens:
+        if paren == '(':
+            depth += 1
+        else:
+            depth -= 1
+            if depth < 0:
+                return False
+
+    return not depth
+
+def is_valid_parenthesization(parens):
+    depth = 0
+    for paren in parens:
+        if paren == '(':
+            depth += 1
+        else:
+            depth -= 1
+            if depth < 0:
+                return False
+
+    return (depth == 0)
+
+def is_valid_parenthesization(parens):
+    depth = 0
+    for paren in parens:
+        if paren == '(':
+            depth += 1
+        else:
+            depth -= 1
+            if depth < 0:
+                return False
+
+    return (0 == depth)
+
+def is_valid_parenthesization(parens):
+    depth = 0
+    for paren in parens:
+        if paren == '(':
+            depth += 1
+        else:
+            depth -= 1
+            if depth < 0:
+                return False
+
+    if depth > 0: return False
+    return True
+
+def is_valid_parenthesization(parens):
+    depth = 0
+    for paren in parens:
+        if paren == '(':
+            depth += 1
+        else:
+            depth -= 1
+            if depth < 0:
+                return False
+
+    if depth != 0: return False
+    return True
+
+def is_valid_parenthesization(parens):
+    depth = 0
+    for paren in parens:
+        if paren == '(':
+            depth += 1
+        else:
+            depth -= 1
+            if depth < 0:
+                return False
+
+    if depth: return False
+    return True
+
+"""
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_is_valid_parenthesization
+
+1 test collected in 0.04s
+
+
+===== nodeid_sanitizer.node_281fa711c55ff81565d55af461b9a84a424f886782fdf3faec9a377cfa228a78.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________________________ test_is_valid_parenthesization ________________________
+
+    def test_is_valid_parenthesization():
+        # Test case 1:
+        assert sut.is_valid_parenthesization("()") == True
+        # Test case 2:
+        assert sut.is_valid_parenthesization("(())") == True
+        # Test case 3:
+        assert sut.is_valid_parenthesization("((()()))") == True
+        # Test case 4:
+        assert sut.is_valid_parenthesization("(((()))") == False
+        # Test case 5:
+        assert sut.is_valid_parenthesization("((())(()") == False
+        # Test case 6:
+        assert sut.is_valid_parenthesization("((())") == False
+        # Test case 7:
+        assert sut.is_valid_parenthesization("()(())") == True
+        # Test case 8:
+        assert sut.is_valid_parenthesization("(()(()))") == True
+        # Test case 9:
+        assert sut.is_valid_parenthesization("((())))") == False
+        # Test case 10:
+        assert sut.is_valid_parenthesization("((())((") == False
+        # Test case 11:
+>       assert sut.is_valid_parenthesization("(()()))") == True
+E       AssertionError: assert False == True
+E        +  where False = <function is_valid_parenthesization at 0x7fb0966757e0>('(()()))')
+E        +    where <function is_valid_parenthesization at 0x7fb0966757e0> = sut.is_valid_parenthesization
+
+test_generated.py:85: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_is_valid_parenthesization - AssertionError: as...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=1
+individual_pass_nodeids=0
+individual_fail_nodeids=1
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________________________ test_is_valid_parenthesization ________________________
+test_generated_raw.py:65: in test_is_valid_parenthesization
+    assert sut.is_valid_parenthesization("()") == True
+E   NameError: name 'sut' is not defined
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test_is_valid_parenthesization - NameError: nam...
+1 failed in 0.06s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/012_python_is_valid_parenthesization/run_0001/1-4/generation/final_prompt.txt

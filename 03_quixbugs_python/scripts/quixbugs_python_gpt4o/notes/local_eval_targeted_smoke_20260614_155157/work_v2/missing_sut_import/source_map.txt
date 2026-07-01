@@ -1,0 +1,7 @@
+label=missing_sut_import
+model=cluster-max-codellama-7b-instruct-ctx16k
+sut_name=012_python_is_valid_parenthesization
+rep_name=rep_04
+cluster_status=ok
+source_generated_tests=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/012_python_is_valid_parenthesization/rep_04/generated_tests.py
+source_sut_py=/home/jpaiva/projetos/SUTs/quixbugs/012_python_is_valid_parenthesization/sut.py

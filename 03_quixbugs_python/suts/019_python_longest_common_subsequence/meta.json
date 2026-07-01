@@ -1,0 +1,8 @@
+{
+  "dataset": "quixbugs",
+  "lang": "python",
+  "task_key": "longest_common_subsequence",
+  "pair_id": 19,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_python_programs/longest_common_subsequence.py",
+  "entry_file": "sut.py"
+}

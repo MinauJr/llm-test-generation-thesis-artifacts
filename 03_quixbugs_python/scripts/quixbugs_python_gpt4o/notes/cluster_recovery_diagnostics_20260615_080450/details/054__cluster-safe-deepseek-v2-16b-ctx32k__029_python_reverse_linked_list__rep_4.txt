@@ -1,0 +1,243 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=029_python_reverse_linked_list
+REPEAT=4
+EVAL_STATUS=ok
+REASON=metrics_exist_but_status_missing
+FINGERPRINT=name:sut|metrics_overlay
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/029_python_reverse_linked_list/run_0001/1-4
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/029_python_reverse_linked_list/rep_04/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/029_python_reverse_linked_list/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "sut"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "sut"
+]
+
+===== SUT SYMBOLS =====
+[
+  "Node",
+  "reverse_linked_list"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "node",
+  "pytest",
+  "result",
+  "reverse_linked_list",
+  "test_reverse_empty_list",
+  "test_reverse_normal_case",
+  "test_reverse_one_element_with_cycle",
+  "test_reverse_single_element",
+  "test_reverse_two_elements_with_cycle"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {
+    "branch_coverage_pct": 0.0,
+    "error": null,
+    "line_coverage_pct": 33.33
+  },
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/029_python_reverse_linked_list/run_0001/1-4/metrics/coverage_metrics.json",
+  "coverage_xml_branch_rate": 0.0,
+  "coverage_xml_error": "",
+  "coverage_xml_exists": true,
+  "coverage_xml_line_rate": 33.33,
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/029_python_reverse_linked_list/run_0001/1-4/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+from sut import reverse_linked_list
+
+def test_reverse_single_element():
+    assert reverse_linked_list(sut.Node()) == None
+
+def test_reverse_empty_list():pass
+
+def test_reverse_normal_case():
+    node = sut.Node(successor=sut.Node())
+    result = reverse_linked_list(node)
+    assert result == sut.Node()
+
+def test_reverse_one_element_with_cycle():pass
+
+def test_reverse_two_elements_with_cycle():pass
+
+
+===== SUT =====
+class Node:
+    def __init__(self, successor=None):
+        self.successor = successor
+
+
+def reverse_linked_list(node):
+    prevnode = None
+    while node:
+        nextnode = node.successor
+        node.successor = prevnode
+        prevnode = node
+        node = nextnode
+    return prevnode
+
+"""
+def reverse_linked_list(node):
+    prevnode = None
+    while node:
+        nextnode = node.successor
+        node.successor = prevnode
+        prevnode, node = node, nextnode
+    return prevnode
+
+def reverse_linked_list(node):
+    prevnode = None
+    while node:
+        nextnode = node.successor
+        node.successor = prevnode
+        node, prevnode = nextnode, node
+    return prevnode
+
+"""
+
+
+===== LOGS =====
+
+
+===== analyze_effective_tests.log =====
+{"all_top_level_tests_skipped": false, "effective_test_functions": 5, "error": null, "test_file": "/home/jpaiva/projetos/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/029_python_reverse_linked_list/run_0001/1-4/runner/test_generated.py", "top_level_skipped_test_functions": 0, "top_level_test_functions": 5}
+
+
+===== coverage.log =====
+...                                                                      [100%]
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.10.12-final-0 _______________
+
+Name     Stmts   Miss Branch BrPart  Cover   Missing
+----------------------------------------------------
+sut.py      12      8      2      0    29%   3, 7-13
+----------------------------------------------------
+TOTAL       12      8      2      0    29%
+Coverage XML written to file coverage.xml
+3 passed, 2 deselected in 0.03s
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_reverse_single_element
+test_generated.py::test_reverse_empty_list
+test_generated.py::test_reverse_normal_case
+test_generated.py::test_reverse_one_element_with_cycle
+test_generated.py::test_reverse_two_elements_with_cycle
+
+5 tests collected in 0.01s
+
+
+===== nodeid_sanitizer.combined_initial.log =====
+...                                                                      [100%]
+3 passed, 2 deselected in 0.01s
+
+
+===== nodeid_sanitizer.node_16bb0a34cc96811421c88616cd851ddcd5e69174a557db17665659103a14506e.log =====
+.                                                                        [100%]
+1 passed in 0.01s
+
+
+===== nodeid_sanitizer.node_27f2a02c01596f3eb30deb8cbffc656aacb071e1bb9fa76ec55fc9e102817cc1.log =====
+.                                                                        [100%]
+1 passed in 0.01s
+
+
+===== nodeid_sanitizer.node_49d75d383056dffd059e08f5bd90ad5b9baa6cd5abcbcd64c9e2eb25018f7989.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________________________ test_reverse_normal_case ___________________________
+
+    def test_reverse_normal_case():
+        node = sut.Node(successor=sut.Node())
+        result = reverse_linked_list(node)
+>       assert result == sut.Node()
+E       AssertionError: assert <sut.Node object at 0x7f4dc6e2f790> == <sut.Node object at 0x7f4dc6e2efe0>
+E        +  where <sut.Node object at 0x7f4dc6e2efe0> = <class 'sut.Node'>()
+E        +    where <class 'sut.Node'> = sut.Node
+
+test_generated.py:12: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_reverse_normal_case - AssertionError: assert <...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_98a3ba7064b4e245b6cda5a2c830c74b7b5ed541842996d4dd06de33d2e9db80.log =====
+.                                                                        [100%]
+1 passed in 0.01s
+
+
+===== nodeid_sanitizer.node_df7783e3c85a2910727226bccc7ee7854ff03076fc528564ccf88403a3eea0d9.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________________________ test_reverse_single_element __________________________
+
+    def test_reverse_single_element():
+>       assert reverse_linked_list(sut.Node()) == None
+E       AssertionError: assert <sut.Node object at 0x7fe612eaf7f0> == None
+E        +  where <sut.Node object at 0x7fe612eaf7f0> = reverse_linked_list(<sut.Node object at 0x7fe612eaf7f0>)
+E        +    where <sut.Node object at 0x7fe612eaf7f0> = <class 'sut.Node'>()
+E        +      where <class 'sut.Node'> = sut.Node
+
+test_generated.py:5: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_reverse_single_element - AssertionError: asser...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=5
+individual_pass_nodeids=3
+individual_fail_nodeids=2
+individual_timeout_nodeids=0
+initial_effective_nodeids=3
+final_effective_nodeids=3
+greedy_stabilization_used=0
+final_pytest_exit_code=0
+
+
+===== parse_coverage.log =====
+{"branch_coverage_pct": 0.0, "error": null, "line_coverage_pct": 33.33}
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+F.F..                                                                    [100%]
+=================================== FAILURES ===================================
+_________________________ test_reverse_single_element __________________________
+test_generated_raw.py:5: in test_reverse_single_element
+    assert reverse_linked_list(sut.Node()) == None
+E   NameError: name 'sut' is not defined
+___________________________ test_reverse_normal_case ___________________________
+test_generated_raw.py:10: in test_reverse_normal_case
+    node = sut.Node(successor=sut.Node())
+E   NameError: name 'sut' is not defined
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test_reverse_single_element - NameError: name '...
+FAILED test_generated_raw.py::test_reverse_normal_case - NameError: name 'sut...
+2 failed, 3 passed in 0.02s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/029_python_reverse_linked_list/run_0001/1-4/generation/final_prompt.txt

@@ -1,0 +1,206 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=006_python_find_first_in_sorted
+REPEAT=2
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=collection_or_harness_problem_import_error
+FINGERPRINT=import:Node from sut|collection_error
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/006_python_find_first_in_sorted/run_0001/1-2
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/006_python_find_first_in_sorted/rep_02/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/006_python_find_first_in_sorted/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [
+    "Node from sut"
+  ],
+  "missing_modules": [],
+  "name_errors": [],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[]
+
+===== SUT SYMBOLS =====
+[
+  "find_first_in_sorted"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "Node",
+  "arr",
+  "find_first_in_sorted",
+  "node",
+  "pytest",
+  "result",
+  "test_basic",
+  "test_helper",
+  "test_large",
+  "test_multiple",
+  "test_negative",
+  "x"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/006_python_find_first_in_sorted/run_0001/1-2/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/006_python_find_first_in_sorted/run_0001/1-2/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+from sut import find_first_in_sorted, Node
+
+def test_basic():
+    assert find_first_in_sorted([1, 2, 3], 1) == 0
+    assert find_first_in_sorted([1, 2, 3], 2) == 1
+    assert find_first_in_sorted([1, 2, 3], 3) == 2
+    assert find_first_in_sorted([-1, 0, 1], -1) == 0
+    with pytest.raises(ValueError):
+        find_first_in_sorted([1, 2, 3], 4)
+
+def test_multiple():
+    result = find_first_in_sorted([8, 9, 10], [7, 8, 9])
+    assert isinstance(result, list) and len(result) == 2
+    assert result[0] == 1 or result[1] == 2
+
+def test_large():
+    arr = list(range(10**6))
+    for x in arr:
+        assert find_first_in_sorted(arr, x) != -1
+
+def test_negative():
+    assert find_first_in_sorted([-5, -3, 2], -7) == 0
+    assert find_first_in_sorted([-5, -3, 2], -3) == 1
+
+def test_helper():
+    node = Node(3)
+    assert find_first_in_sorted([node], 3) == 0
+
+
+===== SUT =====
+
+def find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    while lo < hi:
+        mid = (lo + hi) // 2
+
+        if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+            return mid
+
+        elif x <= arr[mid]:
+            hi = mid
+
+        else:
+            lo = mid + 1
+
+    return -1
+
+"""
+def find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    while lo <= hi - 1:
+        mid = (lo + hi) // 2
+
+        if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+            return mid
+
+        elif x <= arr[mid]:
+            hi = mid
+
+        else:
+            lo = mid + 1
+
+    return -1
+
+def find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    while lo + 1 <= hi:
+        mid = (lo + hi) // 2
+
+        if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+            return mid
+
+        elif x <= arr[mid]:
+            hi = mid
+
+        else:
+            lo = mid + 1
+
+    return -1
+
+"""
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+
+==================================== ERRORS ====================================
+______________________ ERROR collecting test_generated.py ______________________
+ImportError while importing test module '/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/006_python_find_first_in_sorted/run_0001/1-2/runner/test_generated.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+test_generated.py:2: in <module>
+    from sut import find_first_in_sorted, Node
+E   ImportError: cannot import name 'Node' from 'sut' (/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/006_python_find_first_in_sorted/run_0001/1-2/runner/sut.py)
+=========================== short test summary info ============================
+ERROR test_generated.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+no tests collected, 1 error in 0.11s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=0
+individual_pass_nodeids=0
+individual_fail_nodeids=0
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting test_generated_raw.py ____________________
+ImportError while importing test module '/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/006_python_find_first_in_sorted/run_0001/1-2/runner/test_generated_raw.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+test_generated_raw.py:2: in <module>
+    from sut import find_first_in_sorted, Node
+E   ImportError: cannot import name 'Node' from 'sut' (/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/006_python_find_first_in_sorted/run_0001/1-2/runner/sut.py)
+=========================== short test summary info ============================
+ERROR test_generated_raw.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.12s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/006_python_find_first_in_sorted/run_0001/1-2/generation/final_prompt.txt

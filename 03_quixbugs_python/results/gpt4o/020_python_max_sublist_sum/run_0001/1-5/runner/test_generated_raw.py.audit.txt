@@ -1,0 +1,31 @@
+import sut
+
+def test_all_positive_numbers():
+    assert sut.max_sublist_sum([1, 2, 3, 4, 5]) == 15
+
+def test_all_negative_numbers():
+    assert sut.max_sublist_sum([-1, -2, -3, -4, -5]) == 0
+
+def test_mixed_numbers():
+    assert sut.max_sublist_sum([-2, 1, -3, 4, -1, 2, 1, -5, 4]) == 6
+
+def test_single_element_positive():
+    assert sut.max_sublist_sum([10]) == 10
+
+def test_single_element_negative():
+    assert sut.max_sublist_sum([-10]) == 0
+
+def test_empty_list():
+    assert sut.max_sublist_sum([]) == 0
+
+def test_large_sublist_in_middle():
+    assert sut.max_sublist_sum([-1, -2, 5, 6, -1, 4, -2, -3]) == 14
+
+def test_all_zeros():
+    assert sut.max_sublist_sum([0, 0, 0, 0]) == 0
+
+def test_zero_and_negatives():
+    assert sut.max_sublist_sum([0, -1, -2, 0, -3]) == 0
+
+def test_zero_and_positives():
+    assert sut.max_sublist_sum([0, 1, 2, 0, 3]) == 6

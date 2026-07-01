@@ -1,0 +1,194 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=015_python_kth
+REPEAT=2
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_name_error
+FINGERPRINT=name:passthru
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/015_python_kth/run_0001/1-2
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/015_python_kth/rep_02/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/015_python_kth/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "passthru"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "passthru"
+]
+
+===== SUT SYMBOLS =====
+[
+  "kth"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "kth",
+  "pytest",
+  "test_kth",
+  "test_kth_empty",
+  "test_kth_sorted"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/015_python_kth/run_0001/1-2/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/015_python_kth/run_0001/1-2/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+from sut import kth
+
+def test_kth():
+    assert kth([3, 2, 1], 1) == 1
+    assert kth([3, 2, 1], 2) == 2
+    assert kth([3, 2, 1], 3) == 3
+
+def test_kth_empty():
+    assert kth([], 0) == None
+
+def test_kth_sorted():passthru
+    # Given a sorted list, the function should correctly return the expected value.
+
+
+===== SUT =====
+
+def kth(arr, k):
+    pivot = arr[0]
+    below = [x for x in arr if x < pivot]
+    above = [x for x in arr if x > pivot]
+
+    num_less = len(below)
+    num_lessoreq = len(arr) - len(above)
+
+    if k < num_less:
+        return kth(below, k)
+    elif k >= num_lessoreq:
+        return kth(above, k - num_lessoreq)
+    else:
+        return pivot
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_kth
+test_generated.py::test_kth_empty
+test_generated.py::test_kth_sorted
+
+3 tests collected in 0.01s
+
+
+===== nodeid_sanitizer.node_4fd2ed1b8398e41509b4470e9ce8524f159221c052018471ce8b5a0ba8bdccd1.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________________________________ test_kth ___________________________________
+
+    def test_kth():
+>       assert kth([3, 2, 1], 1) == 1
+E       assert 2 == 1
+E        +  where 2 = kth([3, 2, 1], 1)
+
+test_generated.py:5: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_kth - assert 2 == 1
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_b2c2b4aa0c03aa62227c6ab8af003e265045f0f1249d52195351749d4d446611.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________________________________ test_kth_empty ________________________________
+
+    def test_kth_empty():
+>       assert kth([], 0) == None
+
+test_generated.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+arr = [], k = 0
+
+    def kth(arr, k):
+>       pivot = arr[0]
+E       IndexError: list index out of range
+
+sut.py:3: IndexError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_kth_empty - IndexError: list index out of range
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_ff0dcec35fc0612d0e35f027dac3ff241a138deb22daf3702fd87dcc115b41dc.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______________________________ test_kth_sorted ________________________________
+
+>   def test_kth_sorted():passthru
+E   NameError: name 'passthru' is not defined
+
+test_generated.py:12: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_kth_sorted - NameError: name 'passthru' is not...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=3
+individual_pass_nodeids=0
+individual_fail_nodeids=3
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+___________________________________ test_kth ___________________________________
+test_generated_raw.py:5: in test_kth
+    assert kth([3, 2, 1], 1) == 1
+E   assert 2 == 1
+E    +  where 2 = kth([3, 2, 1], 1)
+________________________________ test_kth_empty ________________________________
+test_generated_raw.py:10: in test_kth_empty
+    assert kth([], 0) == None
+sut.py:3: in kth
+    pivot = arr[0]
+E   IndexError: list index out of range
+_______________________________ test_kth_sorted ________________________________
+test_generated_raw.py:12: in test_kth_sorted
+    def test_kth_sorted():passthru
+E   NameError: name 'passthru' is not defined
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test_kth - assert 2 == 1
+FAILED test_generated_raw.py::test_kth_empty - IndexError: list index out of ...
+FAILED test_generated_raw.py::test_kth_sorted - NameError: name 'passthru' is...
+3 failed in 0.03s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/015_python_kth/run_0001/1-2/generation/final_prompt.txt

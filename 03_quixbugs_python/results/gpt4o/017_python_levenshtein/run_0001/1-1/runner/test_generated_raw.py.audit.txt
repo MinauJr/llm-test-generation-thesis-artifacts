@@ -1,0 +1,31 @@
+import sut
+
+def test_empty_strings():
+    assert sut.levenshtein("", "") == 0
+
+def test_source_empty():
+    assert sut.levenshtein("", "abc") == 3
+
+def test_target_empty():
+    assert sut.levenshtein("abc", "") == 3
+
+def test_identical_strings():
+    assert sut.levenshtein("kitten", "kitten") == 0
+
+def test_single_character_difference():
+    assert sut.levenshtein("kitten", "sitten") == 1
+
+def test_insertion():
+    assert sut.levenshtein("kitten", "kittens") == 1
+
+def test_deletion():
+    assert sut.levenshtein("kittens", "kitten") == 1
+
+def test_substitution():
+    assert sut.levenshtein("kitten", "sittin") == 2
+
+def test_mixed_operations():
+    assert sut.levenshtein("kitten", "sitting") == 3
+
+def test_completely_different_strings():
+    assert sut.levenshtein("abc", "xyz") == 3

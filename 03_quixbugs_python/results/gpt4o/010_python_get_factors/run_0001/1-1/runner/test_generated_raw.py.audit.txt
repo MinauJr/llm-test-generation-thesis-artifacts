@@ -1,0 +1,16 @@
+import sut
+
+def test_get_factors_prime():
+    assert sut.get_factors(13) == [13]
+
+def test_get_factors_composite():
+    assert sut.get_factors(28) == [2, 2, 7]
+
+def test_get_factors_one():
+    assert sut.get_factors(1) == []
+
+def test_get_factors_large_prime():
+    assert sut.get_factors(29) == [29]
+
+def test_get_factors_multiple_factors():
+    assert sut.get_factors(60) == [2, 2, 3, 5]

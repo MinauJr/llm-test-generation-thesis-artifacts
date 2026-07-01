@@ -1,0 +1,204 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=037_python_subsequences
+REPEAT=1
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_name_error
+FINGERPRINT=name:pytest,subsequences
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/037_python_subsequences/run_0001/1-1
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/037_python_subsequences/rep_01/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/037_python_subsequences/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "pytest",
+    "subsequences"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "pytest",
+  "subsequences"
+]
+
+===== SUT SYMBOLS =====
+[
+  "subsequences"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "a",
+  "b",
+  "expected",
+  "i",
+  "k",
+  "ret",
+  "test_exceeding_sequence",
+  "test_large_range",
+  "test_one_element"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/037_python_subsequences/run_0001/1-1/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/037_python_subsequences/run_0001/1-1/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+def test_one_element():
+    a = [1]
+    b = [1, 2, 3]
+    k = 1
+    expected = [(1)]
+    assert set(subsequences(a[0], b[0], k)) == {tuple(i) for i in expected}
+
+def test_exceeding_sequence():
+    a = [1]
+    b = [1, 2, 3]
+    k = 4
+    with pytest.raises(ValueError):
+        subsequences(a[0], b[0], k)
+
+def test_large_range():
+    a = list(range(1, 100))
+    b = list(range(1, 101))
+    k = 50
+    ret = subsequences(a[0], b[0], k)
+    assert len(ret) > 1e6
+
+
+===== SUT =====
+
+def subsequences(a, b, k):
+    if k == 0:
+        return [[]]
+
+    ret = []
+    for i in range(a, b + 1 - k):
+        ret.extend(
+            [i] + rest for rest in subsequences(i + 1, b, k - 1)
+        )
+
+    return ret
+
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_one_element
+test_generated.py::test_exceeding_sequence
+test_generated.py::test_large_range
+
+3 tests collected in 0.01s
+
+
+===== nodeid_sanitizer.node_0d6d065505e6a67443493a21b920fae056466e4482f6a0a4b0c2a07a57582f5c.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________________________ test_exceeding_sequence ____________________________
+
+    def test_exceeding_sequence():
+        a = [1]
+        b = [1, 2, 3]
+        k = 4
+>       with pytest.raises(ValueError):
+E       NameError: name 'pytest' is not defined
+
+test_generated.py:12: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_exceeding_sequence - NameError: name 'pytest' ...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_57add601e915f6d943772a7c9017ea5b933e3fbb805dcb543a2d3d7ac7968bde.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______________________________ test_large_range _______________________________
+
+    def test_large_range():
+        a = list(range(1, 100))
+        b = list(range(1, 101))
+        k = 50
+>       ret = subsequences(a[0], b[0], k)
+E       NameError: name 'subsequences' is not defined
+
+test_generated.py:19: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_large_range - NameError: name 'subsequences' i...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_c4a16093a69a0237b564f8a7db5ea40a8c5f1b18feeee3e0f601f0ba145a1d65.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______________________________ test_one_element _______________________________
+
+    def test_one_element():
+        a = [1]
+        b = [1, 2, 3]
+        k = 1
+        expected = [(1)]
+>       assert set(subsequences(a[0], b[0], k)) == {tuple(i) for i in expected}
+E       NameError: name 'subsequences' is not defined
+
+test_generated.py:6: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_one_element - NameError: name 'subsequences' i...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=3
+individual_pass_nodeids=0
+individual_fail_nodeids=3
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+_______________________________ test_one_element _______________________________
+test_generated_raw.py:6: in test_one_element
+    assert set(subsequences(a[0], b[0], k)) == {tuple(i) for i in expected}
+E   NameError: name 'subsequences' is not defined
+___________________________ test_exceeding_sequence ____________________________
+test_generated_raw.py:12: in test_exceeding_sequence
+    with pytest.raises(ValueError):
+E   NameError: name 'pytest' is not defined
+_______________________________ test_large_range _______________________________
+test_generated_raw.py:19: in test_large_range
+    ret = subsequences(a[0], b[0], k)
+E   NameError: name 'subsequences' is not defined
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test_one_element - NameError: name 'subsequence...
+FAILED test_generated_raw.py::test_exceeding_sequence - NameError: name 'pyte...
+FAILED test_generated_raw.py::test_large_range - NameError: name 'subsequence...
+3 failed in 0.03s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/037_python_subsequences/run_0001/1-1/generation/final_prompt.txt

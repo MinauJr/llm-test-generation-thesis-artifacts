@@ -1,0 +1,191 @@
+MODEL=cluster-safe-codestral-22b-ctx16k
+SUT=039_python_topological_ordering
+REPEAT=1
+EVAL_STATUS=coverage_fail
+REASON=coverage_xml_exists_despite_fail
+FINGERPRINT=coverage_xml_recovery
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/039_python_topological_ordering/run_0001/1-1
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-codestral-22b-ctx16k/039_python_topological_ordering/rep_01/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/039_python_topological_ordering/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[]
+
+===== SUT SYMBOLS =====
+[
+  "Node",
+  "_MAX_NODES",
+  "_normalise_nodes",
+  "topological_ordering"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "node",
+  "node1",
+  "node2",
+  "node3",
+  "nodes",
+  "ordered",
+  "pytest",
+  "sorted_nodes",
+  "sut",
+  "test_topological_ordering_empty",
+  "test_topological_ordering_no_dependencies",
+  "test_topological_ordering_single_node",
+  "test_topological_ordering_with_cycle",
+  "test_topological_ordering_with_dependencies"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/039_python_topological_ordering/run_0001/1-1/runner/coverage.json",
+  "coverage_xml_branch_rate": 91.67,
+  "coverage_xml_error": "",
+  "coverage_xml_exists": true,
+  "coverage_xml_line_rate": 96.88,
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/039_python_topological_ordering/run_0001/1-1/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+import sut
+
+def test_topological_ordering_empty():
+    assert sut.topological_ordering([]) == []
+
+def test_topological_ordering_single_node():
+    node = sut.Node()
+    assert sut.topological_ordering([node]) == [node]
+
+def test_topological_ordering_no_dependencies():
+    nodes = [sut.Node(), sut.Node()]
+    sorted_nodes = sorted(nodes)
+    assert sut.topological_ordering(nodes) == sorted_nodes
+
+def test_topological_ordering_with_dependencies():
+    node1, node2, node3 = sut.Node(), sut.Node(), sut.Node()
+    node2.incoming_nodes = [node1]
+    node3.incoming_nodes = [node1]
+    ordered = sut.topological_ordering([node1, node2, node3])
+    assert node1 in ordered
+    assert node2 in ordered
+    assert node3 in ordered
+    assert ordered.index(node2) > ordered.index(node1)
+    assert ordered.index(node3) > ordered.index(node1)
+
+def test_topological_ordering_with_cycle():
+    node1, node2 = sut.Node(), sut.Node()
+    node1.incoming_nodes = [node2]
+    node2.incoming_nodes = [node1]
+    assert sut.topological_ordering([node1, node2]) == []
+
+
+===== SUT =====
+_MAX_NODES = 1000
+
+
+def _normalise_nodes(value):
+    if isinstance(value, (list, tuple, set)):
+        return list(value)[:_MAX_NODES]
+    return []
+
+
+class Node:
+    def __init__(self, incoming_nodes=None, outgoing_nodes=None):
+        self.incoming_nodes = _normalise_nodes(incoming_nodes)
+        self.outgoing_nodes = _normalise_nodes(outgoing_nodes)
+
+    def __lt__(self, other):
+        return id(self) < id(other)
+
+
+def topological_ordering(nodes):
+    if not isinstance(nodes, (list, tuple, set)):
+        return []
+
+    remaining = list(nodes)[:_MAX_NODES]
+    ordered = []
+    ordered_ids = set()
+    guard = 0
+
+    while remaining and guard < _MAX_NODES:
+        progress = False
+        remaining_ids = {id(node) for node in remaining}
+
+        for node in list(remaining):
+            incoming = _normalise_nodes(getattr(node, "incoming_nodes", []))
+            if all(id(pred) in ordered_ids or id(pred) not in remaining_ids for pred in incoming):
+                ordered.append(node)
+                ordered_ids.add(id(node))
+                remaining.remove(node)
+                progress = True
+
+        if not progress:
+            break
+
+        guard += 1
+
+    return ordered
+
+
+===== LOGS =====
+
+
+===== analyze_effective_tests.log =====
+{"all_top_level_tests_skipped": false, "effective_test_functions": 5, "error": null, "test_file": "/home/jpaiva/projetos/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/039_python_topological_ordering/run_0001/1-1/runner/test_generated.py", "top_level_skipped_test_functions": 0, "top_level_test_functions": 5}
+
+
+===== coverage.log =====
+..F..                                                                    [100%]
+=================================== FAILURES ===================================
+__________________ test_topological_ordering_no_dependencies ___________________
+
+    def test_topological_ordering_no_dependencies():
+        nodes = [sut.Node(), sut.Node()]
+        sorted_nodes = sorted(nodes)
+>       assert sut.topological_ordering(nodes) == sorted_nodes
+E       assert [<sut.Node ob...7f1572568280>] == [<sut.Node ob...7f1572568520>]
+E         
+E         At index 0 diff: <sut.Node object at 0x7f1572568520> != <sut.Node object at 0x7f1572568280>
+E         Use -v to get more diff
+
+test_generated.py:14: AssertionError
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.10.12-final-0 _______________
+
+Name     Stmts   Miss Branch BrPart  Cover   Missing
+----------------------------------------------------
+sut.py      32      1     12      1    95%   21
+----------------------------------------------------
+TOTAL       32      1     12      1    95%
+Coverage XML written to file coverage.xml
+=========================== short test summary info ============================
+FAILED test_generated.py::test_topological_ordering_no_dependencies - assert ...
+1 failed, 4 passed in 0.06s
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+.....                                                                    [100%]
+5 passed in 0.02s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/039_python_topological_ordering/run_0001/1-1/generation/final_prompt.txt

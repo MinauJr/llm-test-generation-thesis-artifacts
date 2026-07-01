@@ -1,0 +1,8 @@
+{
+  "dataset": "quixbugs",
+  "lang": "python",
+  "task_key": "reverse_linked_list",
+  "pair_id": 29,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_python_programs/reverse_linked_list.py",
+  "entry_file": "sut.py"
+}

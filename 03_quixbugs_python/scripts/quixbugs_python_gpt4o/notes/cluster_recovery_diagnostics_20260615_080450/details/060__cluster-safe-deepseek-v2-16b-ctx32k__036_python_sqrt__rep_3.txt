@@ -1,0 +1,147 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=036_python_sqrt
+REPEAT=3
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=collection_or_harness_problem_name_error
+FINGERPRINT=name:pytest|collection_error
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/036_python_sqrt/run_0001/1-3
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/036_python_sqrt/rep_03/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/036_python_sqrt/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "pytest"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "pytest"
+]
+
+===== SUT SYMBOLS =====
+[
+  "sqrt"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "expected",
+  "node",
+  "test_sqrt_large_epsilon",
+  "test_sqrt_large_value",
+  "test_sqrt_negative",
+  "test_sqrt_small_examples",
+  "test_sqrt_underflow",
+  "test_sqrt_underflow_large_value",
+  "x"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/036_python_sqrt/run_0001/1-3/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/036_python_sqrt/run_0001/1-3/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+def test_sqrt_negative():
+    with pytest.raises(ValueError):
+        sqrt(-2, 0.00001)
+
+def test_sqrt_large_value():
+    assert sqrt(987654321, 0.00001) == pytest.approx(98765.4321)
+
+def test_sqrt_underflow():
+    with pytest.raises(OverflowError):
+        sqrt(1e-308, 0.00001)
+
+def test_sqrt_large_epsilon():
+    assert sqrt(987654321, 1e+308) == pytest.approx(98765.4321)
+
+def test_sqrt_underflow_large_value():
+    with pytest.raises(OverflowError):
+        sqrt(-987654321, 1e-308)
+
+@pytest.mark.parametrize("x, expected", [(4, 2), (9, 3)])
+def test_sqrt_small_examples(x, expected):
+    node = Node(lambda: sut.sqrt(x, 0.00001))
+    assert str(node) == f"sqrt({x}, {0.00001})"
+    assert sut.evaluate(node) == pytest.approx(expected)
+
+
+===== SUT =====
+
+def sqrt(x, epsilon):
+    approx = x / 2
+    while abs(x - approx ** 2) > epsilon:
+        approx = 0.5 * (approx + x / approx)
+    return approx
+
+"""
+def sqrt(x, epsilon):
+    approx = x / 2
+    while abs(x - approx * approx) > epsilon:
+        approx = 0.5 * (approx + x / approx)
+    return approx
+"""
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+
+==================================== ERRORS ====================================
+______________________ ERROR collecting test_generated.py ______________________
+test_generated.py:19: in <module>
+    @pytest.mark.parametrize("x, expected", [(4, 2), (9, 3)])
+E   NameError: name 'pytest' is not defined
+=========================== short test summary info ============================
+ERROR test_generated.py - NameError: name 'pytest' is not defined
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+no tests collected, 1 error in 0.11s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=0
+individual_pass_nodeids=0
+individual_fail_nodeids=0
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting test_generated_raw.py ____________________
+test_generated_raw.py:19: in <module>
+    @pytest.mark.parametrize("x, expected", [(4, 2), (9, 3)])
+E   NameError: name 'pytest' is not defined
+=========================== short test summary info ============================
+ERROR test_generated_raw.py - NameError: name 'pytest' is not defined
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.11s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/036_python_sqrt/run_0001/1-3/generation/final_prompt.txt

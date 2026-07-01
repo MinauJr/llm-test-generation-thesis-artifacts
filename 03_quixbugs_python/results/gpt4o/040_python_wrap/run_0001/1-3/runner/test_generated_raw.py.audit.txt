@@ -1,0 +1,43 @@
+import sut
+
+def test_wrap_single_line():
+    assert sut.wrap("hello world", 20) == ["hello world"]
+
+def test_wrap_multiple_lines():
+    assert sut.wrap("The quick brown fox jumps over the lazy dog", 10) == ["The quick", "brown fox", "jumps over", "the lazy", "dog"]
+
+def test_wrap_exact_length():
+    assert sut.wrap("hello world", 11) == ["hello world"]
+
+def test_wrap_no_spaces():
+    assert sut.wrap("helloworld", 5) == ["hello", "world"]
+
+def test_wrap_invalid_text_type():
+    try:
+        sut.wrap(12345, 10)
+    except TypeError as e:
+        assert str(e) == "text must be a string"
+
+def test_wrap_invalid_cols_type():
+    try:
+        sut.wrap("hello world", "10")
+    except ValueError as e:
+        assert str(e) == "cols must be a positive integer"
+
+def test_wrap_negative_cols():
+    try:
+        sut.wrap("hello world", -5)
+    except ValueError as e:
+        assert str(e) == "cols must be a positive integer"
+
+def test_wrap_zero_cols():
+    try:
+        sut.wrap("hello world", 0)
+    except ValueError as e:
+        assert str(e) == "cols must be a positive integer"
+
+def test_wrap_trailing_space():
+    assert sut.wrap("hello world ", 5) == ["hello", "world", ""]
+
+def test_wrap_leading_space():
+    assert sut.wrap(" hello world", 5) == ["", "hello", "world"]

@@ -1,0 +1,8 @@
+{
+  "dataset": "quixbugs",
+  "lang": "python",
+  "task_key": "depth_first_search",
+  "pair_id": 4,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_python_programs/depth_first_search.py",
+  "entry_file": "sut.py"
+}

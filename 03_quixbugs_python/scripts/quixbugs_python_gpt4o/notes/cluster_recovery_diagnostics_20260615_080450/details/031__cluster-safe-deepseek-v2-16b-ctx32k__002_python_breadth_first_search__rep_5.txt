@@ -1,0 +1,166 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=002_python_breadth_first_search
+REPEAT=5
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_name_error
+FINGERPRINT=name:_normalise_nodes
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/002_python_breadth_first_search/run_0001/1-5
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/002_python_breadth_first_search/rep_05/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/002_python_breadth_first_search/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "_normalise_nodes"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "_normalise_nodes"
+]
+
+===== SUT SYMBOLS =====
+[
+  "Node",
+  "_MAX_SUCCESSORS",
+  "_MAX_VISITS",
+  "_normalise_nodes",
+  "breadth_first_search"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "Node",
+  "breadth_first_search",
+  "pytest",
+  "test_normalise_nodes"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/002_python_breadth_first_search/run_0001/1-5/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/002_python_breadth_first_search/run_0001/1-5/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+from sut import Node, breadth_first_search
+
+def test_normalise_nodes():
+    assert _normalise_nodes([]), "should not modify empty list"
+    assert _normalise_nodes([1]), "should only keep first element of a single-element list"
+    with pytest.raises(TypeError):
+        _normalise_nodes("test")  # should raise TypeError for non-sequence input
+
+
+===== SUT =====
+from collections import deque
+
+_MAX_VISITS = 1000
+_MAX_SUCCESSORS = 100
+
+
+def _normalise_nodes(value):
+    if isinstance(value, (list, tuple, set)):
+        return list(value)[:_MAX_SUCCESSORS]
+    return []
+
+
+class Node:
+    def __init__(self, successors=None):
+        self.successors = _normalise_nodes(successors)
+
+
+def breadth_first_search(startnode, goalnode):
+    if startnode is goalnode:
+        return True
+
+    if not hasattr(startnode, "successors"):
+        return False
+
+    queue = deque([startnode])
+    seen = {id(startnode)}
+    visits = 0
+
+    while queue and visits < _MAX_VISITS:
+        node = queue.popleft()
+        visits += 1
+
+        if node is goalnode:
+            return True
+
+        for successor in _normalise_nodes(getattr(node, "successors", [])):
+            sid = id(successor)
+            if sid not in seen:
+                seen.add(sid)
+                queue.append(successor)
+
+    return False
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_normalise_nodes
+
+1 test collected in 0.00s
+
+
+===== nodeid_sanitizer.node_5ff1f5e0120396c33a3e376bd97f067ded2849dbb8f468e1ebf437148646af29.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________________________ test_normalise_nodes _____________________________
+
+    def test_normalise_nodes():
+>       assert _normalise_nodes([]), "should not modify empty list"
+E       NameError: name '_normalise_nodes' is not defined
+
+test_generated.py:5: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_normalise_nodes - NameError: name '_normalise_...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=1
+individual_pass_nodeids=0
+individual_fail_nodeids=1
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________________________ test_normalise_nodes _____________________________
+test_generated_raw.py:5: in test_normalise_nodes
+    assert _normalise_nodes([]), "should not modify empty list"
+E   NameError: name '_normalise_nodes' is not defined
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test_normalise_nodes - NameError: name '_normal...
+1 failed in 0.02s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/002_python_breadth_first_search/run_0001/1-5/generation/final_prompt.txt

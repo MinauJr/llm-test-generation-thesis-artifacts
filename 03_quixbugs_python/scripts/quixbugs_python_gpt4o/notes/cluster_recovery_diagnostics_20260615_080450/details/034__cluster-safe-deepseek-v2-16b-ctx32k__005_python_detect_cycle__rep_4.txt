@@ -1,0 +1,254 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=005_python_detect_cycle
+REPEAT=4
+EVAL_STATUS=ok
+REASON=metrics_exist_but_status_missing
+FINGERPRINT=name:_next|metrics_overlay
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/005_python_detect_cycle/run_0001/1-4
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/005_python_detect_cycle/rep_04/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/005_python_detect_cycle/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "_next"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "_next"
+]
+
+===== SUT SYMBOLS =====
+[
+  "Node",
+  "_MAX_STEPS",
+  "_next",
+  "detect_cycle"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "Node",
+  "detect_cycle",
+  "node",
+  "node2",
+  "node3",
+  "node4",
+  "pytest",
+  "result",
+  "second_node",
+  "test_Node",
+  "test__next",
+  "test_detect_cycle"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {
+    "branch_coverage_pct": 0.0,
+    "error": null,
+    "line_coverage_pct": 35.29
+  },
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/005_python_detect_cycle/run_0001/1-4/metrics/coverage_metrics.json",
+  "coverage_xml_branch_rate": 0.0,
+  "coverage_xml_error": "",
+  "coverage_xml_exists": true,
+  "coverage_xml_line_rate": 35.29,
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/005_python_detect_cycle/run_0001/1-4/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+from sut import detect_cycle, Node
+
+def test__next():
+    assert _next(None) is None
+    assert _next(Node()).successor == None
+    assert _next(Node(Node())).successor.successor == None
+
+def test_detect_cycle():
+    # Test with no cycle
+    node = Node()
+    result = detect_cycle(node)
+    assert not result, "Expected False but got True"
+
+    # Test with single child
+    node2 = Node(Node())
+    result = detect_cycle(node2)
+    assert not result, "Expected False but got True"
+
+    # Test with cycle involving one step
+    node3 = Node()
+    _next(node3).successor = node3  # Cycle setup
+    result = detect_cycle(node3)
+    assert result, "Expected True but got False"
+
+    # Test with cycle involving multiple steps
+    node4 = Node()
+    second_node = Node()
+    _next(second_node).successor = node4  # Cycle setup
+    detect_cycle(node4)  # Triggering detection of the same cycle
+    result = detect_cycle(node4)
+    assert result, "Expected True but got False"
+
+def test_Node():
+    assert isinstance(Node(), Node), "Wrong type for Sut class definition"
+
+
+===== SUT =====
+_MAX_STEPS = 2000
+
+
+class Node:
+    def __init__(self, successor=None):
+        self.successor = successor
+
+
+def _next(node):
+    return getattr(node, "successor", None)
+
+
+def detect_cycle(node):
+    slow = node
+    fast = node
+    steps = 0
+
+    while fast is not None and _next(fast) is not None and steps < _MAX_STEPS:
+        slow = _next(slow)
+        fast = _next(_next(fast))
+        steps += 1
+
+        if slow is fast and slow is not None:
+            return True
+
+    return False
+
+
+===== LOGS =====
+
+
+===== analyze_effective_tests.log =====
+{"all_top_level_tests_skipped": false, "effective_test_functions": 3, "error": null, "test_file": "/home/jpaiva/projetos/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/005_python_detect_cycle/run_0001/1-4/runner/test_generated.py", "top_level_skipped_test_functions": 0, "top_level_test_functions": 3}
+
+
+===== coverage.log =====
+.                                                                        [100%]
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.10.12-final-0 _______________
+
+Name     Stmts   Miss Branch BrPart  Cover   Missing
+----------------------------------------------------
+sut.py      17     11      4      0    29%   10, 14-26
+----------------------------------------------------
+TOTAL       17     11      4      0    29%
+Coverage XML written to file coverage.xml
+1 passed, 2 deselected in 0.02s
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test__next
+test_generated.py::test_detect_cycle
+test_generated.py::test_Node
+
+3 tests collected in 0.01s
+
+
+===== nodeid_sanitizer.combined_initial.log =====
+.                                                                        [100%]
+1 passed, 2 deselected in 0.01s
+
+
+===== nodeid_sanitizer.node_0d14d8920746ae4eb787f9ef10892d148967a42ed1a6137f1e82067ab4324dfd.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________________________ test_detect_cycle _______________________________
+
+    def test_detect_cycle():
+        # Test with no cycle
+        node = Node()
+        result = detect_cycle(node)
+        assert not result, "Expected False but got True"
+    
+        # Test with single child
+        node2 = Node(Node())
+        result = detect_cycle(node2)
+        assert not result, "Expected False but got True"
+    
+        # Test with cycle involving one step
+        node3 = Node()
+>       _next(node3).successor = node3  # Cycle setup
+E       NameError: name '_next' is not defined
+
+test_generated.py:22: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_detect_cycle - NameError: name '_next' is not ...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_4bff420cd546deb2bb94b07f18b75cbdbdad32f694f1357b77a5f80c66870e58.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________________ test__next __________________________________
+
+    def test__next():
+>       assert _next(None) is None
+E       NameError: name '_next' is not defined
+
+test_generated.py:5: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test__next - NameError: name '_next' is not defined
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_79931dd91423444bc917743c4e4dce0c7193370afc48bd7b0c4d8ba2ae0986d1.log =====
+.                                                                        [100%]
+1 passed in 0.01s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=3
+individual_pass_nodeids=1
+individual_fail_nodeids=2
+individual_timeout_nodeids=0
+initial_effective_nodeids=1
+final_effective_nodeids=1
+greedy_stabilization_used=0
+final_pytest_exit_code=0
+
+
+===== parse_coverage.log =====
+{"branch_coverage_pct": 0.0, "error": null, "line_coverage_pct": 35.29}
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+FF.                                                                      [100%]
+=================================== FAILURES ===================================
+__________________________________ test__next __________________________________
+test_generated_raw.py:5: in test__next
+    assert _next(None) is None
+E   NameError: name '_next' is not defined
+______________________________ test_detect_cycle _______________________________
+test_generated_raw.py:22: in test_detect_cycle
+    _next(node3).successor = node3  # Cycle setup
+E   NameError: name '_next' is not defined
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test__next - NameError: name '_next' is not def...
+FAILED test_generated_raw.py::test_detect_cycle - NameError: name '_next' is ...
+2 failed, 1 passed in 0.02s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/005_python_detect_cycle/run_0001/1-4/generation/final_prompt.txt

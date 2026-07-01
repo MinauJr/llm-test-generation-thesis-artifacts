@@ -1,0 +1,247 @@
+MODEL=cluster-max-codellama-7b-instruct-ctx16k
+SUT=005_python_detect_cycle
+REPEAT=5
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_name_error
+FINGERPRINT=name:detect_cycle
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/005_python_detect_cycle/run_0001/1-5
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/005_python_detect_cycle/rep_05/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/005_python_detect_cycle/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "detect_cycle"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "detect_cycle"
+]
+
+===== SUT SYMBOLS =====
+[
+  "Node",
+  "_MAX_STEPS",
+  "_next",
+  "detect_cycle"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "i",
+  "node",
+  "nodes",
+  "sut",
+  "test_detect_cycle_cycle",
+  "test_detect_cycle_no_cycle",
+  "test_detect_cycle_sanity",
+  "test_detect_cycle_single_element"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/005_python_detect_cycle/run_0001/1-5/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/005_python_detect_cycle/run_0001/1-5/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import sut
+
+def test_detect_cycle_sanity():
+    node = sut.Node()
+    assert not detect_cycle(node)
+
+def test_detect_cycle_single_element():
+    node = sut.Node("a")
+    assert not detect_cycle(node)
+
+def test_detect_cycle_no_cycle():
+    nodes = [sut.Node(i) for i in range(10)]
+    for i in range(len(nodes)):
+        if i > 0:
+            nodes[i].successor = nodes[i-1]
+    assert not detect_cycle(nodes[-1])
+
+def test_detect_cycle_cycle():
+    nodes = [sut.Node(i) for i in range(10)]
+    nodes[0].successor = nodes[5]
+    nodes[1].successor = nodes[6]
+    nodes[2].successor = nodes[7]
+    nodes[3].successor = nodes[8]
+    nodes[4].successor = nodes[9]
+    nodes[5].successor = nodes[0]
+    assert detect_cycle(nodes[-1])
+
+
+===== SUT =====
+_MAX_STEPS = 2000
+
+
+class Node:
+    def __init__(self, successor=None):
+        self.successor = successor
+
+
+def _next(node):
+    return getattr(node, "successor", None)
+
+
+def detect_cycle(node):
+    slow = node
+    fast = node
+    steps = 0
+
+    while fast is not None and _next(fast) is not None and steps < _MAX_STEPS:
+        slow = _next(slow)
+        fast = _next(_next(fast))
+        steps += 1
+
+        if slow is fast and slow is not None:
+            return True
+
+    return False
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_detect_cycle_sanity
+test_generated.py::test_detect_cycle_single_element
+test_generated.py::test_detect_cycle_no_cycle
+test_generated.py::test_detect_cycle_cycle
+
+4 tests collected in 0.01s
+
+
+===== nodeid_sanitizer.node_2d18d58e9f5431c404fc76b8cfd2aec57a923f554378bb9bea2cbae93474a97b.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________________________ test_detect_cycle_cycle ____________________________
+
+    def test_detect_cycle_cycle():
+        nodes = [sut.Node(i) for i in range(10)]
+        nodes[0].successor = nodes[5]
+        nodes[1].successor = nodes[6]
+        nodes[2].successor = nodes[7]
+        nodes[3].successor = nodes[8]
+        nodes[4].successor = nodes[9]
+        nodes[5].successor = nodes[0]
+>       assert detect_cycle(nodes[-1])
+E       NameError: name 'detect_cycle' is not defined
+
+test_generated.py:26: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_detect_cycle_cycle - NameError: name 'detect_c...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_7206962bda12fdfc8421293a63311e97c3ac11897c3e5f07a97df6f0eb744246.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________ test_detect_cycle_no_cycle __________________________
+
+    def test_detect_cycle_no_cycle():
+        nodes = [sut.Node(i) for i in range(10)]
+        for i in range(len(nodes)):
+            if i > 0:
+                nodes[i].successor = nodes[i-1]
+>       assert not detect_cycle(nodes[-1])
+E       NameError: name 'detect_cycle' is not defined
+
+test_generated.py:16: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_detect_cycle_no_cycle - NameError: name 'detec...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_acc01b6df496b770f60278e7fe87d834edab3475948cd70fb13927fec5f55d6e.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________________________ test_detect_cycle_sanity ___________________________
+
+    def test_detect_cycle_sanity():
+        node = sut.Node()
+>       assert not detect_cycle(node)
+E       NameError: name 'detect_cycle' is not defined
+
+test_generated.py:5: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_detect_cycle_sanity - NameError: name 'detect_...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_cff28203eef888a69e13b1d77b76482c7d19ed93f0fbabe94ce1229e99a8a751.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______________________ test_detect_cycle_single_element _______________________
+
+    def test_detect_cycle_single_element():
+        node = sut.Node("a")
+>       assert not detect_cycle(node)
+E       NameError: name 'detect_cycle' is not defined
+
+test_generated.py:9: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_detect_cycle_single_element - NameError: name ...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=4
+individual_pass_nodeids=0
+individual_fail_nodeids=4
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+FFFF                                                                     [100%]
+=================================== FAILURES ===================================
+___________________________ test_detect_cycle_sanity ___________________________
+test_generated_raw.py:5: in test_detect_cycle_sanity
+    assert not detect_cycle(node)
+E   NameError: name 'detect_cycle' is not defined
+_______________________ test_detect_cycle_single_element _______________________
+test_generated_raw.py:9: in test_detect_cycle_single_element
+    assert not detect_cycle(node)
+E   NameError: name 'detect_cycle' is not defined
+__________________________ test_detect_cycle_no_cycle __________________________
+test_generated_raw.py:16: in test_detect_cycle_no_cycle
+    assert not detect_cycle(nodes[-1])
+E   NameError: name 'detect_cycle' is not defined
+___________________________ test_detect_cycle_cycle ____________________________
+test_generated_raw.py:26: in test_detect_cycle_cycle
+    assert detect_cycle(nodes[-1])
+E   NameError: name 'detect_cycle' is not defined
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test_detect_cycle_sanity - NameError: name 'det...
+FAILED test_generated_raw.py::test_detect_cycle_single_element - NameError: n...
+FAILED test_generated_raw.py::test_detect_cycle_no_cycle - NameError: name 'd...
+FAILED test_generated_raw.py::test_detect_cycle_cycle - NameError: name 'dete...
+4 failed in 0.03s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/005_python_detect_cycle/run_0001/1-5/generation/final_prompt.txt

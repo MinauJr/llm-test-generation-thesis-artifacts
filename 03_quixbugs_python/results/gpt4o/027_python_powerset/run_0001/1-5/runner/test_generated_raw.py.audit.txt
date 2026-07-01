@@ -1,0 +1,16 @@
+import sut
+
+def test_empty_list():
+    assert sut.powerset([]) == [[]]
+
+def test_single_element():
+    assert sut.powerset([1]) == [[], [1]]
+
+def test_two_elements():
+    assert sut.powerset([1, 2]) == [[], [2], [1], [1, 2]]
+
+def test_three_elements():
+    assert sut.powerset([1, 2, 3]) == [[], [3], [2], [2, 3], [1], [1, 3], [1, 2], [1, 2, 3]]
+
+def test_duplicate_elements():
+    assert sut.powerset([1, 1]) == [[], [1], [1], [1, 1]]

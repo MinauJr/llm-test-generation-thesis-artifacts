@@ -1,0 +1,222 @@
+MODEL=cluster-max-codellama-7b-instruct-ctx16k
+SUT=040_python_wrap
+REPEAT=4
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_name_error
+FINGERPRINT=name:pytest
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/040_python_wrap/run_0001/1-4
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/040_python_wrap/rep_04/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/040_python_wrap/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "pytest"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "pytest"
+]
+
+===== SUT SYMBOLS =====
+[
+  "wrap"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "sut",
+  "test_wrap_invalid",
+  "test_wrap_type_error",
+  "test_wrap_valid",
+  "test_wrap_value_error"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/040_python_wrap/run_0001/1-4/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/040_python_wrap/run_0001/1-4/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import sut
+
+def test_wrap_valid():
+    assert sut.wrap("", 10) == []
+    assert sut.wrap("a", 10) == ["a"]
+    assert sut.wrap("abc def ghi", 5) == ["abc", "def", "ghi"]
+
+def test_wrap_invalid():
+    with pytest.raises(TypeError):
+        sut.wrap(42, 10)
+    with pytest.raises(ValueError):
+        sut.wrap("abc", -1)
+
+def test_wrap_type_error():
+    with pytest.raises(TypeError):
+        sut.wrap([], 10)
+    with pytest.raises(TypeError):
+        sut.wrap({}, 10)
+
+def test_wrap_value_error():
+    with pytest.raises(ValueError):
+        sut.wrap("abc", 0)
+    with pytest.raises(ValueError):
+        sut.wrap("abc", -1)
+
+
+===== SUT =====
+def wrap(text, cols):
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
+    if type(cols) is not int or cols <= 0:
+        raise ValueError("cols must be a positive integer")
+
+    lines = []
+    while len(text) > cols:
+        end = text.rfind(' ', 0, cols + 1)
+        if end == -1:
+            end = cols
+        line, text = text[:end], text[end:]
+        lines.append(line)
+
+    lines.append(text)
+    return lines
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_wrap_valid
+test_generated.py::test_wrap_invalid
+test_generated.py::test_wrap_type_error
+test_generated.py::test_wrap_value_error
+
+4 tests collected in 0.01s
+
+
+===== nodeid_sanitizer.node_076f14fcd1691e36ea17028cdaf27dd90780820c792a75c41f6f3af21510fd2a.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________________________ test_wrap_invalid _______________________________
+
+    def test_wrap_invalid():
+>       with pytest.raises(TypeError):
+E       NameError: name 'pytest' is not defined
+
+test_generated.py:9: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_wrap_invalid - NameError: name 'pytest' is not...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_445886979dfe76973d8314e49566dfaaad8b41a3a585e7d0457622cf284a21c6.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______________________________ test_wrap_valid ________________________________
+
+    def test_wrap_valid():
+>       assert sut.wrap("", 10) == []
+E       AssertionError: assert [''] == []
+E         
+E         Left contains one more item: ''
+E         Use -v to get more diff
+
+test_generated.py:4: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_wrap_valid - AssertionError: assert [''] == []
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_6a6a97a563046ce1dd3b0b9ffd6ad7b3e434b9c78a2c00ffe83870cdfc5ed260.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________________________ test_wrap_type_error _____________________________
+
+    def test_wrap_type_error():
+>       with pytest.raises(TypeError):
+E       NameError: name 'pytest' is not defined
+
+test_generated.py:15: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_wrap_type_error - NameError: name 'pytest' is ...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_8c2ba321d3288085f3c2e7e56cf60a75b2cddb3c0ba211642227a91c108d6520.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________________________ test_wrap_value_error _____________________________
+
+    def test_wrap_value_error():
+>       with pytest.raises(ValueError):
+E       NameError: name 'pytest' is not defined
+
+test_generated.py:21: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_wrap_value_error - NameError: name 'pytest' is...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=4
+individual_pass_nodeids=0
+individual_fail_nodeids=4
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+FFFF                                                                     [100%]
+=================================== FAILURES ===================================
+_______________________________ test_wrap_valid ________________________________
+test_generated_raw.py:4: in test_wrap_valid
+    assert sut.wrap("", 10) == []
+E   AssertionError: assert [''] == []
+E     
+E     Left contains one more item: ''
+E     Use -v to get more diff
+______________________________ test_wrap_invalid _______________________________
+test_generated_raw.py:9: in test_wrap_invalid
+    with pytest.raises(TypeError):
+E   NameError: name 'pytest' is not defined
+_____________________________ test_wrap_type_error _____________________________
+test_generated_raw.py:15: in test_wrap_type_error
+    with pytest.raises(TypeError):
+E   NameError: name 'pytest' is not defined
+____________________________ test_wrap_value_error _____________________________
+test_generated_raw.py:21: in test_wrap_value_error
+    with pytest.raises(ValueError):
+E   NameError: name 'pytest' is not defined
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test_wrap_valid - AssertionError: assert [''] =...
+FAILED test_generated_raw.py::test_wrap_invalid - NameError: name 'pytest' is...
+FAILED test_generated_raw.py::test_wrap_type_error - NameError: name 'pytest'...
+FAILED test_generated_raw.py::test_wrap_value_error - NameError: name 'pytest...
+4 failed in 0.03s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/040_python_wrap/run_0001/1-4/generation/final_prompt.txt

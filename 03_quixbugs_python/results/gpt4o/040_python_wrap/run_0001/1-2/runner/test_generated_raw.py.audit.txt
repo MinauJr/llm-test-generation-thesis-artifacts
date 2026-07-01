@@ -1,0 +1,16 @@
+import sut
+
+def test_wrap_single_line():
+    assert sut.wrap("hello world", 20) == ["hello world"]
+
+def test_wrap_exact_fit():
+    assert sut.wrap("hello world", 11) == ["hello world"]
+
+def test_wrap_split_words():
+    assert sut.wrap("hello world", 5) == ["hello", " world"]
+
+def test_wrap_multiple_lines():
+    assert sut.wrap("this is a test of the wrap function", 10) == ["this is a", " test of", " the wrap", " function"]
+
+def test_wrap_no_spaces():
+    assert sut.wrap("helloworld", 5) == ["hello", "world"]

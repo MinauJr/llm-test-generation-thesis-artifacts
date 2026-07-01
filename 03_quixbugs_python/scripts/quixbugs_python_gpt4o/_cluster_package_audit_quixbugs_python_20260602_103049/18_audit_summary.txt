@@ -1,0 +1,14 @@
+AUDIT_ROOT=/home/jpaiva/projetos/llm_test_generation_gpt4o/quixbugs_python_gpt4o/_cluster_package_audit_quixbugs_python_20260602_103049
+SUT_COUNT=40
+
+Missing sut.py count:
+0
+
+Import smoke non-zero/non-ok:
+0
+
+GPT scripts found:
+7
+
+Cluster scripts matching HumanEval/MBPP:
+21

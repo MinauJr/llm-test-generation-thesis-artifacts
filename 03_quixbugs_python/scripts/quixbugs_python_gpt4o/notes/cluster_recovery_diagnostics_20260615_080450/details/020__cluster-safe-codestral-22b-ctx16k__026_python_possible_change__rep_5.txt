@@ -1,0 +1,182 @@
+MODEL=cluster-safe-codestral-22b-ctx16k
+SUT=026_python_possible_change
+REPEAT=5
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=collection_or_harness_problem_name_error
+FINGERPRINT=name:pytest|collection_error
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/026_python_possible_change/run_0001/1-5
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-codestral-22b-ctx16k/026_python_possible_change/rep_05/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/026_python_possible_change/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "pytest"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "pytest"
+]
+
+===== SUT SYMBOLS =====
+[
+  "possible_change"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "coins",
+  "expected",
+  "sut",
+  "test_possible_change",
+  "test_possible_change_invalid_input",
+  "total"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/026_python_possible_change/run_0001/1-5/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/026_python_possible_change/run_0001/1-5/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import sut
+
+@pytest.mark.parametrize("coins, total, expected", [
+    ([1, 2], 5, 3),
+    ([1, 2], 0, 1),
+    ([], 5, 0),
+    ([1, 2], -5, 0)
+])
+def test_possible_change(coins, total, expected):
+    assert sut.possible_change(coins, total) == expected
+
+def test_possible_change_invalid_input():
+    with pytest.raises(TypeError):
+        sut.possible_change("12", 5)
+    with pytest.raises(TypeError):
+        sut.possible_change([1, 2], "5")
+
+
+===== SUT =====
+
+def possible_change(coins, total):
+    if total == 0:
+        return 1
+    if total < 0 or not coins:
+        return 0
+
+    first, *rest = coins
+    return possible_change(coins, total - first) + possible_change(rest, total)
+
+"""
+def possible_change(coins, total):
+    if total == 0:
+        return 1
+    if not coins or total < 0:
+        return 0
+
+    first, *rest = coins
+    return possible_change(coins, total - first) + possible_change(rest, total)
+
+def possible_change(coins, total):
+    if total == 0:
+        return 1
+    if total < 0 or len(coins) == 0:
+        return 0
+
+    first, *rest = coins
+    return possible_change(coins, total - first) + possible_change(rest, total)
+
+def possible_change(coins, total):
+    if total == 0:
+        return 1
+    if len(coins) == 0 or total < 0:
+        return 0
+
+    first, *rest = coins
+    return possible_change(coins, total - first) + possible_change(rest, total)
+
+def possible_change(coins, total):
+    if total == 0:
+        return 1
+    if not coins: return 0
+    if total < 0:
+        return 0
+
+    first, *rest = coins
+    return possible_change(coins, total - first) + possible_change(rest, total)
+
+def possible_change(coins, total):
+    if total == 0:
+        return 1
+    if len(coins) == 0: return 0
+    if total < 0:
+        return 0
+
+    first, *rest = coins
+    return possible_change(coins, total - first) + possible_change(rest, total)
+
+"""
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+
+==================================== ERRORS ====================================
+______________________ ERROR collecting test_generated.py ______________________
+test_generated.py:3: in <module>
+    @pytest.mark.parametrize("coins, total, expected", [
+E   NameError: name 'pytest' is not defined
+=========================== short test summary info ============================
+ERROR test_generated.py - NameError: name 'pytest' is not defined
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+no tests collected, 1 error in 0.11s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=0
+individual_pass_nodeids=0
+individual_fail_nodeids=0
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting test_generated_raw.py ____________________
+test_generated_raw.py:3: in <module>
+    @pytest.mark.parametrize("coins, total, expected", [
+E   NameError: name 'pytest' is not defined
+=========================== short test summary info ============================
+ERROR test_generated_raw.py - NameError: name 'pytest' is not defined
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.11s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/026_python_possible_change/run_0001/1-5/generation/final_prompt.txt

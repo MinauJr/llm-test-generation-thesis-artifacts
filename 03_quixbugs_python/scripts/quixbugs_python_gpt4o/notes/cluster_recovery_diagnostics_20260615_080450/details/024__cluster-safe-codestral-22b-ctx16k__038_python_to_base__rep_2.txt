@@ -1,0 +1,273 @@
+MODEL=cluster-safe-codestral-22b-ctx16k
+SUT=038_python_to_base
+REPEAT=2
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_name_error
+FINGERPRINT=name:pytest
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/038_python_to_base/run_0001/1-2
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-codestral-22b-ctx16k/038_python_to_base/rep_02/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/038_python_to_base/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "pytest"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "pytest"
+]
+
+===== SUT SYMBOLS =====
+[
+  "to_base"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "sut",
+  "test_to_base_binary",
+  "test_to_base_decimal",
+  "test_to_base_hexadecimal",
+  "test_to_base_invalid_input",
+  "test_to_base_large_bases"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/038_python_to_base/run_0001/1-2/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/038_python_to_base/run_0001/1-2/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import sut
+
+def test_to_base_decimal():
+    assert sut.to_base(10, 10) == 'A'
+    assert sut.to_base(3456789, 10) == '3456789'
+    assert sut.to_base(0, 10) == '0'
+
+def test_to_base_binary():
+    assert sut.to_base(2, 2) == '10'
+    assert sut.to_base(255, 2) == '11111111'
+    assert sut.to_base(0, 2) == '0'
+
+def test_to_base_hexadecimal():
+    assert sut.to_base(255, 16) == 'FF'
+    assert sut.to_base(3456789, 16) == '34F43D'
+    assert sut.to_base(0, 16) == '0'
+
+def test_to_base_large_bases():
+    assert sut.to_base(255, 36) == 'N3'
+    assert sut.to_base(255, 64) == 'II'
+
+def test_to_base_invalid_input():
+    with pytest.raises(Exception):
+        sut.to_base(-10, 10)
+    with pytest.raises(Exception):
+        sut.to_base(10, -2)
+    with pytest.raises(Exception):
+        sut.to_base(10, 1)
+
+
+===== SUT =====
+
+import string
+def to_base(num, b):
+    result = ''
+    alphabet = string.digits + string.ascii_uppercase
+    while num > 0:
+        i = num % b
+        num = num // b
+        result = alphabet[i] + result
+    return result
+
+"""
+import string
+def to_base(num, b):
+    result = ''
+    alphabet = string.digits + string.ascii_uppercase
+    while num > 0:
+        i = num % b
+        num = num // b
+        result = result + alphabet[i]
+    return result[::-1]
+"""
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_to_base_decimal
+test_generated.py::test_to_base_binary
+test_generated.py::test_to_base_hexadecimal
+test_generated.py::test_to_base_large_bases
+test_generated.py::test_to_base_invalid_input
+
+5 tests collected in 0.01s
+
+
+===== nodeid_sanitizer.node_0c38226c1308ab7b2332f03a26560582dd03c2d2e8d1fc5b4f3ae7375793ecb8.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________________________ test_to_base_large_bases ___________________________
+
+    def test_to_base_large_bases():
+>       assert sut.to_base(255, 36) == 'N3'
+E       AssertionError: assert '73' == 'N3'
+E         
+E         - N3
+E         + 73
+
+test_generated.py:19: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_to_base_large_bases - AssertionError: assert '...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_7504018b4c78e35ef1eb08c31a5282308cf00fdff4e9edf238306ec66d4b9c77.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________ test_to_base_invalid_input __________________________
+
+    def test_to_base_invalid_input():
+>       with pytest.raises(Exception):
+E       NameError: name 'pytest' is not defined
+
+test_generated.py:23: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_to_base_invalid_input - NameError: name 'pytes...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_8d6a86a0e8360735625ebfae41d9e3e976d1074a94c1d766e85bdf26593fc6ce.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________________________ test_to_base_decimal _____________________________
+
+    def test_to_base_decimal():
+>       assert sut.to_base(10, 10) == 'A'
+E       AssertionError: assert '10' == 'A'
+E         
+E         - A
+E         + 10
+
+test_generated.py:4: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_to_base_decimal - AssertionError: assert '10' ...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_af05668a7fc2184f144703a1bd0e860541d3d454a7cd7918c909be1feddf9015.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________________________ test_to_base_hexadecimal ___________________________
+
+    def test_to_base_hexadecimal():
+        assert sut.to_base(255, 16) == 'FF'
+>       assert sut.to_base(3456789, 16) == '34F43D'
+E       AssertionError: assert '34BF15' == '34F43D'
+E         
+E         - 34F43D
+E         + 34BF15
+
+test_generated.py:15: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_to_base_hexadecimal - AssertionError: assert '...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_d9eba23c6f1ac4f2f20a368d3f992b0c716e184956837af864e29358ef804192.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________________________ test_to_base_binary ______________________________
+
+    def test_to_base_binary():
+        assert sut.to_base(2, 2) == '10'
+        assert sut.to_base(255, 2) == '11111111'
+>       assert sut.to_base(0, 2) == '0'
+E       AssertionError: assert '' == '0'
+E         
+E         - 0
+
+test_generated.py:11: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_to_base_binary - AssertionError: assert '' == '0'
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=5
+individual_pass_nodeids=0
+individual_fail_nodeids=5
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+FFFFF                                                                    [100%]
+=================================== FAILURES ===================================
+_____________________________ test_to_base_decimal _____________________________
+test_generated_raw.py:4: in test_to_base_decimal
+    assert sut.to_base(10, 10) == 'A'
+E   AssertionError: assert '10' == 'A'
+E     
+E     - A
+E     + 10
+_____________________________ test_to_base_binary ______________________________
+test_generated_raw.py:11: in test_to_base_binary
+    assert sut.to_base(0, 2) == '0'
+E   AssertionError: assert '' == '0'
+E     
+E     - 0
+___________________________ test_to_base_hexadecimal ___________________________
+test_generated_raw.py:15: in test_to_base_hexadecimal
+    assert sut.to_base(3456789, 16) == '34F43D'
+E   AssertionError: assert '34BF15' == '34F43D'
+E     
+E     - 34F43D
+E     + 34BF15
+___________________________ test_to_base_large_bases ___________________________
+test_generated_raw.py:19: in test_to_base_large_bases
+    assert sut.to_base(255, 36) == 'N3'
+E   AssertionError: assert '73' == 'N3'
+E     
+E     - N3
+E     + 73
+__________________________ test_to_base_invalid_input __________________________
+test_generated_raw.py:23: in test_to_base_invalid_input
+    with pytest.raises(Exception):
+E   NameError: name 'pytest' is not defined
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test_to_base_decimal - AssertionError: assert '...
+FAILED test_generated_raw.py::test_to_base_binary - AssertionError: assert ''...
+FAILED test_generated_raw.py::test_to_base_hexadecimal - AssertionError: asse...
+FAILED test_generated_raw.py::test_to_base_large_bases - AssertionError: asse...
+FAILED test_generated_raw.py::test_to_base_invalid_input - NameError: name 'p...
+5 failed in 0.04s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/038_python_to_base/run_0001/1-2/generation/final_prompt.txt

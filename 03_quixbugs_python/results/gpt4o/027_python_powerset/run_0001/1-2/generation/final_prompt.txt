@@ -1,0 +1,55 @@
+You are generating unit tests for a Python function/program from the QuixBugs benchmark.
+
+Return exactly one raw Python pytest test file.
+
+Rules:
+- Output only Python code.
+- Do not use Markdown fences.
+- Do not include explanations.
+- Do not include comments.
+- Do not include the implementation under test.
+- Import the target module exactly as:
+  import sut
+- Do not use:
+  from sut import ...
+- Call functions/classes through sut.<name>.
+- Prefer simple deterministic tests.
+- Avoid random tests.
+- Avoid time, network, filesystem, subprocess, multiprocessing, threading, sleeps, or environment-dependent behaviour.
+- Do not assume external packages except pytest and the Python standard library.
+- Do not create tests that rely on the order of sets or dictionaries unless explicitly sorted.
+- Do not write helper-only output. The file must contain pytest-collected tests.
+- Include at least 5 top-level test functions named test_* whenever possible.
+- If the SUT exposes helper classes such as Node, construct them through sut.Node if needed.
+- If the SUT algorithm works on graph/list/node structures, create small explicit examples.
+- If unsure about edge cases, still produce executable tests for obvious valid cases.
+- The file will be rejected if pytest collects zero tests.
+- The file will be rejected if it cannot be compiled by Python.
+- The file will be rejected if it imports non-existent modules.
+
+SUT name:
+027_python_powerset
+
+Target module:
+sut
+
+Source code under test:
+
+def powerset(arr):
+    if arr:
+        first, *rest = arr
+        rest_subsets = powerset(rest)
+        return rest_subsets + [[first] + subset for subset in rest_subsets]
+    else:
+        return [[]]
+
+"""
+def powerset(arr):
+    if arr:
+        first, *rest = arr
+        rest_subsets = powerset(rest)
+        return [[first] + subset for subset in rest_subsets] + rest_subsets
+    else:
+        return [[]]
+"""
+

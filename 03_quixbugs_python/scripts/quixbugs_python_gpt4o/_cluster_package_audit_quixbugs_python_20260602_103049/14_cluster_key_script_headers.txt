@@ -1,0 +1,789 @@
+
+===== FILE: /home/jpaiva/projetos/llm_cluster_scripts/run_humanevalplus_ollama_generation_v4.sh =====
+#!/usr/bin/env bash
+set -Eeuo pipefail
+shopt -s nullglob
+
+RUN_TAG="${RUN_TAG:-humanevalplus_zero_shot_cluster_v4}"
+DATASET_ROOT="${DATASET_ROOT:-$HOME/projetos/SUTs/humanevalplus}"
+PROMPT_TEMPLATE="${PROMPT_TEMPLATE:-$HOME/projetos/llm_test_generation_gpt4o/prompts/python_humanevalplus_zero_shot_v2.txt}"
+OUT_ROOT="${OUT_ROOT:-$HOME/projetos/llm_cluster_generations/$RUN_TAG}"
+
+REPEATS="${REPEATS:-5}"
+TIMEOUT_S="${TIMEOUT_S:-200}"
+KILL_AFTER_S="${KILL_AFTER_S:-10}"
+
+OLLAMA_BIN="${OLLAMA_BIN:-ollama}"
+OLLAMA_API_BASE="${OLLAMA_API_BASE:-http://127.0.0.1:11434}"
+
+SKIP_IF_DONE="${SKIP_IF_DONE:-1}"
+EXPECTED_SUT_COUNT="${EXPECTED_SUT_COUNT:-164}"
+
+ONLY_MODELS="${ONLY_MODELS:-}"
+ONLY_SUTS="${ONLY_SUTS:-}"
+MAX_SUTS="${MAX_SUTS:-0}"
+PRECHECK_ONLY="${PRECHECK_ONLY:-0}"
+
+EMPTY_RETRY_MAX="${EMPTY_RETRY_MAX:-15}"
+GENERATION_RETRY_SLEEP_S="${GENERATION_RETRY_SLEEP_S:-2}"
+
+DEFAULT_MODELS=(
+  "cluster-max-codellama-7b-instruct-ctx16k"
+  "cluster-safe-qwen3-14b-heretic-ctx32k"
+  "cluster-safe-qwen3.5-9b-ctx32k"
+  "cluster-safe-deepseek-coder-v2-16b-ctx16k"
+  "cluster-safe-deepseek-v2-lite-ctx32k"
+  "cluster-safe-qwen2.5-coder-14b-ctx32k"
+  "cluster-safe-codestral-22b-ctx16k"
+  "cluster-safe-qwen3-coder-30b-official-ctx8k"
+)
+
+require_cmd() {
+  command -v "$1" >/dev/null 2>&1 || {
+    echo "[ERROR] Missing command: $1" >&2
+    exit 1
+  }
+}
+
+csv_to_array() {
+  local csv="$1"
+  local -n out_ref="$2"
+  out_ref=()
+  [[ -z "$csv" ]] && return 0
+  IFS=',' read -r -a out_ref <<< "$csv"
+}
+
+contains_in_array() {
+  local needle="$1"
+  shift
+  local item
+  for item in "$@"; do
+    [[ "$item" == "$needle" ]] && return 0
+  done
+  return 1
+}
+
+json_get() {
+  local json_file="$1"
+  local key="$2"
+  python3 - "$json_file" "$key" <<'PY'
+import json, sys
+from pathlib import Path
+
+p = Path(sys.argv[1])
+key = sys.argv[2]
+
+if not p.exists():
+    print("")
+    raise SystemExit(0)
+
+try:
+    data = json.loads(p.read_text(encoding="utf-8"))
+except Exception:
+    print("")
+    raise SystemExit(0)
+
+value = data.get(key, "")
+if value is None:
+    print("")
+elif isinstance(value, bool):
+    print("true" if value else "false")
+else:
+    print(value)
+PY
+}
+
+build_prompt() {
+  local template_file="$1"
+  local sut_file="$2"
+  local out_file="$3"
+
+  python3 - "$template_file" "$sut_file" "$out_file" <<'PY'
+from pathlib import Path
+import sys
+
+template_path = Path(sys.argv[1])
+sut_path = Path(sys.argv[2])
+out_path = Path(sys.argv[3])
+
+template = template_path.read_text(encoding="utf-8")
+sut_code = sut_path.read_text(encoding="utf-8")
+
+final_prompt = template.replace("{UNDER_TEST_SNIPPET}", sut_code)
+out_path.write_text(final_prompt, encoding="utf-8")
+PY
+}
+
+make_payload_json() {
+  local model="$1"
+  local prompt_file="$2"
+  local payload_file="$3"
+
+  python3 - "$model" "$prompt_file" "$payload_file" <<'PY'
+import json, sys
+from pathlib import Path
+
+model = sys.argv[1]
+prompt_file = Path(sys.argv[2])
+payload_file = Path(sys.argv[3])
+
+prompt = prompt_file.read_text(encoding="utf-8")
+
+payload = {
+    "model": model,
+    "prompt": prompt,
+    "stream": False
+}
+
+payload_file.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+PY
+}
+
+write_placeholder_api_json() {
+  local api_json_file="$1"
+  local reason="$2"
+  local exit_code="$3"
+  local timed_out="$4"
+  local attempt="$5"
+
+  python3 - "$api_json_file" "$reason" "$exit_code" "$timed_out" "$attempt" <<'PY'
+import json, sys
+from pathlib import Path
+
+api_json_file = Path(sys.argv[1])
+reason = sys.argv[2]
+exit_code = int(sys.argv[3])
+timed_out = sys.argv[4].lower() == "true"
+attempt = int(sys.argv[5])
+
+payload = {
+    "response": "",
+    "done": False,
+    "done_reason": "",
+    "error": reason,
+    "placeholder": True,
+    "exit_code": exit_code,
+    "timed_out": timed_out,
+    "attempt": attempt
+}
+
+api_json_file.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+PY
+}
+
+extract_and_validate() {
+  local api_json_file="$1"
+  local raw_file="$2"
+  local generated_file="$3"
+  local validation_file="$4"
+
+  python3 - "$api_json_file" "$raw_file" "$generated_file" "$validation_file" <<'PY'
+import ast
+import json
+import re
+import sys
+import textwrap
+from pathlib import Path
+
+api_json_path = Path(sys.argv[1])
+raw_path = Path(sys.argv[2])
+gen_path = Path(sys.argv[3])
+meta_path = Path(sys.argv[4])
+
+ansi_re = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]')
+fence_re = re.compile(r"```([^\n`]*)\n(.*?)```", flags=re.DOTALL)
+
+CODE_LINE_PATTERNS = [
+    re.compile(r'^\s*import\s+pytest\b'),
+    re.compile(r'^\s*import\s+sut\b'),
+    re.compile(r'^\s*from\s+sut\s+import\b'),
+    re.compile(r'^\s*from\s+typing\s+import\b'),
+    re.compile(r'^\s*import\s+\w+'),
+    re.compile(r'^\s*from\s+\w+\s+import\b'),
+    re.compile(r'^\s*@pytest\.'),
+    re.compile(r'^\s*def\s+test_'),
+    re.compile(r'^\s*class\s+Test'),
+]
+
+INTRO_PREFIXES = (
+    "here is",
+    "here's",
+    "this is",
+    "below is",
+    "sure,",
+    "sure!",
+    "certainly",
+    "i will",
+    "i'll",
+    "the following",
+)
+
+meta = {
+    "api_json_ok": False,
+    "api_error": "",
+    "api_done": None,
+    "api_done_reason": "",
+    "raw_nonempty": False,
+    "generated_nonempty": False,
+    "ansi_escape_sequences_removed": 0,
+    "control_chars_removed": 0,
+    "fence_extracted": False,
+    "fence_language": "",
+    "syntax_ok": False,
+    "syntax_error_type": "",
+    "syntax_error_message": "",
+    "syntax_error_lineno": "",
+    "top_level_test_count": 0,
+    "test_class_method_count": 0,
+    "total_test_count": 0,
+    "structure_ok": False,
+    "candidate_count": 0,
+    "chosen_strategy": "",
+    "trimmed_suffix_lines": 0,
+}
+
+def is_code_like(line: str) -> bool:
+    s = line.rstrip("\n")
+    if not s.strip():
+        return False
+    return any(p.search(s) for p in CODE_LINE_PATTERNS)
+
+def clean_text(s: str):
+    ansi_matches = ansi_re.findall(s)
+    s = ansi_re.sub("", s)
+
+    out = []
+    removed_controls = 0
+    for ch in s:
+        o = ord(ch)
+        if o in (9, 10, 13):
+            out.append(ch)
+        elif o < 32 or o == 127:
+            removed_controls += 1
+
+===== FILE: /home/jpaiva/projetos/llm_cluster_scripts/run_mbppplus_ollama_generation_v1.sh =====
+#!/usr/bin/env bash
+set -Eeuo pipefail
+shopt -s nullglob
+
+RUN_TAG="${RUN_TAG:-mbppplus_zero_shot_cluster_v1}"
+DATASET_ROOT="${DATASET_ROOT:-$HOME/projetos/SUTs/mbppPlus}"
+PROMPT_TEMPLATE="${PROMPT_TEMPLATE:-$HOME/projetos/llm_test_generation_gpt4o/prompts/python_mbppplus_zero_shot_cluster_v1.txt}"
+OUT_ROOT="${OUT_ROOT:-$HOME/projetos/llm_cluster_generations/$RUN_TAG}"
+
+REPEATS="${REPEATS:-5}"
+TIMEOUT_S="${TIMEOUT_S:-200}"
+KILL_AFTER_S="${KILL_AFTER_S:-10}"
+
+OLLAMA_BIN="${OLLAMA_BIN:-ollama}"
+OLLAMA_API_BASE="${OLLAMA_API_BASE:-http://127.0.0.1:11434}"
+
+SKIP_IF_DONE="${SKIP_IF_DONE:-1}"
+EXPECTED_SUT_COUNT="${EXPECTED_SUT_COUNT:-378}"
+
+ONLY_MODELS="${ONLY_MODELS:-}"
+ONLY_SUTS="${ONLY_SUTS:-}"
+MAX_SUTS="${MAX_SUTS:-0}"
+PRECHECK_ONLY="${PRECHECK_ONLY:-0}"
+
+EMPTY_RETRY_MAX="${EMPTY_RETRY_MAX:-15}"
+GENERATION_RETRY_SLEEP_S="${GENERATION_RETRY_SLEEP_S:-2}"
+
+DEFAULT_MODELS=(
+  "cluster-max-codellama-7b-instruct-ctx16k"
+  "cluster-safe-qwen3-14b-heretic-ctx32k"
+  "cluster-safe-qwen3.5-9b-ctx32k"
+  "cluster-safe-deepseek-coder-v2-16b-ctx16k"
+  "cluster-safe-deepseek-v2-lite-ctx32k"
+  "cluster-safe-qwen2.5-coder-14b-ctx32k"
+  "cluster-safe-codestral-22b-ctx16k"
+  "cluster-safe-qwen3-coder-30b-official-ctx8k"
+)
+
+require_cmd() {
+  command -v "$1" >/dev/null 2>&1 || {
+    echo "[ERROR] Missing command: $1" >&2
+    exit 1
+  }
+}
+
+csv_to_array() {
+  local csv="$1"
+  local -n out_ref="$2"
+  out_ref=()
+  [[ -z "$csv" ]] && return 0
+  IFS=',' read -r -a out_ref <<< "$csv"
+}
+
+contains_in_array() {
+  local needle="$1"
+  shift
+  local item
+  for item in "$@"; do
+    [[ "$item" == "$needle" ]] && return 0
+  done
+  return 1
+}
+
+json_get() {
+  local json_file="$1"
+  local key="$2"
+  python3 - "$json_file" "$key" <<'PY'
+import json, sys
+from pathlib import Path
+
+p = Path(sys.argv[1])
+key = sys.argv[2]
+
+if not p.exists():
+    print("")
+    raise SystemExit(0)
+
+try:
+    data = json.loads(p.read_text(encoding="utf-8"))
+except Exception:
+    print("")
+    raise SystemExit(0)
+
+value = data.get(key, "")
+if value is None:
+    print("")
+elif isinstance(value, bool):
+    print("true" if value else "false")
+else:
+    print(value)
+PY
+}
+
+build_prompt() {
+  local template_file="$1"
+  local sut_file="$2"
+  local out_file="$3"
+
+  python3 - "$template_file" "$sut_file" "$out_file" <<'PY'
+from pathlib import Path
+import sys
+
+template_path = Path(sys.argv[1])
+sut_path = Path(sys.argv[2])
+out_path = Path(sys.argv[3])
+
+template = template_path.read_text(encoding="utf-8")
+sut_code = sut_path.read_text(encoding="utf-8")
+
+final_prompt = template.replace("{UNDER_TEST_SNIPPET}", sut_code)
+out_path.write_text(final_prompt, encoding="utf-8")
+PY
+}
+
+make_payload_json() {
+  local model="$1"
+  local prompt_file="$2"
+  local payload_file="$3"
+
+  python3 - "$model" "$prompt_file" "$payload_file" <<'PY'
+import json, sys
+from pathlib import Path
+
+model = sys.argv[1]
+prompt_file = Path(sys.argv[2])
+payload_file = Path(sys.argv[3])
+
+prompt = prompt_file.read_text(encoding="utf-8")
+
+payload = {
+    "model": model,
+    "prompt": prompt,
+    "stream": False
+}
+
+payload_file.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+PY
+}
+
+write_placeholder_api_json() {
+  local api_json_file="$1"
+  local reason="$2"
+  local exit_code="$3"
+  local timed_out="$4"
+  local attempt="$5"
+
+  python3 - "$api_json_file" "$reason" "$exit_code" "$timed_out" "$attempt" <<'PY'
+import json, sys
+from pathlib import Path
+
+api_json_file = Path(sys.argv[1])
+reason = sys.argv[2]
+exit_code = int(sys.argv[3])
+timed_out = sys.argv[4].lower() == "true"
+attempt = int(sys.argv[5])
+
+payload = {
+    "response": "",
+    "done": False,
+    "done_reason": "",
+    "error": reason,
+    "placeholder": True,
+    "exit_code": exit_code,
+    "timed_out": timed_out,
+    "attempt": attempt
+}
+
+api_json_file.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+PY
+}
+
+extract_and_validate() {
+  local api_json_file="$1"
+  local raw_file="$2"
+  local generated_file="$3"
+  local validation_file="$4"
+
+  python3 - "$api_json_file" "$raw_file" "$generated_file" "$validation_file" <<'PY'
+import ast
+import json
+import re
+import sys
+import textwrap
+from pathlib import Path
+
+api_json_path = Path(sys.argv[1])
+raw_path = Path(sys.argv[2])
+gen_path = Path(sys.argv[3])
+meta_path = Path(sys.argv[4])
+
+ansi_re = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]')
+fence_re = re.compile(r"```([^\n`]*)\n(.*?)```", flags=re.DOTALL)
+
+CODE_LINE_PATTERNS = [
+    re.compile(r'^\s*import\s+pytest\b'),
+    re.compile(r'^\s*import\s+sut\b'),
+    re.compile(r'^\s*from\s+sut\s+import\b'),
+    re.compile(r'^\s*from\s+typing\s+import\b'),
+    re.compile(r'^\s*import\s+\w+'),
+    re.compile(r'^\s*from\s+\w+\s+import\b'),
+    re.compile(r'^\s*@pytest\.'),
+    re.compile(r'^\s*def\s+test_'),
+    re.compile(r'^\s*class\s+Test'),
+]
+
+INTRO_PREFIXES = (
+    "here is",
+    "here's",
+    "this is",
+    "below is",
+    "sure,",
+    "sure!",
+    "certainly",
+    "i will",
+    "i'll",
+    "the following",
+)
+
+meta = {
+    "api_json_ok": False,
+    "api_error": "",
+    "api_done": None,
+    "api_done_reason": "",
+    "raw_nonempty": False,
+    "generated_nonempty": False,
+    "ansi_escape_sequences_removed": 0,
+    "control_chars_removed": 0,
+    "fence_extracted": False,
+    "fence_language": "",
+    "syntax_ok": False,
+    "syntax_error_type": "",
+    "syntax_error_message": "",
+    "syntax_error_lineno": "",
+    "top_level_test_count": 0,
+    "test_class_method_count": 0,
+    "total_test_count": 0,
+    "structure_ok": False,
+    "candidate_count": 0,
+    "chosen_strategy": "",
+    "trimmed_suffix_lines": 0,
+}
+
+def is_code_like(line: str) -> bool:
+    s = line.rstrip("\n")
+    if not s.strip():
+        return False
+    return any(p.search(s) for p in CODE_LINE_PATTERNS)
+
+def clean_text(s: str):
+    ansi_matches = ansi_re.findall(s)
+    s = ansi_re.sub("", s)
+
+    out = []
+    removed_controls = 0
+    for ch in s:
+        o = ord(ch)
+        if o in (9, 10, 13):
+            out.append(ch)
+        elif o < 32 or o == 127:
+            removed_controls += 1
+
+===== FILE: /home/jpaiva/projetos/llm_cluster_scripts/run_mbppplus_lowperf_rerun_generation_v1.sh =====
+#!/usr/bin/env bash
+# LOWPERF_RERUN_PACKAGE: MBPP+ CodeLlama + Codestral only
+
+# Default model restriction for this rerun package.
+ONLY_MODELS="${ONLY_MODELS:-cluster-max-codellama-7b-instruct-ctx16k,cluster-safe-codestral-22b-ctx16k}"
+export ONLY_MODELS
+set -Eeuo pipefail
+# Portable job paths. The script lives in: <job>/scripts/
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+JOB_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+shopt -s nullglob
+
+RUN_TAG="${RUN_TAG:-mbppplus_lowperf_retry_v1}"
+DATASET_ROOT="${DATASET_ROOT:-$JOB_ROOT/data/mbppPlus}"
+PROMPT_TEMPLATE="${PROMPT_TEMPLATE:-$JOB_ROOT/prompts/python_mbppplus_lowperf_retry_v1.txt}"
+OUT_ROOT="${OUT_ROOT:-$JOB_ROOT/results/$RUN_TAG}"
+
+REPEATS="${REPEATS:-5}"
+TIMEOUT_S="${TIMEOUT_S:-200}"
+KILL_AFTER_S="${KILL_AFTER_S:-10}"
+
+OLLAMA_BIN="${OLLAMA_BIN:-ollama}"
+OLLAMA_API_BASE="${OLLAMA_API_BASE:-http://127.0.0.1:11434}"
+
+SKIP_IF_DONE="${SKIP_IF_DONE:-1}"
+EXPECTED_SUT_COUNT="${EXPECTED_SUT_COUNT:-378}"
+
+ONLY_MODELS="${ONLY_MODELS:-}"
+ONLY_SUTS="${ONLY_SUTS:-}"
+MAX_SUTS="${MAX_SUTS:-0}"
+PRECHECK_ONLY="${PRECHECK_ONLY:-0}"
+
+EMPTY_RETRY_MAX="${EMPTY_RETRY_MAX:-15}"
+GENERATION_RETRY_SLEEP_S="${GENERATION_RETRY_SLEEP_S:-2}"
+
+DEFAULT_MODELS=(
+  "cluster-max-codellama-7b-instruct-ctx16k"
+  "cluster-safe-qwen3-14b-heretic-ctx32k"
+  "cluster-safe-qwen3.5-9b-ctx32k"
+  "cluster-safe-deepseek-coder-v2-16b-ctx16k"
+  "cluster-safe-deepseek-v2-lite-ctx32k"
+  "cluster-safe-qwen2.5-coder-14b-ctx32k"
+  "cluster-safe-codestral-22b-ctx16k"
+  "cluster-safe-qwen3-coder-30b-official-ctx8k"
+)
+
+require_cmd() {
+  command -v "$1" >/dev/null 2>&1 || {
+    echo "[ERROR] Missing command: $1" >&2
+    exit 1
+  }
+}
+
+csv_to_array() {
+  local csv="$1"
+  local -n out_ref="$2"
+  out_ref=()
+  [[ -z "$csv" ]] && return 0
+  IFS=',' read -r -a out_ref <<< "$csv"
+}
+
+contains_in_array() {
+  local needle="$1"
+  shift
+  local item
+  for item in "$@"; do
+    [[ "$item" == "$needle" ]] && return 0
+  done
+  return 1
+}
+
+json_get() {
+  local json_file="$1"
+  local key="$2"
+  python3 - "$json_file" "$key" <<'PY'
+import json, sys
+from pathlib import Path
+
+p = Path(sys.argv[1])
+key = sys.argv[2]
+
+if not p.exists():
+    print("")
+    raise SystemExit(0)
+
+try:
+    data = json.loads(p.read_text(encoding="utf-8"))
+except Exception:
+    print("")
+    raise SystemExit(0)
+
+value = data.get(key, "")
+if value is None:
+    print("")
+elif isinstance(value, bool):
+    print("true" if value else "false")
+else:
+    print(value)
+PY
+}
+
+build_prompt() {
+  local template_file="$1"
+  local sut_file="$2"
+  local out_file="$3"
+
+  python3 - "$template_file" "$sut_file" "$out_file" <<'PY'
+from pathlib import Path
+import sys
+
+template_path = Path(sys.argv[1])
+sut_path = Path(sys.argv[2])
+out_path = Path(sys.argv[3])
+
+template = template_path.read_text(encoding="utf-8")
+sut_code = sut_path.read_text(encoding="utf-8")
+
+final_prompt = template.replace("{UNDER_TEST_SNIPPET}", sut_code)
+out_path.write_text(final_prompt, encoding="utf-8")
+PY
+}
+
+make_payload_json() {
+  local model="$1"
+  local prompt_file="$2"
+  local payload_file="$3"
+
+  python3 - "$model" "$prompt_file" "$payload_file" <<'PY'
+import json, sys
+from pathlib import Path
+
+model = sys.argv[1]
+prompt_file = Path(sys.argv[2])
+payload_file = Path(sys.argv[3])
+
+prompt = prompt_file.read_text(encoding="utf-8")
+
+payload = {
+    "model": model,
+    "prompt": prompt,
+    "stream": False
+}
+
+payload_file.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+PY
+}
+
+write_placeholder_api_json() {
+  local api_json_file="$1"
+  local reason="$2"
+  local exit_code="$3"
+  local timed_out="$4"
+  local attempt="$5"
+
+  python3 - "$api_json_file" "$reason" "$exit_code" "$timed_out" "$attempt" <<'PY'
+import json, sys
+from pathlib import Path
+
+api_json_file = Path(sys.argv[1])
+reason = sys.argv[2]
+exit_code = int(sys.argv[3])
+timed_out = sys.argv[4].lower() == "true"
+attempt = int(sys.argv[5])
+
+payload = {
+    "response": "",
+    "done": False,
+    "done_reason": "",
+    "error": reason,
+    "placeholder": True,
+    "exit_code": exit_code,
+    "timed_out": timed_out,
+    "attempt": attempt
+}
+
+api_json_file.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+PY
+}
+
+extract_and_validate() {
+  local api_json_file="$1"
+  local raw_file="$2"
+  local generated_file="$3"
+  local validation_file="$4"
+
+  python3 - "$api_json_file" "$raw_file" "$generated_file" "$validation_file" <<'PY'
+import ast
+import json
+import re
+import sys
+import textwrap
+from pathlib import Path
+
+api_json_path = Path(sys.argv[1])
+raw_path = Path(sys.argv[2])
+gen_path = Path(sys.argv[3])
+meta_path = Path(sys.argv[4])
+
+ansi_re = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]')
+fence_re = re.compile(r"```([^\n`]*)\n(.*?)```", flags=re.DOTALL)
+
+CODE_LINE_PATTERNS = [
+    re.compile(r'^\s*import\s+pytest\b'),
+    re.compile(r'^\s*import\s+sut\b'),
+    re.compile(r'^\s*from\s+sut\s+import\b'),
+    re.compile(r'^\s*from\s+typing\s+import\b'),
+    re.compile(r'^\s*import\s+\w+'),
+    re.compile(r'^\s*from\s+\w+\s+import\b'),
+    re.compile(r'^\s*@pytest\.'),
+    re.compile(r'^\s*def\s+test_'),
+    re.compile(r'^\s*class\s+Test'),
+]
+
+INTRO_PREFIXES = (
+    "here is",
+    "here's",
+    "this is",
+    "below is",
+    "sure,",
+    "sure!",
+    "certainly",
+    "i will",
+    "i'll",
+    "the following",
+)
+
+meta = {
+    "api_json_ok": False,
+    "api_error": "",
+    "api_done": None,
+    "api_done_reason": "",
+    "raw_nonempty": False,
+    "generated_nonempty": False,
+    "ansi_escape_sequences_removed": 0,
+    "control_chars_removed": 0,
+    "fence_extracted": False,
+    "fence_language": "",
+    "syntax_ok": False,
+    "syntax_error_type": "",
+    "syntax_error_message": "",
+    "syntax_error_lineno": "",
+    "top_level_test_count": 0,
+    "test_class_method_count": 0,
+    "total_test_count": 0,
+    "structure_ok": False,
+    "candidate_count": 0,
+    "chosen_strategy": "",
+    "trimmed_suffix_lines": 0,
+}
+
+def is_code_like(line: str) -> bool:
+    s = line.rstrip("\n")
+    if not s.strip():
+        return False
+    return any(p.search(s) for p in CODE_LINE_PATTERNS)
+
+def clean_text(s: str):
+    ansi_matches = ansi_re.findall(s)
+    s = ansi_re.sub("", s)
+
+
+===== FILE: /home/jpaiva/to_cluster/humanevalplus_job/scripts/run_humanevalplus_ollama_generation.sh =====
+[MISSING] /home/jpaiva/to_cluster/humanevalplus_job/scripts/run_humanevalplus_ollama_generation.sh

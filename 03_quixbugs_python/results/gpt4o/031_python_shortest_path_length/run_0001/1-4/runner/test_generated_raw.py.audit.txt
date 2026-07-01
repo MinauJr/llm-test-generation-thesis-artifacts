@@ -1,0 +1,39 @@
+import pytest
+import sut
+
+def test_shortest_path_direct_connection():
+    node_a = sut.Node(label="A")
+    node_b = sut.Node(label="B")
+    node_a.successors = [node_b]
+    length_by_edge = {("A", "B"): 5.0}
+    assert sut.shortest_path_length(length_by_edge, node_a, node_b) == 5.0
+
+def test_shortest_path_no_connection():
+    node_a = sut.Node(label="A")
+    node_b = sut.Node(label="B")
+    length_by_edge = {}
+    assert sut.shortest_path_length(length_by_edge, node_a, node_b) == float("inf")
+
+def test_shortest_path_same_node():
+    node_a = sut.Node(label="A")
+    length_by_edge = {}
+    assert sut.shortest_path_length(length_by_edge, node_a, node_a) == 0.0
+
+def test_shortest_path_multiple_nodes():
+    node_a = sut.Node(label="A")
+    node_b = sut.Node(label="B")
+    node_c = sut.Node(label="C")
+    node_a.successors = [node_b]
+    node_b.successors = [node_c]
+    length_by_edge = {("A", "B"): 3.0, ("B", "C"): 4.0}
+    assert sut.shortest_path_length(length_by_edge, node_a, node_c) == 7.0
+
+def test_shortest_path_with_cycle():
+    node_a = sut.Node(label="A")
+    node_b = sut.Node(label="B")
+    node_c = sut.Node(label="C")
+    node_a.successors = [node_b]
+    node_b.successors = [node_c]
+    node_c.successors = [node_a]
+    length_by_edge = {("A", "B"): 2.0, ("B", "C"): 3.0, ("C", "A"): 1.0}
+    assert sut.shortest_path_length(length_by_edge, node_a, node_c) == 5.0

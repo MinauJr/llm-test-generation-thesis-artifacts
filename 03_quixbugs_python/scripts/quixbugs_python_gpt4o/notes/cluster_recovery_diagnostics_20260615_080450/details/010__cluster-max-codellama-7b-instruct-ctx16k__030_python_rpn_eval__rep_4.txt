@@ -1,0 +1,368 @@
+MODEL=cluster-max-codellama-7b-instruct-ctx16k
+SUT=030_python_rpn_eval
+REPEAT=4
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_name_error
+FINGERPRINT=name:pytest
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/030_python_rpn_eval/run_0001/1-4
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/030_python_rpn_eval/rep_04/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/030_python_rpn_eval/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "pytest"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "pytest"
+]
+
+===== SUT SYMBOLS =====
+[
+  "rpn_eval"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "sut",
+  "test_rpn_eval",
+  "test_rpn_eval_empty",
+  "test_rpn_eval_invalid_token",
+  "test_rpn_eval_mixed_tokens",
+  "test_rpn_eval_single_operand"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/030_python_rpn_eval/run_0001/1-4/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/030_python_rpn_eval/run_0001/1-4/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import sut
+
+def test_rpn_eval():
+    assert sut.rpn_eval([1, 2, '+']) == 3
+    assert sut.rpn_eval([1, 2, '*']) == 2
+    assert sut.rpn_eval([1, 2, '-']) == -1
+    assert sut.rpn_eval([1, 2, '/']) == 0.5
+
+def test_rpn_eval_empty():
+    assert sut.rpn_eval([]) == 0
+
+def test_rpn_eval_single_operand():
+    assert sut.rpn_eval([1]) == 1
+
+def test_rpn_eval_invalid_token():
+    with pytest.raises(ValueError):
+        sut.rpn_eval(['a'])
+
+def test_rpn_eval_mixed_tokens():
+    assert sut.rpn_eval([1, 2, '+', '*']) == 2
+
+
+===== SUT =====
+
+def rpn_eval(tokens):
+    def op(symbol, a, b):
+        return {
+            '+': lambda a, b: a + b,
+            '-': lambda a, b: a - b,
+            '*': lambda a, b: a * b,
+            '/': lambda a, b: a / b
+        }[symbol](a, b)
+
+    stack = []
+
+    for token in tokens:
+        if isinstance(token, float):
+            stack.append(token)
+        else:
+            a = stack.pop()
+            b = stack.pop()
+            stack.append(
+                op(token, b, a)
+            )
+
+    return stack.pop()
+
+"""
+def rpn_eval(tokens):
+    def op(symbol, a, b):
+        return {
+            '+': lambda a, b: a + b,
+            '-': lambda a, b: a - b,
+            '*': lambda a, b: a * b,
+            '/': lambda a, b: a / b
+        }[symbol](b, a)
+
+    stack = Stack()
+
+    for token in tokens:
+        if isinstance(token, float):
+            stack.push(token)
+        else:
+            a = stack.pop()
+            b = stack.pop()
+            stack.push(
+                op(token, a, b)
+            )
+
+    return stack.pop()
+"""
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_rpn_eval
+test_generated.py::test_rpn_eval_empty
+test_generated.py::test_rpn_eval_single_operand
+test_generated.py::test_rpn_eval_invalid_token
+test_generated.py::test_rpn_eval_mixed_tokens
+
+5 tests collected in 0.01s
+
+
+===== nodeid_sanitizer.node_2c8662d5840b5c2c7c5b3fb08a2c84c301b8b04038e374f546eed5d985d570bf.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________________________________ test_rpn_eval _________________________________
+
+    def test_rpn_eval():
+>       assert sut.rpn_eval([1, 2, '+']) == 3
+
+test_generated.py:4: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+tokens = [1, 2, '+']
+
+    def rpn_eval(tokens):
+        def op(symbol, a, b):
+            return {
+                '+': lambda a, b: a + b,
+                '-': lambda a, b: a - b,
+                '*': lambda a, b: a * b,
+                '/': lambda a, b: a / b
+            }[symbol](a, b)
+    
+        stack = []
+    
+        for token in tokens:
+            if isinstance(token, float):
+                stack.append(token)
+            else:
+>               a = stack.pop()
+E               IndexError: pop from empty list
+
+sut.py:17: IndexError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_rpn_eval - IndexError: pop from empty list
+1 failed in 0.03s
+
+
+===== nodeid_sanitizer.node_315cb6b54fd7259379235468e483e978cf92f9931fa863dca78d68ea6cc5aec7.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________________________ test_rpn_eval_empty ______________________________
+
+    def test_rpn_eval_empty():
+>       assert sut.rpn_eval([]) == 0
+
+test_generated.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+tokens = []
+
+    def rpn_eval(tokens):
+        def op(symbol, a, b):
+            return {
+                '+': lambda a, b: a + b,
+                '-': lambda a, b: a - b,
+                '*': lambda a, b: a * b,
+                '/': lambda a, b: a / b
+            }[symbol](a, b)
+    
+        stack = []
+    
+        for token in tokens:
+            if isinstance(token, float):
+                stack.append(token)
+            else:
+                a = stack.pop()
+                b = stack.pop()
+                stack.append(
+                    op(token, b, a)
+                )
+    
+>       return stack.pop()
+E       IndexError: pop from empty list
+
+sut.py:23: IndexError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_rpn_eval_empty - IndexError: pop from empty list
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_409f7da18fd5e757aa826ba0f1adcc4bb30b3a6cefb8b243d2d4581c6e54cf52.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________________________ test_rpn_eval_single_operand _________________________
+
+    def test_rpn_eval_single_operand():
+>       assert sut.rpn_eval([1]) == 1
+
+test_generated.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+tokens = [1]
+
+    def rpn_eval(tokens):
+        def op(symbol, a, b):
+            return {
+                '+': lambda a, b: a + b,
+                '-': lambda a, b: a - b,
+                '*': lambda a, b: a * b,
+                '/': lambda a, b: a / b
+            }[symbol](a, b)
+    
+        stack = []
+    
+        for token in tokens:
+            if isinstance(token, float):
+                stack.append(token)
+            else:
+>               a = stack.pop()
+E               IndexError: pop from empty list
+
+sut.py:17: IndexError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_rpn_eval_single_operand - IndexError: pop from...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_5c1e67d54d74259c81d821151d6f1b4b533befc03b63616f8d6b22c07bf5e208.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________ test_rpn_eval_mixed_tokens __________________________
+
+    def test_rpn_eval_mixed_tokens():
+>       assert sut.rpn_eval([1, 2, '+', '*']) == 2
+
+test_generated.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+tokens = [1, 2, '+', '*']
+
+    def rpn_eval(tokens):
+        def op(symbol, a, b):
+            return {
+                '+': lambda a, b: a + b,
+                '-': lambda a, b: a - b,
+                '*': lambda a, b: a * b,
+                '/': lambda a, b: a / b
+            }[symbol](a, b)
+    
+        stack = []
+    
+        for token in tokens:
+            if isinstance(token, float):
+                stack.append(token)
+            else:
+>               a = stack.pop()
+E               IndexError: pop from empty list
+
+sut.py:17: IndexError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_rpn_eval_mixed_tokens - IndexError: pop from e...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_957b814a2cda91e23113f507a7cd0a62118e9ea44c9db84e6b174323e46e69c1.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________________________ test_rpn_eval_invalid_token __________________________
+
+    def test_rpn_eval_invalid_token():
+>       with pytest.raises(ValueError):
+E       NameError: name 'pytest' is not defined
+
+test_generated.py:16: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_rpn_eval_invalid_token - NameError: name 'pyte...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=5
+individual_pass_nodeids=0
+individual_fail_nodeids=5
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+FFFFF                                                                    [100%]
+=================================== FAILURES ===================================
+________________________________ test_rpn_eval _________________________________
+test_generated_raw.py:4: in test_rpn_eval
+    assert sut.rpn_eval([1, 2, '+']) == 3
+sut.py:17: in rpn_eval
+    a = stack.pop()
+E   IndexError: pop from empty list
+_____________________________ test_rpn_eval_empty ______________________________
+test_generated_raw.py:10: in test_rpn_eval_empty
+    assert sut.rpn_eval([]) == 0
+sut.py:23: in rpn_eval
+    return stack.pop()
+E   IndexError: pop from empty list
+_________________________ test_rpn_eval_single_operand _________________________
+test_generated_raw.py:13: in test_rpn_eval_single_operand
+    assert sut.rpn_eval([1]) == 1
+sut.py:17: in rpn_eval
+    a = stack.pop()
+E   IndexError: pop from empty list
+_________________________ test_rpn_eval_invalid_token __________________________
+test_generated_raw.py:16: in test_rpn_eval_invalid_token
+    with pytest.raises(ValueError):
+E   NameError: name 'pytest' is not defined
+__________________________ test_rpn_eval_mixed_tokens __________________________
+test_generated_raw.py:20: in test_rpn_eval_mixed_tokens
+    assert sut.rpn_eval([1, 2, '+', '*']) == 2
+sut.py:17: in rpn_eval
+    a = stack.pop()
+E   IndexError: pop from empty list
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test_rpn_eval - IndexError: pop from empty list
+FAILED test_generated_raw.py::test_rpn_eval_empty - IndexError: pop from empt...
+FAILED test_generated_raw.py::test_rpn_eval_single_operand - IndexError: pop ...
+FAILED test_generated_raw.py::test_rpn_eval_invalid_token - NameError: name '...
+FAILED test_generated_raw.py::test_rpn_eval_mixed_tokens - IndexError: pop fr...
+5 failed in 0.04s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/030_python_rpn_eval/run_0001/1-4/generation/final_prompt.txt

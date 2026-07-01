@@ -1,0 +1,21 @@
+import sut
+
+def test_hanoi_height_1():
+    result = sut.hanoi(1)
+    assert result == [(1, 3)]
+
+def test_hanoi_height_2():
+    result = sut.hanoi(2)
+    assert result == [(1, 2), (1, 3), (2, 3)]
+
+def test_hanoi_height_3():
+    result = sut.hanoi(3)
+    assert result == [(1, 3), (1, 2), (3, 2), (1, 3), (2, 1), (2, 3), (1, 3)]
+
+def test_hanoi_height_0():
+    result = sut.hanoi(0)
+    assert result == []
+
+def test_hanoi_custom_start_end():
+    result = sut.hanoi(2, start=2, end=1)
+    assert result == [(2, 3), (2, 1), (3, 1)]

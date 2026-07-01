@@ -1,0 +1,310 @@
+MODEL=cluster-max-codellama-7b-instruct-ctx16k
+SUT=038_python_to_base
+REPEAT=1
+EVAL_STATUS=ok
+REASON=metrics_exist_but_status_missing
+FINGERPRINT=name:string|metrics_overlay
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/038_python_to_base/run_0001/1-1
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/038_python_to_base/rep_01/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/038_python_to_base/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "string"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "string"
+]
+
+===== SUT SYMBOLS =====
+[
+  "to_base"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "alphabet",
+  "pytest",
+  "sut",
+  "test_to_base",
+  "test_to_base_with_alphabet",
+  "test_to_base_with_invalid_argument",
+  "test_to_base_with_invalid_radix",
+  "test_to_base_with_negative_number",
+  "test_to_base_with_radix_greater_than_alphabet"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {
+    "branch_coverage_pct": 0.0,
+    "error": null,
+    "line_coverage_pct": 60.0
+  },
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/038_python_to_base/run_0001/1-1/metrics/coverage_metrics.json",
+  "coverage_xml_branch_rate": 0.0,
+  "coverage_xml_error": "",
+  "coverage_xml_exists": true,
+  "coverage_xml_line_rate": 60.0,
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/038_python_to_base/run_0001/1-1/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+import sut
+
+def test_to_base():
+    assert sut.to_base(0, 2) == '0'
+    assert sut.to_base(1, 2) == '1'
+    assert sut.to_base(2, 2) == '10'
+    assert sut.to_base(3, 2) == '11'
+    assert sut.to_base(4, 2) == '100'
+    assert sut.to_base(5, 2) == '101'
+    assert sut.to_base(6, 2) == '110'
+    assert sut.to_base(7, 2) == '111'
+
+def test_to_base_with_alphabet():
+    alphabet = string.digits + string.ascii_uppercase
+    assert sut.to_base(0, 2, alphabet) == '0'
+    assert sut.to_base(1, 2, alphabet) == '1'
+    assert sut.to_base(2, 2, alphabet) == 'A'
+    assert sut.to_base(3, 2, alphabet) == 'B'
+    assert sut.to_base(4, 2, alphabet) == 'C'
+    assert sut.to_base(5, 2, alphabet) == 'D'
+    assert sut.to_base(6, 2, alphabet) == 'E'
+    assert sut.to_base(7, 2, alphabet) == 'F'
+
+def test_to_base_with_negative_number():
+    with pytest.raises(ValueError):
+        sut.to_base(-1, 2)
+
+def test_to_base_with_invalid_argument():
+    with pytest.raises(TypeError):
+        sut.to_base('a', 2)
+
+def test_to_base_with_invalid_radix():
+    with pytest.raises(ValueError):
+        sut.to_base(0, -1)
+
+def test_to_base_with_radix_greater_than_alphabet():
+    alphabet = string.digits + string.ascii_uppercase + '!'
+    assert sut.to_base(0, 2, alphabet) == '0'
+    assert sut.to_base(1, 2, alphabet) == '1'
+    assert sut.to_base(2, 2, alphabet) == '!A'
+    assert sut.to_base(3, 2, alphabet) == '!B'
+    assert sut.to_base(4, 2, alphabet) == '!C'
+    assert sut.to_base(5, 2, alphabet) == '!D'
+    assert sut.to_base(6, 2, alphabet) == '!E'
+    assert sut.to_base(7, 2, alphabet) == '!F'
+
+
+===== SUT =====
+
+import string
+def to_base(num, b):
+    result = ''
+    alphabet = string.digits + string.ascii_uppercase
+    while num > 0:
+        i = num % b
+        num = num // b
+        result = alphabet[i] + result
+    return result
+
+"""
+import string
+def to_base(num, b):
+    result = ''
+    alphabet = string.digits + string.ascii_uppercase
+    while num > 0:
+        i = num % b
+        num = num // b
+        result = result + alphabet[i]
+    return result[::-1]
+"""
+
+
+===== LOGS =====
+
+
+===== analyze_effective_tests.log =====
+{"all_top_level_tests_skipped": false, "effective_test_functions": 6, "error": null, "test_file": "/home/jpaiva/projetos/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/038_python_to_base/run_0001/1-1/runner/test_generated.py", "top_level_skipped_test_functions": 0, "top_level_test_functions": 6}
+
+
+===== coverage.log =====
+.                                                                        [100%]
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.10.12-final-0 _______________
+
+Name     Stmts   Miss Branch BrPart  Cover   Missing
+----------------------------------------------------
+sut.py      10      4      2      2    50%   7-10
+----------------------------------------------------
+TOTAL       10      4      2      2    50%
+Coverage XML written to file coverage.xml
+1 passed, 5 deselected in 0.02s
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_to_base
+test_generated.py::test_to_base_with_alphabet
+test_generated.py::test_to_base_with_negative_number
+test_generated.py::test_to_base_with_invalid_argument
+test_generated.py::test_to_base_with_invalid_radix
+test_generated.py::test_to_base_with_radix_greater_than_alphabet
+
+6 tests collected in 0.02s
+
+
+===== nodeid_sanitizer.combined_initial.log =====
+.                                                                        [100%]
+1 passed, 5 deselected in 0.01s
+
+
+===== nodeid_sanitizer.node_04ca0a82e9187b0a49c1f480a5bdca53c0bc6d2dd67048d20b4f94ac68348132.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________________ test_to_base_with_radix_greater_than_alphabet _________________
+
+    def test_to_base_with_radix_greater_than_alphabet():
+>       alphabet = string.digits + string.ascii_uppercase + '!'
+E       NameError: name 'string' is not defined
+
+test_generated.py:38: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_to_base_with_radix_greater_than_alphabet - Nam...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_12138af4a31b96da5445df33733dd5f7e0703e45d51822ea639e2cdb88a02f79.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________ test_to_base_with_alphabet __________________________
+
+    def test_to_base_with_alphabet():
+>       alphabet = string.digits + string.ascii_uppercase
+E       NameError: name 'string' is not defined
+
+test_generated.py:15: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_to_base_with_alphabet - NameError: name 'strin...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_155577b8bfea85a0a5d400a094711203fb1092742fedfbab9e41526a32238088.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______________________ test_to_base_with_invalid_radix ________________________
+
+    def test_to_base_with_invalid_radix():
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+test_generated.py:34: Failed
+=========================== short test summary info ============================
+FAILED test_generated.py::test_to_base_with_invalid_radix - Failed: DID NOT R...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_2d40b9bb3a4dc421b330ded8dd33d12a9cfb81266220bf18efc126e766414640.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________________ test_to_base_with_negative_number _______________________
+
+    def test_to_base_with_negative_number():
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+test_generated.py:26: Failed
+=========================== short test summary info ============================
+FAILED test_generated.py::test_to_base_with_negative_number - Failed: DID NOT...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_48c927f4a123b609c37bf760583e0cb76c281a0da78e1f8193e509355dbbe7ef.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________________________________ test_to_base _________________________________
+
+    def test_to_base():
+>       assert sut.to_base(0, 2) == '0'
+E       AssertionError: assert '' == '0'
+E         
+E         - 0
+
+test_generated.py:5: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_to_base - AssertionError: assert '' == '0'
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_951a77c0c8714d9bb45b2c2768af0763eba32e9985421c4afcd4451f23e8da14.log =====
+.                                                                        [100%]
+1 passed in 0.01s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=6
+individual_pass_nodeids=1
+individual_fail_nodeids=5
+individual_timeout_nodeids=0
+initial_effective_nodeids=1
+final_effective_nodeids=1
+greedy_stabilization_used=0
+final_pytest_exit_code=0
+
+
+===== parse_coverage.log =====
+{"branch_coverage_pct": 0.0, "error": null, "line_coverage_pct": 60.0}
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+FFF.FF                                                                   [100%]
+=================================== FAILURES ===================================
+_________________________________ test_to_base _________________________________
+test_generated_raw.py:5: in test_to_base
+    assert sut.to_base(0, 2) == '0'
+E   AssertionError: assert '' == '0'
+E     
+E     - 0
+__________________________ test_to_base_with_alphabet __________________________
+test_generated_raw.py:15: in test_to_base_with_alphabet
+    alphabet = string.digits + string.ascii_uppercase
+E   NameError: name 'string' is not defined
+______________________ test_to_base_with_negative_number _______________________
+test_generated_raw.py:26: in test_to_base_with_negative_number
+    with pytest.raises(ValueError):
+E   Failed: DID NOT RAISE <class 'ValueError'>
+_______________________ test_to_base_with_invalid_radix ________________________
+test_generated_raw.py:34: in test_to_base_with_invalid_radix
+    with pytest.raises(ValueError):
+E   Failed: DID NOT RAISE <class 'ValueError'>
+________________ test_to_base_with_radix_greater_than_alphabet _________________
+test_generated_raw.py:38: in test_to_base_with_radix_greater_than_alphabet
+    alphabet = string.digits + string.ascii_uppercase + '!'
+E   NameError: name 'string' is not defined
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test_to_base - AssertionError: assert '' == '0'
+FAILED test_generated_raw.py::test_to_base_with_alphabet - NameError: name 's...
+FAILED test_generated_raw.py::test_to_base_with_negative_number - Failed: DID...
+FAILED test_generated_raw.py::test_to_base_with_invalid_radix - Failed: DID N...
+FAILED test_generated_raw.py::test_to_base_with_radix_greater_than_alphabet
+5 failed, 1 passed in 0.05s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/038_python_to_base/run_0001/1-1/generation/final_prompt.txt

@@ -1,0 +1,79 @@
+You are generating unit tests for a Python function/program from the QuixBugs benchmark.
+
+Return exactly one raw Python pytest test file.
+
+Rules:
+- Output only Python code.
+- Do not use Markdown fences.
+- Do not include explanations.
+- Do not include comments.
+- Do not include the implementation under test.
+- Import the target module exactly as:
+  import sut
+- Do not use:
+  from sut import ...
+- Call functions/classes through sut.<name>.
+- Prefer simple deterministic tests.
+- Avoid random tests.
+- Avoid time, network, filesystem, subprocess, multiprocessing, threading, sleeps, or environment-dependent behaviour.
+- Do not assume external packages except pytest and the Python standard library.
+- Do not create tests that rely on the order of sets or dictionaries unless explicitly sorted.
+- Do not write helper-only output. The file must contain pytest-collected tests.
+- Include at least 5 top-level test functions named test_* whenever possible.
+- If the SUT exposes helper classes such as Node, construct them through sut.Node if needed.
+- If the SUT algorithm works on graph/list/node structures, create small explicit examples.
+- If unsure about edge cases, still produce executable tests for obvious valid cases.
+- The file will be rejected if pytest collects zero tests.
+- The file will be rejected if it cannot be compiled by Python.
+- The file will be rejected if it imports non-existent modules.
+
+SUT name:
+002_python_breadth_first_search
+
+Target module:
+sut
+
+Source code under test:
+from collections import deque
+
+_MAX_VISITS = 1000
+_MAX_SUCCESSORS = 100
+
+
+def _normalise_nodes(value):
+    if isinstance(value, (list, tuple, set)):
+        return list(value)[:_MAX_SUCCESSORS]
+    return []
+
+
+class Node:
+    def __init__(self, successors=None):
+        self.successors = _normalise_nodes(successors)
+
+
+def breadth_first_search(startnode, goalnode):
+    if startnode is goalnode:
+        return True
+
+    if not hasattr(startnode, "successors"):
+        return False
+
+    queue = deque([startnode])
+    seen = {id(startnode)}
+    visits = 0
+
+    while queue and visits < _MAX_VISITS:
+        node = queue.popleft()
+        visits += 1
+
+        if node is goalnode:
+            return True
+
+        for successor in _normalise_nodes(getattr(node, "successors", [])):
+            sid = id(successor)
+            if sid not in seen:
+                seen.add(sid)
+                queue.append(successor)
+
+    return False
+

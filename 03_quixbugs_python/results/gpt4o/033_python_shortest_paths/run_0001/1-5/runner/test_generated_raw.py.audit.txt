@@ -1,0 +1,31 @@
+import sut
+
+def test_single_edge():
+    source = 'A'
+    weight_by_edge = {('A', 'B'): 5}
+    result = sut.shortest_paths(source, weight_by_edge)
+    assert result == {'A': 0, 'B': 5}
+
+def test_multiple_edges():
+    source = 'A'
+    weight_by_edge = {('A', 'B'): 5, ('B', 'C'): 3}
+    result = sut.shortest_paths(source, weight_by_edge)
+    assert result == {'A': 0, 'B': 5, 'C': 8}
+
+def test_no_edges():
+    source = 'A'
+    weight_by_edge = {}
+    result = sut.shortest_paths(source, weight_by_edge)
+    assert result == {'A': 0}
+
+def test_disconnected_graph():
+    source = 'A'
+    weight_by_edge = {('B', 'C'): 2}
+    result = sut.shortest_paths(source, weight_by_edge)
+    assert result == {'A': 0, 'C': float('inf')}
+
+def test_negative_weights():
+    source = 'A'
+    weight_by_edge = {('A', 'B'): 4, ('B', 'C'): -2, ('A', 'C'): 5}
+    result = sut.shortest_paths(source, weight_by_edge)
+    assert result == {'A': 0, 'B': 4, 'C': 2}

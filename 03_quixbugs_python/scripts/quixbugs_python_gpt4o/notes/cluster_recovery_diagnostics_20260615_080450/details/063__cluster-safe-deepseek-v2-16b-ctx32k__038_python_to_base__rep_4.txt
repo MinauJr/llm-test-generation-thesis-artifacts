@@ -1,0 +1,359 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=038_python_to_base
+REPEAT=4
+EVAL_STATUS=ok
+REASON=metrics_exist_but_status_missing
+FINGERPRINT=metrics_overlay
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/038_python_to_base/run_0001/1-4
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/038_python_to_base/rep_04/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/038_python_to_base/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[]
+
+===== SUT SYMBOLS =====
+[
+  "to_base"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "b",
+  "expected",
+  "num",
+  "pytest",
+  "sut",
+  "test___custom_bases",
+  "test___main",
+  "test___normal_numbers",
+  "test___zero_negatives",
+  "test_input"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {
+    "branch_coverage_pct": 0.0,
+    "error": null,
+    "line_coverage_pct": 30.0
+  },
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/038_python_to_base/run_0001/1-4/metrics/coverage_metrics.json",
+  "coverage_xml_branch_rate": 0.0,
+  "coverage_xml_error": "",
+  "coverage_xml_exists": true,
+  "coverage_xml_line_rate": 30.0,
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/038_python_to_base/run_0001/1-4/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+
+sut = __import__('quixbugs_python_sut')
+
+def test___main():
+    with pytest.raises(TypeError):
+        sut.to_base(None, 2)
+
+@pytest.mark.parametrize("num", [0, -1])
+def test___zero_negatives(num):
+    assert sut.to_base(num, 10) == "0" * 10
+
+@pytest.mark.parametrize("num,expected", [(7, 'VII'), (342, 'CCCXLII')])
+def test___normal_numbers(num, expected):
+    assert sut.to_base(num, 10) == expected
+
+@pytest.mark.parametrize("test_input,b,expected", [('7', 2, '11'), ('342', 10, 'CCCXLII')])
+def test___custom_bases(test_input: str, b: int, expected: str):
+    assert sut.to_base(test_input, b) == expected
+
+
+===== SUT =====
+
+import string
+def to_base(num, b):
+    result = ''
+    alphabet = string.digits + string.ascii_uppercase
+    while num > 0:
+        i = num % b
+        num = num // b
+        result = alphabet[i] + result
+    return result
+
+"""
+import string
+def to_base(num, b):
+    result = ''
+    alphabet = string.digits + string.ascii_uppercase
+    while num > 0:
+        i = num % b
+        num = num // b
+        result = result + alphabet[i]
+    return result[::-1]
+"""
+
+
+===== LOGS =====
+
+
+===== analyze_effective_tests.log =====
+{"all_top_level_tests_skipped": false, "effective_test_functions": 4, "error": null, "test_file": "/home/jpaiva/projetos/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/038_python_to_base/run_0001/1-4/runner/test_generated.py", "top_level_skipped_test_functions": 0, "top_level_test_functions": 4}
+
+
+===== coverage.log =====
+.                                                                        [100%]
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.10.12-final-0 _______________
+
+Name     Stmts   Miss Branch BrPart  Cover   Missing
+----------------------------------------------------
+sut.py      10      7      2      0    25%   4-10
+----------------------------------------------------
+TOTAL       10      7      2      0    25%
+Coverage XML written to file coverage.xml
+1 passed, 6 deselected in 0.03s
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test___main
+test_generated.py::test___zero_negatives[0]
+test_generated.py::test___zero_negatives[-1]
+test_generated.py::test___normal_numbers[7-VII]
+test_generated.py::test___normal_numbers[342-CCCXLII]
+test_generated.py::test___custom_bases[7-2-11]
+test_generated.py::test___custom_bases[342-10-CCCXLII]
+
+7 tests collected in 0.01s
+
+
+===== nodeid_sanitizer.combined_initial.log =====
+.                                                                        [100%]
+1 passed, 6 deselected in 0.01s
+
+
+===== nodeid_sanitizer.node_0ef56df85d1b8389c6abbe135419a1e8f57d93c8b6360fea48f4d1998dc65bf3.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________________ test___normal_numbers[342-CCCXLII] ______________________
+
+num = 342, expected = 'CCCXLII'
+
+    @pytest.mark.parametrize("num,expected", [(7, 'VII'), (342, 'CCCXLII')])
+    def test___normal_numbers(num, expected):
+>       assert sut.to_base(num, 10) == expected
+E       AssertionError: assert '342' == 'CCCXLII'
+E         
+E         - CCCXLII
+E         + 342
+
+test_generated.py:15: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test___normal_numbers[342-CCCXLII] - AssertionError...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_2f43fc7e612767a7f20a11184258c309d436570f6650c8080054d1894e280ccc.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________ test___zero_negatives[-1] ___________________________
+
+num = -1
+
+    @pytest.mark.parametrize("num", [0, -1])
+    def test___zero_negatives(num):
+>       assert sut.to_base(num, 10) == "0" * 10
+E       AssertionError: assert '' == '0000000000'
+E         
+E         - 0000000000
+
+test_generated.py:11: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test___zero_negatives[-1] - AssertionError: assert ...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_55d4ecb674059eed4f528c6d7e7c10f15ed6a2cdc6e12c3df24cfbe9df75ce60.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________________________ test___normal_numbers[7-VII] _________________________
+
+num = 7, expected = 'VII'
+
+    @pytest.mark.parametrize("num,expected", [(7, 'VII'), (342, 'CCCXLII')])
+    def test___normal_numbers(num, expected):
+>       assert sut.to_base(num, 10) == expected
+E       AssertionError: assert '7' == 'VII'
+E         
+E         - VII
+E         + 7
+
+test_generated.py:15: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test___normal_numbers[7-VII] - AssertionError: asse...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_785a136796dc5ebac0b20ac09c472123f3aabc3f78dbfbb9eae5f276a4c62066.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________________ test___custom_bases[342-10-CCCXLII] ______________________
+
+test_input = '342', b = 10, expected = 'CCCXLII'
+
+    @pytest.mark.parametrize("test_input,b,expected", [('7', 2, '11'), ('342', 10, 'CCCXLII')])
+    def test___custom_bases(test_input: str, b: int, expected: str):
+>       assert sut.to_base(test_input, b) == expected
+
+test_generated.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+num = '342', b = 10
+
+    def to_base(num, b):
+        result = ''
+        alphabet = string.digits + string.ascii_uppercase
+>       while num > 0:
+E       TypeError: '>' not supported between instances of 'str' and 'int'
+
+quixbugs_python_sut.py:6: TypeError
+=========================== short test summary info ============================
+FAILED test_generated.py::test___custom_bases[342-10-CCCXLII] - TypeError: '>...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_7d8ea2d1b1cdace663bd5b0c5932f00591cce7ef68f31bb0e8094cc7a2a2136d.log =====
+.                                                                        [100%]
+1 passed in 0.01s
+
+
+===== nodeid_sanitizer.node_a544b6cfe98c00db9eb69f86c06e69b6324bfa7ccd4b486868488393a34464f3.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________________________ test___zero_negatives[0] ___________________________
+
+num = 0
+
+    @pytest.mark.parametrize("num", [0, -1])
+    def test___zero_negatives(num):
+>       assert sut.to_base(num, 10) == "0" * 10
+E       AssertionError: assert '' == '0000000000'
+E         
+E         - 0000000000
+
+test_generated.py:11: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test___zero_negatives[0] - AssertionError: assert '...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_b7ba69d0e2bf863b44d7afd9866321bfb83aae0e5373bd2ab4e378eb49f125d4.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________________________ test___custom_bases[7-2-11] __________________________
+
+test_input = '7', b = 2, expected = '11'
+
+    @pytest.mark.parametrize("test_input,b,expected", [('7', 2, '11'), ('342', 10, 'CCCXLII')])
+    def test___custom_bases(test_input: str, b: int, expected: str):
+>       assert sut.to_base(test_input, b) == expected
+
+test_generated.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+num = '7', b = 2
+
+    def to_base(num, b):
+        result = ''
+        alphabet = string.digits + string.ascii_uppercase
+>       while num > 0:
+E       TypeError: '>' not supported between instances of 'str' and 'int'
+
+quixbugs_python_sut.py:6: TypeError
+=========================== short test summary info ============================
+FAILED test_generated.py::test___custom_bases[7-2-11] - TypeError: '>' not su...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=7
+individual_pass_nodeids=1
+individual_fail_nodeids=6
+individual_timeout_nodeids=0
+initial_effective_nodeids=1
+final_effective_nodeids=1
+greedy_stabilization_used=0
+final_pytest_exit_code=0
+
+
+===== parse_coverage.log =====
+{"branch_coverage_pct": 0.0, "error": null, "line_coverage_pct": 30.0}
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+.FFFFFF                                                                  [100%]
+=================================== FAILURES ===================================
+___________________________ test___zero_negatives[0] ___________________________
+test_generated_raw.py:11: in test___zero_negatives
+    assert sut.to_base(num, 10) == "0" * 10
+E   AssertionError: assert '' == '0000000000'
+E     
+E     - 0000000000
+__________________________ test___zero_negatives[-1] ___________________________
+test_generated_raw.py:11: in test___zero_negatives
+    assert sut.to_base(num, 10) == "0" * 10
+E   AssertionError: assert '' == '0000000000'
+E     
+E     - 0000000000
+_________________________ test___normal_numbers[7-VII] _________________________
+test_generated_raw.py:15: in test___normal_numbers
+    assert sut.to_base(num, 10) == expected
+E   AssertionError: assert '7' == 'VII'
+E     
+E     - VII
+E     + 7
+______________________ test___normal_numbers[342-CCCXLII] ______________________
+test_generated_raw.py:15: in test___normal_numbers
+    assert sut.to_base(num, 10) == expected
+E   AssertionError: assert '342' == 'CCCXLII'
+E     
+E     - CCCXLII
+E     + 342
+_________________________ test___custom_bases[7-2-11] __________________________
+test_generated_raw.py:19: in test___custom_bases
+    assert sut.to_base(test_input, b) == expected
+quixbugs_python_sut.py:6: in to_base
+    while num > 0:
+E   TypeError: '>' not supported between instances of 'str' and 'int'
+_____________________ test___custom_bases[342-10-CCCXLII] ______________________
+test_generated_raw.py:19: in test___custom_bases
+    assert sut.to_base(test_input, b) == expected
+quixbugs_python_sut.py:6: in to_base
+    while num > 0:
+E   TypeError: '>' not supported between instances of 'str' and 'int'
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test___zero_negatives[0] - AssertionError: asse...
+FAILED test_generated_raw.py::test___zero_negatives[-1] - AssertionError: ass...
+FAILED test_generated_raw.py::test___normal_numbers[7-VII] - AssertionError: ...
+FAILED test_generated_raw.py::test___normal_numbers[342-CCCXLII] - AssertionE...
+FAILED test_generated_raw.py::test___custom_bases[7-2-11] - TypeError: '>' no...
+FAILED test_generated_raw.py::test___custom_bases[342-10-CCCXLII] - TypeError...
+6 failed, 1 passed in 0.04s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/038_python_to_base/run_0001/1-4/generation/final_prompt.txt

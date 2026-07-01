@@ -1,0 +1,15 @@
+cluster_root=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1
+sut_root=/home/jpaiva/projetos/SUTs/quixbugs
+total_rows=1400
+model_count=7
+models={"cluster-max-codellama-7b-instruct-ctx16k": 200, "cluster-safe-codestral-22b-ctx16k": 200, "cluster-safe-deepseek-coder-v2-16b-ctx16k": 200, "cluster-safe-deepseek-v2-16b-ctx32k": 200, "cluster-safe-qwen2.5-coder-14b-ctx32k": 200, "cluster-safe-qwen3-coder-30b-official-ctx32k": 200, "cluster-safe-qwen3.5-9b-ctx32k": 200}
+cluster_status_counts={"invalid_test_structure": 2, "ok": 1361, "timeout": 37}
+local_classification_counts={"empty_generated_file": 37, "local_evaluation_candidate": 1363}
+status_key_counts={"ansi_escape_sequences_removed": 1400, "api_done": 1400, "api_done_reason": 1400, "api_error": 1400, "api_json_ok": 1400, "attempt_count": 1400, "candidate_count": 1400, "chosen_strategy": 1400, "control_chars_removed": 1400, "dataset": 1400, "duration_s": 1400, "empty_retry_max": 1400, "exit_code": 1400, "fence_extracted": 1400, "fence_language": 1400, "finished_at_utc": 1400, "generated_bytes": 1400, "generated_file": 1400, "generated_nonempty": 1400, "generated_sha256": 1400, "generation_retry_sleep_s": 1400, "kill_after_s": 1400, "model": 1400, "ollama_api_base": 1400, "ollama_bin": 1400, "prompt_bytes": 1400, "prompt_final_file": 1400, "prompt_sha256": 1400, "prompt_template": 1400, "prompt_variant": 1400, "raw_nonempty": 1400, "repeat": 1400, "request_payload_bytes": 1400, "request_payload_file": 1400, "request_payload_sha256": 1400, "response_api_bytes": 1400, "response_api_file": 1400, "response_api_sha256": 1400, "response_raw_bytes": 1400, "response_raw_file": 1400, "response_raw_sha256": 1400, "started_at_utc": 1400, "status": 1400, "stderr_bytes": 1400, "stderr_file": 1400, "structure_ok": 1400, "sut_file": 1400, "sut_id": 1400, "sut_root": 1400, "syntax_error_lineno": 1400, "syntax_error_message": 1400, "syntax_error_type": 1400, "syntax_ok": 1400, "test_class_method_count": 1400, "timed_out": 1400, "timeout_s": 1400, "top_level_test_count": 1400, "total_test_count": 1400, "trimmed_suffix_lines": 1400, "validation_file": 1400}
+local_evaluation_candidates=1363
+empty_generated_files=37
+local_syntax_errors=0
+missing_generated_files=0
+zero_ast_test_function_candidates=2
+from_sut_import_candidates=296
+missing_import_sut_candidates=42

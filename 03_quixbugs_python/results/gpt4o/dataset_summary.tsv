@@ -1,0 +1,2 @@
+out_root	total_status_files	total_suts	ok_reps	failed_reps	status_counts_json	line_penalized_mean	branch_penalized_mean	mutation_penalized_mean	effective_test_functions_mean	suts_5of5_ok	suts_0of5_ok	generation_attempt_histogram_json	generation_empty_attempt_histogram_json
+/home/jpaiva/projetos/llm_test_generation_gpt4o/quixbugs_python_gpt4o/out/quixbugs_python_gpt4o_final_20260504_103110	200	40	196	4	"{""generation_api_error"": 1, ""no_effective_tests_after_sanitization"": 3, ""ok"": 196}"	96.3117	93.2905	84.6071	5.18	39	0	"{""1"": 198, ""2"": 2}"	"{""0"": 198, ""1"": 2}"

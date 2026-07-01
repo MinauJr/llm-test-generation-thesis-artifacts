@@ -1,0 +1,158 @@
+{
+  "status": "ok",
+  "sut_id": "039_python_topological_ordering",
+  "algorithm": "topological_ordering",
+  "fully_evaluable": true,
+  "official_test_unchanged": true,
+  "prepared_sut_unchanged": true,
+  "pytest_exit_code": 0,
+  "tests_total": 3,
+  "tests_failed": 0,
+  "tests_errors": 0,
+  "tests_skipped": 0,
+  "coverage_exit_code": 0,
+  "coverage_json_exit_code": 0,
+  "line_metric_available": true,
+  "branch_metric_available": true,
+  "line_pct": 81.25,
+  "branch_pct": 75.0,
+  "num_statements": 32,
+  "covered_lines": 26,
+  "num_branches": 12,
+  "covered_branches": 9,
+  "coverage_file_key": "work_sut/sut.py",
+  "mutmut_exit_code": 0,
+  "mutmut_results_exit_code": 0,
+  "mutation_metric_available": true,
+  "mutation_pct": 64.29,
+  "mutation_formula": "killed / (killed + survived) * 100",
+  "counts": {
+    "processed": 49,
+    "total": 49,
+    "killed": 27,
+    "no_tests": 7,
+    "timeout": 0,
+    "suspicious": 0,
+    "survived": 15,
+    "skipped": 0,
+    "not_checked": 0,
+    "score_denominator": 42,
+    "displayed_status_sum": 49,
+    "unrepresented_processed_count": 0
+  },
+  "adapter_baseline_records": [
+    {
+      "raw_valid": true,
+      "normalised": true,
+      "input_values": [
+        5,
+        7,
+        3,
+        11,
+        8,
+        2,
+        9,
+        10
+      ],
+      "raw_values": [
+        5,
+        7,
+        3,
+        11,
+        8,
+        2,
+        9,
+        10
+      ],
+      "canonical_values": [
+        5,
+        7,
+        3,
+        11,
+        8,
+        10,
+        2,
+        9
+      ],
+      "raw_already_canonical": false
+    },
+    {
+      "raw_valid": true,
+      "normalised": true,
+      "input_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "raw_values": [
+        4,
+        5,
+        0,
+        2,
+        3,
+        1
+      ],
+      "canonical_values": [
+        4,
+        5,
+        0,
+        2,
+        3,
+        1
+      ],
+      "raw_already_canonical": true
+    },
+    {
+      "raw_valid": true,
+      "normalised": true,
+      "input_values": [
+        "3/4 cup milk",
+        "1 egg",
+        "1 Tbl oil",
+        "1 cup mix",
+        "heat syrup",
+        "heat griddle",
+        "pour 1/4 cup",
+        "turn when bubbly",
+        "eat"
+      ],
+      "raw_values": [
+        "3/4 cup milk",
+        "1 egg",
+        "1 Tbl oil",
+        "1 cup mix",
+        "heat syrup",
+        "heat griddle",
+        "pour 1/4 cup",
+        "turn when bubbly",
+        "eat"
+      ],
+      "canonical_values": [
+        "3/4 cup milk",
+        "1 egg",
+        "1 Tbl oil",
+        "heat griddle",
+        "1 cup mix",
+        "pour 1/4 cup",
+        "heat syrup",
+        "turn when bubbly",
+        "eat"
+      ],
+      "raw_already_canonical": false
+    }
+  ],
+  "warnings": [],
+  "warning_count": 0,
+  "diagnostics": [
+    "semantic_oracle_normalisation_applied",
+    "normalisation_only_after_raw_result_passes_topological_validity_check",
+    "no_tests_mutants_present:7"
+  ],
+  "diagnostic_count": 3,
+  "harness_change": "Semantic-oracle normalisation of valid topological orders only. Invalid SUT outputs remain unmodified and fail the official assertions.",
+  "sut_modified": false,
+  "official_test_modified": false
+}

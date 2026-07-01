@@ -1,0 +1,16 @@
+import sut
+
+def test_lcs_length_empty_strings():
+    assert sut.lcs_length("", "") == 0
+
+def test_lcs_length_no_common_subsequence():
+    assert sut.lcs_length("abc", "def") == 0
+
+def test_lcs_length_identical_strings():
+    assert sut.lcs_length("abc", "abc") == 3
+
+def test_lcs_length_partial_match():
+    assert sut.lcs_length("abc", "ac") == 2
+
+def test_lcs_length_one_empty_string():
+    assert sut.lcs_length("abc", "") == 0

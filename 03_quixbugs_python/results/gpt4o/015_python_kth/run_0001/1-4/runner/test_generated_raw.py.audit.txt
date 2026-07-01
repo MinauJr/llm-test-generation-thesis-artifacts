@@ -1,0 +1,16 @@
+import sut
+
+def test_kth_single_element():
+    assert sut.kth([5], 0) == 5
+
+def test_kth_first_element():
+    assert sut.kth([3, 1, 2], 0) == 1
+
+def test_kth_middle_element():
+    assert sut.kth([3, 1, 2], 1) == 2
+
+def test_kth_last_element():
+    assert sut.kth([3, 1, 2], 2) == 3
+
+def test_kth_duplicate_elements():
+    assert sut.kth([4, 2, 4, 3, 1], 3) == 4

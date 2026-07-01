@@ -1,0 +1,18 @@
+import pytest
+import sut
+
+def test_single_number():
+    assert sut.shunting_yard([3]) == [3]
+
+def test_simple_addition():
+    assert sut.shunting_yard([3, '+', 4]) == [3, 4, '+']
+
+def test_addition_and_multiplication():
+    assert sut.shunting_yard([3, '+', 4, '*', 5]) == [3, 4, 5, '*', '+']
+
+@pytest.mark.skip(reason="auto-sanitized failing generated test")
+def test_parentheses_precedence():
+    assert sut.shunting_yard(['(', 3, '+', 4, ')', '*', 5]) == [3, 4, '+', 5, '*']
+
+def test_multiple_operations():
+    assert sut.shunting_yard([3, '+', 4, '*', 5, '-', 6, '/', 2]) == [3, 4, 5, '*', '+', 6, 2, '/', '-']

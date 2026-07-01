@@ -1,0 +1,195 @@
+MODEL=cluster-safe-codestral-22b-ctx16k
+SUT=029_python_reverse_linked_list
+REPEAT=1
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=collection_or_harness_problem_name_error
+FINGERPRINT=name:pytest|collection_error
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/029_python_reverse_linked_list/run_0001/1-1
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-codestral-22b-ctx16k/029_python_reverse_linked_list/rep_01/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/029_python_reverse_linked_list/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "pytest"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "pytest"
+]
+
+===== SUT SYMBOLS =====
+[
+  "Node",
+  "reverse_linked_list"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "first_node",
+  "node1",
+  "node2",
+  "node3",
+  "reversed_list",
+  "sample_list",
+  "second_node",
+  "single_node",
+  "sut",
+  "test_reverse_linked_list_complex_order",
+  "test_reverse_linked_list_empty",
+  "test_reverse_linked_list_multiple_elements",
+  "test_reverse_linked_list_order",
+  "test_reverse_linked_list_single_element",
+  "third_node"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/029_python_reverse_linked_list/run_0001/1-1/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/029_python_reverse_linked_list/run_0001/1-1/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import sut
+
+@pytest.fixture
+def sample_list():
+    # create a simple linked list 1 -> 2 -> 3
+    third_node = sut.Node(None)
+    second_node = sut.Node(third_node)
+    first_node = sut.Node(second_node)
+    return first_node
+
+def test_reverse_linked_list_empty():
+    assert sut.reverse_linked_list(None) is None
+
+def test_reverse_linked_list_single_element(sample_list):
+    # linked list contains only one node 1
+    single_node = sample_list.successor.successor
+    reversed_list = sut.reverse_linked_list(single_node)
+    assert reversed_list == single_node
+    assert reversed_list.successor is None
+
+def test_reverse_linked_list_multiple_elements(sample_list):
+    # reverse a linked list 1 -> 2 -> 3 to be 3 -> 2 -> 1
+    reversed_list = sut.reverse_linked_list(sample_list)
+    assert reversed_list.successor == sample_list.successor
+    assert reversed_list.successor.successor == sample_list
+    assert reversed_list.successor.successor.successor is None
+
+def test_reverse_linked_list_order():
+    # check if reverse function can handle a specific order of assignments
+    node1 = sut.Node(None)
+    node2 = sut.Node(node1)
+    reversed_list = sut.reverse_linked_list(node2)
+    assert reversed_list == node1
+    assert reversed_list.successor == node2
+    assert reversed_list.successor.successor is None
+
+def test_reverse_linked_list_complex_order():
+    # check if reverse function can handle a complex order of assignments
+    node3 = sut.Node(None)
+    node2 = sut.Node(node3)
+    node1 = sut.Node(node2)
+    reversed_list = sut.reverse_linked_list(node1)
+    assert reversed_list == node3
+    assert reversed_list.successor == node2
+    assert reversed_list.successor.successor == node1
+    assert reversed_list.successor.successor.successor is None
+
+
+===== SUT =====
+class Node:
+    def __init__(self, successor=None):
+        self.successor = successor
+
+
+def reverse_linked_list(node):
+    prevnode = None
+    while node:
+        nextnode = node.successor
+        node.successor = prevnode
+        prevnode = node
+        node = nextnode
+    return prevnode
+
+"""
+def reverse_linked_list(node):
+    prevnode = None
+    while node:
+        nextnode = node.successor
+        node.successor = prevnode
+        prevnode, node = node, nextnode
+    return prevnode
+
+def reverse_linked_list(node):
+    prevnode = None
+    while node:
+        nextnode = node.successor
+        node.successor = prevnode
+        node, prevnode = nextnode, node
+    return prevnode
+
+"""
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+
+==================================== ERRORS ====================================
+______________________ ERROR collecting test_generated.py ______________________
+test_generated.py:3: in <module>
+    @pytest.fixture
+E   NameError: name 'pytest' is not defined
+=========================== short test summary info ============================
+ERROR test_generated.py - NameError: name 'pytest' is not defined
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+no tests collected, 1 error in 0.13s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=0
+individual_pass_nodeids=0
+individual_fail_nodeids=0
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting test_generated_raw.py ____________________
+test_generated_raw.py:3: in <module>
+    @pytest.fixture
+E   NameError: name 'pytest' is not defined
+=========================== short test summary info ============================
+ERROR test_generated_raw.py - NameError: name 'pytest' is not defined
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.11s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/029_python_reverse_linked_list/run_0001/1-1/generation/final_prompt.txt

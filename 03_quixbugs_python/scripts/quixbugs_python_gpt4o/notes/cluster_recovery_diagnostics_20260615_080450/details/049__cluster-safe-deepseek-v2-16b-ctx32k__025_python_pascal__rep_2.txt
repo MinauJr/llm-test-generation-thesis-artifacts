@@ -1,0 +1,121 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=025_python_pascal
+REPEAT=2
+EVAL_STATUS=ok
+REASON=metrics_exist_but_status_missing
+FINGERPRINT=metrics_overlay
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/025_python_pascal/run_0001/1-2
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/025_python_pascal/rep_02/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/025_python_pascal/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[]
+
+===== SUT SYMBOLS =====
+[
+  "pascal"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "pascal",
+  "pytest",
+  "row",
+  "test_pascal_empty",
+  "test_pascal_one",
+  "test_pascal_two"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {
+    "branch_coverage_pct": 0.0,
+    "error": null,
+    "line_coverage_pct": 10.0
+  },
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/025_python_pascal/run_0001/1-2/metrics/coverage_metrics.json",
+  "coverage_xml_branch_rate": 0.0,
+  "coverage_xml_error": "",
+  "coverage_xml_exists": true,
+  "coverage_xml_line_rate": 10.0,
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/025_python_pascal/run_0001/1-2/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+from sut import pascal
+
+def test_pascal_empty():
+    assert len([1]) == 1, "Expected an empty list."
+
+def test_pascal_one():
+    row = [1]
+    assert len(row) == 1, "Expected a single-item list of length one."
+
+def test_pascal_two():pascal
+
+
+===== SUT =====
+
+def pascal(n):
+    rows = [[1]]
+    for r in range(1, n):
+        row = []
+        for c in range(0, r + 1):
+            upleft = rows[r - 1][c - 1] if c > 0 else 0
+            upright = rows[r - 1][c] if c < r else 0
+            row.append(upleft + upright)
+        rows.append(row)
+
+    return rows
+
+
+
+===== LOGS =====
+
+
+===== analyze_effective_tests.log =====
+{"all_top_level_tests_skipped": false, "effective_test_functions": 3, "error": null, "test_file": "/home/jpaiva/projetos/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/025_python_pascal/run_0001/1-2/runner/test_generated.py", "top_level_skipped_test_functions": 0, "top_level_test_functions": 3}
+
+
+===== coverage.log =====
+...                                                                      [100%]
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.10.12-final-0 _______________
+
+Name     Stmts   Miss Branch BrPart  Cover   Missing
+----------------------------------------------------
+sut.py      10      9      4      0     7%   3-12
+----------------------------------------------------
+TOTAL       10      9      4      0     7%
+Coverage XML written to file coverage.xml
+3 passed in 0.03s
+
+
+===== parse_coverage.log =====
+{"branch_coverage_pct": 0.0, "error": null, "line_coverage_pct": 10.0}
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+...                                                                      [100%]
+3 passed in 0.01s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/025_python_pascal/run_0001/1-2/generation/final_prompt.txt

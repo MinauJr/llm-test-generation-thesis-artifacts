@@ -1,0 +1,26 @@
+import sut
+
+def test_single_edge():
+    weight_by_edge = {('A', 'B'): 1}
+    result = sut.minimum_spanning_tree(weight_by_edge)
+    assert result == {('A', 'B')}
+
+def test_two_connected_edges():
+    weight_by_edge = {('A', 'B'): 1, ('B', 'C'): 2}
+    result = sut.minimum_spanning_tree(weight_by_edge)
+    assert result == {('A', 'B'), ('B', 'C')}
+
+def test_triangle_graph():
+    weight_by_edge = {('A', 'B'): 1, ('B', 'C'): 2, ('A', 'C'): 3}
+    result = sut.minimum_spanning_tree(weight_by_edge)
+    assert result == {('A', 'B'), ('B', 'C')}
+
+def test_disconnected_graph():
+    weight_by_edge = {('A', 'B'): 1, ('C', 'D'): 2}
+    result = sut.minimum_spanning_tree(weight_by_edge)
+    assert result == {('A', 'B'), ('C', 'D')}
+
+def test_four_node_graph():
+    weight_by_edge = {('A', 'B'): 1, ('B', 'C'): 2, ('C', 'D'): 3, ('A', 'D'): 4}
+    result = sut.minimum_spanning_tree(weight_by_edge)
+    assert result == {('A', 'B'), ('B', 'C'), ('C', 'D')}

@@ -1,0 +1,16 @@
+import sut
+
+def test_valid_balanced_parentheses():
+    assert sut.is_valid_parenthesization("()") == True
+
+def test_valid_nested_parentheses():
+    assert sut.is_valid_parenthesization("(())") == True
+
+def test_invalid_unbalanced_open():
+    assert sut.is_valid_parenthesization("(()") == False
+
+def test_invalid_unbalanced_close():
+    assert sut.is_valid_parenthesization("())") == False
+
+def test_empty_string():
+    assert sut.is_valid_parenthesization("") == True

@@ -1,0 +1,8 @@
+{
+  "dataset": "quixbugs",
+  "lang": "python",
+  "task_key": "max_sublist_sum",
+  "pair_id": 20,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_python_programs/max_sublist_sum.py",
+  "entry_file": "sut.py"
+}

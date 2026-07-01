@@ -1,0 +1,128 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=008_python_flatten
+REPEAT=3
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=collection_or_harness_problem_name_error
+FINGERPRINT=name:pytest|collection_error
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/008_python_flatten/run_0001/1-3
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/008_python_flatten/rep_03/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/008_python_flatten/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "pytest"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "pytest"
+]
+
+===== SUT SYMBOLS =====
+[
+  "flatten"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "expected",
+  "test_flatten_complex",
+  "test_flatten_nested",
+  "test_flatten_single_in_nested"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/008_python_flatten/run_0001/1-3/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/008_python_flatten/run_0001/1-3/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+@pytest.mark.parametrize("input_list", [[1, 2], [3], []])  # Complex mix of lists and nested lists
+def test_flatten_complex():
+    expected = [1, 2, 3]
+    assert list(flatten([[1, 2], [3], []])) == expected
+
+@pytest.mark.parametrize("input_list", [[1, 2, [3]]])  # Nested structure with one nested level
+def test_flatten_nested():
+    expected = [1, 2, 3]
+    assert list(flatten([[1, 2, [3]], []])) == expected
+
+@pytest.mark.parametrize("input_list", [[1, [2, 3], 4]])  # Single item in middle of nested lists
+def test_flatten_single_in_nested():
+    expected = [1, 2, 3, 4]
+    assert list(flatten([[1, [2, 3], 4]])) == expected
+
+
+===== SUT =====
+
+def flatten(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten(x):
+                yield y
+        else:
+            yield x
+
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+
+==================================== ERRORS ====================================
+______________________ ERROR collecting test_generated.py ______________________
+test_generated.py:1: in <module>
+    @pytest.mark.parametrize("input_list", [[1, 2], [3], []])  # Complex mix of lists and nested lists
+E   NameError: name 'pytest' is not defined
+=========================== short test summary info ============================
+ERROR test_generated.py - NameError: name 'pytest' is not defined
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+no tests collected, 1 error in 0.11s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=0
+individual_pass_nodeids=0
+individual_fail_nodeids=0
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting test_generated_raw.py ____________________
+test_generated_raw.py:1: in <module>
+    @pytest.mark.parametrize("input_list", [[1, 2], [3], []])  # Complex mix of lists and nested lists
+E   NameError: name 'pytest' is not defined
+=========================== short test summary info ============================
+ERROR test_generated_raw.py - NameError: name 'pytest' is not defined
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.11s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/008_python_flatten/run_0001/1-3/generation/final_prompt.txt

@@ -1,0 +1,71 @@
+import sut
+
+def test_no_cycle_single_node():
+    node = sut.Node()
+    assert sut.detect_cycle(node) is False
+
+def test_no_cycle_two_nodes():
+    node1 = sut.Node()
+    node2 = sut.Node()
+    node1.successor = node2
+    assert sut.detect_cycle(node1) is False
+
+def test_cycle_single_node():
+    node = sut.Node()
+    node.successor = node
+    assert sut.detect_cycle(node) is True
+
+def test_cycle_two_nodes():
+    node1 = sut.Node()
+    node2 = sut.Node()
+    node1.successor = node2
+    node2.successor = node1
+    assert sut.detect_cycle(node1) is True
+
+def test_long_chain_no_cycle():
+    node1 = sut.Node()
+    node2 = sut.Node()
+    node3 = sut.Node()
+    node4 = sut.Node()
+    node1.successor = node2
+    node2.successor = node3
+    node3.successor = node4
+    assert sut.detect_cycle(node1) is False
+
+def test_long_chain_with_cycle():
+    node1 = sut.Node()
+    node2 = sut.Node()
+    node3 = sut.Node()
+    node4 = sut.Node()
+    node1.successor = node2
+    node2.successor = node3
+    node3.successor = node4
+    node4.successor = node2
+    assert sut.detect_cycle(node1) is True
+
+def test_no_cycle_empty_node():
+    assert sut.detect_cycle(None) is False
+
+def test_cycle_large_chain():
+    nodes = [sut.Node() for _ in range(100)]
+    for i in range(99):
+        nodes[i].successor = nodes[i + 1]
+    nodes[99].successor = nodes[50]
+    assert sut.detect_cycle(nodes[0]) is True
+
+def test_no_cycle_large_chain():
+    nodes = [sut.Node() for _ in range(100)]
+    for i in range(99):
+        nodes[i].successor = nodes[i + 1]
+    assert sut.detect_cycle(nodes[0]) is False
+
+def test_cycle_at_end():
+    node1 = sut.Node()
+    node2 = sut.Node()
+    node3 = sut.Node()
+    node4 = sut.Node()
+    node1.successor = node2
+    node2.successor = node3
+    node3.successor = node4
+    node4.successor = node4
+    assert sut.detect_cycle(node1) is True

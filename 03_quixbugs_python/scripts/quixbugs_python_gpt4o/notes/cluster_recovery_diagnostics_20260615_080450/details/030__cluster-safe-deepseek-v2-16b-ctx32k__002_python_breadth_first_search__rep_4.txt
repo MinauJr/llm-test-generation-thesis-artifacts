@@ -1,0 +1,193 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=002_python_breadth_first_search
+REPEAT=4
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=collection_or_harness_problem_name_error
+FINGERPRINT=name:Tags|collection_error
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/002_python_breadth_first_search/run_0001/1-4
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/002_python_breadth_first_search/rep_04/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/002_python_breadth_first_search/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "Tags"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "Tags"
+]
+
+===== SUT SYMBOLS =====
+[
+  "Node",
+  "_MAX_SUCCESSORS",
+  "_MAX_VISITS",
+  "_normalise_nodes",
+  "breadth_first_search"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "_",
+  "goalnode",
+  "i",
+  "nodes",
+  "pytest",
+  "pytestmark",
+  "startnode",
+  "test__normalise_nodes",
+  "test_breadth_first_search_basic_case",
+  "test_breadth_first_search_complex_case",
+  "test_breadth_first_search_large_limit",
+  "test_breadth_first_search_not_found"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/002_python_breadth_first_search/run_0001/1-4/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/002_python_breadth_first_search/run_0001/1-4/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+pytestmark = [Tags.QUAXIBUGS_PYTHON_SUT]
+
+def test__normalise_nodes():
+    assert sut._normalise_nodes([]) == []
+    assert sut._normalise_nodes([0]) == [0]
+    with pytest.raises(ValueError):
+        sut._normalise_nodes("invalid")
+
+def test_breadth_first_search_not_found():
+    startnode = Node()
+    goalnode = "non-existent"
+    assert not breadth_first_search(startnode, goalnode)
+
+def test_breadth_first_search_basic_case():
+    # Create a small graph for testing.
+    nodes = {0: [1], 1: [2]}  # A -> B -> C example.
+    startnode = Node(nodes[0])
+    goalnode = "C" if isinstance(nodes["C"], int) else Node(nodes["C"])
+    assert breadth_first_search(startnode, goalnode)
+
+def test_breadth_first_search_complex_case():
+    # Test with a larger graph.
+    nodes = {i: range(10*i+1) for i in range(3)}  # A list of lists example.
+    startnode = Node()
+    goalnode = "last" if isinstance(nodes["last"], int) else Node(nodes["last"])
+    assert breadth_first_search(startnode, goalnode)
+
+def test_breadth_first_search_large_limit():
+    # Test with the limit to see how it behaves.
+    startnode = Node()
+    goalnode = "non-existent"
+    for _ in range(_MAX_VISITS):
+        assert not breadth_first_search(startnode, goalnode)
+
+
+===== SUT =====
+from collections import deque
+
+_MAX_VISITS = 1000
+_MAX_SUCCESSORS = 100
+
+
+def _normalise_nodes(value):
+    if isinstance(value, (list, tuple, set)):
+        return list(value)[:_MAX_SUCCESSORS]
+    return []
+
+
+class Node:
+    def __init__(self, successors=None):
+        self.successors = _normalise_nodes(successors)
+
+
+def breadth_first_search(startnode, goalnode):
+    if startnode is goalnode:
+        return True
+
+    if not hasattr(startnode, "successors"):
+        return False
+
+    queue = deque([startnode])
+    seen = {id(startnode)}
+    visits = 0
+
+    while queue and visits < _MAX_VISITS:
+        node = queue.popleft()
+        visits += 1
+
+        if node is goalnode:
+            return True
+
+        for successor in _normalise_nodes(getattr(node, "successors", [])):
+            sid = id(successor)
+            if sid not in seen:
+                seen.add(sid)
+                queue.append(successor)
+
+    return False
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+
+==================================== ERRORS ====================================
+______________________ ERROR collecting test_generated.py ______________________
+test_generated.py:2: in <module>
+    pytestmark = [Tags.QUAXIBUGS_PYTHON_SUT]
+E   NameError: name 'Tags' is not defined
+=========================== short test summary info ============================
+ERROR test_generated.py - NameError: name 'Tags' is not defined
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+no tests collected, 1 error in 0.11s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=0
+individual_pass_nodeids=0
+individual_fail_nodeids=0
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting test_generated_raw.py ____________________
+test_generated_raw.py:2: in <module>
+    pytestmark = [Tags.QUAXIBUGS_PYTHON_SUT]
+E   NameError: name 'Tags' is not defined
+=========================== short test summary info ============================
+ERROR test_generated_raw.py - NameError: name 'Tags' is not defined
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.11s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/002_python_breadth_first_search/run_0001/1-4/generation/final_prompt.txt

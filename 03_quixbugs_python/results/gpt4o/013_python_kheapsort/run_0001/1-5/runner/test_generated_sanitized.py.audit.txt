@@ -1,0 +1,23 @@
+import pytest
+import sut
+
+def test_kheapsort_sorted_input():
+    result = list(sut.kheapsort([1, 2, 3, 4, 5], 3))
+    assert result == [1, 2, 3, 4, 5]
+
+@pytest.mark.skip(reason="auto-sanitized failing generated test")
+def test_kheapsort_reverse_sorted_input():
+    result = list(sut.kheapsort([5, 4, 3, 2, 1], 3))
+    assert result == [1, 2, 3, 4, 5]
+
+def test_kheapsort_unsorted_input():
+    result = list(sut.kheapsort([3, 1, 4, 1, 5, 9, 2, 6, 5], 4))
+    assert result == [1, 1, 2, 3, 4, 5, 5, 6, 9]
+
+def test_kheapsort_single_element():
+    result = list(sut.kheapsort([42], 1))
+    assert result == [42]
+
+def test_kheapsort_k_greater_than_length():
+    result = list(sut.kheapsort([3, 1, 4], 5))
+    assert result == [1, 3, 4]

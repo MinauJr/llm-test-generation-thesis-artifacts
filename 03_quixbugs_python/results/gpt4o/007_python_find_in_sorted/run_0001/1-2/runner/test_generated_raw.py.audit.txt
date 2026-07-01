@@ -1,0 +1,32 @@
+import sut
+
+def test_find_in_sorted_found_middle():
+    assert sut.find_in_sorted([1, 2, 3, 4, 5], 3) == 2
+
+def test_find_in_sorted_found_start():
+    assert sut.find_in_sorted([1, 2, 3, 4, 5], 1) == 0
+
+def test_find_in_sorted_found_end():
+    assert sut.find_in_sorted([1, 2, 3, 4, 5], 5) == 4
+
+def test_find_in_sorted_not_found():
+    assert sut.find_in_sorted([1, 2, 3, 4, 5], 6) == -1
+
+def test_find_in_sorted_empty_array():
+    assert sut.find_in_sorted([], 1) == -1
+
+def test_find_in_sorted_single_element_found():
+    assert sut.find_in_sorted([10], 10) == 0
+
+def test_find_in_sorted_single_element_not_found():
+    assert sut.find_in_sorted([10], 5) == -1
+
+def test_find_in_sorted_duplicate_elements():
+    assert sut.find_in_sorted([1, 2, 2, 2, 3], 2) == 2
+
+def test_find_in_sorted_large_array():
+    arr = list(range(1000))
+    assert sut.find_in_sorted(arr, 500) == 500
+
+def test_find_in_sorted_negative_numbers():
+    assert sut.find_in_sorted([-10, -5, 0, 5, 10], -5) == 1

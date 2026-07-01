@@ -1,0 +1,7 @@
+cluster-max-codellama-7b-instruct-ctx16k
+cluster-safe-codestral-22b-ctx16k
+cluster-safe-deepseek-coder-v2-16b-ctx16k
+cluster-safe-deepseek-v2-16b-ctx32k
+cluster-safe-qwen2.5-coder-14b-ctx32k
+cluster-safe-qwen3-coder-30b-official-ctx32k
+cluster-safe-qwen3.5-9b-ctx32k

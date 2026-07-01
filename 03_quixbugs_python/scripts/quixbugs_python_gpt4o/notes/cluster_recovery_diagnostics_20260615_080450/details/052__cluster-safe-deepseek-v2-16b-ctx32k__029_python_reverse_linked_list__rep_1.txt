@@ -1,0 +1,191 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=029_python_reverse_linked_list
+REPEAT=1
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=collection_or_harness_problem_name_error
+FINGERPRINT=name:sut|attribute:'Node' object has no attribute 'set...,'Node' object has no attribute 'set_successor'. Did you mean: 'successor'?|collection_error
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/029_python_reverse_linked_list/run_0001/1-1
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/029_python_reverse_linked_list/rep_01/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/029_python_reverse_linked_list/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [
+    "'Node' object has no attribute 'set...",
+    "'Node' object has no attribute 'set_successor'. Did you mean: 'successor'?"
+  ],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "sut"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "sut"
+]
+
+===== SUT SYMBOLS =====
+[
+  "Node",
+  "reverse_linked_list"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "Node",
+  "__init__",
+  "head",
+  "nextnode",
+  "node",
+  "prevnode",
+  "pytest",
+  "result",
+  "reverse_linked_list",
+  "self",
+  "successor",
+  "tail",
+  "test_input",
+  "test_reverse_linked_list",
+  "test_reverse_linked_list_empty",
+  "test_reverse_linked_list_reversed",
+  "test_reverse_linked_list_single_node"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/029_python_reverse_linked_list/run_0001/1-1/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/029_python_reverse_linked_list/run_0001/1-1/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+
+class Node:
+    def __init__(self, successor=None):
+        self.successor = successor
+
+def reverse_linked_list(node):
+    prevnode = None
+    while node:
+        nextnode = node.successor
+        node.successor = prevnode
+        prevnode, node = node, nextnode
+    return prevnode
+
+@pytest.mark.parametrize("test_input", [(sut.Node(), sut.Node(successor=sut.Node()), sut.Node().set_successor(sut.Node()))])
+def test_reverse_linked_list(test_input):
+    node, head, tail = test_input
+    result = reverse_linked_list(node)
+    assert result == tail, f"Expected {tail} as output but got {result}"
+
+@pytest.mark.parametrize("test_input", [(sut.Node(), sut.Node(successor=sut.Node()), sut.Node().set_successor(sut.Node()))])
+def test_reverse_linked_list_single_node(test_input):
+    node, head, tail = test_input
+    result = reverse_linked_list(node)
+    assert result == tail, f"Expected {tail} as output but got {result}"
+
+@pytest.mark.parametrize("test_input", [(sut.Node(), sut.Node(successor=sut.Node()), sut.Node().set_successor(sut.Node()))])
+def test_reverse_linked_list_empty(test_input):
+    node, head, tail = test_input
+    result = reverse_linked_list(node)
+    assert result == tail, f"Expected {tail} as output but got {result}"
+
+@pytest.mark.parametrize("test_input", [(sut.Node(), sut.Node(successor=sut.Node()), sut.Node().set_successor(sut.Node()))])
+def test_reverse_linked_list_reversed(test_input):
+    node, head, tail = test_input
+    result = reverse_linked_list(node)
+    assert result == head, f"Expected {head} as output but got {result}"
+
+
+===== SUT =====
+class Node:
+    def __init__(self, successor=None):
+        self.successor = successor
+
+
+def reverse_linked_list(node):
+    prevnode = None
+    while node:
+        nextnode = node.successor
+        node.successor = prevnode
+        prevnode = node
+        node = nextnode
+    return prevnode
+
+"""
+def reverse_linked_list(node):
+    prevnode = None
+    while node:
+        nextnode = node.successor
+        node.successor = prevnode
+        prevnode, node = node, nextnode
+    return prevnode
+
+def reverse_linked_list(node):
+    prevnode = None
+    while node:
+        nextnode = node.successor
+        node.successor = prevnode
+        node, prevnode = nextnode, node
+    return prevnode
+
+"""
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+
+==================================== ERRORS ====================================
+______________________ ERROR collecting test_generated.py ______________________
+test_generated.py:15: in <module>
+    @pytest.mark.parametrize("test_input", [(sut.Node(), sut.Node(successor=sut.Node()), sut.Node().set_successor(sut.Node()))])
+E   AttributeError: 'Node' object has no attribute 'set_successor'. Did you mean: 'successor'?
+=========================== short test summary info ============================
+ERROR test_generated.py - AttributeError: 'Node' object has no attribute 'set...
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+no tests collected, 1 error in 0.11s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=0
+individual_pass_nodeids=0
+individual_fail_nodeids=0
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting test_generated_raw.py ____________________
+test_generated_raw.py:15: in <module>
+    @pytest.mark.parametrize("test_input", [(sut.Node(), sut.Node(successor=sut.Node()), sut.Node().set_successor(sut.Node()))])
+E   NameError: name 'sut' is not defined
+=========================== short test summary info ============================
+ERROR test_generated_raw.py - NameError: name 'sut' is not defined
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.11s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/029_python_reverse_linked_list/run_0001/1-1/generation/final_prompt.txt

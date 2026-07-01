@@ -1,0 +1,23 @@
+import sut
+
+def test_wrap_single_line():
+    result = sut.wrap("This is a test", 20)
+    assert result == ["This is a test"]
+
+def test_wrap_multiple_lines():
+    result = sut.wrap("This is a test of the wrap function", 10)
+    assert result == ["This is a", "test of", "the wrap", "function"]
+
+def test_wrap_exact_length():
+    result = sut.wrap("1234567890", 10)
+    assert result == ["1234567890"]
+
+def test_wrap_no_spaces():
+    result = sut.wrap("abcdefghij", 4)
+    assert result == ["abcd", "efgh", "ij"]
+
+def test_wrap_invalid_columns():
+    try:
+        sut.wrap("This is a test", -5)
+    except ValueError as e:
+        assert str(e) == "cols must be a positive integer"

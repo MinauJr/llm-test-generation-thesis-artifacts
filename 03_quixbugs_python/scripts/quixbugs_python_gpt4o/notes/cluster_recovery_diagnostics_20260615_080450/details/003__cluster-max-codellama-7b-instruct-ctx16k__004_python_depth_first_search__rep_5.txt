@@ -1,0 +1,276 @@
+MODEL=cluster-max-codellama-7b-instruct-ctx16k
+SUT=004_python_depth_first_search
+REPEAT=5
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_name_error
+FINGERPRINT=name:Node
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/004_python_depth_first_search/run_0001/1-5
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/004_python_depth_first_search/rep_05/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/004_python_depth_first_search/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "Node"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "Node"
+]
+
+===== SUT SYMBOLS =====
+[
+  "Node",
+  "depth_first_search"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "goalnode",
+  "nextnode",
+  "node",
+  "nodesvisited",
+  "search_from",
+  "startnode",
+  "sut",
+  "test_depth_first_search",
+  "test_depth_first_search2",
+  "test_depth_first_search3",
+  "test_depth_first_search4"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/004_python_depth_first_search/run_0001/1-5/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/004_python_depth_first_search/run_0001/1-5/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import sut
+
+def test_depth_first_search():
+    startnode = Node()
+    goalnode = Node()
+    nodesvisited = set()
+
+    def search_from(node):
+        if node in nodesvisited:
+            return False
+        elif node is goalnode:
+            return True
+        else:
+            nodesvisited.add(node)
+            return any(
+                search_from(nextnode) for nextnode in node.successors
+            )
+
+    assert search_from(startnode) == True
+
+def test_depth_first_search2():
+    startnode = Node()
+    goalnode = Node()
+    nodesvisited = set()
+
+    def search_from(node):
+        if node in nodesvisited:
+            return False
+        elif node is goalnode:
+            return True
+        else:
+            nodesvisited.add(node)
+            return any(
+                search_from(nextnode) for nextnode in node.successors
+            )
+
+    assert search_from(startnode) == False
+
+def test_depth_first_search3():
+    startnode = Node()
+    goalnode = Node()
+    nodesvisited = set()
+
+    def search_from(node):
+        if node in nodesvisited:
+            return False
+        elif node is goalnode:
+            return True
+        else:
+            nodesvisited.add(node)
+            return any(
+                search_from(nextnode) for nextnode in node.successors
+            )
+
+    assert search_from(startnode) == False
+
+def test_depth_first_search4():
+    startnode = Node()
+    goalnode = Node()
+    nodesvisited = set()
+
+    def search_from(node):
+        if node in nodesvisited:
+            return False
+        elif node is goalnode:
+            return True
+        else:
+            nodesvisited.add(node)
+            return any(
+                search_from(nextnode) for nextnode in node.successors
+            )
+
+    assert search_from(startnode) == False
+
+
+===== SUT =====
+class Node:
+    def __init__(self, successors=None):
+        self.successors = list(successors) if successors is not None else []
+
+
+def depth_first_search(startnode, goalnode):
+    nodesvisited = set()
+
+    def search_from(node):
+        if node in nodesvisited:
+            return False
+        elif node is goalnode:
+            return True
+        else:
+            nodesvisited.add(node)
+            return any(
+                search_from(nextnode) for nextnode in node.successors
+            )
+
+    return search_from(startnode)
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_depth_first_search
+test_generated.py::test_depth_first_search2
+test_generated.py::test_depth_first_search3
+test_generated.py::test_depth_first_search4
+
+4 tests collected in 0.01s
+
+
+===== nodeid_sanitizer.node_063ff4b3008d7345d7acf0735f301a31d0b95a7b3369e9ec818df03072644e56.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________________________ test_depth_first_search ____________________________
+
+    def test_depth_first_search():
+>       startnode = Node()
+E       NameError: name 'Node' is not defined
+
+test_generated.py:4: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_depth_first_search - NameError: name 'Node' is...
+1 failed in 0.03s
+
+
+===== nodeid_sanitizer.node_587d418bc123c147316de76245a97494fbf911a3dacea19859d23e8e80d1a347.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________________________ test_depth_first_search4 ___________________________
+
+    def test_depth_first_search4():
+>       startnode = Node()
+E       NameError: name 'Node' is not defined
+
+test_generated.py:58: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_depth_first_search4 - NameError: name 'Node' i...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_9a43ae4b83f4e17c2e3d13efcac023d5b01df12a26143c1d73be6b397abcc3bc.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________________________ test_depth_first_search3 ___________________________
+
+    def test_depth_first_search3():
+>       startnode = Node()
+E       NameError: name 'Node' is not defined
+
+test_generated.py:40: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_depth_first_search3 - NameError: name 'Node' i...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_d2fa46e18a0729cdf632e2ec6b681713efceeb4c9687cfe4f249ceb44ba465cb.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________________________ test_depth_first_search2 ___________________________
+
+    def test_depth_first_search2():
+>       startnode = Node()
+E       NameError: name 'Node' is not defined
+
+test_generated.py:22: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_depth_first_search2 - NameError: name 'Node' i...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=4
+individual_pass_nodeids=0
+individual_fail_nodeids=4
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+FFFF                                                                     [100%]
+=================================== FAILURES ===================================
+___________________________ test_depth_first_search ____________________________
+test_generated_raw.py:4: in test_depth_first_search
+    startnode = Node()
+E   NameError: name 'Node' is not defined
+___________________________ test_depth_first_search2 ___________________________
+test_generated_raw.py:22: in test_depth_first_search2
+    startnode = Node()
+E   NameError: name 'Node' is not defined
+___________________________ test_depth_first_search3 ___________________________
+test_generated_raw.py:40: in test_depth_first_search3
+    startnode = Node()
+E   NameError: name 'Node' is not defined
+___________________________ test_depth_first_search4 ___________________________
+test_generated_raw.py:58: in test_depth_first_search4
+    startnode = Node()
+E   NameError: name 'Node' is not defined
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test_depth_first_search - NameError: name 'Node...
+FAILED test_generated_raw.py::test_depth_first_search2 - NameError: name 'Nod...
+FAILED test_generated_raw.py::test_depth_first_search3 - NameError: name 'Nod...
+FAILED test_generated_raw.py::test_depth_first_search4 - NameError: name 'Nod...
+4 failed in 0.03s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/004_python_depth_first_search/run_0001/1-5/generation/final_prompt.txt

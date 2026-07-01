@@ -1,0 +1,136 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=009_python_gcd
+REPEAT=1
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=collection_or_harness_problem_name_error
+FINGERPRINT=name:pytest|collection_error
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/009_python_gcd/run_0001/1-1
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/009_python_gcd/rep_01/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/009_python_gcd/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "pytest"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "pytest"
+]
+
+===== SUT SYMBOLS =====
+[
+  "gcd"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "a",
+  "b",
+  "invalid1",
+  "invalid2",
+  "operands",
+  "result",
+  "test_basic",
+  "test_divide_by_zero",
+  "test_multiple_gcd",
+  "test_multiple_gcd_same"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/009_python_gcd/run_0001/1-1/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/009_python_gcd/run_0001/1-1/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+def test_basic(a, b):
+    assert gcd(int(a), int(b)) == int(b) if int(b) != 0 else abs(int(a))
+
+@pytest.mark.parametrize("result", [3, 2])
+@pytest.mark.parametrize("operands", ["7,8", "4,5"])
+def test_multiple_gcd(result, operands):
+    assert gcd(*operands) == result
+
+@pytest.mark.parametrize("result", [1, 0])
+@pytest.mark.parametrize("operands", ["24,32", "64,96"])
+def test_multiple_gcd_same(result, operands):
+    assert gcd(*operands) == result
+
+@pytest.mark.parametrize("invalid1", [0])
+@pytest.mark.parametrize("invalid2", ["-0"])
+def test_divide_by_zero(invalid1, invalid2):
+    with pytest.raises(ZeroDivisionError):
+        gcd(int(invalid1), 0)
+
+
+===== SUT =====
+
+def gcd(a, b):
+    if b == 0:
+        return a
+    else:
+        return gcd(b, a % b)
+
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+
+==================================== ERRORS ====================================
+______________________ ERROR collecting test_generated.py ______________________
+test_generated.py:4: in <module>
+    @pytest.mark.parametrize("result", [3, 2])
+E   NameError: name 'pytest' is not defined
+=========================== short test summary info ============================
+ERROR test_generated.py - NameError: name 'pytest' is not defined
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+no tests collected, 1 error in 0.11s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=0
+individual_pass_nodeids=0
+individual_fail_nodeids=0
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting test_generated_raw.py ____________________
+test_generated_raw.py:4: in <module>
+    @pytest.mark.parametrize("result", [3, 2])
+E   NameError: name 'pytest' is not defined
+=========================== short test summary info ============================
+ERROR test_generated_raw.py - NameError: name 'pytest' is not defined
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.10s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/009_python_gcd/run_0001/1-1/generation/final_prompt.txt

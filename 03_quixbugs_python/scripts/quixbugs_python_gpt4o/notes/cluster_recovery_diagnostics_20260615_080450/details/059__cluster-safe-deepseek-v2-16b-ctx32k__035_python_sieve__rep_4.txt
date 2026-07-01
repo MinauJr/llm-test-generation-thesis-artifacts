@@ -1,0 +1,163 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=035_python_sieve
+REPEAT=4
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=collection_or_harness_problem_name_error
+FINGERPRINT=attribute:module 'sut' has no attribute 'Siev...,module 'sut' has no attribute 'Sieve'. Did you mean: 'sieve'?|collection_error
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/035_python_sieve/run_0001/1-4
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/035_python_sieve/rep_04/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/035_python_sieve/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [
+    "module 'sut' has no attribute 'Siev...",
+    "module 'sut' has no attribute 'Sieve'. Did you mean: 'sieve'?"
+  ],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "sut"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[]
+
+===== SUT SYMBOLS =====
+[
+  "sieve"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "max",
+  "n",
+  "p",
+  "primes",
+  "pytest",
+  "sieve_primes",
+  "sut",
+  "test_basic",
+  "test_large",
+  "test_numbers"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/035_python_sieve/run_0001/1-4/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/035_python_sieve/run_0001/1-4/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+
+def sieve_primes(max):
+    primes = []
+    for n in range(2, max + 1):
+        if all(n % p > 0 for p in primes):
+            primes.append(n)
+    return primes
+
+sut = sut.Sieve()
+
+def test_basic():
+    assert len(sut.sieve(1)) == 0
+
+def test_numbers():
+    assert len(sut.sieve(7)) == 2
+    assert list(sut.sieve(7)[:5]) == [2,3,5,7]
+
+def test_large():
+    assert len(sut.sieve(1000)) > 100
+
+
+===== SUT =====
+
+def sieve(max):
+    primes = []
+    for n in range(2, max + 1):
+        if all(n % p > 0 for p in primes):
+            primes.append(n)
+    return primes
+
+"""
+def sieve(max):
+    primes = []
+    for n in range(2, max + 1):
+        if not any(n % p == 0 for p in primes):
+            primes.append(n)
+    return primes
+
+def sieve(max):
+    primes = []
+    for n in range(2, max + 1):
+        if all(n % p for p in primes):
+            primes.append(n)
+    return primes
+
+def sieve(max):
+    primes = []
+    for n in range(2, max + 1):
+        if not any(n % p for p in primes):
+            primes.append(n)
+    return primes
+
+"""
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+
+==================================== ERRORS ====================================
+______________________ ERROR collecting test_generated.py ______________________
+test_generated.py:10: in <module>
+    sut = sut.Sieve()
+E   AttributeError: module 'sut' has no attribute 'Sieve'. Did you mean: 'sieve'?
+=========================== short test summary info ============================
+ERROR test_generated.py - AttributeError: module 'sut' has no attribute 'Siev...
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+no tests collected, 1 error in 0.11s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=0
+individual_pass_nodeids=0
+individual_fail_nodeids=0
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting test_generated_raw.py ____________________
+test_generated_raw.py:10: in <module>
+    sut = sut.Sieve()
+E   NameError: name 'sut' is not defined
+=========================== short test summary info ============================
+ERROR test_generated_raw.py - NameError: name 'sut' is not defined
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.11s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/035_python_sieve/run_0001/1-4/generation/final_prompt.txt

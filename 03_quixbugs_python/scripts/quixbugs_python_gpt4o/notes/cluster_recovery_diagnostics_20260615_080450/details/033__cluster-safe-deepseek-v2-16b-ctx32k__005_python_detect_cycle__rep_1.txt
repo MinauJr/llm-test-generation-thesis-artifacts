@@ -1,0 +1,326 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=005_python_detect_cycle
+REPEAT=1
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_name_error
+FINGERPRINT=name:_MAX_STEPS,_next
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/005_python_detect_cycle/run_0001/1-1
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/005_python_detect_cycle/rep_01/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/005_python_detect_cycle/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "_MAX_STEPS",
+    "_next"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "_MAX_STEPS",
+  "_next"
+]
+
+===== SUT SYMBOLS =====
+[
+  "Node",
+  "_MAX_STEPS",
+  "_next",
+  "detect_cycle"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "Node",
+  "detect_cycle",
+  "init_node",
+  "n",
+  "node",
+  "pytest",
+  "successors",
+  "test__MAX_STEPS",
+  "test_detect_cycle",
+  "test_detect_cycle_invalid_steps",
+  "test_detect_cycle_no_cycle"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/005_python_detect_cycle/run_0001/1-1/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/005_python_detect_cycle/run_0001/1-1/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+from sut import detect_cycle, Node
+
+def test__MAX_STEPS():
+    assert _MAX_STEPS == 2000
+
+@pytest.mark.parametrize("init_node", [None, Node()]) # edge case when init node is None
+def test_detect_cycle(init_node):
+    node = Node(successor=init_node)
+    assert detect_cycle(node), "Cycle detected"  # deterministic cases for cycle detection
+
+@pytest.mark.parametrize("successors", [set(), ['a', 'b']])
+def test_detect_cycle_no_cycle(successors):
+    node = Node(successor=_next(Node()))
+    assert not detect_cycle(node), "No cycle detected"  # deterministic cases for no-cycle detection
+
+@pytest.mark.parametrize("n", [5, -10])
+def test_detect_cycle_invalid_steps(n):
+    with pytest.raises(ValueError):
+        _next(Node())
+
+
+===== SUT =====
+_MAX_STEPS = 2000
+
+
+class Node:
+    def __init__(self, successor=None):
+        self.successor = successor
+
+
+def _next(node):
+    return getattr(node, "successor", None)
+
+
+def detect_cycle(node):
+    slow = node
+    fast = node
+    steps = 0
+
+    while fast is not None and _next(fast) is not None and steps < _MAX_STEPS:
+        slow = _next(slow)
+        fast = _next(_next(fast))
+        steps += 1
+
+        if slow is fast and slow is not None:
+            return True
+
+    return False
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test__MAX_STEPS
+test_generated.py::test_detect_cycle[None]
+test_generated.py::test_detect_cycle[init_node1]
+test_generated.py::test_detect_cycle_no_cycle[successors0]
+test_generated.py::test_detect_cycle_no_cycle[successors1]
+test_generated.py::test_detect_cycle_invalid_steps[5]
+test_generated.py::test_detect_cycle_invalid_steps[-10]
+
+7 tests collected in 0.01s
+
+
+===== nodeid_sanitizer.node_12c8106ff107c879d3b42b536b753be300cbc0e45faa16fb79a9c7d00e290e85.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________________________ test_detect_cycle[None] ____________________________
+
+init_node = None
+
+    @pytest.mark.parametrize("init_node", [None, Node()]) # edge case when init node is None
+    def test_detect_cycle(init_node):
+        node = Node(successor=init_node)
+>       assert detect_cycle(node), "Cycle detected"  # deterministic cases for cycle detection
+E       AssertionError: Cycle detected
+E       assert False
+E        +  where False = detect_cycle(<sut.Node object at 0x7f84e7390310>)
+
+test_generated.py:10: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_detect_cycle[None] - AssertionError: Cycle det...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_14e1f7a8bd55dc2d6ec08c930763d59df2ad1e6b64d92733e6d454a4d539c54d.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________________ test_detect_cycle_invalid_steps[-10] _____________________
+
+n = -10
+
+    @pytest.mark.parametrize("n", [5, -10])
+    def test_detect_cycle_invalid_steps(n):
+        with pytest.raises(ValueError):
+>           _next(Node())
+E           NameError: name '_next' is not defined
+
+test_generated.py:20: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_detect_cycle_invalid_steps[-10] - NameError: n...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_1feab6f7cf70e2cb7600faec4a212a77a410d1d3b88d9015fe6219b6767fa034.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________________ test_detect_cycle_no_cycle[successors0] ____________________
+
+successors = set()
+
+    @pytest.mark.parametrize("successors", [set(), ['a', 'b']])
+    def test_detect_cycle_no_cycle(successors):
+>       node = Node(successor=_next(Node()))
+E       NameError: name '_next' is not defined
+
+test_generated.py:14: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_detect_cycle_no_cycle[successors0] - NameError...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_9a8da6a5edf6094946283b958e265aff3cf4466000ba3f6167e5899fa125a00c.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______________________________ test__MAX_STEPS ________________________________
+
+    def test__MAX_STEPS():
+>       assert _MAX_STEPS == 2000
+E       NameError: name '_MAX_STEPS' is not defined
+
+test_generated.py:5: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test__MAX_STEPS - NameError: name '_MAX_STEPS' is n...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_b41c58e01d79372b9e533574da04275aed84b8f5c397660014645a48ed6509e2.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________________ test_detect_cycle_no_cycle[successors1] ____________________
+
+successors = ['a', 'b']
+
+    @pytest.mark.parametrize("successors", [set(), ['a', 'b']])
+    def test_detect_cycle_no_cycle(successors):
+>       node = Node(successor=_next(Node()))
+E       NameError: name '_next' is not defined
+
+test_generated.py:14: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_detect_cycle_no_cycle[successors1] - NameError...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_e45645e5c3a73cdb69f5f75038828191a383326b05a4f8493efa02e8e0926e34.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________________ test_detect_cycle_invalid_steps[5] ______________________
+
+n = 5
+
+    @pytest.mark.parametrize("n", [5, -10])
+    def test_detect_cycle_invalid_steps(n):
+        with pytest.raises(ValueError):
+>           _next(Node())
+E           NameError: name '_next' is not defined
+
+test_generated.py:20: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_detect_cycle_invalid_steps[5] - NameError: nam...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_eae4c5238d2a8f93431d3e8f70c7ebeccb2ac45718bbbe08b3e2a8584dadefc6.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________________________ test_detect_cycle[init_node1] _________________________
+
+init_node = <sut.Node object at 0x7f7bda3bb5b0>
+
+    @pytest.mark.parametrize("init_node", [None, Node()]) # edge case when init node is None
+    def test_detect_cycle(init_node):
+        node = Node(successor=init_node)
+>       assert detect_cycle(node), "Cycle detected"  # deterministic cases for cycle detection
+E       AssertionError: Cycle detected
+E       assert False
+E        +  where False = detect_cycle(<sut.Node object at 0x7f7bda418310>)
+
+test_generated.py:10: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_detect_cycle[init_node1] - AssertionError: Cyc...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=7
+individual_pass_nodeids=0
+individual_fail_nodeids=7
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+FFFFFFF                                                                  [100%]
+=================================== FAILURES ===================================
+_______________________________ test__MAX_STEPS ________________________________
+test_generated_raw.py:5: in test__MAX_STEPS
+    assert _MAX_STEPS == 2000
+E   NameError: name '_MAX_STEPS' is not defined
+___________________________ test_detect_cycle[None] ____________________________
+test_generated_raw.py:10: in test_detect_cycle
+    assert detect_cycle(node), "Cycle detected"  # deterministic cases for cycle detection
+E   AssertionError: Cycle detected
+E   assert False
+E    +  where False = detect_cycle(<sut.Node object at 0x7f7c62d5f9a0>)
+________________________ test_detect_cycle[init_node1] _________________________
+test_generated_raw.py:10: in test_detect_cycle
+    assert detect_cycle(node), "Cycle detected"  # deterministic cases for cycle detection
+E   AssertionError: Cycle detected
+E   assert False
+E    +  where False = detect_cycle(<sut.Node object at 0x7f7c62d0a650>)
+___________________ test_detect_cycle_no_cycle[successors0] ____________________
+test_generated_raw.py:14: in test_detect_cycle_no_cycle
+    node = Node(successor=_next(Node()))
+E   NameError: name '_next' is not defined
+___________________ test_detect_cycle_no_cycle[successors1] ____________________
+test_generated_raw.py:14: in test_detect_cycle_no_cycle
+    node = Node(successor=_next(Node()))
+E   NameError: name '_next' is not defined
+______________________ test_detect_cycle_invalid_steps[5] ______________________
+test_generated_raw.py:20: in test_detect_cycle_invalid_steps
+    _next(Node())
+E   NameError: name '_next' is not defined
+_____________________ test_detect_cycle_invalid_steps[-10] _____________________
+test_generated_raw.py:20: in test_detect_cycle_invalid_steps
+    _next(Node())
+E   NameError: name '_next' is not defined
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test__MAX_STEPS - NameError: name '_MAX_STEPS' ...
+FAILED test_generated_raw.py::test_detect_cycle[None] - AssertionError: Cycle...
+FAILED test_generated_raw.py::test_detect_cycle[init_node1] - AssertionError:...
+FAILED test_generated_raw.py::test_detect_cycle_no_cycle[successors0] - NameE...
+FAILED test_generated_raw.py::test_detect_cycle_no_cycle[successors1] - NameE...
+FAILED test_generated_raw.py::test_detect_cycle_invalid_steps[5] - NameError:...
+FAILED test_generated_raw.py::test_detect_cycle_invalid_steps[-10] - NameErro...
+7 failed in 0.03s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/005_python_detect_cycle/run_0001/1-1/generation/final_prompt.txt

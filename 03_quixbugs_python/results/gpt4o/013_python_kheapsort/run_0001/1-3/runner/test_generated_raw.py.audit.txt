@@ -1,0 +1,21 @@
+import sut
+
+def test_kheapsort_empty():
+    result = list(sut.kheapsort([], 1))
+    assert result == []
+
+def test_kheapsort_single_element():
+    result = list(sut.kheapsort([5], 1))
+    assert result == [5]
+
+def test_kheapsort_k_equals_length():
+    result = list(sut.kheapsort([3, 1, 4, 1, 5], 5))
+    assert result == [1, 1, 3, 4, 5]
+
+def test_kheapsort_k_less_than_length():
+    result = list(sut.kheapsort([10, 7, 8, 9, 1, 5], 3))
+    assert result == [1, 5, 7, 8, 9, 10]
+
+def test_kheapsort_k_greater_than_length():
+    result = list(sut.kheapsort([2, 3, 1], 5))
+    assert result == [1, 2, 3]

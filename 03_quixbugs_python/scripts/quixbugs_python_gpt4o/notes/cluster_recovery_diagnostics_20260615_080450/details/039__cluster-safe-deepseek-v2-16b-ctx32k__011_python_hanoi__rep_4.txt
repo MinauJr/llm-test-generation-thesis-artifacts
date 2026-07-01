@@ -1,0 +1,236 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=011_python_hanoi
+REPEAT=4
+EVAL_STATUS=ok
+REASON=metrics_exist_but_status_missing
+FINGERPRINT=metrics_overlay
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/011_python_hanoi/run_0001/1-4
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/011_python_hanoi/rep_04/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/011_python_hanoi/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[]
+
+===== SUT SYMBOLS =====
+[
+  "hanoi"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "hanoi",
+  "i",
+  "j",
+  "k",
+  "pytest",
+  "test_basic",
+  "test_edge_cases",
+  "test_invalid_input",
+  "test_multiple_heights"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {
+    "branch_coverage_pct": 0.0,
+    "error": null,
+    "line_coverage_pct": 37.5
+  },
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/011_python_hanoi/run_0001/1-4/metrics/coverage_metrics.json",
+  "coverage_xml_branch_rate": 0.0,
+  "coverage_xml_error": "",
+  "coverage_xml_exists": true,
+  "coverage_xml_line_rate": 37.5,
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/011_python_hanoi/run_0001/1-4/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+from sut import hanoi
+
+def test_basic():
+    assert len(hanoi(1)) == 2
+
+def test_multiple_heights():
+    for i in range(3):
+        for j in range(3):
+            for k in range(3, 6):
+                assert hanoi(i) == ((i, j), (j, i))
+                assert hanoi(i+1, start=max(i, j)) + [(i, j)] + hanoi(i, start=min(i, j)) == hanoi(i+2, end=min(i, j))
+
+def test_edge_cases():
+    for i in range(3):
+        assert len(hanoi(6 - 1, start=max(i, 5 - i), end=(4 if i else max(i + 1, (4 if i and i < 5 else 0)))) == ((i, max(i, 5 - i)),) * 2)
+
+def test_invalid_input():
+    with pytest.raises(TypeError):
+        hanoi("not a number")
+
+
+===== SUT =====
+
+def hanoi(height, start=1, end=3):
+    steps = []
+    if height > 0:
+        helper = ({1, 2, 3} - {start} - {end}).pop()
+        steps.extend(hanoi(height - 1, start, helper))
+        steps.append((start, end))
+        steps.extend(hanoi(height - 1, helper, end))
+
+    return steps
+
+
+===== LOGS =====
+
+
+===== analyze_effective_tests.log =====
+{"all_top_level_tests_skipped": false, "effective_test_functions": 4, "error": null, "test_file": "/home/jpaiva/projetos/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/011_python_hanoi/run_0001/1-4/runner/test_generated.py", "top_level_skipped_test_functions": 0, "top_level_test_functions": 4}
+
+
+===== coverage.log =====
+.                                                                        [100%]
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.10.12-final-0 _______________
+
+Name     Stmts   Miss Branch BrPart  Cover   Missing
+----------------------------------------------------
+sut.py       8      5      2      2    30%   5-10
+----------------------------------------------------
+TOTAL        8      5      2      2    30%
+Coverage XML written to file coverage.xml
+1 passed, 3 deselected in 0.02s
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_basic
+test_generated.py::test_multiple_heights
+test_generated.py::test_edge_cases
+test_generated.py::test_invalid_input
+
+4 tests collected in 0.01s
+
+
+===== nodeid_sanitizer.combined_initial.log =====
+.                                                                        [100%]
+1 passed, 3 deselected in 0.01s
+
+
+===== nodeid_sanitizer.node_70842226c3ecd8c2a0d0989c27270d3ac866651d31c77f6290d0fc2d9cededd7.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________________________ test_multiple_heights _____________________________
+
+    def test_multiple_heights():
+        for i in range(3):
+            for j in range(3):
+                for k in range(3, 6):
+>                   assert hanoi(i) == ((i, j), (j, i))
+E                   assert [] == ((0, 0), (0, 0))
+E                     
+E                     Right contains 2 more items, first extra item: (0, 0)
+E                     Use -v to get more diff
+
+test_generated.py:11: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_multiple_heights - assert [] == ((0, 0), (0, 0))
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_8006df9bf30ec38838f976caf6c085daa57210f7617fdd426239e8641d227806.log =====
+.                                                                        [100%]
+1 passed in 0.01s
+
+
+===== nodeid_sanitizer.node_a0c738f5ba3b3485e151e57ce64eb853b8828f519354f1ded11415375132c4b7.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______________________________ test_edge_cases ________________________________
+
+    def test_edge_cases():
+        for i in range(3):
+>           assert len(hanoi(6 - 1, start=max(i, 5 - i), end=(4 if i else max(i + 1, (4 if i and i < 5 else 0)))) == ((i, max(i, 5 - i)),) * 2)
+E           TypeError: object of type 'bool' has no len()
+
+test_generated.py:16: TypeError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_edge_cases - TypeError: object of type 'bool' ...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_db6b8d8fb3d8667450d02d280e288f615885eb5fbed4af7baaa2b2d1cccbf090.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________________ test_basic __________________________________
+
+    def test_basic():
+>       assert len(hanoi(1)) == 2
+E       assert 1 == 2
+E        +  where 1 = len([(1, 3)])
+E        +    where [(1, 3)] = hanoi(1)
+
+test_generated.py:5: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_basic - assert 1 == 2
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=4
+individual_pass_nodeids=1
+individual_fail_nodeids=3
+individual_timeout_nodeids=0
+initial_effective_nodeids=1
+final_effective_nodeids=1
+greedy_stabilization_used=0
+final_pytest_exit_code=0
+
+
+===== parse_coverage.log =====
+{"branch_coverage_pct": 0.0, "error": null, "line_coverage_pct": 37.5}
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+FFF.                                                                     [100%]
+=================================== FAILURES ===================================
+__________________________________ test_basic __________________________________
+test_generated_raw.py:5: in test_basic
+    assert len(hanoi(1)) == 2
+E   assert 1 == 2
+E    +  where 1 = len([(1, 3)])
+E    +    where [(1, 3)] = hanoi(1)
+____________________________ test_multiple_heights _____________________________
+test_generated_raw.py:11: in test_multiple_heights
+    assert hanoi(i) == ((i, j), (j, i))
+E   assert [] == ((0, 0), (0, 0))
+E     
+E     Right contains 2 more items, first extra item: (0, 0)
+E     Use -v to get more diff
+_______________________________ test_edge_cases ________________________________
+test_generated_raw.py:16: in test_edge_cases
+    assert len(hanoi(6 - 1, start=max(i, 5 - i), end=(4 if i else max(i + 1, (4 if i and i < 5 else 0)))) == ((i, max(i, 5 - i)),) * 2)
+E   TypeError: object of type 'bool' has no len()
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test_basic - assert 1 == 2
+FAILED test_generated_raw.py::test_multiple_heights - assert [] == ((0, 0), (...
+FAILED test_generated_raw.py::test_edge_cases - TypeError: object of type 'bo...
+3 failed, 1 passed in 0.03s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/011_python_hanoi/run_0001/1-4/generation/final_prompt.txt

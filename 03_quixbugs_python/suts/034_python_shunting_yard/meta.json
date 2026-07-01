@@ -1,0 +1,8 @@
+{
+  "dataset": "quixbugs",
+  "lang": "python",
+  "task_key": "shunting_yard",
+  "pair_id": 34,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_python_programs/shunting_yard.py",
+  "entry_file": "sut.py"
+}

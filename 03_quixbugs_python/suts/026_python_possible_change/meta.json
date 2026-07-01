@@ -1,0 +1,8 @@
+{
+  "dataset": "quixbugs",
+  "lang": "python",
+  "task_key": "possible_change",
+  "pair_id": 26,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_python_programs/possible_change.py",
+  "entry_file": "sut.py"
+}

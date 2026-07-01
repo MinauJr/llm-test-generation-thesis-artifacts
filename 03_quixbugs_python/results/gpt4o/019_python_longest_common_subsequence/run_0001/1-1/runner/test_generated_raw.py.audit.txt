@@ -1,0 +1,16 @@
+import sut
+
+def test_empty_strings():
+    assert sut.longest_common_subsequence("", "") == ""
+
+def test_no_common_subsequence():
+    assert sut.longest_common_subsequence("abc", "def") == ""
+
+def test_full_match():
+    assert sut.longest_common_subsequence("abc", "abc") == "abc"
+
+def test_partial_match():
+    assert sut.longest_common_subsequence("abc", "ac") == "ac"
+
+def test_interleaved_match():
+    assert sut.longest_common_subsequence("abcde", "ace") == "ace"

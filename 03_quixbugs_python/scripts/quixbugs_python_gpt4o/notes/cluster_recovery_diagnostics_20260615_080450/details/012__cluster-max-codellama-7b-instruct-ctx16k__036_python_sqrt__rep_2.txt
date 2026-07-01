@@ -1,0 +1,258 @@
+MODEL=cluster-max-codellama-7b-instruct-ctx16k
+SUT=036_python_sqrt
+REPEAT=2
+EVAL_STATUS=ok
+REASON=metrics_exist_but_status_missing
+FINGERPRINT=metrics_overlay
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/036_python_sqrt/run_0001/1-2
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/036_python_sqrt/rep_02/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/036_python_sqrt/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[]
+
+===== SUT SYMBOLS =====
+[
+  "sqrt"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "pytest",
+  "sqrt",
+  "test_sqrt",
+  "test_sqrt_edge_cases",
+  "test_sqrt_epsilon",
+  "test_sqrt_error",
+  "test_sqrt_invalid_epsilon",
+  "test_sqrt_invalid_x"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {
+    "branch_coverage_pct": 0.0,
+    "error": null,
+    "line_coverage_pct": 50.0
+  },
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/036_python_sqrt/run_0001/1-2/metrics/coverage_metrics.json",
+  "coverage_xml_branch_rate": 0.0,
+  "coverage_xml_error": "",
+  "coverage_xml_exists": true,
+  "coverage_xml_line_rate": 50.0,
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/036_python_sqrt/run_0001/1-2/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+from sut import sqrt
+
+def test_sqrt():
+    assert sqrt(1, 1e-8) == 1
+    assert sqrt(4, 1e-8) == 2
+    assert sqrt(9, 1e-8) == 3
+    assert sqrt(16, 1e-8) == 4
+    assert sqrt(25, 1e-8) == 5
+
+def test_sqrt_error():
+    with pytest.raises(ValueError):
+        sqrt(-1, 1e-8)
+
+def test_sqrt_epsilon():
+    assert sqrt(100, 1e-4) == 10
+    assert sqrt(100, 1e-5) == 10
+    assert sqrt(100, 1e-6) == 10
+
+def test_sqrt_edge_cases():
+    assert sqrt(0, 1e-8) == 0
+    assert sqrt(1, 1e-8) == 1
+    assert sqrt(4, 1e-8) == 2
+    assert sqrt(9, 1e-8) == 3
+    assert sqrt(16, 1e-8) == 4
+    assert sqrt(25, 1e-8) == 5
+
+def test_sqrt_invalid_epsilon():
+    with pytest.raises(ValueError):
+        sqrt(100, -1)
+
+def test_sqrt_invalid_x():
+    with pytest.raises(TypeError):
+        sqrt("apple", 1e-8)
+
+def test_sqrt_invalid_epsilon():
+    with pytest.raises(ValueError):
+        sqrt(100, "orange")
+
+
+===== SUT =====
+
+def sqrt(x, epsilon):
+    approx = x / 2
+    while abs(x - approx ** 2) > epsilon:
+        approx = 0.5 * (approx + x / approx)
+    return approx
+
+"""
+def sqrt(x, epsilon):
+    approx = x / 2
+    while abs(x - approx * approx) > epsilon:
+        approx = 0.5 * (approx + x / approx)
+    return approx
+"""
+
+
+===== LOGS =====
+
+
+===== analyze_effective_tests.log =====
+{"all_top_level_tests_skipped": false, "effective_test_functions": 7, "error": null, "test_file": "/home/jpaiva/projetos/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/036_python_sqrt/run_0001/1-2/runner/test_generated.py", "top_level_skipped_test_functions": 0, "top_level_test_functions": 7}
+
+
+===== coverage.log =====
+.                                                                        [100%]
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.10.12-final-0 _______________
+
+Name     Stmts   Miss Branch BrPart  Cover   Missing
+----------------------------------------------------
+sut.py       6      3      2      0    38%   4-6
+----------------------------------------------------
+TOTAL        6      3      2      0    38%
+Coverage XML written to file coverage.xml
+1 passed, 5 deselected in 0.02s
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_sqrt
+test_generated.py::test_sqrt_error
+test_generated.py::test_sqrt_epsilon
+test_generated.py::test_sqrt_edge_cases
+test_generated.py::test_sqrt_invalid_epsilon
+test_generated.py::test_sqrt_invalid_x
+
+6 tests collected in 0.01s
+
+
+===== nodeid_sanitizer.combined_initial.log =====
+.                                                                        [100%]
+1 passed, 5 deselected in 0.01s
+
+
+===== nodeid_sanitizer.node_113cdb751678f8ade54a6ebd0420aa534d8fcf4c0c302999678477a90138e472.log =====
+
+
+===== nodeid_sanitizer.node_676d99026faab83dfa00948b111f18450aad6163da21241df9fd81e69c3b6151.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________________________ test_sqrt_epsilon _______________________________
+
+    def test_sqrt_epsilon():
+>       assert sqrt(100, 1e-4) == 10
+E       assert 10.000000000107445 == 10
+E        +  where 10.000000000107445 = sqrt(100, 0.0001)
+
+test_generated.py:16: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_sqrt_epsilon - assert 10.000000000107445 == 10
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_af3552b987a74da9ff2b1d8c4e3e99d412486e17bb0f9ce515c0821771f637db.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________________________ test_sqrt_edge_cases _____________________________
+
+    def test_sqrt_edge_cases():
+        assert sqrt(0, 1e-8) == 0
+>       assert sqrt(1, 1e-8) == 1
+E       assert 1.000000000000001 == 1
+E        +  where 1.000000000000001 = sqrt(1, 1e-08)
+
+test_generated.py:22: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_sqrt_edge_cases - assert 1.000000000000001 == 1
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_c868d6779fb102072db96b65f55d7980cff204099ba725ad6f4090ed8f2c224b.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________ test_sqrt_invalid_epsilon ___________________________
+
+    def test_sqrt_invalid_epsilon():
+        with pytest.raises(ValueError):
+>           sqrt(100, "orange")
+
+test_generated.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+x = 100, epsilon = 'orange'
+
+    def sqrt(x, epsilon):
+        approx = x / 2
+>       while abs(x - approx ** 2) > epsilon:
+E       TypeError: '>' not supported between instances of 'float' and 'str'
+
+sut.py:4: TypeError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_sqrt_invalid_epsilon - TypeError: '>' not supp...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_e2fdf0728d35fedc0507ff0e1460749f7ef287500c7372d62d4d9860a02d74a9.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________________ test_sqrt ___________________________________
+
+    def test_sqrt():
+>       assert sqrt(1, 1e-8) == 1
+E       assert 1.000000000000001 == 1
+E        +  where 1.000000000000001 = sqrt(1, 1e-08)
+
+test_generated.py:5: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_sqrt - assert 1.000000000000001 == 1
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_e5b9097498d2ddcc476b3aab1a9874f1576da214ac2d76519bd52b8ef599ac77.log =====
+.                                                                        [100%]
+1 passed in 0.01s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=6
+individual_pass_nodeids=1
+individual_fail_nodeids=4
+individual_timeout_nodeids=1
+initial_effective_nodeids=1
+final_effective_nodeids=1
+greedy_stabilization_used=0
+final_pytest_exit_code=0
+
+
+===== parse_coverage.log =====
+{"branch_coverage_pct": 0.0, "error": null, "line_coverage_pct": 50.0}
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+F
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/036_python_sqrt/run_0001/1-2/generation/final_prompt.txt

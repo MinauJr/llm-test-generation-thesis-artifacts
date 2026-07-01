@@ -1,0 +1,81 @@
+===== DATASET: quixbugs_python =====
+===== GROUP: group1_python_function =====
+===== PATH: quixbugs_python_gpt4o/prompts/python_quixbugs_zero_shot_v1_retryempty.txt =====
+
+===== FULL PROMPT =====
+You are generating unit tests for a Python function/program from the QuixBugs benchmark.
+
+Return exactly one raw Python pytest test file.
+
+Rules:
+- Output only Python code.
+- Do not use Markdown fences.
+- Do not include explanations.
+- Do not include comments.
+- Do not include the implementation under test.
+- Import the target module exactly as:
+  import sut
+- Do not use:
+  from sut import ...
+- Call functions/classes through sut.<name>.
+- Prefer simple deterministic tests.
+- Avoid random tests.
+- Avoid time, network, filesystem, subprocess, multiprocessing, threading, sleeps, or environment-dependent behaviour.
+- Do not assume external packages except pytest and the Python standard library.
+- Do not create tests that rely on the order of sets or dictionaries unless explicitly sorted.
+- Do not write helper-only output. The file must contain pytest-collected tests.
+- Include at least 5 top-level test functions named test_* whenever possible.
+- If the SUT exposes helper classes such as Node, construct them through sut.Node if needed.
+- If the SUT algorithm works on graph/list/node structures, create small explicit examples.
+- If unsure about edge cases, still produce executable tests for obvious valid cases.
+- The file will be rejected if pytest collects zero tests.
+- The file will be rejected if it cannot be compiled by Python.
+- The file will be rejected if it imports non-existent modules.
+
+SUT name:
+__SUT_NAME__
+
+Target module:
+sut
+
+Source code under test:
+__SUT_SOURCE__
+
+===== PLACEHOLDER CONTEXT =====
+1:You are generating unit tests for a Python function/program from the QuixBugs benchmark.
+2-
+3:Return exactly one raw Python pytest test file.
+4-
+5-Rules:
+6-- Output only Python code.
+7-- Do not use Markdown fences.
+8-- Do not include explanations.
+9-- Do not include comments.
+10-- Do not include the implementation under test.
+11-- Import the target module exactly as:
+12-  import sut
+13-- Do not use:
+14-  from sut import ...
+15-- Call functions/classes through sut.<name>.
+16-- Prefer simple deterministic tests.
+17-- Avoid random tests.
+18-- Avoid time, network, filesystem, subprocess, multiprocessing, threading, sleeps, or environment-dependent behaviour.
+19:- Do not assume external packages except pytest and the Python standard library.
+20-- Do not create tests that rely on the order of sets or dictionaries unless explicitly sorted.
+21:- Do not write helper-only output. The file must contain pytest-collected tests.
+22-- Include at least 5 top-level test functions named test_* whenever possible.
+23:- If the SUT exposes helper classes such as Node, construct them through sut.Node if needed.
+24:- If the SUT algorithm works on graph/list/node structures, create small explicit examples.
+25-- If unsure about edge cases, still produce executable tests for obvious valid cases.
+26:- The file will be rejected if pytest collects zero tests.
+27-- The file will be rejected if it cannot be compiled by Python.
+28-- The file will be rejected if it imports non-existent modules.
+29-
+30:SUT name:
+31:__SUT_NAME__
+32-
+33-Target module:
+34-sut
+35-
+36-Source code under test:
+37:__SUT_SOURCE__

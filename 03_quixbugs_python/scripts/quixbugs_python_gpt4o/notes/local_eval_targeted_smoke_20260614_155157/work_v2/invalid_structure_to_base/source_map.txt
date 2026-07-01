@@ -1,0 +1,7 @@
+label=invalid_structure_to_base
+model=cluster-safe-deepseek-v2-16b-ctx32k
+sut_name=038_python_to_base
+rep_name=rep_01
+cluster_status=invalid_test_structure
+source_generated_tests=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/038_python_to_base/rep_01/generated_tests.py
+source_sut_py=/home/jpaiva/projetos/SUTs/quixbugs/038_python_to_base/sut.py

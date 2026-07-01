@@ -1,0 +1,262 @@
+MODEL=cluster-max-codellama-7b-instruct-ctx16k
+SUT=003_python_bucketsort
+REPEAT=4
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_name_error
+FINGERPRINT=name:bucketsort
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/003_python_bucketsort/run_0001/1-4
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/003_python_bucketsort/rep_04/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/003_python_bucketsort/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "bucketsort"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "bucketsort"
+]
+
+===== SUT SYMBOLS =====
+[
+  "bucketsort"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "arr",
+  "k",
+  "pytest",
+  "sut",
+  "test_bucketsort_empty",
+  "test_bucketsort_large",
+  "test_bucketsort_negative",
+  "test_bucketsort_small",
+  "test_bucketsort_sorted"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/003_python_bucketsort/run_0001/1-4/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/003_python_bucketsort/run_0001/1-4/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import sut
+import pytest
+
+def test_bucketsort_sorted():
+    arr = [1, 2, 3, 4, 5]
+    k = 5
+    assert bucketsort(arr, k) == sorted(arr)
+
+def test_bucketsort_empty():
+    arr = []
+    k = 0
+    assert bucketsort(arr, k) == []
+
+def test_bucketsort_small():
+    arr = [1, 2, 3]
+    k = 4
+    assert bucketsort(arr, k) == [1, 2, 3]
+
+def test_bucketsort_large():
+    arr = list(range(100))
+    k = 50
+    assert bucketsort(arr, k) == sorted(arr)
+
+def test_bucketsort_negative():
+    arr = [-1, -2, -3]
+    k = -1
+    assert bucketsort(arr, k) == []
+
+
+===== SUT =====
+
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(counts):
+        sorted_arr.extend([i] * count)
+
+    return sorted_arr
+
+"""
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(arr):
+        sorted_arr.extend([i] * counts[i])
+
+    return sorted_arr
+"""
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_bucketsort_sorted
+test_generated.py::test_bucketsort_empty
+test_generated.py::test_bucketsort_small
+test_generated.py::test_bucketsort_large
+test_generated.py::test_bucketsort_negative
+
+5 tests collected in 0.01s
+
+
+===== nodeid_sanitizer.node_30079825692666b802c4014d4bc890533c8aa323555d397f0c6167971521b27b.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________________________ test_bucketsort_large _____________________________
+
+    def test_bucketsort_large():
+        arr = list(range(100))
+        k = 50
+>       assert bucketsort(arr, k) == sorted(arr)
+E       NameError: name 'bucketsort' is not defined
+
+test_generated.py:22: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_bucketsort_large - NameError: name 'bucketsort...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_a487da61021906b1677d472fb0828e0a61eb0741ec21bf84bd78f5c7a8fb4b53.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________________________ test_bucketsort_empty _____________________________
+
+    def test_bucketsort_empty():
+        arr = []
+        k = 0
+>       assert bucketsort(arr, k) == []
+E       NameError: name 'bucketsort' is not defined
+
+test_generated.py:12: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_bucketsort_empty - NameError: name 'bucketsort...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_affe0eb03ea04a447383848701c1b8e735e69719e6938a0c60c38b910acef7fa.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________________________ test_bucketsort_sorted ____________________________
+
+    def test_bucketsort_sorted():
+        arr = [1, 2, 3, 4, 5]
+        k = 5
+>       assert bucketsort(arr, k) == sorted(arr)
+E       NameError: name 'bucketsort' is not defined
+
+test_generated.py:7: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_bucketsort_sorted - NameError: name 'bucketsor...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_d26a0affc28232219ad53bdd5e90d9523c1d29adc4892616fe180fe3d526a7e0.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________________________ test_bucketsort_small _____________________________
+
+    def test_bucketsort_small():
+        arr = [1, 2, 3]
+        k = 4
+>       assert bucketsort(arr, k) == [1, 2, 3]
+E       NameError: name 'bucketsort' is not defined
+
+test_generated.py:17: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_bucketsort_small - NameError: name 'bucketsort...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_d76aa5412dbf37798c9099cea674420623c608c83865230bb98ac6f06fa62511.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________________________ test_bucketsort_negative ___________________________
+
+    def test_bucketsort_negative():
+        arr = [-1, -2, -3]
+        k = -1
+>       assert bucketsort(arr, k) == []
+E       NameError: name 'bucketsort' is not defined
+
+test_generated.py:27: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_bucketsort_negative - NameError: name 'buckets...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=5
+individual_pass_nodeids=0
+individual_fail_nodeids=5
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+FFFFF                                                                    [100%]
+=================================== FAILURES ===================================
+____________________________ test_bucketsort_sorted ____________________________
+test_generated_raw.py:7: in test_bucketsort_sorted
+    assert bucketsort(arr, k) == sorted(arr)
+E   NameError: name 'bucketsort' is not defined
+____________________________ test_bucketsort_empty _____________________________
+test_generated_raw.py:12: in test_bucketsort_empty
+    assert bucketsort(arr, k) == []
+E   NameError: name 'bucketsort' is not defined
+____________________________ test_bucketsort_small _____________________________
+test_generated_raw.py:17: in test_bucketsort_small
+    assert bucketsort(arr, k) == [1, 2, 3]
+E   NameError: name 'bucketsort' is not defined
+____________________________ test_bucketsort_large _____________________________
+test_generated_raw.py:22: in test_bucketsort_large
+    assert bucketsort(arr, k) == sorted(arr)
+E   NameError: name 'bucketsort' is not defined
+___________________________ test_bucketsort_negative ___________________________
+test_generated_raw.py:27: in test_bucketsort_negative
+    assert bucketsort(arr, k) == []
+E   NameError: name 'bucketsort' is not defined
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test_bucketsort_sorted - NameError: name 'bucke...
+FAILED test_generated_raw.py::test_bucketsort_empty - NameError: name 'bucket...
+FAILED test_generated_raw.py::test_bucketsort_small - NameError: name 'bucket...
+FAILED test_generated_raw.py::test_bucketsort_large - NameError: name 'bucket...
+FAILED test_generated_raw.py::test_bucketsort_negative - NameError: name 'buc...
+5 failed in 0.03s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/003_python_bucketsort/run_0001/1-4/generation/final_prompt.txt

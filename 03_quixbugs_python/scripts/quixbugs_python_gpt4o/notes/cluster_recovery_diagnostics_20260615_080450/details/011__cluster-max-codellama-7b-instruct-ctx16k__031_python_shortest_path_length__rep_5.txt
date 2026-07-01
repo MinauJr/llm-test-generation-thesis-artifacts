@@ -1,0 +1,532 @@
+MODEL=cluster-max-codellama-7b-instruct-ctx16k
+SUT=031_python_shortest_path_length
+REPEAT=5
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_name_error
+FINGERPRINT=name:shortest_path_length
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/031_python_shortest_path_length/run_0001/1-5
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/031_python_shortest_path_length/rep_05/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/031_python_shortest_path_length/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "shortest_path_length"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "shortest_path_length"
+]
+
+===== SUT SYMBOLS =====
+[
+  "Node",
+  "_MAX_SUCCESSORS",
+  "_MAX_VISITS",
+  "_edge_length",
+  "_normalise_nodes",
+  "_safe_successors",
+  "shortest_path_length"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "Node",
+  "TestShortestPathLength",
+  "_normalise_nodes",
+  "goalnode",
+  "length_by_edge",
+  "pytest",
+  "self",
+  "startnode",
+  "test_empty_graph",
+  "test_negative_edge_length",
+  "test_shortest_path_length",
+  "test_single_node_graph",
+  "test_two_nodes_connected_by_edge",
+  "value"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/031_python_shortest_path_length/run_0001/1-5/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/031_python_shortest_path_length/run_0001/1-5/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+from sut import Node
+
+def _normalise_nodes(value):
+    if isinstance(value, (list, tuple, set)):
+        return list(value)[:_MAX_SUCCESSORS]
+    return []
+
+class TestShortestPathLength:
+    @pytest.mark.parametrize("startnode, goalnode", [
+        (Node(), Node()),
+        (Node(label="a"), Node(label="b")),
+    ])
+    def test_shortest_path_length(self, startnode, goalnode):
+        assert shortest_path_length({}, startnode, goalnode) == float("inf")
+
+    @pytest.mark.parametrize("startnode, goalnode", [
+        (Node(), Node()),
+        (Node(label="a"), Node(label="b")),
+    ])
+    def test_empty_graph(self, startnode, goalnode):
+        assert shortest_path_length({}, startnode, goalnode) == float("inf")
+
+    @pytest.mark.parametrize("startnode, goalnode", [
+        (Node(), Node()),
+        (Node(label="a"), Node(label="b")),
+    ])
+    def test_negative_edge_length(self, startnode, goalnode):
+        assert shortest_path_length({}, startnode, goalnode) == float("inf")
+
+    @pytest.mark.parametrize("startnode, goalnode", [
+        (Node(), Node()),
+        (Node(label="a"), Node(label="b")),
+    ])
+    def test_single_node_graph(self, startnode, goalnode):
+        assert shortest_path_length({}, startnode, goalnode) == 0.0
+
+    @pytest.mark.parametrize("startnode, goalnode", [
+        (Node(), Node()),
+        (Node(label="a"), Node(label="b")),
+    ])
+    def test_two_nodes_connected_by_edge(self, startnode, goalnode):
+        length_by_edge = {(startnode, goalnode): 1.0}
+        assert shortest_path_length(length_by_edge, startnode, goalnode) == 1.0
+
+
+===== SUT =====
+from heapq import heappush, heappop
+
+_MAX_VISITS = 1000
+_MAX_SUCCESSORS = 100
+
+
+def _normalise_nodes(value):
+    if isinstance(value, (list, tuple, set)):
+        return list(value)[:_MAX_SUCCESSORS]
+    return []
+
+
+class Node:
+    def __init__(self, successors=None, label=None):
+        self.successors = _normalise_nodes(successors)
+        self.label = label
+
+    def __lt__(self, other):
+        return id(self) < id(other)
+
+
+def _safe_successors(node):
+    return _normalise_nodes(getattr(node, "successors", []))
+
+
+def _edge_length(length_by_edge, node, nextnode):
+    if not isinstance(length_by_edge, dict):
+        return None
+
+    candidates = [
+        (node, nextnode),
+        (id(node), id(nextnode)),
+        (getattr(node, "label", None), getattr(nextnode, "label", None)),
+    ]
+
+    for key in candidates:
+        if key in length_by_edge:
+            try:
+                value = float(length_by_edge[key])
+            except Exception:
+                return None
+            return value if value >= 0 else None
+
+    return None
+
+
+def shortest_path_length(length_by_edge, startnode, goalnode):
+    if startnode is goalnode:
+        return 0.0
+
+    if not isinstance(length_by_edge, dict):
+        return float("inf")
+
+    if not hasattr(startnode, "successors") or not hasattr(goalnode, "successors"):
+        return float("inf")
+
+    heap = [(0.0, 0, id(startnode), startnode)]
+    best = {id(startnode): 0.0}
+    visited = set()
+    visits = 0
+
+    while heap and visits < _MAX_VISITS:
+        dist, order, node_id, node = heappop(heap)
+
+        if node_id in visited:
+            continue
+
+        visited.add(node_id)
+        visits += 1
+
+        if node is goalnode:
+            return dist
+
+        for index, nextnode in enumerate(_safe_successors(node)):
+            next_id = id(nextnode)
+
+            if next_id in visited:
+                continue
+
+            edge = _edge_length(length_by_edge, node, nextnode)
+            if edge is None:
+                continue
+
+            candidate = dist + edge
+            if candidate < best.get(next_id, float("inf")):
+                best[next_id] = candidate
+                heappush(heap, (candidate, order + index + 1, next_id, nextnode))
+
+    return float("inf")
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::TestShortestPathLength::test_shortest_path_length[startnode0-goalnode0]
+test_generated.py::TestShortestPathLength::test_shortest_path_length[startnode1-goalnode1]
+test_generated.py::TestShortestPathLength::test_empty_graph[startnode0-goalnode0]
+test_generated.py::TestShortestPathLength::test_empty_graph[startnode1-goalnode1]
+test_generated.py::TestShortestPathLength::test_negative_edge_length[startnode0-goalnode0]
+test_generated.py::TestShortestPathLength::test_negative_edge_length[startnode1-goalnode1]
+test_generated.py::TestShortestPathLength::test_single_node_graph[startnode0-goalnode0]
+test_generated.py::TestShortestPathLength::test_single_node_graph[startnode1-goalnode1]
+test_generated.py::TestShortestPathLength::test_two_nodes_connected_by_edge[startnode0-goalnode0]
+test_generated.py::TestShortestPathLength::test_two_nodes_connected_by_edge[startnode1-goalnode1]
+
+10 tests collected in 0.02s
+
+
+===== nodeid_sanitizer.node_3918a3ea16c712162d253fcb0cd2c8c9e87e5b433700d3956043874e5cfe81ca.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_ TestShortestPathLength.test_two_nodes_connected_by_edge[startnode0-goalnode0] _
+
+self = <test_generated.TestShortestPathLength object at 0x7fa86c5850c0>
+startnode = <sut.Node object at 0x7fa86c52bca0>
+goalnode = <sut.Node object at 0x7fa86c52bdc0>
+
+    @pytest.mark.parametrize("startnode, goalnode", [
+        (Node(), Node()),
+        (Node(label="a"), Node(label="b")),
+    ])
+    def test_two_nodes_connected_by_edge(self, startnode, goalnode):
+        length_by_edge = {(startnode, goalnode): 1.0}
+>       assert shortest_path_length(length_by_edge, startnode, goalnode) == 1.0
+E       NameError: name 'shortest_path_length' is not defined
+
+test_generated.py:44: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::TestShortestPathLength::test_two_nodes_connected_by_edge[startnode0-goalnode0]
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_440e287d9ff3ffbb925705b4b928a900a7a3a94f0e3f63e2d9138ff01435c905.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____ TestShortestPathLength.test_negative_edge_length[startnode1-goalnode1] ____
+
+self = <test_generated.TestShortestPathLength object at 0x7fada38d4a90>
+startnode = <sut.Node object at 0x7fada387baf0>
+goalnode = <sut.Node object at 0x7fada387bb50>
+
+    @pytest.mark.parametrize("startnode, goalnode", [
+        (Node(), Node()),
+        (Node(label="a"), Node(label="b")),
+    ])
+    def test_negative_edge_length(self, startnode, goalnode):
+>       assert shortest_path_length({}, startnode, goalnode) == float("inf")
+E       NameError: name 'shortest_path_length' is not defined
+
+test_generated.py:29: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::TestShortestPathLength::test_negative_edge_length[startnode1-goalnode1]
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_73a6bda5c52c263d68c34c990b2c473dc27f05a42da970f70402468f9a2ca145.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____ TestShortestPathLength.test_single_node_graph[startnode1-goalnode1] ______
+
+self = <test_generated.TestShortestPathLength object at 0x7f435ad3cca0>
+startnode = <sut.Node object at 0x7f435acd7b50>
+goalnode = <sut.Node object at 0x7f435acd7bb0>
+
+    @pytest.mark.parametrize("startnode, goalnode", [
+        (Node(), Node()),
+        (Node(label="a"), Node(label="b")),
+    ])
+    def test_single_node_graph(self, startnode, goalnode):
+>       assert shortest_path_length({}, startnode, goalnode) == 0.0
+E       NameError: name 'shortest_path_length' is not defined
+
+test_generated.py:36: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::TestShortestPathLength::test_single_node_graph[startnode1-goalnode1]
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_833916e2e099622f5b7554450ce96afe680466b2740ad5053cf39551c046b9b7.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____ TestShortestPathLength.test_shortest_path_length[startnode1-goalnode1] ____
+
+self = <test_generated.TestShortestPathLength object at 0x7f1bed95c250>
+startnode = <sut.Node object at 0x7f1bed8ff610>
+goalnode = <sut.Node object at 0x7f1bed8ff670>
+
+    @pytest.mark.parametrize("startnode, goalnode", [
+        (Node(), Node()),
+        (Node(label="a"), Node(label="b")),
+    ])
+    def test_shortest_path_length(self, startnode, goalnode):
+>       assert shortest_path_length({}, startnode, goalnode) == float("inf")
+E       NameError: name 'shortest_path_length' is not defined
+
+test_generated.py:15: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::TestShortestPathLength::test_shortest_path_length[startnode1-goalnode1]
+1 failed in 0.03s
+
+
+===== nodeid_sanitizer.node_b3aebc70dbc827d5b1b650720cfdca137d09525b1db97c77f16c2ab3ac53bedb.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________ TestShortestPathLength.test_empty_graph[startnode1-goalnode1] _________
+
+self = <test_generated.TestShortestPathLength object at 0x7f74d806c640>
+startnode = <sut.Node object at 0x7f74d800f850>
+goalnode = <sut.Node object at 0x7f74d800f8b0>
+
+    @pytest.mark.parametrize("startnode, goalnode", [
+        (Node(), Node()),
+        (Node(label="a"), Node(label="b")),
+    ])
+    def test_empty_graph(self, startnode, goalnode):
+>       assert shortest_path_length({}, startnode, goalnode) == float("inf")
+E       NameError: name 'shortest_path_length' is not defined
+
+test_generated.py:22: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::TestShortestPathLength::test_empty_graph[startnode1-goalnode1]
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_b91bf3651ba2264135d2babdfed491350c42ad39ca213fb6bda6ac357c470fb8.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________ TestShortestPathLength.test_empty_graph[startnode0-goalnode0] _________
+
+self = <test_generated.TestShortestPathLength object at 0x7f6313104640>
+startnode = <sut.Node object at 0x7f63130ab3d0>
+goalnode = <sut.Node object at 0x7f63130ab850>
+
+    @pytest.mark.parametrize("startnode, goalnode", [
+        (Node(), Node()),
+        (Node(label="a"), Node(label="b")),
+    ])
+    def test_empty_graph(self, startnode, goalnode):
+>       assert shortest_path_length({}, startnode, goalnode) == float("inf")
+E       NameError: name 'shortest_path_length' is not defined
+
+test_generated.py:22: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::TestShortestPathLength::test_empty_graph[startnode0-goalnode0]
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_bb28da59a7cae24105cc2d764b99f52a72b839d367611fdd64028923c2960706.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____ TestShortestPathLength.test_single_node_graph[startnode0-goalnode0] ______
+
+self = <test_generated.TestShortestPathLength object at 0x7f3d9d65cd30>
+startnode = <sut.Node object at 0x7f3d9d603ac0>
+goalnode = <sut.Node object at 0x7f3d9d603be0>
+
+    @pytest.mark.parametrize("startnode, goalnode", [
+        (Node(), Node()),
+        (Node(label="a"), Node(label="b")),
+    ])
+    def test_single_node_graph(self, startnode, goalnode):
+>       assert shortest_path_length({}, startnode, goalnode) == 0.0
+E       NameError: name 'shortest_path_length' is not defined
+
+test_generated.py:36: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::TestShortestPathLength::test_single_node_graph[startnode0-goalnode0]
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_c7ca664cf2ad5f95a5da3e770443a93c3a460ce08d9d7b2ff2906757709267e9.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_ TestShortestPathLength.test_two_nodes_connected_by_edge[startnode1-goalnode1] _
+
+self = <test_generated.TestShortestPathLength object at 0x7f5b0bf411e0>
+startnode = <sut.Node object at 0x7f5b0bee7ee0>
+goalnode = <sut.Node object at 0x7f5b0bee7f40>
+
+    @pytest.mark.parametrize("startnode, goalnode", [
+        (Node(), Node()),
+        (Node(label="a"), Node(label="b")),
+    ])
+    def test_two_nodes_connected_by_edge(self, startnode, goalnode):
+        length_by_edge = {(startnode, goalnode): 1.0}
+>       assert shortest_path_length(length_by_edge, startnode, goalnode) == 1.0
+E       NameError: name 'shortest_path_length' is not defined
+
+test_generated.py:44: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::TestShortestPathLength::test_two_nodes_connected_by_edge[startnode1-goalnode1]
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_c908a6e407b30c9bda075ca1121750ef1b69e3aa8fc0e0999342935bdb24bb23.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____ TestShortestPathLength.test_negative_edge_length[startnode0-goalnode0] ____
+
+self = <test_generated.TestShortestPathLength object at 0x7f3f8ae349a0>
+startnode = <sut.Node object at 0x7f3f8add78e0>
+goalnode = <sut.Node object at 0x7f3f8add7a00>
+
+    @pytest.mark.parametrize("startnode, goalnode", [
+        (Node(), Node()),
+        (Node(label="a"), Node(label="b")),
+    ])
+    def test_negative_edge_length(self, startnode, goalnode):
+>       assert shortest_path_length({}, startnode, goalnode) == float("inf")
+E       NameError: name 'shortest_path_length' is not defined
+
+test_generated.py:29: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::TestShortestPathLength::test_negative_edge_length[startnode0-goalnode0]
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_ce3f4910bb798eb11a30e9e89aac27b89fa6f4aa36273f8efc8ba373332e7281.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____ TestShortestPathLength.test_shortest_path_length[startnode0-goalnode0] ____
+
+self = <test_generated.TestShortestPathLength object at 0x7f27882603a0>
+startnode = <sut.Node object at 0x7f27882036d0>
+goalnode = <sut.Node object at 0x7f2788203730>
+
+    @pytest.mark.parametrize("startnode, goalnode", [
+        (Node(), Node()),
+        (Node(label="a"), Node(label="b")),
+    ])
+    def test_shortest_path_length(self, startnode, goalnode):
+>       assert shortest_path_length({}, startnode, goalnode) == float("inf")
+E       NameError: name 'shortest_path_length' is not defined
+
+test_generated.py:15: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::TestShortestPathLength::test_shortest_path_length[startnode0-goalnode0]
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=10
+individual_pass_nodeids=0
+individual_fail_nodeids=10
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+FFFFFFFFFF                                                               [100%]
+=================================== FAILURES ===================================
+____ TestShortestPathLength.test_shortest_path_length[startnode0-goalnode0] ____
+test_generated_raw.py:15: in test_shortest_path_length
+    assert shortest_path_length({}, startnode, goalnode) == float("inf")
+E   NameError: name 'shortest_path_length' is not defined
+____ TestShortestPathLength.test_shortest_path_length[startnode1-goalnode1] ____
+test_generated_raw.py:15: in test_shortest_path_length
+    assert shortest_path_length({}, startnode, goalnode) == float("inf")
+E   NameError: name 'shortest_path_length' is not defined
+________ TestShortestPathLength.test_empty_graph[startnode0-goalnode0] _________
+test_generated_raw.py:22: in test_empty_graph
+    assert shortest_path_length({}, startnode, goalnode) == float("inf")
+E   NameError: name 'shortest_path_length' is not defined
+________ TestShortestPathLength.test_empty_graph[startnode1-goalnode1] _________
+test_generated_raw.py:22: in test_empty_graph
+    assert shortest_path_length({}, startnode, goalnode) == float("inf")
+E   NameError: name 'shortest_path_length' is not defined
+____ TestShortestPathLength.test_negative_edge_length[startnode0-goalnode0] ____
+test_generated_raw.py:29: in test_negative_edge_length
+    assert shortest_path_length({}, startnode, goalnode) == float("inf")
+E   NameError: name 'shortest_path_length' is not defined
+____ TestShortestPathLength.test_negative_edge_length[startnode1-goalnode1] ____
+test_generated_raw.py:29: in test_negative_edge_length
+    assert shortest_path_length({}, startnode, goalnode) == float("inf")
+E   NameError: name 'shortest_path_length' is not defined
+_____ TestShortestPathLength.test_single_node_graph[startnode0-goalnode0] ______
+test_generated_raw.py:36: in test_single_node_graph
+    assert shortest_path_length({}, startnode, goalnode) == 0.0
+E   NameError: name 'shortest_path_length' is not defined
+_____ TestShortestPathLength.test_single_node_graph[startnode1-goalnode1] ______
+test_generated_raw.py:36: in test_single_node_graph
+    assert shortest_path_length({}, startnode, goalnode) == 0.0
+E   NameError: name 'shortest_path_length' is not defined
+_ TestShortestPathLength.test_two_nodes_connected_by_edge[startnode0-goalnode0] _
+test_generated_raw.py:44: in test_two_nodes_connected_by_edge
+    assert shortest_path_length(length_by_edge, startnode, goalnode) == 1.0
+E   NameError: name 'shortest_path_length' is not defined
+_ TestShortestPathLength.test_two_nodes_connected_by_edge[startnode1-goalnode1] _
+test_generated_raw.py:44: in test_two_nodes_connected_by_edge
+    assert shortest_path_length(length_by_edge, startnode, goalnode) == 1.0
+E   NameError: name 'shortest_path_length' is not defined
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::TestShortestPathLength::test_shortest_path_length[startnode0-goalnode0]
+FAILED test_generated_raw.py::TestShortestPathLength::test_shortest_path_length[startnode1-goalnode1]
+FAILED test_generated_raw.py::TestShortestPathLength::test_empty_graph[startnode0-goalnode0]
+FAILED test_generated_raw.py::TestShortestPathLength::test_empty_graph[startnode1-goalnode1]
+FAILED test_generated_raw.py::TestShortestPathLength::test_negative_edge_length[startnode0-goalnode0]
+FAILED test_generated_raw.py::TestShortestPathLength::test_negative_edge_length[startnode1-goalnode1]
+FAILED test_generated_raw.py::TestShortestPathLength::test_single_node_graph[startnode0-goalnode0]
+FAILED test_generated_raw.py::TestShortestPathLength::test_single_node_graph[startnode1-goalnode1]
+FAILED test_generated_raw.py::TestShortestPathLength::test_two_nodes_connected_by_edge[startnode0-goalnode0]
+FAILED test_generated_raw.py::TestShortestPathLength::test_two_nodes_connected_by_edge[startnode1-goalnode1]
+10 failed in 0.05s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-max-codellama-7b-instruct-ctx16k/031_python_shortest_path_length/run_0001/1-5/generation/final_prompt.txt

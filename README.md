@@ -18,3 +18,11 @@ This repository intentionally excludes:
 - temporary logs and caches.
 
 The artefacts are provided for academic reproducibility and traceability of the dissertation results.
+
+## 03_quixbugs_python
+
+Cleaned artefacts for the QuixBugs Python dataset, organised into:
+
+- `suts/`
+- `scripts/`
+- `results/`

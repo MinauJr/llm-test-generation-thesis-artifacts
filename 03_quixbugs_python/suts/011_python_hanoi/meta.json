@@ -1,0 +1,8 @@
+{
+  "dataset": "quixbugs",
+  "lang": "python",
+  "task_key": "hanoi",
+  "pair_id": 11,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_python_programs/hanoi.py",
+  "entry_file": "sut.py"
+}

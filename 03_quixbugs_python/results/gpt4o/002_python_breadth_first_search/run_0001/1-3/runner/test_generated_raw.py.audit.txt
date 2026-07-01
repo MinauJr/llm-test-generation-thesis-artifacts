@@ -1,0 +1,34 @@
+import sut
+
+def test_bfs_direct_connection():
+    node1 = sut.Node()
+    node2 = sut.Node()
+    node1.successors = [node2]
+    assert sut.breadth_first_search(node1, node2) is True
+
+def test_bfs_no_connection():
+    node1 = sut.Node()
+    node2 = sut.Node()
+    assert sut.breadth_first_search(node1, node2) is False
+
+def test_bfs_self_loop():
+    node = sut.Node()
+    node.successors = [node]
+    assert sut.breadth_first_search(node, node) is True
+
+def test_bfs_multiple_successors():
+    node1 = sut.Node()
+    node2 = sut.Node()
+    node3 = sut.Node()
+    node4 = sut.Node()
+    node1.successors = [node2, node3, node4]
+    assert sut.breadth_first_search(node1, node4) is True
+
+def test_bfs_cyclic_graph():
+    node1 = sut.Node()
+    node2 = sut.Node()
+    node3 = sut.Node()
+    node1.successors = [node2]
+    node2.successors = [node3]
+    node3.successors = [node1]
+    assert sut.breadth_first_search(node1, node3) is True

@@ -1,0 +1,130 @@
+MODEL=cluster-safe-codestral-22b-ctx16k
+SUT=013_python_kheapsort
+REPEAT=1
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=collection_or_harness_problem_name_error
+FINGERPRINT=name:pytest|collection_error
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/013_python_kheapsort/run_0001/1-1
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-codestral-22b-ctx16k/013_python_kheapsort/rep_01/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/013_python_kheapsort/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "pytest"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "pytest"
+]
+
+===== SUT SYMBOLS =====
+[
+  "kheapsort"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "arr",
+  "expected",
+  "k",
+  "sut",
+  "test_kheapsort"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/013_python_kheapsort/run_0001/1-1/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/013_python_kheapsort/run_0001/1-1/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import sut
+
+@pytest.mark.parametrize("arr, k, expected", [
+    ([1, 2, 3, 4, 5], 2, [1, 2, 3, 4, 5]),
+    ([9, 8, 7, 6, 5], 2, [7, 8, 9, 5, 6]),
+    ([], 0, []),
+    ([5], 1, [5]),
+    ([3, 2, 1], 2, [2, 3, 1])
+])
+def test_kheapsort(arr, k, expected):
+    assert list(sut.kheapsort(arr, k)) == sorted(expected)
+
+
+===== SUT =====
+
+def kheapsort(arr, k):
+    import heapq
+
+    heap = arr[:k]
+    heapq.heapify(heap)
+
+    for x in arr[k:]:
+        yield heapq.heappushpop(heap, x)
+
+    while heap:
+        yield heapq.heappop(heap)
+
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+
+==================================== ERRORS ====================================
+______________________ ERROR collecting test_generated.py ______________________
+test_generated.py:3: in <module>
+    @pytest.mark.parametrize("arr, k, expected", [
+E   NameError: name 'pytest' is not defined
+=========================== short test summary info ============================
+ERROR test_generated.py - NameError: name 'pytest' is not defined
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+no tests collected, 1 error in 0.11s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=0
+individual_pass_nodeids=0
+individual_fail_nodeids=0
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting test_generated_raw.py ____________________
+test_generated_raw.py:3: in <module>
+    @pytest.mark.parametrize("arr, k, expected", [
+E   NameError: name 'pytest' is not defined
+=========================== short test summary info ============================
+ERROR test_generated_raw.py - NameError: name 'pytest' is not defined
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.13s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-codestral-22b-ctx16k/013_python_kheapsort/run_0001/1-1/generation/final_prompt.txt

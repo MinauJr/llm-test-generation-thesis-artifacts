@@ -1,0 +1,17 @@
+import sut
+
+def test_levenshtein_empty_strings():
+    assert sut.levenshtein("", "") == 0
+
+def test_levenshtein_one_empty_string():
+    assert sut.levenshtein("abc", "") == 3
+    assert sut.levenshtein("", "abc") == 3
+
+def test_levenshtein_identical_strings():
+    assert sut.levenshtein("kitten", "kitten") == 0
+
+def test_levenshtein_single_character_difference():
+    assert sut.levenshtein("kitten", "sitten") == 1
+
+def test_levenshtein_general_case():
+    assert sut.levenshtein("kitten", "sitting") == 3

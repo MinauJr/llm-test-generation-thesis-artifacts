@@ -1,0 +1,3 @@
+attempt	exit_code	bytes	nonempty	state
+1	0	1	0	empty
+2	0	439	1	nonempty_success

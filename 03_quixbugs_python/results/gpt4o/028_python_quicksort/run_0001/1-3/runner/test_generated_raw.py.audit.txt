@@ -1,0 +1,16 @@
+import sut
+
+def test_empty_list():
+    assert sut.quicksort([]) == []
+
+def test_single_element():
+    assert sut.quicksort([1]) == [1]
+
+def test_sorted_list():
+    assert sut.quicksort([1, 2, 3, 4, 5]) == [1, 2, 3, 4, 5]
+
+def test_reverse_sorted_list():
+    assert sut.quicksort([5, 4, 3, 2, 1]) == [1, 2, 3, 4, 5]
+
+def test_unsorted_list():
+    assert sut.quicksort([3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]) == [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]

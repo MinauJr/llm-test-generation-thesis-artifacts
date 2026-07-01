@@ -1,0 +1,8 @@
+{
+  "dataset": "quixbugs",
+  "lang": "python",
+  "task_key": "gcd",
+  "pair_id": 9,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_python_programs/gcd.py",
+  "entry_file": "sut.py"
+}

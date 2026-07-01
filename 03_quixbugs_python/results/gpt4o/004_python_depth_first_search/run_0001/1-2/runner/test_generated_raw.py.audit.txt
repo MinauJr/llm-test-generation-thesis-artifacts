@@ -1,0 +1,31 @@
+import sut
+
+def test_single_node_is_goal():
+    node = sut.Node()
+    assert sut.depth_first_search(node, node) is True
+
+def test_single_node_not_goal():
+    node1 = sut.Node()
+    node2 = sut.Node()
+    assert sut.depth_first_search(node1, node2) is False
+
+def test_two_connected_nodes_goal_reachable():
+    node1 = sut.Node()
+    node2 = sut.Node()
+    node1.successors.append(node2)
+    assert sut.depth_first_search(node1, node2) is True
+
+def test_two_connected_nodes_goal_not_reachable():
+    node1 = sut.Node()
+    node2 = sut.Node()
+    node2.successors.append(node1)
+    assert sut.depth_first_search(node1, node2) is False
+
+def test_cyclic_graph_goal_reachable():
+    node1 = sut.Node()
+    node2 = sut.Node()
+    node3 = sut.Node()
+    node1.successors.append(node2)
+    node2.successors.append(node3)
+    node3.successors.append(node1)
+    assert sut.depth_first_search(node1, node3) is True

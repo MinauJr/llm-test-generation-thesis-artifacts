@@ -1,0 +1,313 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=023_python_next_palindrome
+REPEAT=4
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_fixture_error
+FINGERPRINT=fixture:expected
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/023_python_next_palindrome/run_0001/1-4
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/023_python_next_palindrome/rep_04/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/023_python_next_palindrome/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [
+    "expected"
+  ],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[]
+
+===== SUT SYMBOLS =====
+[
+  "next_palindrome"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "digits",
+  "expected",
+  "input",
+  "next_palindrome",
+  "pytest",
+  "test_next_palindrome",
+  "test_next_palindrome_0_to_1",
+  "test_next_palindrome_greater_than_nine",
+  "test_next_palindrome_only_one_num_greater",
+  "test_next_palindrome_two_same_numbers"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/023_python_next_palindrome/run_0001/1-4/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/023_python_next_palindrome/run_0001/1-4/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+from sut import next_palindrome
+
+@pytest.mark.parametrize('input,expected', [(str([5]), str([6])), (str([9]), str([6]))])
+def test_next_palindrome(input, expected):
+    assert next_palindrome(int(input)) == int(expected)
+
+@pytest.mark.parametrize('input,expected', [(str([5]), str([6])), (str([9]), str([6]))])
+def test_next_palindrome_0_to_1(input, expected):
+    assert next_palindrome(int(input), 0, 1) == int(expected)
+
+@pytest.mark.parametrize('digits', [(str([5]), str([9]))])
+def test_next_palindrome_only_one_num_greater(digits, expected):
+    assert next_palindrome(int(digits)) == int(expected)
+
+@pytest.mark.parametrize('input', [(str([5, 5]), str([6]))])
+def test_next_palindrome_two_same_numbers(input, expected):
+    assert next_palindrome(int(input)) == int(expected)
+
+@pytest.mark.parametrize('digits', [(str([5]), str([9]))])
+def test_next_palindrome_greater_than_nine(digits, expected):
+    assert next_palindrome(int(digits), 10) == int(expected)
+
+
+===== SUT =====
+def next_palindrome(digit_list):
+    high_mid = len(digit_list) // 2
+    low_mid = (len(digit_list) - 1) // 2
+    while high_mid < len(digit_list) and low_mid >= 0:
+        if digit_list[high_mid] == 9:
+            digit_list[high_mid] = 0
+            digit_list[low_mid] = 0
+            high_mid += 1
+            low_mid -= 1
+        else:
+            digit_list[high_mid] += 1
+            if low_mid != high_mid:
+                digit_list[low_mid] += 1
+            return digit_list
+    return [1] + (len(digit_list) - 1) * [0] + [1]
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_next_palindrome[[5]-[6]]
+test_generated.py::test_next_palindrome[[9]-[6]]
+test_generated.py::test_next_palindrome_0_to_1[[5]-[6]]
+test_generated.py::test_next_palindrome_0_to_1[[9]-[6]]
+test_generated.py::test_next_palindrome_only_one_num_greater[digits0]
+test_generated.py::test_next_palindrome_two_same_numbers[input0]
+test_generated.py::test_next_palindrome_greater_than_nine[digits0]
+
+7 tests collected in 0.01s
+
+
+===== nodeid_sanitizer.node_3492117a094fb350f305e29ae817ce542b43368a62a972cd4113cc57cb11c2da.log =====
+E                                                                        [100%]
+==================================== ERRORS ====================================
+_____ ERROR at setup of test_next_palindrome_only_one_num_greater[digits0] _____
+file /second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/023_python_next_palindrome/run_0001/1-4/runner/test_generated.py, line 12
+  @pytest.mark.parametrize('digits', [(str([5]), str([9]))])
+  def test_next_palindrome_only_one_num_greater(digits, expected):
+E       fixture 'expected' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/023_python_next_palindrome/run_0001/1-4/runner/test_generated.py:12
+=========================== short test summary info ============================
+ERROR test_generated.py::test_next_palindrome_only_one_num_greater[digits0]
+1 error in 0.01s
+
+
+===== nodeid_sanitizer.node_3a49bc91f125236113b9669e60a35ed7abfe21cf3755c840f1cf2f05815707e7.log =====
+E                                                                        [100%]
+==================================== ERRORS ====================================
+_______ ERROR at setup of test_next_palindrome_two_same_numbers[input0] ________
+file /second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/023_python_next_palindrome/run_0001/1-4/runner/test_generated.py, line 16
+  @pytest.mark.parametrize('input', [(str([5, 5]), str([6]))])
+  def test_next_palindrome_two_same_numbers(input, expected):
+E       fixture 'expected' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/023_python_next_palindrome/run_0001/1-4/runner/test_generated.py:16
+=========================== short test summary info ============================
+ERROR test_generated.py::test_next_palindrome_two_same_numbers[input0]
+1 error in 0.01s
+
+
+===== nodeid_sanitizer.node_69ad7e8ff6afec8720c5a2d64d1672f2a1927887799b08067d33237281a8d80c.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________________________ test_next_palindrome[[5]-[6]] _________________________
+
+input = '[5]', expected = '[6]'
+
+    @pytest.mark.parametrize('input,expected', [(str([5]), str([6])), (str([9]), str([6]))])
+    def test_next_palindrome(input, expected):
+>       assert next_palindrome(int(input)) == int(expected)
+E       ValueError: invalid literal for int() with base 10: '[5]'
+
+test_generated.py:6: ValueError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_next_palindrome[[5]-[6]] - ValueError: invalid...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_b14402481a4aa96995c34714d51bf238d0c53b7ed1dac3e8b6499cffec0cb9d7.log =====
+E                                                                        [100%]
+==================================== ERRORS ====================================
+______ ERROR at setup of test_next_palindrome_greater_than_nine[digits0] _______
+file /second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/023_python_next_palindrome/run_0001/1-4/runner/test_generated.py, line 20
+  @pytest.mark.parametrize('digits', [(str([5]), str([9]))])
+  def test_next_palindrome_greater_than_nine(digits, expected):
+E       fixture 'expected' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/023_python_next_palindrome/run_0001/1-4/runner/test_generated.py:20
+=========================== short test summary info ============================
+ERROR test_generated.py::test_next_palindrome_greater_than_nine[digits0]
+1 error in 0.01s
+
+
+===== nodeid_sanitizer.node_d2e17f7e8d3ed2a88f291dbcf451a6ed73269ad8dc76b59c09f59bb14ae11c3a.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________________________ test_next_palindrome[[9]-[6]] _________________________
+
+input = '[9]', expected = '[6]'
+
+    @pytest.mark.parametrize('input,expected', [(str([5]), str([6])), (str([9]), str([6]))])
+    def test_next_palindrome(input, expected):
+>       assert next_palindrome(int(input)) == int(expected)
+E       ValueError: invalid literal for int() with base 10: '[9]'
+
+test_generated.py:6: ValueError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_next_palindrome[[9]-[6]] - ValueError: invalid...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_e7ee76b97e06e5b84dd334cd7c39165d22beaac16ee3e2bd280b71614ae4a220.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________________ test_next_palindrome_0_to_1[[5]-[6]] _____________________
+
+input = '[5]', expected = '[6]'
+
+    @pytest.mark.parametrize('input,expected', [(str([5]), str([6])), (str([9]), str([6]))])
+    def test_next_palindrome_0_to_1(input, expected):
+>       assert next_palindrome(int(input), 0, 1) == int(expected)
+E       ValueError: invalid literal for int() with base 10: '[5]'
+
+test_generated.py:10: ValueError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_next_palindrome_0_to_1[[5]-[6]] - ValueError: ...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_ed5e7fcf7efd1041d8f6456810d02971589a9f59bd902e4467a490460db0a1b4.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________________ test_next_palindrome_0_to_1[[9]-[6]] _____________________
+
+input = '[9]', expected = '[6]'
+
+    @pytest.mark.parametrize('input,expected', [(str([5]), str([6])), (str([9]), str([6]))])
+    def test_next_palindrome_0_to_1(input, expected):
+>       assert next_palindrome(int(input), 0, 1) == int(expected)
+E       ValueError: invalid literal for int() with base 10: '[9]'
+
+test_generated.py:10: ValueError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_next_palindrome_0_to_1[[9]-[6]] - ValueError: ...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=7
+individual_pass_nodeids=0
+individual_fail_nodeids=7
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+FFFFEEE                                                                  [100%]
+==================================== ERRORS ====================================
+_____ ERROR at setup of test_next_palindrome_only_one_num_greater[digits0] _____
+file /second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/023_python_next_palindrome/run_0001/1-4/runner/test_generated_raw.py, line 12
+  @pytest.mark.parametrize('digits', [(str([5]), str([9]))])
+  def test_next_palindrome_only_one_num_greater(digits, expected):
+E       fixture 'expected' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/023_python_next_palindrome/run_0001/1-4/runner/test_generated_raw.py:12
+_______ ERROR at setup of test_next_palindrome_two_same_numbers[input0] ________
+file /second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/023_python_next_palindrome/run_0001/1-4/runner/test_generated_raw.py, line 16
+  @pytest.mark.parametrize('input', [(str([5, 5]), str([6]))])
+  def test_next_palindrome_two_same_numbers(input, expected):
+E       fixture 'expected' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/023_python_next_palindrome/run_0001/1-4/runner/test_generated_raw.py:16
+______ ERROR at setup of test_next_palindrome_greater_than_nine[digits0] _______
+file /second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/023_python_next_palindrome/run_0001/1-4/runner/test_generated_raw.py, line 20
+  @pytest.mark.parametrize('digits', [(str([5]), str([9]))])
+  def test_next_palindrome_greater_than_nine(digits, expected):
+E       fixture 'expected' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/023_python_next_palindrome/run_0001/1-4/runner/test_generated_raw.py:20
+=================================== FAILURES ===================================
+________________________ test_next_palindrome[[5]-[6]] _________________________
+test_generated_raw.py:6: in test_next_palindrome
+    assert next_palindrome(int(input)) == int(expected)
+E   ValueError: invalid literal for int() with base 10: '[5]'
+________________________ test_next_palindrome[[9]-[6]] _________________________
+test_generated_raw.py:6: in test_next_palindrome
+    assert next_palindrome(int(input)) == int(expected)
+E   ValueError: invalid literal for int() with base 10: '[9]'
+_____________________ test_next_palindrome_0_to_1[[5]-[6]] _____________________
+test_generated_raw.py:10: in test_next_palindrome_0_to_1
+    assert next_palindrome(int(input), 0, 1) == int(expected)
+E   ValueError: invalid literal for int() with base 10: '[5]'
+_____________________ test_next_palindrome_0_to_1[[9]-[6]] _____________________
+test_generated_raw.py:10: in test_next_palindrome_0_to_1
+    assert next_palindrome(int(input), 0, 1) == int(expected)
+E   ValueError: invalid literal for int() with base 10: '[9]'
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test_next_palindrome[[5]-[6]] - ValueError: inv...
+FAILED test_generated_raw.py::test_next_palindrome[[9]-[6]] - ValueError: inv...
+FAILED test_generated_raw.py::test_next_palindrome_0_to_1[[5]-[6]] - ValueErr...
+FAILED test_generated_raw.py::test_next_palindrome_0_to_1[[9]-[6]] - ValueErr...
+ERROR test_generated_raw.py::test_next_palindrome_only_one_num_greater[digits0]
+ERROR test_generated_raw.py::test_next_palindrome_two_same_numbers[input0]
+ERROR test_generated_raw.py::test_next_palindrome_greater_than_nine[digits0]
+4 failed, 3 errors in 0.04s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/023_python_next_palindrome/run_0001/1-4/generation/final_prompt.txt

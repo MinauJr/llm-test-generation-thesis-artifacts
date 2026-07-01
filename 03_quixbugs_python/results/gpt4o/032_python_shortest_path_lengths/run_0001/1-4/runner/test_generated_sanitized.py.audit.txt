@@ -1,0 +1,32 @@
+import pytest
+import sut
+
+def test_empty_graph():
+    result = sut.shortest_path_lengths(0, {})
+    assert result == {}
+
+def test_single_node_no_edges():
+    result = sut.shortest_path_lengths(1, {})
+    assert result == {(0, 0): 0}
+
+def test_two_nodes_one_edge():
+    result = sut.shortest_path_lengths(2, {(0, 1): 5})
+    assert result == {(0, 0): 0, (1, 1): 0, (0, 1): 5, (1, 0): float('inf')}
+
+@pytest.mark.skip(reason="auto-sanitized failing generated test")
+def test_three_nodes_with_cycle():
+    result = sut.shortest_path_lengths(3, {(0, 1): 2, (1, 2): 3, (2, 0): 1})
+    assert result == {
+        (0, 0): 0, (1, 1): 0, (2, 2): 0,
+        (0, 1): 2, (1, 2): 3, (2, 0): 1,
+        (0, 2): 5, (1, 0): 4, (2, 1): 6
+    }
+
+def test_disconnected_graph():
+    result = sut.shortest_path_lengths(3, {(0, 1): 4})
+    assert result == {
+        (0, 0): 0, (1, 1): 0, (2, 2): 0,
+        (0, 1): 4, (1, 0): float('inf'),
+        (0, 2): float('inf'), (2, 0): float('inf'),
+        (1, 2): float('inf'), (2, 1): float('inf')
+    }

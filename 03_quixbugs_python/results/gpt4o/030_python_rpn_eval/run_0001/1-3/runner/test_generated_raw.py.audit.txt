@@ -1,0 +1,19 @@
+import sut
+
+def test_single_number():
+    assert sut.rpn_eval([3.0]) == 3.0
+
+def test_addition():
+    assert sut.rpn_eval([3.0, 4.0, '+']) == 7.0
+
+def test_subtraction():
+    assert sut.rpn_eval([10.0, 4.0, '-']) == 6.0
+
+def test_multiplication():
+    assert sut.rpn_eval([2.0, 5.0, '*']) == 10.0
+
+def test_division():
+    assert sut.rpn_eval([8.0, 2.0, '/']) == 4.0
+
+def test_complex_expression():
+    assert sut.rpn_eval([5.0, 1.0, 2.0, '+', 4.0, '*', '+', 3.0, '-']) == 14.0

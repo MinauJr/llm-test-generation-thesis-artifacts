@@ -1,0 +1,16 @@
+import sut
+
+def test_subsequences_k_zero():
+    assert sut.subsequences(0, 5, 0) == [[]]
+
+def test_subsequences_single_element():
+    assert sut.subsequences(0, 5, 1) == [[0], [1], [2], [3], [4], [5]]
+
+def test_subsequences_two_elements():
+    assert sut.subsequences(0, 3, 2) == [[0, 1], [0, 2], [0, 3], [1, 2], [1, 3], [2, 3]]
+
+def test_subsequences_full_range():
+    assert sut.subsequences(0, 2, 3) == [[0, 1, 2]]
+
+def test_subsequences_no_valid_subsequences():
+    assert sut.subsequences(0, 2, 4) == []

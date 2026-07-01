@@ -1,0 +1,125 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=004_python_depth_first_search
+REPEAT=2
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=collection_or_harness_problem_collection_error
+FINGERPRINT=collection_error
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/004_python_depth_first_search/run_0001/1-2
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/004_python_depth_first_search/rep_02/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/004_python_depth_first_search/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[]
+
+===== SUT SYMBOLS =====
+[
+  "Node",
+  "depth_first_search"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "pytest",
+  "self",
+  "sut",
+  "test___init__"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/004_python_depth_first_search/run_0001/1-2/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/004_python_depth_first_search/run_0001/1-2/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+
+sut = __import__("sut", fromlist=[""])  # noqa: E402
+
+@pytest.mark.parametrize("graph_edges", [([("A", "B"), ("A", "C"), ("B", "C")], [])], indirect=["graph_edges"])  # noqa: E402
+def test___init__(self):
+    assert sut.Node([]) == Node()
+
+
+===== SUT =====
+class Node:
+    def __init__(self, successors=None):
+        self.successors = list(successors) if successors is not None else []
+
+
+def depth_first_search(startnode, goalnode):
+    nodesvisited = set()
+
+    def search_from(node):
+        if node in nodesvisited:
+            return False
+        elif node is goalnode:
+            return True
+        else:
+            nodesvisited.add(node)
+            return any(
+                search_from(nextnode) for nextnode in node.successors
+            )
+
+    return search_from(startnode)
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+
+==================================== ERRORS ====================================
+______________________ ERROR collecting test_generated.py ______________________
+In test___init__: function uses no fixture 'graph_edges'
+=========================== short test summary info ============================
+ERROR test_generated.py - Failed: In test___init__: function uses no fixture ...
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+no tests collected, 1 error in 0.10s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=0
+individual_pass_nodeids=0
+individual_fail_nodeids=0
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting test_generated_raw.py ____________________
+In test___init__: function uses no fixture 'graph_edges'
+=========================== short test summary info ============================
+ERROR test_generated_raw.py - Failed: In test___init__: function uses no fixt...
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.10s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/004_python_depth_first_search/run_0001/1-2/generation/final_prompt.txt

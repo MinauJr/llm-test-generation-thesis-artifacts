@@ -1,0 +1,29 @@
+import pytest
+import sut
+
+def test_empty_input():
+    assert sut.topological_ordering([]) == []
+
+def test_single_node():
+    node = sut.Node()
+    assert sut.topological_ordering([node]) == [node]
+
+def test_linear_dependency():
+    node1 = sut.Node()
+    node2 = sut.Node(incoming_nodes=[node1])
+    node3 = sut.Node(incoming_nodes=[node2])
+    assert sut.topological_ordering([node3, node2, node1]) == [node1, node2, node3]
+
+@pytest.mark.skip(reason="auto-sanitized failing generated test")
+def test_branching_dependency():
+    node1 = sut.Node()
+    node2 = sut.Node(incoming_nodes=[node1])
+    node3 = sut.Node(incoming_nodes=[node1])
+    node4 = sut.Node(incoming_nodes=[node2, node3])
+    assert sut.topological_ordering([node4, node3, node2, node1]) == [node1, node2, node3, node4]
+
+def test_circular_dependency():
+    node1 = sut.Node()
+    node2 = sut.Node(incoming_nodes=[node1])
+    node1.incoming_nodes = [node2]
+    assert sut.topological_ordering([node1, node2]) == []

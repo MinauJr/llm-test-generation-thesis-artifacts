@@ -1,0 +1,167 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=032_python_shortest_path_lengths
+REPEAT=2
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_name_error
+FINGERPRINT=name:defaultdict
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/032_python_shortest_path_lengths/run_0001/1-2
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/032_python_shortest_path_lengths/rep_02/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/032_python_shortest_path_lengths/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "defaultdict"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "defaultdict"
+]
+
+===== SUT SYMBOLS =====
+[
+  "shortest_path_lengths"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "expected_result",
+  "i",
+  "j",
+  "length_by_edge",
+  "n",
+  "pytest",
+  "result",
+  "shortest_path_lengths",
+  "test__shortest_path_lengths"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/032_python_shortest_path_lengths/run_0001/1-2/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/032_python_shortest_path_lengths/run_0001/1-2/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+from sut import shortest_path_lengths
+
+def test__shortest_path_lengths():
+    n = 3
+    length_by_edge = {(0,1):2, (1,2):3, (0,2):4}
+
+    assert isinstance(n, int) and n >= 0, "n must be a non-negative integer"
+    assert isinstance(length_by_edge, dict), \
+        "length_by_edge must be a dictionary mapping edges to lengths"
+
+    result = shortest_path_lengths(n, length_by_edge)
+    expected_result = defaultdict(lambda: float("inf"), {(i,j): 0 if i==j else float('inf') for i in range(n) for j in range(n)})
+    assert result == expected_result, "Resulting dictionary does not match the expected one"
+
+    n = -3
+    with pytest.raises(TypeError): shortest_path_lengths(n, length_by_edge)
+
+    length_by_edge = {(0,1):-2, (1,2):3}
+    with pytest.raises(TypeError): shortest_path_lengths(-4, length_by_edge)
+
+
+===== SUT =====
+from collections import defaultdict
+
+
+def shortest_path_lengths(n, length_by_edge):
+    if type(n) is not int or n < 0:
+        raise TypeError("n must be a non-negative int")
+    if not isinstance(length_by_edge, dict):
+        raise TypeError("length_by_edge must be a dict")
+
+    length_by_path = defaultdict(lambda: float("inf"))
+    length_by_path.update({(i, i): 0 for i in range(n)})
+    length_by_path.update(length_by_edge)
+
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                length_by_path[i, j] = min(
+                    length_by_path[i, j],
+                    length_by_path[i, k] + length_by_path[k, j]
+                )
+
+    return length_by_path
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test__shortest_path_lengths
+
+1 test collected in 0.01s
+
+
+===== nodeid_sanitizer.node_5049eef59b8b09d4711c9ea66173ded3a44a68eba4ed0e634036dbaa7bb40c3c.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________________________ test__shortest_path_lengths __________________________
+
+    def test__shortest_path_lengths():
+        n = 3
+        length_by_edge = {(0,1):2, (1,2):3, (0,2):4}
+    
+        assert isinstance(n, int) and n >= 0, "n must be a non-negative integer"
+        assert isinstance(length_by_edge, dict), \
+            "length_by_edge must be a dictionary mapping edges to lengths"
+    
+        result = shortest_path_lengths(n, length_by_edge)
+>       expected_result = defaultdict(lambda: float("inf"), {(i,j): 0 if i==j else float('inf') for i in range(n) for j in range(n)})
+E       NameError: name 'defaultdict' is not defined
+
+test_generated.py:13: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test__shortest_path_lengths - NameError: name 'defa...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=1
+individual_pass_nodeids=0
+individual_fail_nodeids=1
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________________________ test__shortest_path_lengths __________________________
+test_generated_raw.py:13: in test__shortest_path_lengths
+    expected_result = defaultdict(lambda: float("inf"), {(i,j): 0 if i==j else float('inf') for i in range(n) for j in range(n)})
+E   NameError: name 'defaultdict' is not defined
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test__shortest_path_lengths - NameError: name '...
+1 failed in 0.02s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/032_python_shortest_path_lengths/run_0001/1-2/generation/final_prompt.txt

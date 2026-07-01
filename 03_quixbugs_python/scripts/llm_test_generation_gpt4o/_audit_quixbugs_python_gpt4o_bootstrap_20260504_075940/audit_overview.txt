@@ -1,0 +1,123 @@
+===== PATHS =====
+GPT_ROOT=/home/jpaiva/projetos/llm_test_generation_gpt4o
+NEW_REPO=/home/jpaiva/projetos/llm_test_generation_gpt4o/quixbugs_python_gpt4o
+SUT_ROOT=/home/jpaiva/projetos/SUTs/quixbugs
+NONAI_ROOT=/home/jpaiva/projetos/nonAI/python_workflow
+NONAI_FINAL=/home/jpaiva/projetos/nonAI/python_workflow/out/quixbugs_py_final_20260411_123107
+AUDIT_BASE=/home/jpaiva/projetos/llm_test_generation_gpt4o/_audit_quixbugs_python_gpt4o_bootstrap_20260504_075940
+
+===== EXISTENCE CHECKS =====
+OK exists: /home/jpaiva/projetos/llm_test_generation_gpt4o
+MISSING: /home/jpaiva/projetos/llm_test_generation_gpt4o/quixbugs_python_gpt4o
+OK exists: /home/jpaiva/projetos/SUTs/quixbugs
+OK exists: /home/jpaiva/projetos/nonAI/python_workflow
+OK exists: /home/jpaiva/projetos/nonAI/python_workflow/out/quixbugs_py_final_20260411_123107
+
+===== GPT-4O PYTHON MATURE SKELETON FILES =====
+OK skeleton: /home/jpaiva/projetos/llm_test_generation_gpt4o/common/iaedu_from_prompt.py
+OK skeleton: /home/jpaiva/projetos/llm_test_generation_gpt4o/common/generate_final_prompt.sh
+OK skeleton: /home/jpaiva/projetos/llm_test_generation_gpt4o/scripts/run_gpt4o_humanevalplus_python_one_sut.sh
+OK skeleton: /home/jpaiva/projetos/llm_test_generation_gpt4o/scripts/run_gpt4o_humanevalplus_python_dataset.sh
+OK skeleton: /home/jpaiva/projetos/llm_test_generation_gpt4o/scripts/run_gpt4o_mbppplus_python_one_sut.sh
+OK skeleton: /home/jpaiva/projetos/llm_test_generation_gpt4o/scripts/run_gpt4o_mbppplus_python_dataset.sh
+OK skeleton: /home/jpaiva/projetos/llm_test_generation_gpt4o/scripts/run_gpt4o_mbppplus_generate_one.sh
+OK skeleton: /home/jpaiva/projetos/llm_test_generation_gpt4o/scripts/run_gpt4o_mbppplus_generate_one_inner_once.sh
+OK skeleton: /home/jpaiva/projetos/llm_test_generation_gpt4o/prompts/python_mbppplus_zero_shot_v4_retryempty.txt
+OK skeleton: /home/jpaiva/projetos/llm_test_generation_gpt4o/prompts/python_humanevalplus_zero_shot_v2.txt
+
+===== NON-AI QUIXBUGS REFERENCE FILES =====
+OK nonAI: /home/jpaiva/projetos/nonAI/python_workflow/run_python_baseline3.sh
+OK nonAI: /home/jpaiva/projetos/nonAI/python_workflow/run_pynguin_quixbugs_all.sh
+OK nonAI: /home/jpaiva/projetos/nonAI/python_workflow/out/quixbugs_py_final_20260411_123107
+OK nonAI: /home/jpaiva/projetos/nonAI/python_workflow/out/quixbugs_py_final_20260411_123107.log
+OK nonAI: /home/jpaiva/projetos/nonAI/python_workflow/out/quixbugs_py_final_20260411_123107/dataset_aggregate
+
+===== EXISTING NEW_REPO CONTENTS =====
+NEW_REPO does not exist yet.
+
+===== SUT DIRECTORY COUNT =====
+python_sut_dirs=40
+
+===== SUT DIRECTORY LIST =====
+001_python_bitcount
+002_python_breadth_first_search
+003_python_bucketsort
+004_python_depth_first_search
+005_python_detect_cycle
+006_python_find_first_in_sorted
+007_python_find_in_sorted
+008_python_flatten
+009_python_gcd
+010_python_get_factors
+011_python_hanoi
+012_python_is_valid_parenthesization
+013_python_kheapsort
+014_python_knapsack
+015_python_kth
+016_python_lcs_length
+017_python_levenshtein
+018_python_lis
+019_python_longest_common_subsequence
+020_python_max_sublist_sum
+021_python_mergesort
+022_python_minimum_spanning_tree
+023_python_next_palindrome
+024_python_next_permutation
+025_python_pascal
+026_python_possible_change
+027_python_powerset
+028_python_quicksort
+029_python_reverse_linked_list
+030_python_rpn_eval
+031_python_shortest_path_length
+032_python_shortest_path_lengths
+033_python_shortest_paths
+034_python_shunting_yard
+035_python_sieve
+036_python_sqrt
+037_python_subsequences
+038_python_to_base
+039_python_topological_ordering
+040_python_wrap
+
+===== QUICK FILE SHAPE PER SUT =====
+OK sut.py: 001_python_bitcount
+OK sut.py: 002_python_breadth_first_search
+OK sut.py: 003_python_bucketsort
+OK sut.py: 004_python_depth_first_search
+OK sut.py: 005_python_detect_cycle
+OK sut.py: 006_python_find_first_in_sorted
+OK sut.py: 007_python_find_in_sorted
+OK sut.py: 008_python_flatten
+OK sut.py: 009_python_gcd
+OK sut.py: 010_python_get_factors
+OK sut.py: 011_python_hanoi
+OK sut.py: 012_python_is_valid_parenthesization
+OK sut.py: 013_python_kheapsort
+OK sut.py: 014_python_knapsack
+OK sut.py: 015_python_kth
+OK sut.py: 016_python_lcs_length
+OK sut.py: 017_python_levenshtein
+OK sut.py: 018_python_lis
+OK sut.py: 019_python_longest_common_subsequence
+OK sut.py: 020_python_max_sublist_sum
+OK sut.py: 021_python_mergesort
+OK sut.py: 022_python_minimum_spanning_tree
+OK sut.py: 023_python_next_palindrome
+OK sut.py: 024_python_next_permutation
+OK sut.py: 025_python_pascal
+OK sut.py: 026_python_possible_change
+OK sut.py: 027_python_powerset
+OK sut.py: 028_python_quicksort
+OK sut.py: 029_python_reverse_linked_list
+OK sut.py: 030_python_rpn_eval
+OK sut.py: 031_python_shortest_path_length
+OK sut.py: 032_python_shortest_path_lengths
+OK sut.py: 033_python_shortest_paths
+OK sut.py: 034_python_shunting_yard
+OK sut.py: 035_python_sieve
+OK sut.py: 036_python_sqrt
+OK sut.py: 037_python_subsequences
+OK sut.py: 038_python_to_base
+OK sut.py: 039_python_topological_ordering
+OK sut.py: 040_python_wrap

@@ -1,0 +1,38 @@
+import sut
+
+def test_reverse_single_node():
+    node = sut.Node()
+    result = sut.reverse_linked_list(node)
+    assert result == node
+    assert result.successor is None
+
+def test_reverse_two_nodes():
+    node1 = sut.Node()
+    node2 = sut.Node(successor=node1)
+    result = sut.reverse_linked_list(node2)
+    assert result == node1
+    assert result.successor == node2
+    assert node2.successor is None
+
+def test_reverse_three_nodes():
+    node1 = sut.Node()
+    node2 = sut.Node(successor=node1)
+    node3 = sut.Node(successor=node2)
+    result = sut.reverse_linked_list(node3)
+    assert result == node1
+    assert result.successor == node2
+    assert node2.successor == node3
+    assert node3.successor is None
+
+def test_reverse_empty_list():
+    result = sut.reverse_linked_list(None)
+    assert result is None
+
+def test_reverse_circular_reference():
+    node1 = sut.Node()
+    node2 = sut.Node(successor=node1)
+    node1.successor = node2
+    result = sut.reverse_linked_list(node1)
+    assert result == node2
+    assert result.successor == node1
+    assert node1.successor is None

@@ -1,0 +1,28 @@
+import pytest
+import sut
+
+def test_single_edge():
+    weight_by_edge = {('A', 'B'): 5}
+    result = sut.shortest_paths('A', weight_by_edge)
+    assert result == {'A': 0, 'B': 5}
+
+def test_two_edges():
+    weight_by_edge = {('A', 'B'): 3, ('B', 'C'): 4}
+    result = sut.shortest_paths('A', weight_by_edge)
+    assert result == {'A': 0, 'B': 3, 'C': 7}
+
+def test_no_edges():
+    weight_by_edge = {}
+    result = sut.shortest_paths('A', weight_by_edge)
+    assert result == {'A': 0}
+
+@pytest.mark.skip(reason="auto-sanitized failing generated test")
+def test_disconnected_graph():
+    weight_by_edge = {('A', 'B'): 2, ('C', 'D'): 3}
+    result = sut.shortest_paths('A', weight_by_edge)
+    assert result == {'A': 0, 'B': 2, 'C': float('inf'), 'D': float('inf')}
+
+def test_negative_weight():
+    weight_by_edge = {('A', 'B'): 4, ('B', 'C'): -2, ('A', 'C'): 5}
+    result = sut.shortest_paths('A', weight_by_edge)
+    assert result == {'A': 0, 'B': 4, 'C': 2}

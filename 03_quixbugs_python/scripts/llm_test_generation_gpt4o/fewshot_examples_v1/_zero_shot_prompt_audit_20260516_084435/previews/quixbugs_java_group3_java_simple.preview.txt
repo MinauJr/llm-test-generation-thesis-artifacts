@@ -1,0 +1,99 @@
+===== DATASET: quixbugs_java =====
+===== GROUP: group3_java_simple =====
+===== PATH: quixbugs_java_gpt4o/prompts/java_quixbugs_zero_shot_v1.txt =====
+
+===== FULL PROMPT =====
+You are generating unit tests for a Java program.
+
+Return ONLY a complete Java JUnit 4 test file.
+Do not include Markdown.
+Do not include explanations.
+Do not include code fences.
+
+Requirements:
+
+QuixBugs Java helper API notes:
+- java_programs.Node uses String values. Prefer new Node("A"), new Node("1"), etc.; do not use new Node(1).
+- If asserting node.getValue(), compare with a String, e.g. assertEquals("1", node.getValue()).
+- Do not invent addSuccessor(...) or addPredecessor(...).
+- For graph-style nodes, use node.getSuccessors().add(otherNode) and node.getPredecessors().add(otherNode), or setSuccessors/setPredecessors with ArrayList<Node>.
+- If a target method expects ArrayList<Node>, do not pass List<Node>.
+
+- The file must start with: package mypkg;
+- Use JUnit 4, not JUnit 5.
+- Use imports such as:
+  import org.junit.Test;
+  import static org.junit.Assert.*;
+- The public test class must be named: {TEST_CLASS}
+- Test the target class: mypkg.{TARGET_CLASS}
+- Prefer deterministic tests.
+- Do not use randomness, sleeps, network access, filesystem access, or external services.
+- Do not modify the production code.
+- Do not use reflection unless strictly necessary.
+- Write top-level @Test methods inside the requested test class.
+
+Additional QuixBugs Java constraints:
+- Do not invent expected behaviour for ambiguous edge cases.
+- Prefer simple, valid, deterministic inputs that are clearly supported by the source.
+- Avoid tests that may trigger infinite loops, excessive memory use, sleeps, or very long execution.
+- Avoid empty inputs, negative inputs, nulls, or extreme values unless the source clearly supports them.
+- Match Java method signatures exactly.
+- If a method requires ArrayList<T>, pass new ArrayList<T>(Arrays.asList(...)) or new ArrayList<T>(), not Arrays.asList(...) directly.
+- For helper classes such as Node, inspect constructor and setter signatures before using them.
+
+Target SUT name:
+{SUT_NAME}
+
+Target Java source file:
+{TARGET_RELATIVE_FILE}
+
+Target Java source:
+{TARGET_SOURCE}
+
+===== PLACEHOLDER CONTEXT =====
+1-You are generating unit tests for a Java program.
+2-
+3:Return ONLY a complete Java JUnit 4 test file.
+4-Do not include Markdown.
+5-Do not include explanations.
+6-Do not include code fences.
+7-
+8-Requirements:
+9-
+10:QuixBugs Java helper API notes:
+11-- java_programs.Node uses String values. Prefer new Node("A"), new Node("1"), etc.; do not use new Node(1).
+12-- If asserting node.getValue(), compare with a String, e.g. assertEquals("1", node.getValue()).
+13-- Do not invent addSuccessor(...) or addPredecessor(...).
+14-- For graph-style nodes, use node.getSuccessors().add(otherNode) and node.getPredecessors().add(otherNode), or setSuccessors/setPredecessors with ArrayList<Node>.
+15-- If a target method expects ArrayList<Node>, do not pass List<Node>.
+16-
+17-- The file must start with: package mypkg;
+18:- Use JUnit 4, not JUnit 5.
+19-- Use imports such as:
+20-  import org.junit.Test;
+21-  import static org.junit.Assert.*;
+22-- The public test class must be named: {TEST_CLASS}
+23-- Test the target class: mypkg.{TARGET_CLASS}
+24-- Prefer deterministic tests.
+25-- Do not use randomness, sleeps, network access, filesystem access, or external services.
+26-- Do not modify the production code.
+27-- Do not use reflection unless strictly necessary.
+28-- Write top-level @Test methods inside the requested test class.
+29-
+30:Additional QuixBugs Java constraints:
+31-- Do not invent expected behaviour for ambiguous edge cases.
+32-- Prefer simple, valid, deterministic inputs that are clearly supported by the source.
+33-- Avoid tests that may trigger infinite loops, excessive memory use, sleeps, or very long execution.
+34-- Avoid empty inputs, negative inputs, nulls, or extreme values unless the source clearly supports them.
+35-- Match Java method signatures exactly.
+36-- If a method requires ArrayList<T>, pass new ArrayList<T>(Arrays.asList(...)) or new ArrayList<T>(), not Arrays.asList(...) directly.
+37-- For helper classes such as Node, inspect constructor and setter signatures before using them.
+38-
+39:Target SUT name:
+40:{SUT_NAME}
+41-
+42-Target Java source file:
+43-{TARGET_RELATIVE_FILE}
+44-
+45-Target Java source:
+46-{TARGET_SOURCE}

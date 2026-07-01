@@ -1,0 +1,9 @@
+probe_root=/home/jpaiva/projetos/quixbugs_python_gpt4o/notes/mutmut_nodeid_probe_20260614_160545
+compile_exit=0
+collect_exit=0
+collected_nodeids=17
+effective_nodeids=14
+effective_pytest_exit=0
+coverage_exit=0
+mutmut_exit=1
+mutmut_results_exit=1

@@ -1,0 +1,3 @@
+candidate_count=7
+recovered_count=1
+status_counts={"all_nodeids_still_fail": 5, "recovered_with_safe_harness": 1, "still_no_tests_collected": 1}

@@ -1,0 +1,182 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=033_python_shortest_paths
+REPEAT=5
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_name_error
+FINGERPRINT=name:sut
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/033_python_shortest_paths/run_0001/1-5
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/033_python_shortest_paths/rep_05/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/033_python_shortest_paths/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "sut"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "sut"
+]
+
+===== SUT SYMBOLS =====
+[
+  "shortest_paths"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "i",
+  "j",
+  "pytest",
+  "test_shortest_paths"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/033_python_shortest_paths/run_0001/1-5/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/033_python_shortest_paths/run_0001/1-5/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+
+def test_shortest_paths():
+    assert sut.shortest_paths(1, 2) == {
+        1: 0,
+        2: float('inf'),
+    }
+
+    assert sut.shortest_paths(1, [
+        (2, 3),
+        (3, 2),
+        (3, 4),
+    ]) == {
+        1: 0,
+        2: 1,
+        3: 2,
+        4: float('inf'),
+    }
+
+    assert sut.shortest_paths(5, [
+        (1, 2, 6),
+        (1, 3, 7),
+        (2, 3, 8),
+        (2, 4, 7),
+        (3, 4, 9),
+    ]) == {
+        1: 0,
+        2: 6,
+        3: 7,
+        4: 8,
+        5: float('inf'),
+    }
+
+    assert sut.shortest_paths(
+        [1, 2, 3],
+        [(i + j) for i in range(len(list)) for j in range(len(list))]
+    ) == {
+        1: 0,
+        2: float('inf'),
+        3: float('inf'),
+    }
+
+
+===== SUT =====
+
+def shortest_paths(source, weight_by_edge):
+    weight_by_node = {
+        v: float('inf') for u, v in weight_by_edge
+    }
+    weight_by_node[source] = 0
+
+    for i in range(len(weight_by_node) - 1):
+        for (u, v), weight in weight_by_edge.items():
+            weight_by_node[v] = min(
+                weight_by_node[u] + weight,
+                weight_by_node[v]
+            )
+
+    return weight_by_node
+
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_shortest_paths
+
+1 test collected in 0.01s
+
+
+===== nodeid_sanitizer.node_cdab2b8d359a4081b4641cf1361c0468b59b78edc18c2cd5c88646b8139b6b5e.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________________________ test_shortest_paths ______________________________
+
+    def test_shortest_paths():
+>       assert sut.shortest_paths(1, 2) == {
+            1: 0,
+            2: float('inf'),
+        }
+
+test_generated.py:4: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+source = 1, weight_by_edge = 2
+
+    def shortest_paths(source, weight_by_edge):
+>       weight_by_node = {
+            v: float('inf') for u, v in weight_by_edge
+        }
+E       TypeError: 'int' object is not iterable
+
+sut.py:3: TypeError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_shortest_paths - TypeError: 'int' object is no...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=1
+individual_pass_nodeids=0
+individual_fail_nodeids=1
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________________________ test_shortest_paths ______________________________
+test_generated_raw.py:4: in test_shortest_paths
+    assert sut.shortest_paths(1, 2) == {
+E   NameError: name 'sut' is not defined
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test_shortest_paths - NameError: name 'sut' is ...
+1 failed in 0.02s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/033_python_shortest_paths/run_0001/1-5/generation/final_prompt.txt

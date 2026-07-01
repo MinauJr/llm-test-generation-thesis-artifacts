@@ -1,0 +1,345 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=031_python_shortest_path_length
+REPEAT=1
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_name_error
+FINGERPRINT=name:_safe_successors
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/031_python_shortest_path_length/run_0001/1-1
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/031_python_shortest_path_length/rep_01/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/031_python_shortest_path_length/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "_safe_successors"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "_safe_successors"
+]
+
+===== SUT SYMBOLS =====
+[
+  "Node",
+  "_MAX_SUCCESSORS",
+  "_MAX_VISITS",
+  "_edge_length",
+  "_normalise_nodes",
+  "_safe_successors",
+  "shortest_path_length"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "LengthByEdge",
+  "Node",
+  "__init__",
+  "_normalise_nodes",
+  "another_goal",
+  "another_start",
+  "goalnode",
+  "goalnode2",
+  "length_by_edge",
+  "nextnode",
+  "node",
+  "nodes",
+  "pytest",
+  "self",
+  "shortest_path_length",
+  "startnode",
+  "startnode2",
+  "test__edge_length",
+  "test__normalise_nodes",
+  "test__safe_successors",
+  "test_shortest_path_length"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/031_python_shortest_path_length/run_0001/1-1/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/031_python_shortest_path_length/run_0001/1-1/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+from sut import shortest_path_length, _normalise_nodes, Node
+
+def test_shortest_path_length():
+    class LengthByEdge:
+        def __init__(self):
+            self.empty = {}
+
+    length_by_edge = LengthByEdge()
+
+    # Test with simple graph structure (no edge weights)
+    startnode = Node(successors=[Node(), Node(label='b'), Node('c')])
+    goalnode = Node(successors=[Node(), Node('a', label='b'), Node('d')], label='e')  # should be reached via 'b'
+    assert shortest_path_length(length_by_edge, startnode, goalnode) == pytest.approx(0.0)
+
+    # Test with a graph without direct connection between start and goal nodes
+    another_start = Node()
+    another_goal = Node('a', label='b')
+    assert shortest_path_length(length_by_edge, another_start, another_goal) == pytest.approx(0.0)
+
+    # Test with negative weight edge
+    length_by_edge.empty[id(Node())] = -1  # create a negative edge to prevent shortest path reaching that node
+    startnode2 = Node()
+    goalnode2 = Node('a', label='b')
+    assert shortest_path_length(length_by_field, startnode2, goalnode2) == pytest.approx(0.0)  # should not find a negative path length
+
+def test__normalise_nodes():
+    nodes = [Node(), Node('a'), Node('b', successors=[Node()])]
+    assert _normalise_nodes([nodes, nodes[1]]) == [_normalise_nodes(nodes), _normalise_nodes(nodes[1])]
+
+def test__safe_successors():
+    node = Node(successors=[])  # empty successors case (similar to startnode in shortest path function)
+    assert _safe_successors(node) == []
+
+def test__edge_length():
+    length_by_edge = {'ab': 2, 'bc': -1}  # an edge with negative weight for the second part of a valid route
+    startnode = Node('a', successors=[Node()])
+    nextnode = Node('b')
+    assert _edge_length(length_by_edge, startnode, nextnode) == pytest.approx(0.0)  # should not find shortest path through this negative edge
+
+
+===== SUT =====
+from heapq import heappush, heappop
+
+_MAX_VISITS = 1000
+_MAX_SUCCESSORS = 100
+
+
+def _normalise_nodes(value):
+    if isinstance(value, (list, tuple, set)):
+        return list(value)[:_MAX_SUCCESSORS]
+    return []
+
+
+class Node:
+    def __init__(self, successors=None, label=None):
+        self.successors = _normalise_nodes(successors)
+        self.label = label
+
+    def __lt__(self, other):
+        return id(self) < id(other)
+
+
+def _safe_successors(node):
+    return _normalise_nodes(getattr(node, "successors", []))
+
+
+def _edge_length(length_by_edge, node, nextnode):
+    if not isinstance(length_by_edge, dict):
+        return None
+
+    candidates = [
+        (node, nextnode),
+        (id(node), id(nextnode)),
+        (getattr(node, "label", None), getattr(nextnode, "label", None)),
+    ]
+
+    for key in candidates:
+        if key in length_by_edge:
+            try:
+                value = float(length_by_edge[key])
+            except Exception:
+                return None
+            return value if value >= 0 else None
+
+    return None
+
+
+def shortest_path_length(length_by_edge, startnode, goalnode):
+    if startnode is goalnode:
+        return 0.0
+
+    if not isinstance(length_by_edge, dict):
+        return float("inf")
+
+    if not hasattr(startnode, "successors") or not hasattr(goalnode, "successors"):
+        return float("inf")
+
+    heap = [(0.0, 0, id(startnode), startnode)]
+    best = {id(startnode): 0.0}
+    visited = set()
+    visits = 0
+
+    while heap and visits < _MAX_VISITS:
+        dist, order, node_id, node = heappop(heap)
+
+        if node_id in visited:
+            continue
+
+        visited.add(node_id)
+        visits += 1
+
+        if node is goalnode:
+            return dist
+
+        for index, nextnode in enumerate(_safe_successors(node)):
+            next_id = id(nextnode)
+
+            if next_id in visited:
+                continue
+
+            edge = _edge_length(length_by_edge, node, nextnode)
+            if edge is None:
+                continue
+
+            candidate = dist + edge
+            if candidate < best.get(next_id, float("inf")):
+                best[next_id] = candidate
+                heappush(heap, (candidate, order + index + 1, next_id, nextnode))
+
+    return float("inf")
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_shortest_path_length
+test_generated.py::test__normalise_nodes
+test_generated.py::test__safe_successors
+test_generated.py::test__edge_length
+
+4 tests collected in 0.01s
+
+
+===== nodeid_sanitizer.node_15182b393fafa7713f9963660df2a8336106a7af370f8e94f61103dc00ffea00.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________________________ test__safe_successors _____________________________
+
+    def test__safe_successors():
+        node = Node(successors=[])  # empty successors case (similar to startnode in shortest path function)
+>       assert _safe_successors(node) == []
+E       NameError: name '_safe_successors' is not defined
+
+test_generated.py:33: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test__safe_successors - NameError: name '_safe_succ...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_8d3b0c59e707678c2d6d4f91ad400d5d14bf3381f6405349604663cd45699d47.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________________________ test__normalise_nodes _____________________________
+
+    def test__normalise_nodes():
+>       nodes = [Node(), Node('a'), Node('b', successors=[Node()])]
+E       TypeError: Node.__init__() got multiple values for argument 'successors'
+
+test_generated.py:28: TypeError
+=========================== short test summary info ============================
+FAILED test_generated.py::test__normalise_nodes - TypeError: Node.__init__() ...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_974fe7db91403913c5e6181014da979cf12e3da0bc6ec314943516ac4d762ca1.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________ test_shortest_path_length ___________________________
+
+    def test_shortest_path_length():
+        class LengthByEdge:
+            def __init__(self):
+                self.empty = {}
+    
+        length_by_edge = LengthByEdge()
+    
+        # Test with simple graph structure (no edge weights)
+        startnode = Node(successors=[Node(), Node(label='b'), Node('c')])
+        goalnode = Node(successors=[Node(), Node('a', label='b'), Node('d')], label='e')  # should be reached via 'b'
+>       assert shortest_path_length(length_by_edge, startnode, goalnode) == pytest.approx(0.0)
+E       assert inf == 0.0 ± 1.0e-12
+E         
+E         comparison failed
+E         Obtained: inf
+E         Expected: 0.0 ± 1.0e-12
+
+test_generated.py:14: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_shortest_path_length - assert inf == 0.0 ± 1.0...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_aff945bfc9ae0c00483f321b1a39e07dc3303e381f71e20839f8c562309f545d.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________________________ test__edge_length _______________________________
+
+    def test__edge_length():
+        length_by_edge = {'ab': 2, 'bc': -1}  # an edge with negative weight for the second part of a valid route
+>       startnode = Node('a', successors=[Node()])
+E       TypeError: Node.__init__() got multiple values for argument 'successors'
+
+test_generated.py:37: TypeError
+=========================== short test summary info ============================
+FAILED test_generated.py::test__edge_length - TypeError: Node.__init__() got ...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=4
+individual_pass_nodeids=0
+individual_fail_nodeids=4
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+FFFF                                                                     [100%]
+=================================== FAILURES ===================================
+__________________________ test_shortest_path_length ___________________________
+test_generated_raw.py:14: in test_shortest_path_length
+    assert shortest_path_length(length_by_edge, startnode, goalnode) == pytest.approx(0.0)
+E   assert inf == 0.0 ± 1.0e-12
+E     
+E     comparison failed
+E     Obtained: inf
+E     Expected: 0.0 ± 1.0e-12
+____________________________ test__normalise_nodes _____________________________
+test_generated_raw.py:28: in test__normalise_nodes
+    nodes = [Node(), Node('a'), Node('b', successors=[Node()])]
+E   TypeError: Node.__init__() got multiple values for argument 'successors'
+____________________________ test__safe_successors _____________________________
+test_generated_raw.py:33: in test__safe_successors
+    assert _safe_successors(node) == []
+E   NameError: name '_safe_successors' is not defined
+______________________________ test__edge_length _______________________________
+test_generated_raw.py:37: in test__edge_length
+    startnode = Node('a', successors=[Node()])
+E   TypeError: Node.__init__() got multiple values for argument 'successors'
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test_shortest_path_length - assert inf == 0.0 ±...
+FAILED test_generated_raw.py::test__normalise_nodes - TypeError: Node.__init_...
+FAILED test_generated_raw.py::test__safe_successors - NameError: name '_safe_...
+FAILED test_generated_raw.py::test__edge_length - TypeError: Node.__init__() ...
+4 failed in 0.03s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/031_python_shortest_path_length/run_0001/1-1/generation/final_prompt.txt

@@ -1,0 +1,16 @@
+import sut
+
+def test_empty_strings():
+    assert sut.levenshtein("", "") == 0
+
+def test_source_empty():
+    assert sut.levenshtein("", "abc") == 3
+
+def test_target_empty():
+    assert sut.levenshtein("abc", "") == 3
+
+def test_identical_strings():
+    assert sut.levenshtein("kitten", "kitten") == 0
+
+def test_different_strings():
+    assert sut.levenshtein("kitten", "sitting") == 3

@@ -1,0 +1,8 @@
+{
+  "dataset": "quixbugs",
+  "lang": "python",
+  "task_key": "minimum_spanning_tree",
+  "pair_id": 22,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_python_programs/minimum_spanning_tree.py",
+  "entry_file": "sut.py"
+}

@@ -1,0 +1,38 @@
+import pytest
+import sut
+
+def test_wrap_single_line():
+    assert sut.wrap("hello world", 20) == ["hello world"]
+
+def test_wrap_exact_width():
+    assert sut.wrap("hello world", 11) == ["hello world"]
+
+@pytest.mark.skip(reason="auto-sanitized failing generated test")
+def test_wrap_split_words():
+    assert sut.wrap("hello world", 5) == ["hello", "world"]
+
+def test_wrap_no_spaces():
+    assert sut.wrap("helloworld", 5) == ["hello", "world"]
+
+@pytest.mark.skip(reason="auto-sanitized failing generated test")
+def test_wrap_mixed_spaces():
+    assert sut.wrap("hello  world", 6) == ["hello", " world"]
+
+def test_wrap_empty_string():
+    assert sut.wrap("", 5) == [""]
+
+def test_wrap_invalid_text_type():
+    with pytest.raises(TypeError):
+        sut.wrap(123, 5)
+
+def test_wrap_invalid_cols_type():
+    with pytest.raises(ValueError):
+        sut.wrap("hello world", "5")
+
+def test_wrap_negative_cols():
+    with pytest.raises(ValueError):
+        sut.wrap("hello world", -1)
+
+def test_wrap_zero_cols():
+    with pytest.raises(ValueError):
+        sut.wrap("hello world", 0)

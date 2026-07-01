@@ -1,0 +1,8 @@
+TS=20260602_103049
+AUDIT_ROOT=/home/jpaiva/projetos/llm_test_generation_gpt4o/quixbugs_python_gpt4o/_cluster_package_audit_quixbugs_python_20260602_103049
+SUT_ROOT=/home/jpaiva/projetos/SUTs/quixbugs
+GPT_ROOT=/home/jpaiva/projetos/llm_test_generation_gpt4o/quixbugs_python_gpt4o
+NONAI_ROOT=/home/jpaiva/projetos/nonAI/python_workflow
+LLM_ROOT=/home/jpaiva/projetos/llm_test_generation_gpt4o
+CLUSTER_SCRIPTS=/home/jpaiva/projetos/llm_cluster_scripts
+TO_CLUSTER=/home/jpaiva/to_cluster

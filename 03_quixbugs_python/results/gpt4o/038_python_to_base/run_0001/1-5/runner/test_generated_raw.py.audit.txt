@@ -1,0 +1,16 @@
+import sut
+
+def test_to_base_binary():
+    assert sut.to_base(10, 2) == '1010'
+
+def test_to_base_decimal():
+    assert sut.to_base(123, 10) == '123'
+
+def test_to_base_hexadecimal():
+    assert sut.to_base(255, 16) == 'FF'
+
+def test_to_base_base3():
+    assert sut.to_base(10, 3) == '101'
+
+def test_to_base_large_number():
+    assert sut.to_base(1024, 2) == '10000000000'

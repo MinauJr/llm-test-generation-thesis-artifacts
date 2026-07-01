@@ -1,0 +1,16 @@
+import sut
+
+def test_bitcount_zero():
+    assert sut.bitcount(0) == 0
+
+def test_bitcount_one():
+    assert sut.bitcount(1) == 1
+
+def test_bitcount_two():
+    assert sut.bitcount(2) == 1
+
+def test_bitcount_three():
+    assert sut.bitcount(3) == 2
+
+def test_bitcount_large_number():
+    assert sut.bitcount(255) == 8

@@ -1,0 +1,174 @@
+MODEL=cluster-safe-deepseek-v2-16b-ctx32k
+SUT=001_python_bitcount
+REPEAT=3
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_name_error
+FINGERPRINT=name:bitcount
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/001_python_bitcount/run_0001/1-3
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-deepseek-v2-16b-ctx32k/001_python_bitcount/rep_03/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/001_python_bitcount/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [
+    "bitcount"
+  ],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[
+  "bitcount"
+]
+
+===== SUT SYMBOLS =====
+[
+  "bitcount"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "i",
+  "n",
+  "test_bitcount_large_number",
+  "test_bitcount_mix",
+  "test_bitcount_powers_of_two"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/001_python_bitcount/run_0001/1-3/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/001_python_bitcount/run_0001/1-3/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+def test_bitcount_powers_of_two():
+    for i in [1, 2, 4, 8, 16]:
+        assert bitcount(i) == 1
+
+def test_bitcount_mix():
+    assert bitcount(7) == 3
+
+def test_bitcount_large_number():
+    n = (1 << 50) - 1
+    assert bitcount(n) == 49
+
+
+===== SUT =====
+
+def bitcount(n):
+    count = 0
+    while n:
+        n &= n - 1
+        count += 1
+    return count
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_bitcount_powers_of_two
+test_generated.py::test_bitcount_mix
+test_generated.py::test_bitcount_large_number
+
+3 tests collected in 0.01s
+
+
+===== nodeid_sanitizer.node_22b7da4804eece9e839036fd470117b197da6366a416b0d00a25c79b127cbcc7.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________ test_bitcount_large_number __________________________
+
+    def test_bitcount_large_number():
+        n = (1 << 50) - 1
+>       assert bitcount(n) == 49
+E       NameError: name 'bitcount' is not defined
+
+test_generated.py:10: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_bitcount_large_number - NameError: name 'bitco...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_842863f28997bbd886b52ddd52e3b2b6b495a4b4fe1ed793eec2f01b456ae0b4.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________________________ test_bitcount_powers_of_two __________________________
+
+    def test_bitcount_powers_of_two():
+        for i in [1, 2, 4, 8, 16]:
+>           assert bitcount(i) == 1
+E           NameError: name 'bitcount' is not defined
+
+test_generated.py:3: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_bitcount_powers_of_two - NameError: name 'bitc...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.node_c1bcd98f96e8ef94bb96773b64f43d6729ff7f2a15be34c1e00d08177d7325b0.log =====
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________________________ test_bitcount_mix _______________________________
+
+    def test_bitcount_mix():
+>       assert bitcount(7) == 3
+E       NameError: name 'bitcount' is not defined
+
+test_generated.py:6: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_bitcount_mix - NameError: name 'bitcount' is n...
+1 failed in 0.02s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=3
+individual_pass_nodeids=0
+individual_fail_nodeids=3
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+_________________________ test_bitcount_powers_of_two __________________________
+test_generated_raw.py:3: in test_bitcount_powers_of_two
+    assert bitcount(i) == 1
+E   NameError: name 'bitcount' is not defined
+______________________________ test_bitcount_mix _______________________________
+test_generated_raw.py:6: in test_bitcount_mix
+    assert bitcount(7) == 3
+E   NameError: name 'bitcount' is not defined
+__________________________ test_bitcount_large_number __________________________
+test_generated_raw.py:10: in test_bitcount_large_number
+    assert bitcount(n) == 49
+E   NameError: name 'bitcount' is not defined
+=========================== short test summary info ============================
+FAILED test_generated_raw.py::test_bitcount_powers_of_two - NameError: name '...
+FAILED test_generated_raw.py::test_bitcount_mix - NameError: name 'bitcount' ...
+FAILED test_generated_raw.py::test_bitcount_large_number - NameError: name 'b...
+3 failed in 0.02s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-deepseek-v2-16b-ctx32k/001_python_bitcount/run_0001/1-3/generation/final_prompt.txt

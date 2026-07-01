@@ -1,0 +1,183 @@
+===== QUIXBUGS PYTHON CLUSTER RESULTS AUDIT =====
+Sun Jun 14 15:45:57 WEST 2026
+llm-vm
+
+===== PATHS =====
+GPT_ROOT=/home/jpaiva/projetos/quixbugs_python_gpt4o
+CLUSTER_ROOT=/home/jpaiva/projetos/quixbugs_python_cluster
+SUT_ROOT=/home/jpaiva/projetos/SUTs/quixbugs
+AUDIT_DIR=/home/jpaiva/projetos/quixbugs_python_gpt4o/notes/cluster_eval_audit_20260614_154557
+
+===== ROOT EXISTENCE =====
+[OK] /home/jpaiva/projetos/quixbugs_python_gpt4o
+[OK] /home/jpaiva/projetos/quixbugs_python_cluster
+[OK] /home/jpaiva/projetos/SUTs/quixbugs
+
+===== DISK USAGE =====
+0	/home/jpaiva/projetos/quixbugs_python_gpt4o
+64M	/home/jpaiva/projetos/quixbugs_python_cluster
+23M	/home/jpaiva/projetos/SUTs/quixbugs
+
+===== CLUSTER ROOT TOP LEVEL =====
+d	/home/jpaiva/projetos/quixbugs_python_cluster/out
+d	/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1
+
+===== PREPARED PYTHON SUTS =====
+001_python_bitcount
+002_python_breadth_first_search
+003_python_bucketsort
+004_python_depth_first_search
+005_python_detect_cycle
+006_python_find_first_in_sorted
+007_python_find_in_sorted
+008_python_flatten
+009_python_gcd
+010_python_get_factors
+011_python_hanoi
+012_python_is_valid_parenthesization
+013_python_kheapsort
+014_python_knapsack
+015_python_kth
+016_python_lcs_length
+017_python_levenshtein
+018_python_lis
+019_python_longest_common_subsequence
+020_python_max_sublist_sum
+021_python_mergesort
+022_python_minimum_spanning_tree
+023_python_next_palindrome
+024_python_next_permutation
+025_python_pascal
+026_python_possible_change
+027_python_powerset
+028_python_quicksort
+029_python_reverse_linked_list
+030_python_rpn_eval
+031_python_shortest_path_length
+032_python_shortest_path_lengths
+033_python_shortest_paths
+034_python_shunting_yard
+035_python_sieve
+036_python_sqrt
+037_python_subsequences
+038_python_to_base
+039_python_topological_ordering
+040_python_wrap
+
+prepared_python_sut_count=40
+
+===== CLUSTER ARTEFACT COUNTS =====
+status_json_count=1400
+generated_tests_py_count=1400
+validation_json_count=0
+prompt_txt_count=0
+raw_response_txt_count=0
+api_response_json_count=0
+
+===== EXPECTED SIZE =====
+expected_models=7
+expected_suts=40
+expected_repeats=5
+expected_repetitions=1400
+
+===== EMPTY GENERATED TEST FILES =====
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3.5-9b-ctx32k/030_python_rpn_eval/rep_01/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3.5-9b-ctx32k/015_python_kth/rep_02/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3.5-9b-ctx32k/017_python_levenshtein/rep_05/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/018_python_lis/rep_04/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/018_python_lis/rep_01/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/018_python_lis/rep_03/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/018_python_lis/rep_02/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/039_python_topological_ordering/rep_03/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/016_python_lcs_length/rep_04/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/016_python_lcs_length/rep_03/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/016_python_lcs_length/rep_05/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/016_python_lcs_length/rep_02/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/002_python_breadth_first_search/rep_01/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/002_python_breadth_first_search/rep_05/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/026_python_possible_change/rep_04/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/026_python_possible_change/rep_01/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/026_python_possible_change/rep_05/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/026_python_possible_change/rep_02/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/014_python_knapsack/rep_05/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/014_python_knapsack/rep_02/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/012_python_is_valid_parenthesization/rep_03/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/012_python_is_valid_parenthesization/rep_05/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/020_python_max_sublist_sum/rep_01/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/020_python_max_sublist_sum/rep_03/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/020_python_max_sublist_sum/rep_02/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/005_python_detect_cycle/rep_04/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/005_python_detect_cycle/rep_03/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/005_python_detect_cycle/rep_05/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/005_python_detect_cycle/rep_02/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/006_python_find_first_in_sorted/rep_04/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/006_python_find_first_in_sorted/rep_01/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/006_python_find_first_in_sorted/rep_03/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/006_python_find_first_in_sorted/rep_05/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3-coder-30b-official-ctx32k/015_python_kth/rep_04/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/037_python_subsequences/rep_04/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/012_python_is_valid_parenthesization/rep_02/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen2.5-coder-14b-ctx32k/031_python_shortest_path_length/rep_03/generated_tests.py
+empty_generated_tests_count=37
+
+===== STATUS VALUE COUNTS =====
+   1361 ok
+     37 timeout
+      2 invalid_test_structure
+
+===== MODEL VALUES FOUND IN STATUS FILES =====
+    200 cluster-safe-qwen3.5-9b-ctx32k
+    200 cluster-safe-qwen3-coder-30b-official-ctx32k
+    200 cluster-safe-qwen2.5-coder-14b-ctx32k
+    200 cluster-safe-deepseek-v2-16b-ctx32k
+    200 cluster-safe-deepseek-coder-v2-16b-ctx16k
+    200 cluster-safe-codestral-22b-ctx16k
+    200 cluster-max-codellama-7b-instruct-ctx16k
+
+===== SYNTAX_OK COUNTS =====
+   1363 true
+     37 false
+
+===== SAMPLE STATUS.JSON FILES =====
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/001_python_bitcount/rep_01/status.json
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/001_python_bitcount/rep_02/status.json
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/001_python_bitcount/rep_03/status.json
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/001_python_bitcount/rep_04/status.json
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/001_python_bitcount/rep_05/status.json
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/002_python_breadth_first_search/rep_01/status.json
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/002_python_breadth_first_search/rep_02/status.json
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/002_python_breadth_first_search/rep_03/status.json
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/002_python_breadth_first_search/rep_04/status.json
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/002_python_breadth_first_search/rep_05/status.json
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/003_python_bucketsort/rep_01/status.json
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/003_python_bucketsort/rep_02/status.json
+
+===== SAMPLE GENERATED TEST FILES =====
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/001_python_bitcount/rep_01/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/001_python_bitcount/rep_02/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/001_python_bitcount/rep_03/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/001_python_bitcount/rep_04/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/001_python_bitcount/rep_05/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/002_python_breadth_first_search/rep_01/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/002_python_breadth_first_search/rep_02/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/002_python_breadth_first_search/rep_03/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/002_python_breadth_first_search/rep_04/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/002_python_breadth_first_search/rep_05/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/003_python_bucketsort/rep_01/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/003_python_bucketsort/rep_02/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/003_python_bucketsort/rep_03/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/003_python_bucketsort/rep_04/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/003_python_bucketsort/rep_05/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/004_python_depth_first_search/rep_01/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/004_python_depth_first_search/rep_02/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/004_python_depth_first_search/rep_03/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/004_python_depth_first_search/rep_04/generated_tests.py
+/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-max-codellama-7b-instruct-ctx16k/004_python_depth_first_search/rep_05/generated_tests.py
+
+===== EXISTING GPT-4O / LOCAL EVALUATION SCRIPTS =====
+
+===== EXISTING GPT-4O OUTPUT ROOTS =====
+
+===== POSSIBLE FINAL GPT-4O STATUS FILES =====
+
+===== AUDIT COMPLETE =====

@@ -1,0 +1,328 @@
+MODEL=cluster-safe-qwen3.5-9b-ctx32k
+SUT=019_python_longest_common_subsequence
+REPEAT=5
+EVAL_STATUS=no_effective_tests_after_sanitization
+REASON=harness_problem_fixture_error
+FINGERPRINT=fixture:sut
+EVAL_RUN=/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5
+GENERATED=/home/jpaiva/projetos/quixbugs_python_cluster/out/quixbugs_python_zero_shot_cluster_v1/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/rep_05/generated_tests.py
+SUT_PY=/home/jpaiva/projetos/SUTs/quixbugs/019_python_longest_common_subsequence/sut.py
+
+===== EXTRACTED ERRORS =====
+{
+  "attribute_errors": [],
+  "fixture_errors": [
+    "sut"
+  ],
+  "import_errors": [],
+  "missing_modules": [],
+  "name_errors": [],
+  "unbound_names": []
+}
+
+===== UNRESOLVED NAMES =====
+[]
+
+===== SUT SYMBOLS =====
+[
+  "longest_common_subsequence"
+]
+
+===== TEST DEFINED NAMES =====
+[
+  "pytest",
+  "sut",
+  "test_empty_inputs",
+  "test_identical_strings",
+  "test_mixed_case",
+  "test_no_common_characters",
+  "test_prefix_case",
+  "test_single_character_match",
+  "test_single_character_mismatch"
+]
+
+===== COVERAGE ARTIFACTS =====
+{
+  "coverage_json": {},
+  "coverage_json_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/coverage.json",
+  "coverage_xml_branch_rate": "",
+  "coverage_xml_error": "",
+  "coverage_xml_exists": false,
+  "coverage_xml_line_rate": "",
+  "coverage_xml_path": "/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/coverage.xml"
+}
+
+===== GENERATED TEST =====
+import pytest
+import sut
+
+def test_empty_inputs(sut):
+    assert sut.longest_common_subsequence("", "") == ""
+    assert sut.longest_common_subsequence("", "test") == ""
+    assert sut.longest_common_subsequence("test", "") == ""
+
+def test_identical_strings(sut):
+    assert sut.longest_common_subsequence("abc", "abc") == "abc"
+    assert sut.longest_common_subsequence("xyz", "xyz") == "xyz"
+    assert sut.longest_common_subsequence("", "") == ""
+
+def test_no_common_characters(sut):
+    assert sut.longest_common_subsequence("abc", "xyz") == ""
+    assert sut.longest_common_subsequence("abc", "def") == ""
+    assert sut.longest_common_subsequence("qwerty", "asdfgh") == ""
+
+def test_single_character_match(sut):
+    assert sut.longest_common_subsequence("a", "a") == "a"
+    assert sut.longest_common_subsequence("x", "x") == "x"
+    assert sut.longest_common_subsequence("z", "z") == "z"
+
+def test_single_character_mismatch(sut):
+    assert sut.longest_common_subsequence("a", "b") == ""
+    assert sut.longest_common_subsequence("x", "y") == ""
+    assert sut.longest_common_subsequence("a", "c") == ""
+
+def test_prefix_case(sut):
+    assert sut.longest_common_subsequence("hello", "hel") == "hel"
+    assert sut.longest_common_subsequence("world", "wor") == "wor"
+    assert sut.longest_common_subsequence("abcdef", "abc") == "abc"
+
+def test_mixed_case(sut):
+    assert sut.longest_common_subsequence("abc", "axbc") == "abc"
+    assert sut.longest_common_subsequence("abc", "axc") == "ac"
+    assert sut.longest_common_subsequence("agbc", "abc") == "abc"
+
+
+===== SUT =====
+
+def longest_common_subsequence(a, b):
+    if not a or not b:
+        return ''
+
+    elif a[0] == b[0]:
+        return a[0] + longest_common_subsequence(a[1:], b[1:])
+
+    else:
+        return max(
+            longest_common_subsequence(a, b[1:]),
+            longest_common_subsequence(a[1:], b),
+            key=len
+        )
+
+
+
+===== LOGS =====
+
+
+===== nodeid_sanitizer.collect.log =====
+test_generated.py::test_empty_inputs
+test_generated.py::test_identical_strings
+test_generated.py::test_no_common_characters
+test_generated.py::test_single_character_match
+test_generated.py::test_single_character_mismatch
+test_generated.py::test_prefix_case
+test_generated.py::test_mixed_case
+
+7 tests collected in 0.02s
+
+
+===== nodeid_sanitizer.node_14f0db2a9f8d013accab655686e9b7130327c8bed06125a6b9e241bfa9e8351d.log =====
+E                                                                        [100%]
+==================================== ERRORS ====================================
+______________________ ERROR at setup of test_mixed_case _______________________
+file /second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated.py, line 34
+  def test_mixed_case(sut):
+E       fixture 'sut' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated.py:34
+=========================== short test summary info ============================
+ERROR test_generated.py::test_mixed_case
+1 error in 0.01s
+
+
+===== nodeid_sanitizer.node_266c808e16a880ef1b8c3c1856219d820acc896095b7661e817d7454a06a6eb9.log =====
+E                                                                        [100%]
+==================================== ERRORS ====================================
+_________________ ERROR at setup of test_no_common_characters __________________
+file /second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated.py, line 14
+  def test_no_common_characters(sut):
+E       fixture 'sut' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated.py:14
+=========================== short test summary info ============================
+ERROR test_generated.py::test_no_common_characters
+1 error in 0.01s
+
+
+===== nodeid_sanitizer.node_41a9fd3adeeee0a71a039c97a0790016c5b7ccaebe22ce0351824e41d2cdbb58.log =====
+E                                                                        [100%]
+==================================== ERRORS ====================================
+_______________ ERROR at setup of test_single_character_mismatch _______________
+file /second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated.py, line 24
+  def test_single_character_mismatch(sut):
+E       fixture 'sut' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated.py:24
+=========================== short test summary info ============================
+ERROR test_generated.py::test_single_character_mismatch
+1 error in 0.01s
+
+
+===== nodeid_sanitizer.node_6b8d14f497106e1e97fde0ab5a608f6a6dac6a8dc5e2b87c415ef5a1686e19a6.log =====
+E                                                                        [100%]
+==================================== ERRORS ====================================
+______________________ ERROR at setup of test_prefix_case ______________________
+file /second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated.py, line 29
+  def test_prefix_case(sut):
+E       fixture 'sut' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated.py:29
+=========================== short test summary info ============================
+ERROR test_generated.py::test_prefix_case
+1 error in 0.01s
+
+
+===== nodeid_sanitizer.node_869a1629c20b58a27b188074a56ebca7edd9b05e00e50365c55f22ae600f74cc.log =====
+E                                                                        [100%]
+==================================== ERRORS ====================================
+_____________________ ERROR at setup of test_empty_inputs ______________________
+file /second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated.py, line 4
+  def test_empty_inputs(sut):
+E       fixture 'sut' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated.py:4
+=========================== short test summary info ============================
+ERROR test_generated.py::test_empty_inputs
+1 error in 0.01s
+
+
+===== nodeid_sanitizer.node_ad47f96572a219d2b7570eb772ef3e38f46a2d8ee96d4dd3f5faa1a6457293ba.log =====
+E                                                                        [100%]
+==================================== ERRORS ====================================
+________________ ERROR at setup of test_single_character_match _________________
+file /second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated.py, line 19
+  def test_single_character_match(sut):
+E       fixture 'sut' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated.py:19
+=========================== short test summary info ============================
+ERROR test_generated.py::test_single_character_match
+1 error in 0.01s
+
+
+===== nodeid_sanitizer.node_eab778d70e09a6606a8ef66dbdd64122231588035a2f40cdc789ea8f2ea9296d.log =====
+E                                                                        [100%]
+==================================== ERRORS ====================================
+___________________ ERROR at setup of test_identical_strings ___________________
+file /second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated.py, line 9
+  def test_identical_strings(sut):
+E       fixture 'sut' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated.py:9
+=========================== short test summary info ============================
+ERROR test_generated.py::test_identical_strings
+1 error in 0.01s
+
+
+===== nodeid_sanitizer.stdout.log =====
+collected_nodeids=7
+individual_pass_nodeids=0
+individual_fail_nodeids=7
+individual_timeout_nodeids=0
+initial_effective_nodeids=0
+final_effective_nodeids=0
+greedy_stabilization_used=0
+final_pytest_exit_code=5
+
+
+===== py_compile_generated.log =====
+
+
+===== py_compile_sut.log =====
+
+
+===== pytest_raw.log =====
+EEEEEEE                                                                  [100%]
+==================================== ERRORS ====================================
+_____________________ ERROR at setup of test_empty_inputs ______________________
+file /second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated_raw.py, line 4
+  def test_empty_inputs(sut):
+E       fixture 'sut' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated_raw.py:4
+___________________ ERROR at setup of test_identical_strings ___________________
+file /second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated_raw.py, line 9
+  def test_identical_strings(sut):
+E       fixture 'sut' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated_raw.py:9
+_________________ ERROR at setup of test_no_common_characters __________________
+file /second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated_raw.py, line 14
+  def test_no_common_characters(sut):
+E       fixture 'sut' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated_raw.py:14
+________________ ERROR at setup of test_single_character_match _________________
+file /second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated_raw.py, line 19
+  def test_single_character_match(sut):
+E       fixture 'sut' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated_raw.py:19
+_______________ ERROR at setup of test_single_character_mismatch _______________
+file /second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated_raw.py, line 24
+  def test_single_character_mismatch(sut):
+E       fixture 'sut' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated_raw.py:24
+______________________ ERROR at setup of test_prefix_case ______________________
+file /second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated_raw.py, line 29
+  def test_prefix_case(sut):
+E       fixture 'sut' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated_raw.py:29
+______________________ ERROR at setup of test_mixed_case _______________________
+file /second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated_raw.py, line 34
+  def test_mixed_case(sut):
+E       fixture 'sut' not found
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/runner/test_generated_raw.py:34
+=========================== short test summary info ============================
+ERROR test_generated_raw.py::test_empty_inputs
+ERROR test_generated_raw.py::test_identical_strings
+ERROR test_generated_raw.py::test_no_common_characters
+ERROR test_generated_raw.py::test_single_character_match
+ERROR test_generated_raw.py::test_single_character_mismatch
+ERROR test_generated_raw.py::test_prefix_case
+ERROR test_generated_raw.py::test_mixed_case
+7 errors in 0.03s
+
+
+===== render_prompt.log =====
+/second_disk/projetos/quixbugs/quixbugs_python_gpt4o/out/_FULL_CLUSTER_NO_MUTATION_V1_20260614_170713/cluster-safe-qwen3.5-9b-ctx32k/019_python_longest_common_subsequence/run_0001/1-5/generation/final_prompt.txt

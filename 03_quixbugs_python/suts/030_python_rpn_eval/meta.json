@@ -1,0 +1,8 @@
+{
+  "dataset": "quixbugs",
+  "lang": "python",
+  "task_key": "rpn_eval",
+  "pair_id": 30,
+  "source_file": "/home/jpaiva/datasets/QuixBugs/correct_python_programs/rpn_eval.py",
+  "entry_file": "sut.py"
+}
