@@ -1,0 +1,1478 @@
+[
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/0",
+    "sut_id": "Java_0",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/1",
+    "sut_id": "Java_1",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/2",
+    "sut_id": "Java_2",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/3",
+    "sut_id": "Java_3",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/4",
+    "sut_id": "Java_4",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/5",
+    "sut_id": "Java_5",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/6",
+    "sut_id": "Java_6",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/7",
+    "sut_id": "Java_7",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/8",
+    "sut_id": "Java_8",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/9",
+    "sut_id": "Java_9",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/10",
+    "sut_id": "Java_10",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/11",
+    "sut_id": "Java_11",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/12",
+    "sut_id": "Java_12",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/13",
+    "sut_id": "Java_13",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/14",
+    "sut_id": "Java_14",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/15",
+    "sut_id": "Java_15",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/16",
+    "sut_id": "Java_16",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/17",
+    "sut_id": "Java_17",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/18",
+    "sut_id": "Java_18",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/19",
+    "sut_id": "Java_19",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/20",
+    "sut_id": "Java_20",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/21",
+    "sut_id": "Java_21",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/22",
+    "sut_id": "Java_22",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/23",
+    "sut_id": "Java_23",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/24",
+    "sut_id": "Java_24",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/25",
+    "sut_id": "Java_25",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/26",
+    "sut_id": "Java_26",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/27",
+    "sut_id": "Java_27",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/28",
+    "sut_id": "Java_28",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/29",
+    "sut_id": "Java_29",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/30",
+    "sut_id": "Java_30",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/31",
+    "sut_id": "Java_31",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/32",
+    "sut_id": "Java_32",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/33",
+    "sut_id": "Java_33",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/34",
+    "sut_id": "Java_34",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/35",
+    "sut_id": "Java_35",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/36",
+    "sut_id": "Java_36",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/37",
+    "sut_id": "Java_37",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/38",
+    "sut_id": "Java_38",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/39",
+    "sut_id": "Java_39",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/40",
+    "sut_id": "Java_40",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/41",
+    "sut_id": "Java_41",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/42",
+    "sut_id": "Java_42",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/43",
+    "sut_id": "Java_43",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/44",
+    "sut_id": "Java_44",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/45",
+    "sut_id": "Java_45",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/46",
+    "sut_id": "Java_46",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/47",
+    "sut_id": "Java_47",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/48",
+    "sut_id": "Java_48",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/49",
+    "sut_id": "Java_49",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/50",
+    "sut_id": "Java_50",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/51",
+    "sut_id": "Java_51",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/52",
+    "sut_id": "Java_52",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/53",
+    "sut_id": "Java_53",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/54",
+    "sut_id": "Java_54",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/55",
+    "sut_id": "Java_55",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/56",
+    "sut_id": "Java_56",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/57",
+    "sut_id": "Java_57",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/58",
+    "sut_id": "Java_58",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/59",
+    "sut_id": "Java_59",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/60",
+    "sut_id": "Java_60",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/61",
+    "sut_id": "Java_61",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/62",
+    "sut_id": "Java_62",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/63",
+    "sut_id": "Java_63",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/64",
+    "sut_id": "Java_64",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/65",
+    "sut_id": "Java_65",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/66",
+    "sut_id": "Java_66",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/67",
+    "sut_id": "Java_67",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/68",
+    "sut_id": "Java_68",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/69",
+    "sut_id": "Java_69",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/70",
+    "sut_id": "Java_70",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/71",
+    "sut_id": "Java_71",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/72",
+    "sut_id": "Java_72",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/73",
+    "sut_id": "Java_73",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/74",
+    "sut_id": "Java_74",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/75",
+    "sut_id": "Java_75",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/76",
+    "sut_id": "Java_76",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/77",
+    "sut_id": "Java_77",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/78",
+    "sut_id": "Java_78",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/79",
+    "sut_id": "Java_79",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/80",
+    "sut_id": "Java_80",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/81",
+    "sut_id": "Java_81",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/82",
+    "sut_id": "Java_82",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/83",
+    "sut_id": "Java_83",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/84",
+    "sut_id": "Java_84",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/85",
+    "sut_id": "Java_85",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/86",
+    "sut_id": "Java_86",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/87",
+    "sut_id": "Java_87",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/88",
+    "sut_id": "Java_88",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/89",
+    "sut_id": "Java_89",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/90",
+    "sut_id": "Java_90",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/91",
+    "sut_id": "Java_91",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/92",
+    "sut_id": "Java_92",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/93",
+    "sut_id": "Java_93",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/94",
+    "sut_id": "Java_94",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/95",
+    "sut_id": "Java_95",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/96",
+    "sut_id": "Java_96",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/97",
+    "sut_id": "Java_97",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/98",
+    "sut_id": "Java_98",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/99",
+    "sut_id": "Java_99",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/100",
+    "sut_id": "Java_100",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/101",
+    "sut_id": "Java_101",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/102",
+    "sut_id": "Java_102",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/103",
+    "sut_id": "Java_103",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/104",
+    "sut_id": "Java_104",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/105",
+    "sut_id": "Java_105",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/106",
+    "sut_id": "Java_106",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/107",
+    "sut_id": "Java_107",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/108",
+    "sut_id": "Java_108",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/109",
+    "sut_id": "Java_109",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/110",
+    "sut_id": "Java_110",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/111",
+    "sut_id": "Java_111",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/112",
+    "sut_id": "Java_112",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/113",
+    "sut_id": "Java_113",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/114",
+    "sut_id": "Java_114",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/115",
+    "sut_id": "Java_115",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/116",
+    "sut_id": "Java_116",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/117",
+    "sut_id": "Java_117",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/118",
+    "sut_id": "Java_118",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/119",
+    "sut_id": "Java_119",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/120",
+    "sut_id": "Java_120",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/121",
+    "sut_id": "Java_121",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/122",
+    "sut_id": "Java_122",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/123",
+    "sut_id": "Java_123",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/124",
+    "sut_id": "Java_124",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/125",
+    "sut_id": "Java_125",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/126",
+    "sut_id": "Java_126",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/127",
+    "sut_id": "Java_127",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/128",
+    "sut_id": "Java_128",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/129",
+    "sut_id": "Java_129",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/130",
+    "sut_id": "Java_130",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/131",
+    "sut_id": "Java_131",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/132",
+    "sut_id": "Java_132",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/133",
+    "sut_id": "Java_133",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/134",
+    "sut_id": "Java_134",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/135",
+    "sut_id": "Java_135",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/136",
+    "sut_id": "Java_136",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/137",
+    "sut_id": "Java_137",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/138",
+    "sut_id": "Java_138",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/139",
+    "sut_id": "Java_139",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/140",
+    "sut_id": "Java_140",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/141",
+    "sut_id": "Java_141",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/142",
+    "sut_id": "Java_142",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/143",
+    "sut_id": "Java_143",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/144",
+    "sut_id": "Java_144",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/145",
+    "sut_id": "Java_145",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/146",
+    "sut_id": "Java_146",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/147",
+    "sut_id": "Java_147",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/148",
+    "sut_id": "Java_148",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/149",
+    "sut_id": "Java_149",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/150",
+    "sut_id": "Java_150",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/151",
+    "sut_id": "Java_151",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/152",
+    "sut_id": "Java_152",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/153",
+    "sut_id": "Java_153",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/154",
+    "sut_id": "Java_154",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/155",
+    "sut_id": "Java_155",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/156",
+    "sut_id": "Java_156",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/157",
+    "sut_id": "Java_157",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/158",
+    "sut_id": "Java_158",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/159",
+    "sut_id": "Java_159",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/160",
+    "sut_id": "Java_160",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/161",
+    "sut_id": "Java_161",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/162",
+    "sut_id": "Java_162",
+    "files": {
+      "sut": "sut.java"
+    }
+  },
+  {
+    "dataset": "humaneval-x",
+    "lang": "java",
+    "task_id": "Java/163",
+    "sut_id": "Java_163",
+    "files": {
+      "sut": "sut.java"
+    }
+  }
+]

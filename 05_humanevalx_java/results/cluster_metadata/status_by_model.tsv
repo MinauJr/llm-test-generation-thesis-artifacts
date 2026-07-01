@@ -1,0 +1,7 @@
+cluster-max-codellama-7b-instruct-ctx16k	status_json=820	java_dirs=164
+cluster-safe-codestral-22b-ctx16k	status_json=820	java_dirs=164
+cluster-safe-deepseek-coder-v2-16b-ctx16k	status_json=820	java_dirs=164
+cluster-safe-deepseek-v2-lite-ctx32k	status_json=820	java_dirs=164
+cluster-safe-qwen2.5-coder-14b-ctx32k	status_json=820	java_dirs=164
+cluster-safe-qwen3-coder-30b-official-ctx8k	status_json=820	java_dirs=164
+cluster-safe-qwen3.5-9b-ctx32k	status_json=820	java_dirs=164

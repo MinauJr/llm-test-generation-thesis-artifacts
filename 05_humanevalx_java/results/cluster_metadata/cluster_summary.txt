@@ -1,0 +1,5 @@
+cluster_root=/home/jpaiva/projetos/humanevalx_cluster/out/humanevalx_java_zero_shot_cluster_v1
+cluster_size=376M
+status_json_count=5740
+validation_json_count=11507
+prompt_final_count=5740

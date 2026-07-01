@@ -1,0 +1,14 @@
+{
+  "dataset": "humaneval-x",
+  "lang": "java",
+  "task_id": "Java/23",
+  "sut_id": "Java_23",
+  "target_class": "mypkg.Solution",
+  "files": {
+    "sut_exec_for_llm": "sut.java",
+    "sut_prompt_backup": "sut_prompt.java",
+    "maven_entry": "src/main/java/mypkg/Solution.java",
+    "oracle": "oracle_Main.java",
+    "pom": "pom.xml"
+  }
+}

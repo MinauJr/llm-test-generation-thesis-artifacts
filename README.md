@@ -36,3 +36,14 @@ Cleaned artefacts for the BugsInPy Python dataset, organised into:
 - `results/`
 
 Full prepared SUT checkouts and raw execution folders are intentionally omitted because of size.
+
+## 05_humanevalx_java
+
+Cleaned artefacts for the HumanEval-X Java dataset, organised into:
+
+- `suts/`
+- `suts_patched_evosuite/`
+- `scripts/`
+- `results/`
+
+Raw cluster generations, logs, figures and build artefacts are intentionally omitted.
